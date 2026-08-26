@@ -1,0 +1,23 @@
+{
+  "whitelist": [
+    "google.com",
+    "microsoft.com",
+    "github.com",
+    "windowsupdate.microsoft.com",
+    "api.github.com",
+    "login.microsoftonline.com",
+    "update.microsoft.com",
+    "live.com",
+    "outlook.office.com",
+    "example.com"
+  ],
+  "blacklist": [
+    "92.223.96.6",
+    "malware.example",
+    "r57shell.example",
+    "c2.evilcorp.net",
+    "exploit.delivery",
+    "payload.example",
+    "evil.com"
+  ]
+}

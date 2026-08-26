@@ -1,0 +1,23 @@
+[
+  {
+    "rule_id": "R001",
+    "rule_name": "Ransomware / Suspicious Executable Dropped",
+    "severity": "CRITICAL",
+    "pattern": "*.exe",
+    "action": "QUARANTINE"
+  },
+  {
+    "rule_id": "R002",
+    "rule_name": "Script Payload Detection",
+    "severity": "HIGH",
+    "pattern": "*.sh",
+    "action": "QUARANTINE"
+  },
+  {
+    "rule_id": "R003",
+    "rule_name": "Sensitive File Access / Extension",
+    "severity": "MEDIUM",
+    "pattern": "*.pem",
+    "action": "ALERT"
+  }
+]

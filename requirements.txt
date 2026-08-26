@@ -1,0 +1,4 @@
+ai_sentinel
+copilot
+netifaces-plus
+openai>=1.0.0

@@ -1,0 +1,6 @@
+.env# Environment and keys
+.env
+*.log
+__pycache__/
+.vscode/
+oracleJdk-26
