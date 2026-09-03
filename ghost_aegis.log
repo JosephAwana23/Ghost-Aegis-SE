@@ -2344,3 +2344,20 @@ The command completed successfully.
 [2026-09-03 13:29:07] [REVIEW]     chrome.exe       51.138.111.34.bc.googleusercontent.com (Kansas City, US) 10264 
 [2026-09-03 13:29:12] [WARN]       chrome.exe       153.31.112.71 (Clarksburg, US) | SCORE: 1% 10264 
 [2026-09-03 13:29:13] [REVIEW]     chrome.exe       ec2-44-215-222-73.compute-1.amazonaws.com (Ashburn, US) 10264 
+[2026-09-03 13:29:18] [REVIEW]     msedge.exe       150.171.30.10 (Ashburn, US)                3080  
+[2026-09-03 13:29:18] [TRUSTED]    msedge.exe       cdn-185-199-111-133.github.com (San Francisco, US) 3080  
+[2026-09-03 13:29:24] [WARN]       msedge.exe       20.42.65.89 (Boydton, US) | SCORE: 24%     3080  
+[2026-09-03 13:29:29] [THREAT]     MpDefenderCoreService.exe 20.42.73.31 (Boydton, US) | SCORE: 33%     6708  
+[2026-09-03 13:29:29] [REVIEW]     chrome.exe       dd-in-f188.1e100.net (Mountain View, US)   10264 
+[2026-09-03 13:29:34] [SYSTEM]     svchost.exe      20.59.87.226 (San Francisco, US)           6680  
+[2026-09-03 13:29:39] [SYSTEM]     svchost.exe      20.59.87.226 (San Francisco, US)           6680  
+[2026-09-03 13:29:39] [REVIEW]     chrome.exe       85.204.107.34.bc.googleusercontent.com (Kansas City, US) 10264 
+[2026-09-03 13:29:45] [THREAT]     Code.exe         4.150.223.100 (Des Moines, US) | SCORE: 28% 17756 
+[2026-09-03 13:29:50] [REVIEW]     msedge.exe       185.199.111.215 (San Francisco, US)        3080  
+[2026-09-03 13:29:51] [REVIEW]     chrome.exe       in-in-f94.1e100.net (Mountain View, US)    10264 
+[2026-09-03 13:29:56] [THREAT]     msedge.exe       150.171.27.10 (New York, US) | SCORE: 29%  3080  
+[2026-09-03 13:29:57] [REVIEW]     chrome.exe       85.204.107.34.bc.googleusercontent.com (Kansas City, US) 10264 
+[2026-09-03 13:29:57] [REVIEW]     chrome.exe       51.138.111.34.bc.googleusercontent.com (Kansas City, US) 10264 
+[2026-09-03 13:30:03] [REVIEW]     chrome.exe       172.64.146.215 (Toronto, CA)               10264 
+[2026-09-03 13:30:08] [REVIEW]     chrome.exe       151.101.65.91 (Montreal, CA)               10264 
+[2026-09-03 13:30:09] [REVIEW]     msedge.exe       qro02s23-in-f5.1e100.net (Mountain View, US) 3080  
