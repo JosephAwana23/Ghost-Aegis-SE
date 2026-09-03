@@ -1,6 +1,8 @@
 import os
 import shutil
 import logging
+import hashlib
+import json
 import psutil
 from datetime import datetime
 
@@ -14,6 +16,28 @@ class QuarantineManager:
     def __init__(self, vault_dir: str = "quarantine_vault"):
         self.vault_dir = vault_dir
         os.makedirs(self.vault_dir, exist_ok=True)
+        self.manifest_path = os.path.join(self.vault_dir, "manifest.json")
+
+    def _load_manifest(self):
+        try:
+            with open(self.manifest_path, "r", encoding="utf-8") as stream:
+                return json.load(stream)
+        except (FileNotFoundError, json.JSONDecodeError):
+            return []
+
+    def _save_manifest(self, entries):
+        temporary_path = f"{self.manifest_path}.tmp"
+        with open(temporary_path, "w", encoding="utf-8") as stream:
+            json.dump(entries, stream, indent=2)
+        os.replace(temporary_path, self.manifest_path)
+
+    @staticmethod
+    def _sha256(file_path):
+        digest = hashlib.sha256()
+        with open(file_path, "rb") as stream:
+            for chunk in iter(lambda: stream.read(65536), b""):
+                digest.update(chunk)
+        return digest.hexdigest()
 
     def terminate_process(self, pid: int) -> bool:
         """Terminates a running high-risk process by PID."""
@@ -46,10 +70,42 @@ class QuarantineManager:
 
             # Move and lock file
             shutil.move(file_path, destination)
+            manifest = self._load_manifest()
+            manifest.append({
+                "vault_path": os.path.abspath(destination),
+                "original_path": os.path.abspath(file_path),
+                "sha256": self._sha256(destination),
+                "quarantined_at": datetime.now().isoformat(),
+            })
+            self._save_manifest(manifest)
             self._log_audit(f"FILE ISOLATED: '{file_path}' -> '{destination}'")
             return True
         except Exception as e:
             self._log_audit(f"ISOLATION FAILED for '{file_path}': {e}")
+            return False
+
+    def restore_file(self, vault_path: str) -> bool:
+        """Restore a quarantined file only when its recorded hash still matches."""
+        manifest = self._load_manifest()
+        entry = next((item for item in manifest if item["vault_path"] == os.path.abspath(vault_path)), None)
+        if not entry or not os.path.exists(vault_path):
+            self._log_audit(f"RESTORE FAILED: vault entry not found for '{vault_path}'.")
+            return False
+        try:
+            if self._sha256(vault_path) != entry["sha256"]:
+                self._log_audit(f"RESTORE FAILED: hash mismatch for '{vault_path}'.")
+                return False
+            destination = entry["original_path"]
+            os.makedirs(os.path.dirname(destination), exist_ok=True)
+            if os.path.exists(destination):
+                self._log_audit(f"RESTORE FAILED: destination already exists '{destination}'.")
+                return False
+            shutil.move(vault_path, destination)
+            self._save_manifest([item for item in manifest if item is not entry])
+            self._log_audit(f"FILE RESTORED: '{vault_path}' -> '{destination}'")
+            return True
+        except (OSError, KeyError) as error:
+            self._log_audit(f"RESTORE FAILED for '{vault_path}': {error}")
             return False
 
     def _log_audit(self, message: str):

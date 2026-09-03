@@ -12,6 +12,14 @@ from datetime import datetime, timedelta
 import psutil
 import customtkinter as ctk
 from dotenv import load_dotenv
+from incident_store import (
+    Incident,
+    append_incident,
+    calculate_risk,
+    get_authenticode_signer,
+    load_incidents,
+)
+from persistence_audit import collect_persistence_entries
 
 # Load environment secrets
 load_dotenv(dotenv_path=Path(__file__).resolve().with_name(".env"))
@@ -158,6 +166,20 @@ class GhostAegisApp(ctk.CTk):
         )
         self.interfaces_button.pack(pady=8, padx=20)
 
+        self.incidents_button = ctk.CTkButton(
+            self.left_frame,
+            text="View Incident Evidence",
+            command=self.show_incidents_window,
+        )
+        self.incidents_button.pack(pady=8, padx=20)
+
+        self.persistence_button = ctk.CTkButton(
+            self.left_frame,
+            text="Audit Persistence",
+            command=self.run_persistence_audit,
+        )
+        self.persistence_button.pack(pady=8, padx=20)
+
         self.engine_button = ctk.CTkButton(
             self.left_frame,
             text="Launch Defense Engine",
@@ -302,6 +324,41 @@ class GhostAegisApp(ctk.CTk):
         ctk.CTkLabel(about_win, text="CustomTkinter • Psutil • Windows AdvFirewall", font=("Arial", 9)).pack(pady=(15, 0))
         ctk.CTkButton(about_win, text="CLOSE", fg_color="#444444", command=about_win.destroy).pack(pady=15)
 
+    def show_incidents_window(self):
+        incidents_win = ctk.CTkToplevel(self)
+        incidents_win.title("Ghost-Aegis | Incident Evidence")
+        incidents_win.geometry("900x560")
+        incidents_win.attributes("-topmost", True)
+
+        evidence_box = ctk.CTkTextbox(
+            incidents_win,
+            font=("Consolas", 11),
+            fg_color="#000000",
+            text_color="#00FF00",
+        )
+        evidence_box.pack(fill="both", expand=True, padx=15, pady=(15, 8))
+
+        incidents = load_incidents()
+        if not incidents:
+            evidence_box.insert("end", "No incidents recorded yet. Run Network Sentinel Audit first.\n")
+        else:
+            for incident in reversed(incidents[-100:]):
+                evidence_box.insert(
+                    "end",
+                    f"[{incident.get('timestamp', 'unknown')}] "
+                    f"{incident.get('process', 'unknown')} (PID {incident.get('pid', '?')})\n"
+                    f"  Risk: {incident.get('risk_score', 0)}/100 | "
+                    f"Remote: {incident.get('remote_ip', 'none')} | "
+                    f"Signer: {incident.get('signer', 'Unknown')}\n"
+                    f"  Path: {incident.get('path', 'Unknown')}\n"
+                    f"  Evidence: {'; '.join(incident.get('reasons', []))}\n\n",
+                )
+        evidence_box.configure(state="disabled")
+        ctk.CTkButton(
+            incidents_win, text="CLOSE", fg_color="#444444",
+            command=incidents_win.destroy,
+        ).pack(pady=(0, 12))
+
     # --- THREAD-SAFE QUEUE PROCESSING ---
     def check_queue(self):
         try:
@@ -316,6 +373,8 @@ class GhostAegisApp(ctk.CTk):
                     self.ai_eval_button.configure(state="normal")
                 elif message == "__interfaces_complete__":
                     self.interfaces_button.configure(state="normal", text="Interface Telemetry")
+                elif message == "__persistence_complete__":
+                    self.persistence_button.configure(state="normal", text="Audit Persistence")
                 elif message == "__engine_complete__":
                     self.engine_thread_running = False
                     self.engine_button.configure(state="normal", text="Launch Defense Engine")
@@ -409,6 +468,28 @@ class GhostAegisApp(ctk.CTk):
             self._queue_log(f"Interface telemetry error: {error}", "threat")
         finally:
             self.log_queue.put(("__interfaces_complete__", None))
+
+    def run_persistence_audit(self):
+        self.persistence_button.configure(state="disabled", text="Auditing...")
+        self.log_event("[*] Reading common Windows persistence locations...", "system")
+        threading.Thread(target=self._persistence_audit_worker, daemon=True).start()
+
+    def _persistence_audit_worker(self):
+        try:
+            entries = collect_persistence_entries()
+            if not entries:
+                self._queue_log("No persistence entries were found or read.", "trusted")
+            else:
+                self._queue_log(f"Persistence audit found {len(entries)} entries:", "review")
+                for entry in entries:
+                    self._queue_log(
+                        f"[{entry['type']}] {entry['location']}",
+                        "review",
+                    )
+        except Exception as error:
+            self._queue_log(f"Persistence audit failed: {error}", "threat")
+        finally:
+            self.log_queue.put(("__persistence_complete__", None))
 
     def run_defense_engine(self):
         if self.engine_thread_running:
@@ -568,40 +649,56 @@ class GhostAegisApp(ctk.CTk):
 
                     display_host = f"{hostname} ({location})"
                     status, tag_name = "[REVIEW]", "review"
+                    signer = get_authenticode_signer(exe_path)
+                    reputation = 0
+                    trusted_process = False
 
                     # Heuristic 1: Staged execution path
-                    if is_suspicious_path(exe_path):
-                        status, tag_name = "[PATH-WARN]", "warn"
-                        display_host = f"{display_host} | Staged binary!"
-
                     # Heuristic 2: Known trusted domains / system binaries
                     if any(d in hostname.lower() for d in trusted_domains):
                         status, tag_name = "[TRUSTED]", "trusted"
+                        trusted_process = True
                     elif proc_name.lower() in ["svchost.exe", "lsass.exe"]:
                         status, tag_name = "[SYSTEM]", "system"
+                        trusted_process = True
                     else:
-                        score = self.check_ip_reputation(ip_only)
+                        reputation = self.check_ip_reputation(ip_only)
 
-                        if score >= 80:
-                            status, tag_name = "[AUTO-KILL]", "threat"
-                            display_host = f"{display_host} | SCORE: {score}%"
-                            try:
-                                target_proc = psutil.Process(pid)
-                                killed_name = target_proc.name()
-                                target_proc.terminate()
-                                fw_result = block_ip(ip_only)
-                                self._queue_log(f"⚡ [CONTAINED] Neutralized {killed_name} (PID: {pid}).", "threat")
-                                self._queue_log(f"🛡️ {fw_result}", "threat")
-                            except Exception as kill_err:
-                                self._queue_log(f"⚠️ [KILL FAILED] PID {pid}: {kill_err}", "threat")
-                        elif score >= 25:
-                            status, tag_name = "[THREAT]", "threat"
-                            display_host = f"{display_host} | SCORE: {score}%"
-                        elif score > 0:
-                            status, tag_name = "[WARN]", "warn"
-                            display_host = f"{display_host} | SCORE: {score}%"
+                    risk_score, reasons = calculate_risk(
+                        suspicious_path=is_suspicious_path(exe_path),
+                        unsigned=signer == "Unsigned",
+                        reputation=reputation,
+                        trusted_process=trusted_process,
+                    )
+                    if risk_score >= 70:
+                        status, tag_name = "[THREAT]", "threat"
+                    elif risk_score >= 40:
+                        status, tag_name = "[WARN]", "warn"
+                    display_host = f"{display_host} | RISK: {risk_score}/100"
+
+                    incident = Incident(
+                        process=proc_name,
+                        pid=pid,
+                        path=exe_path,
+                        remote_ip=ip_only,
+                        reputation=reputation,
+                        signer=signer,
+                        risk_score=risk_score,
+                        reasons=reasons,
+                        recommended_action=(
+                            "block_and_review" if risk_score >= 70 else "review"
+                        ),
+                    )
+                    try:
+                        append_incident(incident)
+                    except OSError as log_error:
+                        self._queue_log(f"Incident record failed: {log_error}", "warn")
 
                     self._queue_log(f"{status:<12} {proc_name:<16} {display_host:<42} {pid:<6}", tag_name)
+                    self._queue_log(
+                        f"   Evidence: {'; '.join(reasons)} | Signer: {signer}",
+                        tag_name,
+                    )
                     found_active = True
 
             if not found_active:
