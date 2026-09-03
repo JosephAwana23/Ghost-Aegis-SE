@@ -60,6 +60,10 @@ class TelemetryEvent:
         path_lower = self.process_name.lower()
         score = 0.0
 
+        # External network beacon factor
+        if self.details.get("is_external"):
+            score += 0.25
+
         # Critical flag from details
         if self.details.get("is_critical"):
             score += 0.40
@@ -82,6 +86,10 @@ class TelemetryEvent:
         # PID anomaly (0 or negative PID)
         if self.pid <= 0:
             score += 0.10
+
+        # CRITICAL: IP is on the Copilot Denylist
+        if self.details.get("is_blacklisted"):
+            score += 0.80  # Guarantees a high risk score    
 
         # Clamp score between 0 and 1
         return min(score, 1.0)

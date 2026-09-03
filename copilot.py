@@ -343,11 +343,16 @@ class GhostAegisCopilot:
             try:
                 command = input("ghost-copilot> ").strip().lower()
                 if not command: continue
+                
+                # Split the command to handle arguments like 'add-black 1.1.1.1'
+                parts = command.split()
+                base_cmd = parts[0]
 
-                if command == "exit":
+                if base_cmd == "exit":
                     print("\n[!] Disengaging Ghost Copilot. Stay safe out there, Blue Teamer!")
                     break
-                elif command == "help":
+                elif base_cmd == "help":
+                    self.show_policy_help() # Replaced with your existing help menu logic in your code
                     print("\n[Available Copilot Commands]")
                     print("  status        - Display live system resource load & engine state")
                     print("  scan          - Execute live process scanner across system PIDs")
@@ -363,30 +368,26 @@ class GhostAegisCopilot:
                     print("  policy        - Open the network trust policy management menu")
                     print("  safe-mode     - Toggle live quarantine enforcement")
                     print("  exit          - Exit the copilot session\n")
-                    print("[Policy Notes]")
-                    print("  - Trusted domains are allowed by default when matched in the policy file.")
-                    print("  - Blocked destinations trigger immediate suspicion.")
-                    print("  - Use 'policy' to manage your allowlist/denylist from the CLI.")
-                    print("  - Use 'safe-mode' to disable live quarantine actions during testing.\n")
-                elif command == "status":
+                elif base_cmd == "status":
                     self.show_system_status()
-                elif command == "show-policy":
+                elif base_cmd == "show-policy":
                     self.show_network_policy()
-                elif command == "reload-policy":
+                elif base_cmd == "reload-policy":
                     self.reload_network_policy()
-                elif command == "safe-mode":
+                elif base_cmd == "safe-mode":
                     self.toggle_safe_mode()
-                elif command == "policy-help":
+                elif base_cmd == "policy-help":
                     self.show_policy_help()
-                elif command in {"add-white", "add-black"}:
-                    list_type = "whitelist" if command == "add-white" else "blacklist"
-                    value = input("  Enter destination to add: ").strip()
+                elif base_cmd in {"add-white", "add-black"}:
+                    list_type = "whitelist" if base_cmd == "add-white" else "blacklist"
+                    # If they typed the IP on the same line, use it. Otherwise ask for it.
+                    value = parts[1] if len(parts) > 1 else input("  Enter destination to add: ").strip()
                     self.add_policy_entry(list_type, value)
-                elif command in {"remove-white", "remove-black"}:
-                    list_type = "whitelist" if command == "remove-white" else "blacklist"
-                    value = input("  Enter destination to remove: ").strip()
+                elif base_cmd in {"remove-white", "remove-black"}:
+                    list_type = "whitelist" if base_cmd == "remove-white" else "blacklist"
+                    value = parts[1] if len(parts) > 1 else input("  Enter destination to remove: ").strip()
                     self.remove_policy_entry(list_type, value)
-                elif command == "policy":
+                elif base_cmd == "policy":
                     print("\n[POLICY MENU]")
                     print("  1) Show policy")
                     print("  2) Reload policy")
@@ -420,11 +421,11 @@ class GhostAegisCopilot:
                             self.toggle_safe_mode()
                         else:
                             print("  [!] Invalid policy menu choice.\n")
-                elif command == "logs":
+                elif base_cmd == "logs":
                     self.read_audit_logs(lines=8)
-                elif command == "policy-audit":
+                elif base_cmd == "policy-audit":
                     self.read_policy_audit_logs(lines=15)
-                elif command == "scan":
+                elif base_cmd == "scan":
                     print("\n[+] Initiating live process sweep...")
                     try:
                         from process_scanner import scan_live_processes
@@ -435,7 +436,7 @@ class GhostAegisCopilot:
                         print()
                     except ImportError:
                         print("  [!] process_scanner.py not found in directory.\n")
-                elif command == "analyze":
+                elif base_cmd == "analyze":
                     print("\n[+] Injecting simulated malicious telemetry...")
                     sim_event = TelemetryEvent(
                         "powershell.exe", 

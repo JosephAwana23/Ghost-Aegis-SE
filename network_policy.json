@@ -18,6 +18,7 @@
     "c2.evilcorp.net",
     "exploit.delivery",
     "payload.example",
-    "evil.com"
+    "evil.com",
+    "1.1.1.1"
   ]
 }

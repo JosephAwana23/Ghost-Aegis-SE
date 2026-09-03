@@ -2061,3 +2061,275 @@ The command completed successfully.
 [2026-08-24 10:55:01] [REVIEW]   StartMenuExperienceHost.exe 52.110.19.144 (Phoenix, US)                   12252 
 [2026-08-24 10:55:08] [REVIEW]   StartMenuExperienceHost.exe 52.110.8.153 (Singapore, SG)                  12252 
 [2026-08-24 10:55:08] [REVIEW]   chrome.exe      ec2-54-80-73-186.compute-1.amazonaws.com (Ashburn, US) 5344  
+[2026-08-27 12:15:36] Ghost-Aegis System Ready. Monitoring active.
+[2026-08-27 12:15:47] SYSTEM INFO: Microsoft Windows 11 Pro Insider Preview | NODE: BHG
+[2026-08-27 12:15:48] [INTERFACE] Local Area Connection* 9
+[2026-08-27 12:15:48]   D2-39-57-29-68-BD | -1 | mask: None
+[2026-08-27 12:15:48]   169.254.197.105 | 2 | mask: 255.255.0.0
+[2026-08-27 12:15:48]   fe80::fa5e:bf7e:17a5:481 | 23 | mask: None
+[2026-08-27 12:15:48] [INTERFACE] Local Area Connection* 10
+[2026-08-27 12:15:48]   F2-39-57-29-68-BD | -1 | mask: None
+[2026-08-27 12:15:48]   169.254.69.151 | 2 | mask: 255.255.0.0
+[2026-08-27 12:15:48]   fe80::c76c:dcef:df15:240 | 23 | mask: None
+[2026-08-27 12:15:48] [INTERFACE] Wi-Fi
+[2026-08-27 12:15:48]   D0-39-57-29-68-BD | -1 | mask: None
+[2026-08-27 12:15:48]   192.168.4.41 | 2 | mask: 255.255.252.0
+[2026-08-27 12:15:48]   fdf8:8c26:ce6c:1:c974:ebee:5db6:569c | 23 | mask: None
+[2026-08-27 12:15:48]   fdf8:8c26:ce6c:1:1a0:d46c:4c94:3da3 | 23 | mask: None
+[2026-08-27 12:15:48]   fe80::9163:ef97:a2dd:bc39 | 23 | mask: None
+[2026-08-27 12:15:48] [INTERFACE] Ethernet
+[2026-08-27 12:15:48]   08-8F-C3-EC-1F-09 | -1 | mask: None
+[2026-08-27 12:15:48]   169.254.86.225 | 2 | mask: 255.255.0.0
+[2026-08-27 12:15:48]   fe80::ac06:e5fe:ce09:5e49 | 23 | mask: None
+[2026-08-27 12:15:48] [INTERFACE] vEthernet (Default Switch)
+[2026-08-27 12:15:48]   00-15-5D-01-33-00 | -1 | mask: None
+[2026-08-27 12:15:48]   172.25.64.1 | 2 | mask: 255.255.240.0
+[2026-08-27 12:15:48]   fe80::24d6:c3ff:228e:d3e9 | 23 | mask: None
+[2026-08-27 12:15:48] [INTERFACE] Loopback Pseudo-Interface 1
+[2026-08-27 12:15:48]   127.0.0.1 | 2 | mask: 255.0.0.0
+[2026-08-27 12:15:48]   ::1 | 23 | mask: None
+[2026-08-27 12:15:48] Interface telemetry complete.
+[2026-08-27 12:15:50] [!] RADAR ENABLED: Sweeping every 30s...
+[2026-08-27 12:15:50] [*] Initiating Deep Network Audit...
+[2026-08-27 12:15:51] STATUS     PROCESS         REMOTE HOST / LOCATION                        PID   
+[2026-08-27 12:15:55] [SYSTEM]   svchost.exe     20.59.87.227 (San Francisco, US)              6148  
+[2026-08-27 12:15:55] [TRUSTED]  Code.exe        lb-140-82-113-22-iad.github.com (San Francisco, US) 23036 
+[2026-08-27 12:16:01] [REVIEW]   Code.exe        172.182.252.137 (Phoenix, US)                 21016 
+[2026-08-27 12:16:06] [WARN]     Code.exe        150.171.73.16 (Newark, US) | SCORE: 1%        23036 
+[2026-08-27 12:16:11] [REVIEW]   MsMpEng.exe     48.211.71.196 (Boydton, US)                   6160  
+[2026-08-27 12:16:16] [REVIEW]   MsMpEng.exe     48.211.71.196 (Boydton, US)                   6160  
+[2026-08-27 12:16:16] [REVIEW]   chrome.exe      server-99-84-41-49.lax54.r.cloudfront.net (Los Angeles, US) 16708 
+[2026-08-27 12:16:21] [WARN]     Code.exe        150.171.109.146 (Cape Town, ZA) | SCORE: 1%   23036 
+[2026-08-27 12:16:22] [REVIEW]   chrome.exe      server-52-84-20-91.lax53.r.cloudfront.net (Los Angeles, US) 16708 
+[2026-08-27 12:16:22] [TRUSTED]  chrome.exe      lb-140-82-113-26-iad.github.com (San Francisco, US) 16708 
+[2026-08-27 12:16:27] [REVIEW]   msedge.exe      52.97.104.98 (Phoenix, US)                    25124 
+[2026-08-27 12:16:32] [REVIEW]   msedge.exe      52.97.104.98 (Phoenix, US)                    25124 
+[2026-08-27 12:16:32] [REVIEW]   chrome.exe      server-18-154-144-17.lax50.r.cloudfront.net (Los Angeles, US) 16708 
+[2026-08-27 12:16:37] [REVIEW]   chrome.exe      104.18.41.41 (Toronto, CA)                    16708 
+[2026-08-27 12:16:37] [REVIEW]   chrome.exe      server-3-163-125-5.lax54.r.cloudfront.net (Los Angeles, US) 16708 
+[2026-08-27 12:16:38] [REVIEW]   chrome.exe      ec2-13-217-242-8.compute-1.amazonaws.com (Ashburn, US) 16708 
+[2026-08-27 12:16:38] [REVIEW]   chrome.exe      server-13-249-182-65.lax53.r.cloudfront.net (Los Angeles, US) 16708 
+[2026-08-27 12:16:43] [THREAT]   Code.exe        4.150.223.99 (Des Moines, US) | SCORE: 29%    23036 
+[2026-08-27 12:16:48] [REVIEW]   Code.exe        138.91.182.224 (San Francisco, US)            23036 
+[2026-08-27 12:16:53] [WARN]     msedge.exe      20.184.175.23 (San Francisco, US) | SCORE: 18% 20228 
+[2026-08-27 12:16:58] [REVIEW]   chrome.exe      172.65.90.24 (Toronto, CA)                    16708 
+[2026-08-27 12:16:59] [REVIEW]   chrome.exe      server-18-65-11-13.lax50.r.cloudfront.net (San Jose, US) 16708 
+[2026-08-27 12:16:59] [TRUSTED]  chrome.exe      lb-140-82-112-22-iad.github.com (San Francisco, US) 16708 
+[2026-08-27 12:16:59] [REVIEW]   chrome.exe      85.204.107.34.bc.googleusercontent.com (Kansas City, US) 16708 
+[2026-08-27 12:17:04] [REVIEW]   Code.exe        172.182.252.137 (Phoenix, US)                 23036 
+[2026-08-27 12:17:09] [REVIEW]   MsMpEng.exe     48.211.71.196 (Boydton, US)                   6160  
+[2026-08-27 12:17:09] [REVIEW]   chrome.exe      server-99-84-41-66.lax54.r.cloudfront.net (Los Angeles, US) 16708 
+[2026-08-27 12:17:14] [SYSTEM]   svchost.exe     20.190.151.70 (Boydton, US)                   25588 
+[2026-08-27 12:17:19] [REVIEW]   Code.exe        138.91.182.224 (San Francisco, US)            23036 
+[2026-08-27 12:17:24] [WARN]     Code.exe        13.107.5.93 (New York, US) | SCORE: 12%       23036 
+[2026-08-27 12:17:24] [REVIEW]   chrome.exe      ae23d151f96c6e6fb.awsglobalaccelerator.com (Seattle, US) 16708 
+[2026-08-27 12:17:24] [TRUSTED]  Code.exe        cdn-185-199-110-133.github.com (San Francisco, US) 23036 
+[2026-08-27 12:17:29] [REVIEW]   chrome.exe      151.101.131.42 (Montreal, CA)                 16708 
+[2026-08-27 12:17:34] [REVIEW]   Code.exe        150.171.109.147 (Cape Town, ZA)               23036 
+[2026-08-27 12:17:39] [WARN]     Code.exe        150.171.109.146 (Cape Town, ZA) | SCORE: 1%   23036 
+[2026-08-27 12:17:40] [REVIEW]   chrome.exe      server-3-163-125-52.lax54.r.cloudfront.net (Los Angeles, US) 16708 
+[2026-08-27 12:17:40] [REVIEW]   chrome.exe      85.204.107.34.bc.googleusercontent.com (Kansas City, US) 16708 
+[2026-08-27 12:17:41] [REVIEW]   chrome.exe      dz-in-f188.1e100.net (Mountain View, US)      16708 
+[2026-08-27 12:17:46] [REVIEW]   chrome.exe      104.18.33.206 (Toronto, CA)                   16708 
+[2026-08-27 12:17:46] [REVIEW]   chrome.exe      dclaxa-ay-in-f5.1e100.net (Mountain View, US) 16708 
+[2026-08-27 12:17:47] [REVIEW]   chrome.exe      229.213.36.34.bc.googleusercontent.com (Kansas City, US) 16708 
+[2026-08-27 12:17:47] [TRUSTED]  Code.exe        lb-140-82-112-21-iad.github.com (San Francisco, US) 23036 
+[2026-08-27 12:17:47] [REVIEW]   chrome.exe      server-99-84-41-96.lax54.r.cloudfront.net (Los Angeles, US) 16708 
+[2026-08-27 12:17:52] [WARN]     Code.exe        13.66.138.105 (Quincy, US) | SCORE: 1%        23036 
+[2026-08-27 12:17:57] [REVIEW]   Code.exe        172.182.252.137 (Phoenix, US)                 23036 
+[2026-08-27 12:18:01] [*] Initializing Dual-AI Engine for PID 23036...
+[2026-08-27 12:18:01] [*] Telemetry gathered for Code.exe. Consulting AIs...
+[2026-08-27 12:18:02] [REVIEW]   Code.exe        138.91.182.224 (San Francisco, US)            23036 
+[2026-08-27 12:18:04] [!] RADAR DISABLED.
+[2026-08-27 12:18:07] [REVIEW]   Code.exe        172.182.252.137 (Phoenix, US)                 22856 
+[2026-08-27 12:18:07] [TRUSTED]  Code.exe        lb-140-82-112-21-iad.github.com (San Francisco, US) 22856 
+[2026-08-27 12:18:12] [WARN]     Code.exe        4.150.223.115 (Des Moines, US) | SCORE: 23%   22856 
+[2026-08-27 12:18:17] [REVIEW]   chrome.exe      151.101.193.91 (Montreal, CA)                 16708 
+[2026-08-27 12:18:18] [REVIEW]   chrome.exe      server-3-163-125-52.lax54.r.cloudfront.net (Los Angeles, US) 16708 
+[2026-08-27 12:18:22] [WARN]     Code.exe        13.107.5.93 (New York, US) | SCORE: 12%       23036 
+[2026-08-27 12:18:23] [REVIEW]   chrome.exe      server-3-163-125-39.lax54.r.cloudfront.net (Los Angeles, US) 16708 
+[2026-08-27 12:18:23] [REVIEW]   chrome.exe      server-3-163-125-5.lax54.r.cloudfront.net (Los Angeles, US) 16708 
+[2026-08-27 12:18:24] [REVIEW]   chrome.exe      iad66s01-in-f3.1e100.net (Washington, US)     16708 
+[2026-08-27 12:18:43] [*] Initializing Dual-AI Engine for PID 23036...
+[2026-08-27 12:18:43] [*] Telemetry gathered for Code.exe. Consulting AIs...
+[2026-08-27 12:25:27] [*] Initializing Dual-AI Engine for PID 16708...
+[2026-08-27 12:25:27] [*] Telemetry gathered for chrome.exe. Consulting AIs...
+[2026-08-27 12:54:42] Ghost-Aegis System Ready. Monitoring active.
+[2026-08-28 09:28:44] Ghost-Aegis System Ready. Monitoring active.
+[2026-08-28 09:28:47] [!] RADAR ENABLED: Sweeping every 30s...
+[2026-08-28 09:28:47] [*] Initiating Deep Network Audit...
+[2026-08-28 09:28:47] STATUS     PROCESS         REMOTE HOST / LOCATION                        PID   
+[2026-08-28 09:28:52] [SYSTEM]   svchost.exe     20.59.87.227 (San Francisco, US)              5152  
+[2026-08-28 09:28:57] [WARN]     Code.exe        13.107.5.93 (New York, US) | SCORE: 12%       12176 
+[2026-08-28 09:29:02] [REVIEW]   Code.exe        138.91.182.224 (San Francisco, US)            12176 
+[2026-08-28 09:29:07] [WARN]     Code.exe        150.171.109.146 (Cape Town, ZA) | SCORE: 1%   12176 
+[2026-08-28 09:29:07] [TRUSTED]  Code.exe        cdn-185-199-108-133.github.com (San Francisco, US) 12176 
+[2026-08-28 09:29:08] [REVIEW]   chrome.exe      ec2-52-44-76-146.compute-1.amazonaws.com (Ashburn, US) 16444 
+[2026-08-28 09:29:13] [WARN]     Code.exe        150.171.74.16 (New York, US) | SCORE: 4%      12176 
+[2026-08-28 09:29:14] [REVIEW]   chrome.exe      ec2-3-228-108-70.compute-1.amazonaws.com (Ashburn, US) 16444 
+[2026-08-28 09:29:14] [REVIEW]   chrome.exe      server-3-168-147-67.lax54.r.cloudfront.net (Los Angeles, US) 16444 
+[2026-08-28 09:29:15] [REVIEW]   chrome.exe      ec2-34-233-171-111.compute-1.amazonaws.com (Ashburn, US) 16444 
+[2026-08-28 09:29:16] [REVIEW]   chrome.exe      dd-in-f188.1e100.net (Mountain View, US)      16444 
+[2026-08-28 09:29:20] [*] Initializing Dual-AI Engine for PID 12176...
+[2026-08-28 09:29:20] [*] Telemetry gathered for Code.exe. Consulting AIs...
+[2026-08-28 09:29:21] [WARN]     Code.exe        20.89.1.9 (Tokyo, JP) | SCORE: 23%            12176 
+[2026-08-28 09:29:23] [!] RADAR DISABLED.
+[2026-08-28 09:29:26] [WARN]     Code.exe        150.171.109.146 (Cape Town, ZA) | SCORE: 1%   12176 
+[2026-08-28 09:29:31] [WARN]     Code.exe        13.107.5.93 (New York, US) | SCORE: 12%       12176 
+[2026-08-28 09:29:31] [TRUSTED]  Code.exe        lb-140-82-113-21-iad.github.com (San Francisco, US) 12176 
+[2026-08-28 09:29:31] [REVIEW]   chrome.exe      ec2-52-71-111-142.compute-1.amazonaws.com (Ashburn, US) 16444 
+[2026-08-28 09:29:36] [REVIEW]   Code.exe        138.91.182.224 (San Francisco, US)            12176 
+[2026-08-28 09:29:37] [REVIEW]   chrome.exe      207.127.201.35.bc.googleusercontent.com (Kansas City, US) 16444 
+[2026-08-28 09:29:42] [REVIEW]   Code.exe        138.91.182.224 (San Francisco, US)            12176 
+[2026-08-28 09:29:42] [TRUSTED]  Code.exe        lb-140-82-112-21-iad.github.com (San Francisco, US) 22692 
+[2026-08-28 09:29:43] [REVIEW]   chrome.exe      ec2-34-197-187-93.compute-1.amazonaws.com (Ashburn, US) 16444 
+[2026-08-28 09:29:48] [WARN]     Code.exe        13.66.138.105 (Quincy, US) | SCORE: 1%        12176 
+[2026-08-28 09:29:53] [REVIEW]   Code.exe        150.171.109.149 (Cape Town, ZA)               12176 
+[2026-08-28 09:29:54] [TRUSTED]  Code.exe        lb-140-82-112-21-iad.github.com (San Francisco, US) 12176 
+[2026-09-02 15:43:14] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-02 15:43:46] 🚨 [AIR-GAP ACTIVE] Emergency host containment initiated!
+[2026-09-02 15:43:46] [+] Outbound network traffic successfully blocked.
+[2026-09-02 15:44:23] [*] Disengaging host containment...
+[2026-09-02 15:44:23] [+] Outbound network traffic restored.
+[2026-09-02 15:44:34] 🚨 [AIR-GAP ACTIVE] Emergency host containment initiated!
+[2026-09-02 15:44:34] [+] Outbound network traffic successfully blocked.
+[2026-09-02 15:44:38] [*] Disengaging host containment...
+[2026-09-02 15:44:38] [+] Outbound network traffic restored.
+[2026-09-02 15:45:02] [!] RADAR ENGAGED: Continuous audit sweep every 30s.
+[2026-09-02 15:45:02] [*] Network Sentinel starting deep socket audit...
+[2026-09-02 15:45:02] STATUS       PROCESS          REMOTE HOST / LOCATION                     PID   
+[2026-09-02 15:45:07] [REVIEW]     chrome.exe       dclaxa-av-in-f14.1e100.net (Mountain View, US) 3616  
+[2026-09-02 15:45:12] [REVIEW]     chrome.exe       dd-in-f188.1e100.net (Mountain View, US)   3616  
+[2026-09-02 15:45:15] 🚨 [AIR-GAP ACTIVE] Emergency host containment initiated!
+[2026-09-02 15:45:15] [+] Outbound network traffic successfully blocked.
+[2026-09-02 15:45:17] [REVIEW]     chrome.exe       dclaxb-ax-in-f10.1e100.net (Mountain View, US) 3616  
+[2026-09-02 15:45:19] [*] Disengaging host containment...
+[2026-09-02 15:45:19] [+] Outbound network traffic restored.
+[2026-09-02 15:45:21] [REVIEW]     chrome.exe       dclaxb-ax-in-f10.1e100.net (Mountain View, US) 3616  
+[2026-09-02 15:45:25] [SYSTEM]     svchost.exe      20.59.87.227 (San Francisco, US)           5332  
+[2026-09-02 15:45:26] [REVIEW]     chrome.exe       dclaxa-av-in-f14.1e100.net (Mountain View, US) 3616  
+[2026-09-02 15:45:31] [REVIEW]     chrome.exe       server-99-84-41-96.lax54.r.cloudfront.net (Los Angeles, US) 3616  
+[2026-09-02 15:45:36] [REVIEW]     chrome.exe       ec2-52-55-106-120.compute-1.amazonaws.com (Ashburn, US) 3616  
+[2026-09-02 15:45:45] [!] RADAR DISENGAGED.
+[2026-09-02 15:46:06] [*] Network Sentinel starting deep socket audit...
+[2026-09-02 15:46:06] STATUS       PROCESS          REMOTE HOST / LOCATION                     PID   
+[2026-09-02 15:46:07] [REVIEW]     chrome.exe       dd-in-f188.1e100.net (Mountain View, US)   3616  
+[2026-09-02 15:46:12] [REVIEW]     chrome.exe       dclaxb-aw-in-f14.1e100.net (Mountain View, US) 3616  
+[2026-09-02 15:46:17] [REVIEW]     chrome.exe       dclaxa-au-in-f14.1e100.net (Mountain View, US) 3616  
+[2026-09-02 15:46:22] [SYSTEM]     svchost.exe      20.59.87.227 (San Francisco, US)           5332  
+[2026-09-02 15:46:23] [REVIEW]     chrome.exe       dclaxa-av-in-f14.1e100.net (Mountain View, US) 3616  
+[2026-09-02 15:46:23] [REVIEW]     chrome.exe       server-99-84-41-96.lax54.r.cloudfront.net (Los Angeles, US) 3616  
+[2026-09-02 15:46:24] [REVIEW]     chrome.exe       ec2-52-55-106-120.compute-1.amazonaws.com (Ashburn, US) 3616  
+[2026-09-02 15:47:46] ! EXECUTING EMERGENCY CACHE PURGE !
+[2026-09-02 15:47:46] [+] DNS Resolver Cache successfully flushed.
+[2026-09-02 15:47:46] [+] ARP cache table flushed.
+[2026-09-02 15:53:38] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-02 15:53:40] [!] RADAR ENGAGED: Continuous audit sweep every 30s.
+[2026-09-02 15:53:40] [*] Network Sentinel starting deep socket audit...
+[2026-09-02 15:53:40] STATUS       PROCESS          REMOTE HOST / LOCATION                     PID   
+[2026-09-02 15:54:09] [SYSTEM]     svchost.exe      20.59.87.227 (Loc Error)                   5332  
+[2026-09-02 15:54:39] [*] Network Sentinel starting deep socket audit...
+[2026-09-02 15:54:39] STATUS       PROCESS          REMOTE HOST / LOCATION                     PID   
+[2026-09-02 15:55:07] [SYSTEM]     svchost.exe      20.59.87.227 (Loc Error)                   5332  
+[2026-09-02 15:55:37] [*] Network Sentinel starting deep socket audit...
+[2026-09-02 15:55:37] STATUS       PROCESS          REMOTE HOST / LOCATION                     PID   
+[2026-09-02 15:55:37] No active external sockets detected.
+[2026-09-02 15:56:07] [*] Network Sentinel starting deep socket audit...
+[2026-09-02 15:56:08] STATUS       PROCESS          REMOTE HOST / LOCATION                     PID   
+[2026-09-02 15:56:08] No active external sockets detected.
+[2026-09-02 16:30:57] [*] Network Sentinel starting deep socket audit...
+[2026-09-02 16:30:59] STATUS       PROCESS          REMOTE HOST / LOCATION                     PID   
+[2026-09-02 16:30:59] No active external sockets detected.
+[2026-09-02 16:31:29] [*] Network Sentinel starting deep socket audit...
+[2026-09-02 16:31:29] STATUS       PROCESS          REMOTE HOST / LOCATION                     PID   
+[2026-09-02 16:31:29] No active external sockets detected.
+[2026-09-02 16:31:59] [*] Network Sentinel starting deep socket audit...
+[2026-09-02 16:31:59] STATUS       PROCESS          REMOTE HOST / LOCATION                     PID   
+[2026-09-02 16:31:59] No active external sockets detected.
+[2026-09-02 16:32:09] [!] RADAR DISENGAGED.
+[2026-09-02 16:44:02] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-02 16:44:08] 🚨 [AIR-GAP ACTIVE] Emergency host containment initiated!
+[2026-09-02 16:44:08] [-] Isolation failure: Command '['netsh', 'advfirewall', 'firewall', 'add', 'rule', 'name=GhostAegis_AirGap', 'dir=out', 'action=block']' returned non-zero exit status 1.
+[2026-09-02 16:44:17] ! EXECUTING EMERGENCY CACHE PURGE !
+[2026-09-02 16:44:17] [+] DNS Resolver Cache successfully flushed.
+[2026-09-02 16:44:17] [+] ARP cache table flushed.
+[2026-09-02 16:44:20] [!] RADAR ENGAGED: Continuous audit sweep every 30s.
+[2026-09-02 16:44:20] [*] Network Sentinel starting deep socket audit...
+[2026-09-02 16:44:20] STATUS       PROCESS          REMOTE HOST / LOCATION                     PID   
+[2026-09-02 16:44:20] No active external sockets detected.
+[2026-09-02 16:44:21] [!] RADAR DISENGAGED.
+[2026-09-02 16:44:26] [*] Disengaging host containment...
+[2026-09-02 16:44:27] [+] Outbound network traffic restored.
+[2026-09-02 16:44:50] [*] Network Sentinel starting deep socket audit...
+[2026-09-02 16:44:53] STATUS       PROCESS          REMOTE HOST / LOCATION                     PID   
+[2026-09-02 16:44:53] No active external sockets detected.
+[2026-09-03 13:24:52] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-03 13:24:58] [IFACE] Ethernet
+[2026-09-03 13:24:58]    -> 08-8F-C3-EC-1F-09 (MAC Address) | Netmask: None
+[2026-09-03 13:24:58]    -> 169.254.238.201 (IPv4) | Netmask: 255.255.0.0
+[2026-09-03 13:24:58]    -> fe80::ac06:e5fe:ce09:5e49 (IPv6) | Netmask: None
+[2026-09-03 13:24:58] [IFACE] Local Area Connection* 9
+[2026-09-03 13:24:58]    -> D2-39-57-29-68-BD (MAC Address) | Netmask: None
+[2026-09-03 13:24:58]    -> 169.254.85.161 (IPv4) | Netmask: 255.255.0.0
+[2026-09-03 13:24:58]    -> fe80::fa5e:bf7e:17a5:481 (IPv6) | Netmask: None
+[2026-09-03 13:24:58] [IFACE] Local Area Connection* 10
+[2026-09-03 13:24:58]    -> F2-39-57-29-68-BD (MAC Address) | Netmask: None
+[2026-09-03 13:24:58]    -> 169.254.117.82 (IPv4) | Netmask: 255.255.0.0
+[2026-09-03 13:24:58]    -> fe80::c76c:dcef:df15:240 (IPv6) | Netmask: None
+[2026-09-03 13:24:58] [IFACE] Wi-Fi
+[2026-09-03 13:24:58]    -> D0-39-57-29-68-F0 (MAC Address) | Netmask: None
+[2026-09-03 13:24:58]    -> 192.168.4.54 (IPv4) | Netmask: 255.255.252.0
+[2026-09-03 13:24:58]    -> fdf8:8c26:ce6c:1:4f06:2ecd:c629:1e74 (IPv6) | Netmask: None
+[2026-09-03 13:24:58]    -> fdf8:8c26:ce6c:1:acb0:f42:44c8:e959 (IPv6) | Netmask: None
+[2026-09-03 13:24:58]    -> fe80::d956:2e8:99ad:9fff (IPv6) | Netmask: None
+[2026-09-03 13:24:58] [IFACE] vEthernet (Default Switch)
+[2026-09-03 13:24:58]    -> 00-15-5D-01-33-00 (MAC Address) | Netmask: None
+[2026-09-03 13:24:58]    -> 172.23.32.1 (IPv4) | Netmask: 255.255.240.0
+[2026-09-03 13:24:58]    -> fe80::24d6:c3ff:228e:d3e9 (IPv6) | Netmask: None
+[2026-09-03 13:24:58] [IFACE] Loopback Pseudo-Interface 1
+[2026-09-03 13:24:58]    -> 127.0.0.1 (IPv4) | Netmask: 255.0.0.0
+[2026-09-03 13:24:58]    -> ::1 (IPv6) | Netmask: None
+[2026-09-03 13:24:58] Interface telemetry refresh complete.
+[2026-09-03 13:25:03] [*] Network Sentinel starting deep socket audit...
+[2026-09-03 13:25:03] STATUS       PROCESS          REMOTE HOST / LOCATION                     PID   
+[2026-09-03 13:25:09] [REVIEW]     msedge.exe       150.171.30.11 (Ashburn, US)                3080  
+[2026-09-03 13:25:14] [THREAT]     msedge.exe       4.150.223.114 (Des Moines, US) | SCORE: 32% 3080  
+[2026-09-03 13:25:14] [*] Extracting telemetry and invoking Dual-AI for PID 3080...
+[2026-09-03 13:25:14] [*] Telemetry gathered for msedge.exe. Querying AI models...
+[2026-09-03 13:25:15] [REVIEW]     msedge.exe       dclaxb-av-in-f14.1e100.net (Mountain View, US) 3080  
+[2026-09-03 13:25:16] [REVIEW]     chrome.exe       lga34s40-in-f5.1e100.net (New York, US)    10264 
+[2026-09-03 13:25:21] [REVIEW]     msedge.exe       20.190.132.40 (San Francisco, US)          3080  
+[2026-09-03 13:25:23] [REVIEW]     chrome.exe       229.213.36.34.bc.googleusercontent.com (Kansas City, US) 10264 
+[2026-09-03 13:25:28] [REVIEW]     Code.exe         13.66.138.105 (Quincy, US)                 17756 
+[2026-09-03 13:25:29] [REVIEW]     chrome.exe       server-3-163-125-52.lax54.r.cloudfront.net (Los Angeles, US) 10264 
+[2026-09-03 13:25:29] [REVIEW]     chrome.exe       85.204.107.34.bc.googleusercontent.com (Kansas City, US) 10264 
+[2026-09-03 13:25:31] 🧠 [GEMINI]: Gemini Error: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}
+[2026-09-03 13:25:31] 🤖 [COPILOT]: The telemetry data for the `msedge.exe` process, with multiple outbound connections to known trusted IP ranges associated with services like Microsoft and Google, suggests regular browser activity with no immediate signs of malicious behavior; threat probability score: 2.
+[2026-09-03 13:25:35] [REVIEW]     msedge.exe       20.190.132.40 (San Francisco, US)          3080  
+[2026-09-03 13:25:41] [WARN]       msedge.exe       153.31.112.71 (Clarksburg, US) | SCORE: 1% 3080  
+[2026-09-03 13:25:42] [REVIEW]     chrome.exe       lga34s40-in-f5.1e100.net (New York, US)    10264 
+[2026-09-03 13:25:43] [REVIEW]     chrome.exe       85.204.107.34.bc.googleusercontent.com (Kansas City, US) 10264 
+[2026-09-03 13:25:44] [REVIEW]     msedge.exe       dclaxa-ax-in-f10.1e100.net (Mountain View, US) 3080  
+[2026-09-03 13:25:49] [REVIEW]     msedge.exe       185.199.111.215 (San Francisco, US)        3080  
+[2026-09-03 13:25:49] [TRUSTED]    msedge.exe       lb-140-82-113-26-iad.github.com (San Francisco, US) 3080  
+[2026-09-03 13:25:55] [WARN]       msedge.exe       153.31.112.71 (Clarksburg, US) | SCORE: 1% 3080  
+[2026-09-03 13:26:00] [REVIEW]     msedge.exe       104.18.41.41 (Toronto, CA)                 3080  
+[2026-09-03 13:26:01] [REVIEW]     chrome.exe       sea09s35-in-f5.1e100.net (Seattle, US)     10264 
+[2026-09-03 13:27:54] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-03 13:28:02] [*] Network Sentinel starting deep socket audit...
+[2026-09-03 13:28:02] STATUS       PROCESS          REMOTE HOST / LOCATION                     PID   
+[2026-09-03 13:28:03] [REVIEW]     chrome.exe       229.213.36.34.bc.googleusercontent.com (Kansas City, US) 10264 
+[2026-09-03 13:28:04] [REVIEW]     chrome.exe       85.204.107.34.bc.googleusercontent.com (Kansas City, US) 10264 
+[2026-09-03 13:28:04] [TRUSTED]    Code.exe         lb-140-82-116-6-sea.github.com (San Francisco, US) 17756 
+[2026-09-03 13:28:08] [*] Extracting telemetry and invoking Dual-AI for PID 10264...
+[2026-09-03 13:28:08] [*] Telemetry gathered for chrome.exe. Querying AI models...
+[2026-09-03 13:28:09] [WARN]       msedge.exe       153.31.112.71 (Clarksburg, US) | SCORE: 1% 3080  
+[2026-09-03 13:28:10] [REVIEW]     chrome.exe       85.204.107.34.bc.googleusercontent.com (Kansas City, US) 10264 
+[2026-09-03 13:28:15] [REVIEW]     msedge.exe       185.199.111.215 (San Francisco, US)        3080  
+[2026-09-03 13:28:15] [TRUSTED]    msedge.exe       lb-140-82-113-26-iad.github.com (San Francisco, US) 3080  
+[2026-09-03 13:28:21] [WARN]       msedge.exe       153.31.112.71 (Clarksburg, US) | SCORE: 1% 3080  
+[2026-09-03 13:28:23] 🧠 [GEMINI]: **Assessment:** The telemetry reflects standard, benign Google Chrome behavior characterized by a legitimate executable path, appropriate parent-child process lineage, and routine outbound connections to well-known CDNs and cloud infrastructure providers (Google, AWS, Cloudflare, Fastly).  **Threat Probability Score:** 0/10
+[2026-09-03 13:28:23] 🤖 [COPILOT]: The activity of the chrome.exe process appears consistent with normal browser behavior, as it is connecting to a variety of IP addresses that might be typical for web browsing or content delivery, resulting in a low threat probability score of 2.
+[2026-09-03 13:28:26] [REVIEW]     msedge.exe       104.18.41.41 (Toronto, CA)                 3080  
+[2026-09-03 13:28:32] [REVIEW]     msedge.exe       150.171.109.151 (Cape Town, ZA)            3080  
+[2026-09-03 13:28:32] [TRUSTED]    msedge.exe       a96-7-181-24.deploy.static.akamaitechnologies.com (El Segundo, US) 3080  
