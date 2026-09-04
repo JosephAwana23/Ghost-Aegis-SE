@@ -1,5 +1,6 @@
 import os
 import sys
+import ctypes
 import platform
 import subprocess
 import threading
@@ -11,15 +12,20 @@ from pathlib import Path
 from datetime import datetime, timedelta
 import psutil
 import customtkinter as ctk
+from tkinter import filedialog
 from dotenv import load_dotenv
 from incident_store import (
     Incident,
     append_incident,
     calculate_risk,
+    build_attack_story,
+    export_incident_report,
     get_authenticode_signer,
     load_incidents,
 )
 from persistence_audit import collect_persistence_entries
+from canary_guard import CanaryGuard
+from network_behavior import NetworkBehaviorStore
 
 # Load environment secrets
 load_dotenv(dotenv_path=Path(__file__).resolve().with_name(".env"))
@@ -93,8 +99,16 @@ def allow_ip(ip_address: str) -> str:
     """Removes an active firewall block rule for a given IP."""
     rule_name = f"GhostAegis_Block_{ip_address}"
     remove_cmd = ["netsh", "advfirewall", "firewall", "delete", "rule", f"name={rule_name}"]
-    subprocess.run(remove_cmd, capture_output=True, text=True)
-    return f"[+] Cleared firewall block for IP: {ip_address}"
+    try:
+        result = subprocess.run(
+            remove_cmd, capture_output=True, text=True, check=False,
+        )
+        if result.returncode == 0:
+            return f"[+] Cleared firewall block for IP: {ip_address}"
+        error = result.stderr.strip() or result.stdout.strip() or "unknown error"
+        return f"[-] Failed to clear firewall block for IP {ip_address}: {error}"
+    except OSError as error:
+        return f"[-] Failed to clear firewall block for IP {ip_address}: {error}"
 
 
 class GhostAegisApp(ctk.CTk):
@@ -104,6 +118,9 @@ class GhostAegisApp(ctk.CTk):
         # --- 1. INITIAL STATE ---
         self.radar_enabled = False
         self.host_isolated = False
+        self.canary_enabled = False
+        self.canary_guard = CanaryGuard()
+        self.network_behavior = NetworkBehaviorStore()
         self.title("Ghost-Aegis | Defensive Suite SE")
         self.geometry("980x880")
 
@@ -150,102 +167,162 @@ class GhostAegisApp(ctk.CTk):
         ).pack(pady=10)
 
         # --- 3. ACCESS CONTROL BUTTONS (Left Column) ---
-        self.jit_button = ctk.CTkButton(self.left_frame, text="JIT Admin (15m Auto-Demote)", command=self.run_jit)
-        self.jit_button.pack(pady=8, padx=20)
+        self._add_panel_section(self.left_frame, "IDENTITY & ACCESS")
+        self.jit_button = ctk.CTkButton(
+            self.left_frame, text="JIT Admin (15m Auto-Demote)",
+            width=280, command=self.run_jit,
+        )
+        self.jit_button.pack(pady=4, padx=20)
 
-        self.audit_button = ctk.CTkButton(self.left_frame, text="Audit Admins", command=self.run_audit)
-        self.audit_button.pack(pady=8, padx=20)
+        self.audit_button = ctk.CTkButton(
+            self.left_frame, text="Audit Admins", width=280, command=self.run_audit,
+        )
+        self.audit_button.pack(pady=4, padx=20)
 
-        self.info_button = ctk.CTkButton(self.left_frame, text="System Architecture", command=self.show_sys_info)
-        self.info_button.pack(pady=8, padx=20)
+        self.info_button = ctk.CTkButton(
+            self.left_frame, text="System Architecture", width=280, command=self.show_sys_info,
+        )
+        self.info_button.pack(pady=4, padx=20)
+
+        self._add_panel_section(self.left_frame, "TELEMETRY & REVIEW")
 
         self.interfaces_button = ctk.CTkButton(
             self.left_frame,
             text="Interface Telemetry",
+            width=280,
             command=self.run_interface_telemetry,
         )
-        self.interfaces_button.pack(pady=8, padx=20)
+        self.interfaces_button.pack(pady=4, padx=20)
 
         self.incidents_button = ctk.CTkButton(
             self.left_frame,
             text="View Incident Evidence",
+            width=280,
             command=self.show_incidents_window,
         )
-        self.incidents_button.pack(pady=8, padx=20)
+        self.incidents_button.pack(pady=4, padx=20)
+
+        self.report_button = ctk.CTkButton(
+            self.left_frame,
+            text="Export Investigation Report",
+            width=280,
+            command=self.export_report,
+        )
+        self.report_button.pack(pady=4, padx=20)
 
         self.persistence_button = ctk.CTkButton(
             self.left_frame,
             text="Audit Persistence",
+            width=280,
             command=self.run_persistence_audit,
         )
-        self.persistence_button.pack(pady=8, padx=20)
+        self.persistence_button.pack(pady=4, padx=20)
+
+        self.readiness_button = ctk.CTkButton(
+            self.left_frame,
+            text="System Readiness Check",
+            width=280,
+            command=self.run_readiness_check,
+        )
+        self.readiness_button.pack(pady=4, padx=20)
+
+        self._add_panel_section(self.left_frame, "ACTIVE PROTECTION")
+
+        self.canary_button = ctk.CTkButton(
+            self.left_frame,
+            text="Start Canary Shield",
+            width=280,
+            fg_color="#1f538d",
+            hover_color="#14375e",
+            command=self.toggle_canary_shield,
+        )
+        self.canary_button.pack(pady=4, padx=20)
 
         self.engine_button = ctk.CTkButton(
             self.left_frame,
             text="Launch Defense Engine",
+            width=280,
             fg_color="#4B0082",
             hover_color="#300052",
             command=self.run_defense_engine,
         )
-        self.engine_button.pack(pady=8, padx=20)
+        self.engine_button.pack(pady=4, padx=20)
 
         self.about_button = ctk.CTkButton(
             self.left_frame,
             text="About Ghost-Aegis",
+            width=280,
             fg_color="gray",
             hover_color="#333333",
             command=self.show_about_window
         )
-        self.about_button.pack(pady=8, padx=20)
+        self.about_button.pack(pady=4, padx=20)
 
         # --- 4. SYSTEM DEFENSE BUTTONS (Right Column) ---
+        self._add_panel_section(self.right_frame, "CONTAINMENT")
         self.stealth_button = ctk.CTkButton(
             self.right_frame,
             text="Stealth Mode (Drop ICMP)",
+            width=280,
             fg_color="purple",
             hover_color="#5a2d82",
             command=self.run_stealth
         )
-        self.stealth_button.pack(pady=8, padx=20)
+        self.stealth_button.pack(pady=4, padx=20)
 
         self.clean_button = ctk.CTkButton(
             self.right_frame,
             text="Emergency Clean (DNS/ARP)",
+            width=280,
             fg_color="#880808",
             hover_color="#660000",
             command=self.run_cleanup
         )
-        self.clean_button.pack(pady=8, padx=20)
+        self.clean_button.pack(pady=4, padx=20)
 
         self.isolate_button = ctk.CTkButton(
             self.right_frame,
             text="Host Isolation (Air-Gap)",
+            width=280,
             fg_color="#7B1113",
             hover_color="#4D0000",
             command=self.toggle_host_isolation
         )
-        self.isolate_button.pack(pady=8, padx=20)
+        self.isolate_button.pack(pady=4, padx=20)
+
+        self._add_panel_section(self.right_frame, "NETWORK MONITORING")
 
         self.sentinel_button = ctk.CTkButton(
             self.right_frame,
             text="Network Sentinel Audit",
+            width=280,
             fg_color="#1f538d",
             command=self.network_sentinel_callback
         )
-        self.sentinel_button.pack(pady=8, padx=20)
+        self.sentinel_button.pack(pady=4, padx=20)
 
         self.radar_button = ctk.CTkButton(
             self.right_frame,
             text="Start Radar (30s Loop)",
+            width=280,
             fg_color="#1f538d",
             hover_color="#14375e",
             command=self.toggle_radar
         )
-        self.radar_button.pack(pady=8, padx=20)
+        self.radar_button.pack(pady=4, padx=20)
+
+        self.network_dashboard_button = ctk.CTkButton(
+            self.right_frame,
+            text="Network Trust Dashboard",
+            width=280,
+            command=self.show_network_dashboard,
+        )
+        self.network_dashboard_button.pack(pady=4, padx=20)
 
         # Killswitch & AI Evaluation Group
+        self._add_panel_section(self.right_frame, "PROCESS RESPONSE")
         self.kill_frame = ctk.CTkFrame(self.right_frame, fg_color="transparent")
-        self.kill_frame.pack(pady=10, padx=20)
+        self.kill_frame.pack(pady=6, padx=20)
 
         self.pid_entry = ctk.CTkEntry(self.kill_frame, placeholder_text="PID...", width=80)
         self.pid_entry.pack(side="left", padx=(0, 5))
@@ -295,6 +372,20 @@ class GhostAegisApp(ctk.CTk):
 
         self.check_queue()
         self.log_event("Ghost-Aegis Defensive Suite initialized. Ready.", "trusted")
+
+    @staticmethod
+    def _add_panel_section(parent, title):
+        ctk.CTkLabel(
+            parent,
+            text=title,
+            anchor="w",
+            font=("Consolas", 10, "bold"),
+            text_color="#7fb3d5",
+        ).pack(fill="x", padx=20, pady=(10, 3))
+
+    def destroy(self):
+        self.canary_guard.stop()
+        super().destroy()
 
     # --- ABOUT DIALOG ---
     def show_about_window(self):
@@ -358,6 +449,191 @@ class GhostAegisApp(ctk.CTk):
             incidents_win, text="CLOSE", fg_color="#444444",
             command=incidents_win.destroy,
         ).pack(pady=(0, 12))
+## ------------------------------
+    def export_report(self):
+        destination = filedialog.asksaveasfilename(
+            title="Export Ghost-Aegis Investigation Report",
+            defaultextension=".txt",
+            filetypes=[("Text report", "*.txt"), ("All files", "*.*")],
+        )
+        if not destination:
+            return
+        try:
+            report_path = export_incident_report(destination)
+            self.log_event(f"[+] Investigation report exported: {report_path}", "trusted")
+        except OSError as error:
+            self.log_event(f"Report export failed: {error}", "threat")
+
+    def show_network_dashboard(self):
+        dashboard = ctk.CTkToplevel(self)
+        dashboard.title("Ghost-Aegis | Network Trust Dashboard")
+        dashboard.geometry("1120x620")
+        dashboard.attributes("-topmost", True)
+
+        ctk.CTkLabel(
+            dashboard,
+            text="LIVE NETWORK TRUST DASHBOARD",
+            font=("Consolas", 14, "bold"),
+            text_color="#00E5FF",
+        ).pack(pady=(15, 4))
+        ctk.CTkLabel(
+            dashboard,
+            text="Review-only snapshot of active external connections and observed behavior",
+            font=("Arial", 10),
+            text_color="#9aa7b2",
+        ).pack(pady=(0, 10))
+
+        dashboard_box = ctk.CTkTextbox(
+            dashboard,
+            font=("Consolas", 11),
+            fg_color="#000000",
+            text_color="#00FF00",
+        )
+        dashboard_box.pack(fill="both", expand=True, padx=15, pady=5)
+
+        controls = ctk.CTkFrame(dashboard, fg_color="transparent")
+        controls.pack(fill="x", padx=15, pady=(5, 0))
+        search_entry = ctk.CTkEntry(
+            controls, placeholder_text="Search process, IP, port, or path...", width=300,
+        )
+        search_entry.pack(side="left", padx=(0, 8))
+        filter_menu = ctk.CTkOptionMenu(
+            controls,
+            values=["All", "First seen", "Beacon-like", "Review"],
+            width=125,
+        )
+        filter_menu.pack(side="left", padx=4)
+        sort_menu = ctk.CTkOptionMenu(
+            controls,
+            values=["Risk", "Sightings", "Process"],
+            width=110,
+        )
+        sort_menu.pack(side="left", padx=4)
+
+        def refresh():
+            dashboard_box.configure(state="normal")
+            dashboard_box.delete("1.0", "end")
+            dashboard_box.insert(
+                "end",
+                f"{'PROCESS':<18} {'DESTINATION':<24} {'PORT':<6} "
+                f"{'SIGHTINGS':<10} {'FIRST SEEN':<11} {'BEACON':<8}\n"
+                + "-" * 90 + "\n",
+            )
+            query = search_entry.get().strip().lower()
+            selected_filter = filter_menu.get()
+            selected_sort = sort_menu.get()
+            rows = self._network_dashboard_rows()
+            rows = [
+                row for row in rows
+                if not query or query in " ".join(
+                    str(row[field]).lower()
+                    for field in ("process", "destination", "port", "path")
+                )
+            ]
+            if selected_filter == "First seen":
+                rows = [row for row in rows if row["first_seen"]]
+            elif selected_filter == "Beacon-like":
+                rows = [row for row in rows if row["beacon"]]
+            elif selected_filter == "Review":
+                rows = [row for row in rows if row["risk"] == "REVIEW"]
+            if selected_sort == "Sightings":
+                rows.sort(key=lambda row: row["sightings"], reverse=True)
+            elif selected_sort == "Process":
+                rows.sort(key=lambda row: row["process"].lower())
+            if not rows:
+                dashboard_box.insert("end", "No active external connections detected.\n")
+            for row in rows:
+                dashboard_box.insert(
+                    "end",
+                    f"{row['process'][:17]:<18} {row['destination'][:23]:<24} "
+                    f"{row['port']:<6} {row['sightings']:<10} "
+                    f"{str(row['first_seen']):<11} {str(row['beacon']):<8}\n"
+                    f"  Path: {row['path']}\n"
+                    f"  Trust: {row['trust']} | Risk: {row['risk']}\n\n",
+                )
+            dashboard_box.configure(state="disabled")
+
+        action_controls = ctk.CTkFrame(dashboard, fg_color="transparent")
+        action_controls.pack(fill="x", padx=15, pady=(5, 12))
+        ctk.CTkButton(action_controls, text="Refresh Snapshot", width=150, command=refresh).pack(side="left")
+        ctk.CTkButton(
+            action_controls, text="CLOSE", width=100, fg_color="#444444",
+            command=dashboard.destroy,
+        ).pack(side="right")
+        search_entry.bind("<Return>", lambda _event: refresh())
+        filter_menu.configure(command=lambda _value: refresh())
+        sort_menu.configure(command=lambda _value: refresh())
+        refresh()
+
+    def _network_dashboard_rows(self):
+        rows = []
+        try:
+            connections = psutil.net_connections(kind="inet")
+        except psutil.Error:
+            return rows
+        for connection in connections:
+            if connection.status != psutil.CONN_ESTABLISHED or not connection.raddr or not connection.pid:
+                continue
+            remote_ip = connection.raddr.ip
+            if remote_ip in {"127.0.0.1", "0.0.0.0", "::1"}:
+                continue
+            try:
+                process = psutil.Process(connection.pid)
+                process_name = process.name()
+                executable = process.exe()
+            except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
+                process_name = "Unknown"
+                executable = "Unavailable"
+            port = str(connection.raddr.port)
+            observation = self.network_behavior.get_observation(process_name, remote_ip, port)
+            trust = "BEACON-LIKE" if observation["beacon"] else "FIRST-SEEN" if observation["first_seen"] else "OBSERVED"
+            risk = "REVIEW" if observation["beacon"] or observation["first_seen"] else "KNOWN"
+            rows.append({
+                "process": process_name,
+                "destination": remote_ip,
+                "port": port,
+                "sightings": observation["sightings"],
+                "first_seen": observation["first_seen"],
+                "beacon": observation["beacon"],
+                "path": executable,
+                "trust": trust,
+                "risk": risk,
+            })
+        return sorted(rows, key=lambda row: (row["risk"], row["process"].lower()))
+
+    def toggle_canary_shield(self):
+        if self.canary_enabled:
+            self.canary_guard.stop()
+            self.canary_enabled = False
+            self.canary_button.configure(text="Start Canary Shield", fg_color="#1f538d")
+            self.log_event("[*] Canary Shield stopped.", "review")
+            return
+
+        started = self.canary_guard.start(self._canary_finding_callback)
+        if started:
+            self.canary_enabled = True
+            self.canary_button.configure(text="Stop Canary Shield", fg_color="#e67e22")
+            self.log_event("[+] Canary Shield active: monitoring three protected files.", "trusted")
+
+    def _canary_finding_callback(self, finding):
+        path = finding["path"]
+        action = finding["action"]
+        incident = Incident(
+            process="Unknown",
+            pid=0,
+            path=path,
+            risk_score=85,
+            reasons=[f"canary file {action.lower()}"],
+            recommended_action="suspend_and_review",
+        )
+        try:
+            append_incident(incident)
+        except OSError as error:
+            self._queue_log(f"Canary incident record failed: {error}", "warn")
+        self._queue_log(
+            f"[CANARY ALERT] {action}: {path}. Review active processes immediately.",
+            "threat",
+        )
 
     # --- THREAD-SAFE QUEUE PROCESSING ---
     def check_queue(self):
@@ -368,7 +644,7 @@ class GhostAegisApp(ctk.CTk):
                     self.scan_thread_running = False
                     self.sentinel_button.configure(state="normal", text="Network Sentinel Audit")
                     if self.radar_enabled:
-                        self.after(30000, self.network_sentinel_callback)
+                        self.after(30000, self._run_scheduled_radar_scan)
                 elif message == "__ai_eval_complete__":
                     self.ai_eval_button.configure(state="normal")
                 elif message == "__interfaces_complete__":
@@ -388,6 +664,10 @@ class GhostAegisApp(ctk.CTk):
     def _queue_log(self, message, tag=None):
         self.log_queue.put((message, tag))
 
+    def _run_scheduled_radar_scan(self):
+        if self.radar_enabled:
+            self.network_sentinel_callback()
+
     def log_event(self, message, tag=None):
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         log_entry = f"[{timestamp}] {message}\n"
@@ -399,9 +679,9 @@ class GhostAegisApp(ctk.CTk):
 
         self.console.configure(state="normal")
         if tag:
-            self.console.insert("end", log_entry, tag)
+            self.console.insert("end", log_entry + "\n", tag)
         else:
-            self.console.insert("end", log_entry)
+            self.console.insert("end", log_entry + "\n")
         self.console.configure(state="disabled")
         self.console.see("end")
 
@@ -490,6 +770,45 @@ class GhostAegisApp(ctk.CTk):
             self._queue_log(f"Persistence audit failed: {error}", "threat")
         finally:
             self.log_queue.put(("__persistence_complete__", None))
+
+    def run_readiness_check(self):
+        """Report prerequisites without changing system state."""
+        is_admin = bool(ctypes.windll.shell32.IsUserAnAdmin()) if os.name == "nt" else False
+        self.log_event("--- Ghost-Aegis Readiness Check ---", "system")
+        self.log_event(
+            f"Administrator privileges: {'READY' if is_admin else 'LIMITED'}",
+            "trusted" if is_admin else "warn",
+        )
+        firewall_status = self._firewall_readiness()
+        self.log_event(
+            f"Windows Firewall query: {firewall_status}",
+            "trusted" if firewall_status == "READY" else "warn",
+        )
+        self.log_event(
+            f"Optional AbuseIPDB enrichment: "
+            f"{'CONFIGURED' if os.getenv('ABUSEIPDB_API_KEY') else 'NOT CONFIGURED'}",
+            "trusted" if os.getenv("ABUSEIPDB_API_KEY") else "review",
+        )
+        self.log_event(
+            f"Optional AI enrichment: "
+            f"{'CONFIGURED' if os.getenv('GEMINI_API_KEY') or os.getenv('OPENAI_API_KEY') else 'NOT CONFIGURED'}",
+            "trusted" if os.getenv("GEMINI_API_KEY") or os.getenv("OPENAI_API_KEY") else "review",
+        )
+        self.log_event("Incident history: READY", "trusted")
+        self.log_event("Readiness check complete. No system changes were made.", "system")
+
+    @staticmethod
+    def _firewall_readiness():
+        if os.name != "nt":
+            return "UNAVAILABLE"
+        try:
+            result = subprocess.run(
+                ["netsh", "advfirewall", "show", "allprofiles", "state"],
+                capture_output=True, text=True, timeout=5, check=False,
+            )
+            return "READY" if result.returncode == 0 else "UNAVAILABLE"
+        except (OSError, subprocess.SubprocessError):
+            return "UNAVAILABLE"
 
     def run_defense_engine(self):
         if self.engine_thread_running:
@@ -649,6 +968,27 @@ class GhostAegisApp(ctk.CTk):
 
                     display_host = f"{hostname} ({location})"
                     status, tag_name = "[REVIEW]", "review"
+                    remote_port = parts[2].rsplit(":", 1)[-1]
+                    try:
+                        behavior = self.network_behavior.observe(
+                            proc_name, ip_only, remote_port,
+                        )
+                    except OSError as history_error:
+                        behavior = {"first_seen": False, "beacon": False}
+                        self._queue_log(
+                            f"Network history unavailable: {history_error}", "warn"
+                        )
+                    if behavior["first_seen"]:
+                        self._queue_log(
+                            f"[NEW DESTINATION] {proc_name} -> {ip_only}:{remote_port}",
+                            "review",
+                        )
+                    if behavior["beacon"]:
+                        self._queue_log(
+                            f"[BEACON PATTERN] {proc_name} repeatedly contacts "
+                            f"{ip_only}:{remote_port} at regular intervals.",
+                            "warn",
+                        )
                     signer = get_authenticode_signer(exe_path)
                     reputation = 0
                     trusted_process = False

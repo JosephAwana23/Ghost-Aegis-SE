@@ -90,3 +90,37 @@ def load_incidents(filepath="logs/incidents.jsonl") -> list[dict[str, Any]]:
             except json.JSONDecodeError:
                 continue
     return incidents
+
+
+def build_attack_story(incidents: list[dict[str, Any]]) -> list[str]:
+    """Convert raw records into a concise chronological investigation story."""
+    story = []
+    for incident in sorted(incidents, key=lambda item: item.get("timestamp", "")):
+        process = incident.get("process", "unknown")
+        pid = incident.get("pid", "?")
+        remote_ip = incident.get("remote_ip") or "no remote address"
+        risk = incident.get("risk_score", 0)
+        reasons = "; ".join(incident.get("reasons", []))
+        story.append(
+            f"{incident.get('timestamp', 'unknown')}: {process} (PID {pid}) "
+            f"connected to {remote_ip}; risk {risk}/100. Evidence: {reasons}"
+        )
+    return story
+
+
+def export_incident_report(filepath="logs/ghost_aegis_report.txt", incidents=None):
+    """Write a portable human-readable report for incident review."""
+    incidents = load_incidents() if incidents is None else incidents
+    path = Path(filepath)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8") as stream:
+        stream.write("GHOST-AEGIS INCIDENT REPORT\n")
+        stream.write("=" * 30 + "\n\n")
+        stream.write(f"Incidents recorded: {len(incidents)}\n\n")
+        stream.write("ATTACK STORY\n------------\n")
+        for item in build_attack_story(incidents):
+            stream.write(f"- {item}\n")
+        stream.write("\nRAW EVIDENCE\n------------\n")
+        for incident in incidents:
+            stream.write(json.dumps(incident, ensure_ascii=True) + "\n")
+    return str(path)
