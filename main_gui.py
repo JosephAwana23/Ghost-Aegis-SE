@@ -122,67 +122,71 @@ class GhostAegisApp(ctk.CTk):
         self.canary_guard = CanaryGuard()
         self.network_behavior = NetworkBehaviorStore()
         self.title("Ghost-Aegis | Defensive Suite SE")
-        self.geometry("980x880")
+        
+        # Sized to fit comfortably on 1080p displays with room to expand
+        self.geometry("1200x900")
+        self.minsize(1000, 700)
 
         # --- 2. BUILD THE UI CONTAINERS ---
         self.label = ctk.CTkLabel(
             self,
             text="GHOST-AEGIS",
-            font=("Fixedsys", 32, "bold"),
+            font=("Fixedsys", 28, "bold"),
             text_color="#00FF00"
         )
-        self.label.pack(pady=15)
+        self.label.pack(pady=(10, 5))
 
         self.status_frame = ctk.CTkFrame(self, fg_color="#1a1a1a")
-        self.status_frame.pack(pady=5, padx=20, fill="x")
+        self.status_frame.pack(pady=4, padx=20, fill="x")
         self.status_label = ctk.CTkLabel(
             self.status_frame,
             text="🛡️ SYSTEM HARDENED & MONITORED",
             text_color="#00FF00",
-            font=("Consolas", 14, "bold")
+            font=("Consolas", 13, "bold")
         )
-        self.status_label.pack(pady=5)
+        self.status_label.pack(pady=4)
 
+        # Container packs compact horizontally without vertically crowding out the console
         self.button_container = ctk.CTkFrame(self, fg_color="transparent")
-        self.button_container.pack(pady=10, fill="both", expand=True)
+        self.button_container.pack(pady=6, padx=15, fill="x", expand=False)
 
         # Left Column: Access Control & System Metrics
         self.left_frame = ctk.CTkFrame(self.button_container)
-        self.left_frame.pack(side="left", padx=10, pady=5, fill="both", expand=True)
+        self.left_frame.pack(side="left", padx=8, pady=2, fill="both", expand=True)
         ctk.CTkLabel(
             self.left_frame,
             text="ACCESS CONTROL & ENGINES",
-            font=("Arial", 12, "bold"),
+            font=("Arial", 11, "bold"),
             text_color="#3b8ed0"
-        ).pack(pady=10)
+        ).pack(pady=(6, 2))
 
         # Right Column: System Defense & Containment
         self.right_frame = ctk.CTkFrame(self.button_container)
-        self.right_frame.pack(side="right", padx=10, pady=5, fill="both", expand=True)
+        self.right_frame.pack(side="right", padx=8, pady=2, fill="both", expand=True)
         ctk.CTkLabel(
             self.right_frame,
             text="CONTAINMENT & NETWORK SENTINEL",
-            font=("Arial", 12, "bold"),
+            font=("Arial", 11, "bold"),
             text_color="#3b8ed0"
-        ).pack(pady=10)
+        ).pack(pady=(6, 2))
 
         # --- 3. ACCESS CONTROL BUTTONS (Left Column) ---
         self._add_panel_section(self.left_frame, "IDENTITY & ACCESS")
         self.jit_button = ctk.CTkButton(
             self.left_frame, text="JIT Admin (15m Auto-Demote)",
-            width=280, command=self.run_jit,
+            width=280, height=28, command=self.run_jit,
         )
-        self.jit_button.pack(pady=4, padx=20)
+        self.jit_button.pack(pady=2, padx=15)
 
         self.audit_button = ctk.CTkButton(
-            self.left_frame, text="Audit Admins", width=280, command=self.run_audit,
+            self.left_frame, text="Audit Admins", width=280, height=28, command=self.run_audit,
         )
-        self.audit_button.pack(pady=4, padx=20)
+        self.audit_button.pack(pady=2, padx=15)
 
         self.info_button = ctk.CTkButton(
-            self.left_frame, text="System Architecture", width=280, command=self.show_sys_info,
+            self.left_frame, text="System Architecture", width=280, height=28, command=self.show_sys_info,
         )
-        self.info_button.pack(pady=4, padx=20)
+        self.info_button.pack(pady=2, padx=15)
 
         self._add_panel_section(self.left_frame, "TELEMETRY & REVIEW")
 
@@ -190,41 +194,46 @@ class GhostAegisApp(ctk.CTk):
             self.left_frame,
             text="Interface Telemetry",
             width=280,
+            height=28,
             command=self.run_interface_telemetry,
         )
-        self.interfaces_button.pack(pady=4, padx=20)
+        self.interfaces_button.pack(pady=2, padx=15)
 
         self.incidents_button = ctk.CTkButton(
             self.left_frame,
             text="View Incident Evidence",
             width=280,
+            height=28,
             command=self.show_incidents_window,
         )
-        self.incidents_button.pack(pady=4, padx=20)
+        self.incidents_button.pack(pady=2, padx=15)
 
         self.report_button = ctk.CTkButton(
             self.left_frame,
             text="Export Investigation Report",
             width=280,
+            height=28,
             command=self.export_report,
         )
-        self.report_button.pack(pady=4, padx=20)
+        self.report_button.pack(pady=2, padx=15)
 
         self.persistence_button = ctk.CTkButton(
             self.left_frame,
             text="Audit Persistence",
             width=280,
+            height=28,
             command=self.run_persistence_audit,
         )
-        self.persistence_button.pack(pady=4, padx=20)
+        self.persistence_button.pack(pady=2, padx=15)
 
         self.readiness_button = ctk.CTkButton(
             self.left_frame,
             text="System Readiness Check",
             width=280,
+            height=28,
             command=self.run_readiness_check,
         )
-        self.readiness_button.pack(pady=4, padx=20)
+        self.readiness_button.pack(pady=2, padx=15)
 
         self._add_panel_section(self.left_frame, "ACTIVE PROTECTION")
 
@@ -232,31 +241,34 @@ class GhostAegisApp(ctk.CTk):
             self.left_frame,
             text="Start Canary Shield",
             width=280,
+            height=28,
             fg_color="#1f538d",
             hover_color="#14375e",
             command=self.toggle_canary_shield,
         )
-        self.canary_button.pack(pady=4, padx=20)
+        self.canary_button.pack(pady=2, padx=15)
 
         self.engine_button = ctk.CTkButton(
             self.left_frame,
             text="Launch Defense Engine",
             width=280,
+            height=28,
             fg_color="#4B0082",
             hover_color="#300052",
             command=self.run_defense_engine,
         )
-        self.engine_button.pack(pady=4, padx=20)
+        self.engine_button.pack(pady=2, padx=15)
 
         self.about_button = ctk.CTkButton(
             self.left_frame,
             text="About Ghost-Aegis",
             width=280,
+            height=28,
             fg_color="gray",
             hover_color="#333333",
             command=self.show_about_window
         )
-        self.about_button.pack(pady=4, padx=20)
+        self.about_button.pack(pady=2, padx=15)
 
         # --- 4. SYSTEM DEFENSE BUTTONS (Right Column) ---
         self._add_panel_section(self.right_frame, "CONTAINMENT")
@@ -264,31 +276,34 @@ class GhostAegisApp(ctk.CTk):
             self.right_frame,
             text="Stealth Mode (Drop ICMP)",
             width=280,
+            height=28,
             fg_color="purple",
             hover_color="#5a2d82",
             command=self.run_stealth
         )
-        self.stealth_button.pack(pady=4, padx=20)
+        self.stealth_button.pack(pady=2, padx=15)
 
         self.clean_button = ctk.CTkButton(
             self.right_frame,
             text="Emergency Clean (DNS/ARP)",
             width=280,
+            height=28,
             fg_color="#880808",
             hover_color="#660000",
             command=self.run_cleanup
         )
-        self.clean_button.pack(pady=4, padx=20)
+        self.clean_button.pack(pady=2, padx=15)
 
         self.isolate_button = ctk.CTkButton(
             self.right_frame,
             text="Host Isolation (Air-Gap)",
             width=280,
+            height=28,
             fg_color="#7B1113",
             hover_color="#4D0000",
             command=self.toggle_host_isolation
         )
-        self.isolate_button.pack(pady=4, padx=20)
+        self.isolate_button.pack(pady=2, padx=15)
 
         self._add_panel_section(self.right_frame, "NETWORK MONITORING")
 
@@ -296,35 +311,38 @@ class GhostAegisApp(ctk.CTk):
             self.right_frame,
             text="Network Sentinel Audit",
             width=280,
+            height=28,
             fg_color="#1f538d",
             command=self.network_sentinel_callback
         )
-        self.sentinel_button.pack(pady=4, padx=20)
+        self.sentinel_button.pack(pady=2, padx=15)
 
         self.radar_button = ctk.CTkButton(
             self.right_frame,
             text="Start Radar (30s Loop)",
             width=280,
+            height=28,
             fg_color="#1f538d",
             hover_color="#14375e",
             command=self.toggle_radar
         )
-        self.radar_button.pack(pady=4, padx=20)
+        self.radar_button.pack(pady=2, padx=15)
 
         self.network_dashboard_button = ctk.CTkButton(
             self.right_frame,
             text="Network Trust Dashboard",
             width=280,
+            height=28,
             command=self.show_network_dashboard,
         )
-        self.network_dashboard_button.pack(pady=4, padx=20)
+        self.network_dashboard_button.pack(pady=2, padx=15)
 
         # Killswitch & AI Evaluation Group
         self._add_panel_section(self.right_frame, "PROCESS RESPONSE")
         self.kill_frame = ctk.CTkFrame(self.right_frame, fg_color="transparent")
-        self.kill_frame.pack(pady=6, padx=20)
+        self.kill_frame.pack(pady=3, padx=15)
 
-        self.pid_entry = ctk.CTkEntry(self.kill_frame, placeholder_text="PID...", width=80)
+        self.pid_entry = ctk.CTkEntry(self.kill_frame, placeholder_text="PID...", width=80, height=28)
         self.pid_entry.pack(side="left", padx=(0, 5))
 
         self.kill_button = ctk.CTkButton(
@@ -332,7 +350,8 @@ class GhostAegisApp(ctk.CTk):
             text="Kill PID",
             fg_color="#880808",
             hover_color="#660000",
-            width=75,
+            width=80,
+            height=28,
             command=self.terminate_process_callback
         )
         self.kill_button.pack(side="left", padx=(0, 5))
@@ -342,21 +361,21 @@ class GhostAegisApp(ctk.CTk):
             text="Dual-AI Eval",
             fg_color="#4B0082",
             hover_color="#300052",
-            width=85,
+            width=95,
+            height=28,
             command=self.run_dual_ai_eval
         )
         self.ai_eval_button.pack(side="left")
 
-        # --- 5. LOGGING CONSOLE ---
+        # --- 5. LOGGING CONSOLE (EXPANDED DYNAMICALLY) ---
         self.console = ctk.CTkTextbox(
             self,
-            height=380,
-            width=940,
             font=("Consolas", 12),
             fg_color="#000000",
             text_color="#00FF00"
         )
-        self.console.pack(pady=15, padx=20)
+        # expand=True and fill="both" let the console claim all remaining vertical space
+        self.console.pack(pady=(6, 15), padx=20, fill="both", expand=True)
 
         # High-visibility Dark Mode Log Tags
         self.console.tag_config("threat", foreground="#FF3333")   # Neon Red
@@ -381,7 +400,7 @@ class GhostAegisApp(ctk.CTk):
             anchor="w",
             font=("Consolas", 10, "bold"),
             text_color="#7fb3d5",
-        ).pack(fill="x", padx=20, pady=(10, 3))
+        ).pack(fill="x", padx=15, pady=(5, 1))
 
     def destroy(self):
         self.canary_guard.stop()
@@ -449,7 +468,7 @@ class GhostAegisApp(ctk.CTk):
             incidents_win, text="CLOSE", fg_color="#444444",
             command=incidents_win.destroy,
         ).pack(pady=(0, 12))
-## ------------------------------
+
     def export_report(self):
         destination = filedialog.asksaveasfilename(
             title="Export Ghost-Aegis Investigation Report",
@@ -701,7 +720,6 @@ class GhostAegisApp(ctk.CTk):
                     except Exception as err:
                         self._queue_log(f"⚠️ [JIT DEMOTION FAILED] Could not demote {target_user}: {err}", "threat")
 
-                # Actual 15-minute background timer (900 seconds)
                 demote_timer = threading.Timer(900.0, revoke_admin)
                 demote_timer.daemon = True
                 demote_timer.start()
@@ -993,8 +1011,6 @@ class GhostAegisApp(ctk.CTk):
                     reputation = 0
                     trusted_process = False
 
-                    # Heuristic 1: Staged execution path
-                    # Heuristic 2: Known trusted domains / system binaries
                     if any(d in hostname.lower() for d in trusted_domains):
                         status, tag_name = "[TRUSTED]", "trusted"
                         trusted_process = True

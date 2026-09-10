@@ -3145,3 +3145,229 @@ The command completed successfully.
 [2026-09-03 14:23:37] [REVIEW]     chrome.exe       ec2-34-204-184-138.compute-1.amazonaws.com (Ashburn, US) | RISK: 0/100 10264 
 [2026-09-03 14:23:37]    Evidence: no high-confidence evidence | Signer: CN=Google LLC, O=Google LLC, L=Mountain View, S=California, C=US, SERIALNUMBER=3582691, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=Delaware, OID.1.3.6.1.4.1.311.60.2.1.3=US
 [2026-09-03 23:36:20] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-06 08:35:04] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-06 08:35:14] [*] Network Sentinel starting deep socket audit...
+[2026-09-06 08:35:14] STATUS       PROCESS          REMOTE HOST / LOCATION                     PID   
+[2026-09-06 08:35:19] [NEW DESTINATION] svchost.exe -> 128.85.75.152:443
+[2026-09-06 08:35:19] [SYSTEM]     svchost.exe      128.85.75.152 (Quincy, US) | RISK: 0/100   10364 
+[2026-09-06 08:35:19]    Evidence: known system process reduced the score | Signer: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-06 08:35:24] [NEW DESTINATION] Code.exe -> 18.65.3.13:443
+[2026-09-06 08:35:26] [REVIEW]     Code.exe         server-18-65-3-13.lax50.r.cloudfront.net (San Jose, US) | RISK: 0/100 21004 
+[2026-09-06 08:35:26]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-06 08:35:32] [TRUSTED]    Code.exe         lb-140-82-114-22-iad.github.com (San Francisco, US) | RISK: 0/100 8620  
+[2026-09-06 08:35:32]    Evidence: known system process reduced the score | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-06 08:35:34] [TRUSTED]    Code.exe         lb-140-82-114-22-iad.github.com (San Francisco, US) | RISK: 0/100 21004 
+[2026-09-06 08:35:34]    Evidence: known system process reduced the score | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-06 08:35:39] [NEW DESTINATION] Code.exe -> 20.42.73.28:443
+[2026-09-06 08:35:41] [REVIEW]     Code.exe         20.42.73.28 (Boydton, US) | RISK: 10/100   21004 
+[2026-09-06 08:35:41]    Evidence: remote IP reputation needs review (26%) | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-06 08:35:46] [NEW DESTINATION] chrome.exe -> 140.82.112.21:443
+[2026-09-06 08:35:46] [TRUSTED]    chrome.exe       lb-140-82-112-21-iad.github.com (San Francisco, US) | RISK: 0/100 16184 
+[2026-09-06 08:35:46]    Evidence: known system process reduced the score | Signer: CN=Google LLC, O=Google LLC, L=Mountain View, S=California, C=US, SERIALNUMBER=3582691, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=Delaware, OID.1.3.6.1.4.1.311.60.2.1.3=US
+[2026-09-06 08:35:46] [NEW DESTINATION] chrome.exe -> 99.84.41.127:443
+[2026-09-06 08:35:47] [REVIEW]     chrome.exe       server-99-84-41-127.lax54.r.cloudfront.net (Los Angeles, US) | RISK: 0/100 16184 
+[2026-09-06 08:35:47]    Evidence: no high-confidence evidence | Signer: CN=Google LLC, O=Google LLC, L=Mountain View, S=California, C=US, SERIALNUMBER=3582691, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=Delaware, OID.1.3.6.1.4.1.311.60.2.1.3=US
+[2026-09-06 08:35:51] [NEW DESTINATION] chrome.exe -> 140.82.113.25:443
+[2026-09-06 08:35:52] [TRUSTED]    chrome.exe       lb-140-82-113-25-iad.github.com (San Francisco, US) | RISK: 0/100 16184 
+[2026-09-06 08:35:52]    Evidence: known system process reduced the score | Signer: CN=Google LLC, O=Google LLC, L=Mountain View, S=California, C=US, SERIALNUMBER=3582691, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=Delaware, OID.1.3.6.1.4.1.311.60.2.1.3=US
+[2026-09-06 08:35:57] [NEW DESTINATION] MpDefenderCoreService.exe -> 52.123.129.14:443
+[2026-09-06 08:35:57] [REVIEW]     MpDefenderCoreService.exe 52.123.129.14 (New York, US) | RISK: 10/100 6580  
+[2026-09-06 08:35:57]    Evidence: remote IP reputation needs review (27%) | Signer: CN=Microsoft Windows Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-06 08:37:34] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-09 22:41:24] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-09 22:41:31] [*] Spawning Dual-AI Defense Engine daemon in background...
+[2026-09-09 22:41:37] [+] Canary Shield active: monitoring three protected files.
+[2026-09-09 22:41:43] --- Ghost-Aegis Readiness Check ---
+[2026-09-09 22:41:43] Administrator privileges: LIMITED
+[2026-09-09 22:41:44] Windows Firewall query: READY
+[2026-09-09 22:41:44] Optional AbuseIPDB enrichment: CONFIGURED
+[2026-09-09 22:41:44] Optional AI enrichment: CONFIGURED
+[2026-09-09 22:41:44] Incident history: READY
+[2026-09-09 22:41:44] Readiness check complete. No system changes were made.
+[2026-09-09 22:42:13] [!] RADAR ENGAGED: Continuous audit sweep every 30s.
+[2026-09-09 22:42:13] [*] Network Sentinel starting deep socket audit...
+[2026-09-09 22:42:13] STATUS       PROCESS          REMOTE HOST / LOCATION                     PID   
+[2026-09-09 22:42:13] [NEW DESTINATION] msedge.exe -> 99.84.41.101:443
+[2026-09-09 22:42:14] [REVIEW]     msedge.exe       server-99-84-41-101.lax54.r.cloudfront.net (Los Angeles, US) | RISK: 0/100 22516 
+[2026-09-09 22:42:14]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:42:15] [!] RADAR DISENGAGED.
+[2026-09-09 22:42:19] [NEW DESTINATION] msedge.exe -> 150.171.27.11:443
+[2026-09-09 22:42:20] [REVIEW]     msedge.exe       150.171.27.11 (New York, US) | RISK: 10/100 22516 
+[2026-09-09 22:42:20]    Evidence: remote IP reputation needs review (32%) | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:42:20] [NEW DESTINATION] Code.exe -> 18.65.3.43:443
+[2026-09-09 22:42:23] [REVIEW]     Code.exe         server-18-65-3-43.lax50.r.cloudfront.net (San Jose, US) | RISK: 0/100 11652 
+[2026-09-09 22:42:23]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:42:25] [TRUSTED]    Code.exe         lb-140-82-112-21-iad.github.com (San Francisco, US) | RISK: 0/100 11652 
+[2026-09-09 22:42:25]    Evidence: known system process reduced the score | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:42:25] [NEW DESTINATION] msedge.exe -> 99.84.41.96:443
+[2026-09-09 22:42:26] [REVIEW]     msedge.exe       server-99-84-41-96.lax54.r.cloudfront.net (Los Angeles, US) | RISK: 0/100 22516 
+[2026-09-09 22:42:26]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:42:30] [NEW DESTINATION] msedge.exe -> 104.20.6.134:443
+[2026-09-09 22:42:31] [REVIEW]     msedge.exe       104.20.6.134 (Toronto, CA) | RISK: 0/100   22516 
+[2026-09-09 22:42:31]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:42:36] [NEW DESTINATION] Code.exe -> 199.232.214.172:443
+[2026-09-09 22:42:38] [REVIEW]     Code.exe         199.232.214.172 (Montreal, CA) | RISK: 0/100 11652 
+[2026-09-09 22:42:38]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:42:38] [NEW DESTINATION] msedge.exe -> 13.249.182.114:443
+[2026-09-09 22:42:39] [REVIEW]     msedge.exe       server-13-249-182-114.lax53.r.cloudfront.net (Los Angeles, US) | RISK: 0/100 22516 
+[2026-09-09 22:42:39]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:42:40] [TRUSTED]    Code.exe         lb-140-82-114-22-iad.github.com (San Francisco, US) | RISK: 0/100 11652 
+[2026-09-09 22:42:40]    Evidence: known system process reduced the score | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:42:41] [NEW DESTINATION] msedge.exe -> 23.36.142.84:443
+[2026-09-09 22:42:41] [TRUSTED]    msedge.exe       a23-36-142-84.deploy.static.akamaitechnologies.com (Los Angeles, US) | RISK: 0/100 22516 
+[2026-09-09 22:42:41]    Evidence: known system process reduced the score | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:42:41] [NEW DESTINATION] msedge.exe -> 99.84.41.72:443
+[2026-09-09 22:42:42] [REVIEW]     msedge.exe       server-99-84-41-72.lax54.r.cloudfront.net (Los Angeles, US) | RISK: 0/100 22516 
+[2026-09-09 22:42:42]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:42:46] [NEW DESTINATION] msedge.exe -> 20.184.175.13:443
+[2026-09-09 22:42:47] [REVIEW]     msedge.exe       20.184.175.13 (San Francisco, US) | RISK: 10/100 22516 
+[2026-09-09 22:42:47]    Evidence: remote IP reputation needs review (35%) | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:42:47] [NEW DESTINATION] msedge.exe -> 34.107.204.85:443
+[2026-09-09 22:42:48] [REVIEW]     msedge.exe       85.204.107.34.bc.googleusercontent.com (Kansas City, US) | RISK: 0/100 22516 
+[2026-09-09 22:42:48]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:42:48] [NEW DESTINATION] msedge.exe -> 3.163.125.106:443
+[2026-09-09 22:42:49] [REVIEW]     msedge.exe       server-3-163-125-106.lax54.r.cloudfront.net (Los Angeles, US) | RISK: 0/100 22516 
+[2026-09-09 22:42:49]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:42:50] [REVIEW]     msedge.exe       server-3-163-125-106.lax54.r.cloudfront.net (Los Angeles, US) | RISK: 0/100 22516 
+[2026-09-09 22:42:50]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:42:50] [NEW DESTINATION] msedge.exe -> 23.42.206.153:443
+[2026-09-09 22:42:51] [TRUSTED]    msedge.exe       a23-42-206-153.deploy.static.akamaitechnologies.com (Los Angeles, US) | RISK: 0/100 22516 
+[2026-09-09 22:42:51]    Evidence: known system process reduced the score | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:42:55] [NEW DESTINATION] Code.exe -> 150.171.73.16:443
+[2026-09-09 22:42:58] [REVIEW]     Code.exe         150.171.73.16 (Newark, US) | RISK: 0/100   11652 
+[2026-09-09 22:42:58]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:43:02] [NEW DESTINATION] Code.exe -> 13.107.5.93:443
+[2026-09-09 22:43:05] [REVIEW]     Code.exe         13.107.5.93 (New York, US) | RISK: 0/100   11652 
+[2026-09-09 22:43:05]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:43:05] [NEW DESTINATION] msedge.exe -> 18.154.144.17:443
+[2026-09-09 22:43:06] [REVIEW]     msedge.exe       server-18-154-144-17.lax50.r.cloudfront.net (Los Angeles, US) | RISK: 0/100 22516 
+[2026-09-09 22:43:06]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:43:10] [NEW DESTINATION] Code.exe -> 150.171.109.152:443
+[2026-09-09 22:43:13] [REVIEW]     Code.exe         150.171.109.152 (Cape Town, ZA) | RISK: 0/100 11652 
+[2026-09-09 22:43:13]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:43:13] [NEW DESTINATION] msedge.exe -> 185.199.109.133:443
+[2026-09-09 22:43:13] [TRUSTED]    msedge.exe       cdn-185-199-109-133.github.com (San Francisco, US) | RISK: 0/100 22516 
+[2026-09-09 22:43:13]    Evidence: known system process reduced the score | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:43:15] [REVIEW]     msedge.exe       server-99-84-41-101.lax54.r.cloudfront.net (Los Angeles, US) | RISK: 0/100 22516 
+[2026-09-09 22:43:15]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:43:15] [NEW DESTINATION] msedge.exe -> 3.163.125.18:443
+[2026-09-09 22:43:16] [REVIEW]     msedge.exe       server-3-163-125-18.lax54.r.cloudfront.net (Los Angeles, US) | RISK: 0/100 22516 
+[2026-09-09 22:43:16]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:43:20] [NEW DESTINATION] Code.exe -> 138.91.182.224:443
+[2026-09-09 22:43:22] [REVIEW]     Code.exe         138.91.182.224 (San Francisco, US) | RISK: 0/100 11652 
+[2026-09-09 22:43:22]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:43:23] [NEW DESTINATION] Code.exe -> 185.199.108.133:443
+[2026-09-09 22:43:24] [TRUSTED]    Code.exe         cdn-185-199-108-133.github.com (San Francisco, US) | RISK: 0/100 11652 
+[2026-09-09 22:43:24]    Evidence: known system process reduced the score | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:43:29] [REVIEW]     msedge.exe       74.179.65.112 (Quincy, US) | RISK: 0/100   22516 
+[2026-09-09 22:43:29]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:43:30] [NEW DESTINATION] msedge.exe -> 140.82.113.21:443
+[2026-09-09 22:43:30] [TRUSTED]    msedge.exe       lb-140-82-113-21-iad.github.com (San Francisco, US) | RISK: 0/100 22516 
+[2026-09-09 22:43:30]    Evidence: known system process reduced the score | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:43:37] [REVIEW]     Code.exe         13.107.5.93 (New York, US) | RISK: 0/100   11652 
+[2026-09-09 22:43:37]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:43:38] [REVIEW]     msedge.exe       server-99-84-41-96.lax54.r.cloudfront.net (Los Angeles, US) | RISK: 0/100 22516 
+[2026-09-09 22:43:38]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:43:43] [NEW DESTINATION] Code.exe -> 51.105.71.137:443
+[2026-09-09 22:43:45] [REVIEW]     Code.exe         51.105.71.137 (City of London, GB) | RISK: 0/100 11652 
+[2026-09-09 22:43:45]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:43:45] [NEW DESTINATION] msedge.exe -> 52.84.20.102:443
+[2026-09-09 22:43:46] [REVIEW]     msedge.exe       server-52-84-20-102.lax53.r.cloudfront.net (Los Angeles, US) | RISK: 0/100 22516 
+[2026-09-09 22:43:46]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:43:50] [NEW DESTINATION] msedge.exe -> 4.249.200.148:443
+[2026-09-09 22:43:51] [REVIEW]     msedge.exe       4.249.200.148 (Des Moines, US) | RISK: 0/100 22516 
+[2026-09-09 22:43:51]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:43:51] [NEW DESTINATION] msedge.exe -> 34.36.213.229:443
+[2026-09-09 22:43:52] [REVIEW]     msedge.exe       229.213.36.34.bc.googleusercontent.com (Kansas City, US) | RISK: 0/100 22516 
+[2026-09-09 22:43:52]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:43:52] [NEW DESTINATION] msedge.exe -> 13.249.185.215:443
+[2026-09-09 22:43:53] [REVIEW]     msedge.exe       server-13-249-185-215.lax53.r.cloudfront.net (Los Angeles, US) | RISK: 0/100 22516 
+[2026-09-09 22:43:53]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:43:58] [NEW DESTINATION] Code.exe -> 150.171.109.146:443
+[2026-09-09 22:44:00] [REVIEW]     Code.exe         150.171.109.146 (Cape Town, ZA) | RISK: 0/100 11652 
+[2026-09-09 22:44:00]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:44:05] [SYSTEM]     svchost.exe      20.59.87.226 (San Francisco, US) | RISK: 0/100 3976  
+[2026-09-09 22:44:05]    Evidence: known system process reduced the score | Signer: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:44:11] [SYSTEM]     svchost.exe      20.59.87.226 (San Francisco, US) | RISK: 0/100 3976  
+[2026-09-09 22:44:11]    Evidence: known system process reduced the score | Signer: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:44:11] [TRUSTED]    msedge.exe       a23-42-206-153.deploy.static.akamaitechnologies.com (Los Angeles, US) | RISK: 0/100 22516 
+[2026-09-09 22:44:11]    Evidence: known system process reduced the score | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:44:17] [REVIEW]     msedge.exe       150.171.27.11 (New York, US) | RISK: 10/100 22516 
+[2026-09-09 22:44:17]    Evidence: remote IP reputation needs review (32%) | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:44:17] [NEW DESTINATION] chrome.exe -> 142.251.2.188:5228
+[2026-09-09 22:44:18] [REVIEW]     chrome.exe       dl-in-f188.1e100.net (Mountain View, US) | RISK: 0/100 6136  
+[2026-09-09 22:44:18]    Evidence: no high-confidence evidence | Signer: CN=Google LLC, O=Google LLC, L=Mountain View, S=California, C=US, SERIALNUMBER=3582691, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=Delaware, OID.1.3.6.1.4.1.311.60.2.1.3=US
+[2026-09-09 22:44:18] [NEW DESTINATION] msedge.exe -> 99.84.41.2:443
+[2026-09-09 22:44:19] [REVIEW]     msedge.exe       server-99-84-41-2.lax54.r.cloudfront.net (Los Angeles, US) | RISK: 0/100 22516 
+[2026-09-09 22:44:19]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:44:23] [NEW DESTINATION] svchost.exe -> 20.190.190.196:443
+[2026-09-09 22:44:24] [SYSTEM]     svchost.exe      20.190.190.196 (Phoenix, US) | RISK: 0/100 22256 
+[2026-09-09 22:44:24]    Evidence: known system process reduced the score | Signer: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:44:29] [NEW DESTINATION] StartMenuExperienceHost.exe -> 52.110.4.17:443
+[2026-09-09 22:44:29] [REVIEW]     StartMenuExperienceHost.exe 52.110.4.17 (San Jose, US) | RISK: 0/100   12208 
+[2026-09-09 22:44:29]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:44:36] [REVIEW]     Code.exe         138.91.182.224 (San Francisco, US) | RISK: 0/100 11652 
+[2026-09-09 22:44:36]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:44:38] [TRUSTED]    Code.exe         lb-140-82-113-22-iad.github.com (San Francisco, US) | RISK: 0/100 13096 
+[2026-09-09 22:44:38]    Evidence: known system process reduced the score | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:44:38] [NEW DESTINATION] msedge.exe -> 99.84.41.127:443
+[2026-09-09 22:44:39] [REVIEW]     msedge.exe       server-99-84-41-127.lax54.r.cloudfront.net (Los Angeles, US) | RISK: 0/100 22516 
+[2026-09-09 22:44:39]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:44:39] [NEW DESTINATION] msedge.exe -> 140.82.112.25:443
+[2026-09-09 22:44:40] [TRUSTED]    msedge.exe       lb-140-82-112-25-iad.github.com (San Francisco, US) | RISK: 0/100 22516 
+[2026-09-09 22:44:40]    Evidence: known system process reduced the score | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:44:46] [REVIEW]     Code.exe         150.171.109.152 (Cape Town, ZA) | RISK: 0/100 11652 
+[2026-09-09 22:44:46]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:44:51] [NEW DESTINATION] Code.exe -> 13.66.138.105:443
+[2026-09-09 22:44:53] [REVIEW]     Code.exe         13.66.138.105 (Quincy, US) | RISK: 0/100   11652 
+[2026-09-09 22:44:53]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:44:54] [REVIEW]     msedge.exe       85.204.107.34.bc.googleusercontent.com (Kansas City, US) | RISK: 0/100 22516 
+[2026-09-09 22:44:54]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:46:34] [*] Extracting telemetry and invoking Dual-AI for PID 22516...
+[2026-09-09 22:46:34] [*] Telemetry gathered for msedge.exe. Querying AI models...
+[2026-09-09 22:46:47] 🧠 [GEMINI]: **Assessment:** The telemetry reflects normal, benign web browsing activity, characterized by a legitimate executable path, standard parent-child process lineage, and routine outbound connections to major content delivery networks and cloud service providers.  **Threat Probability Score:** 1/10
+[2026-09-09 22:46:47] 🤖 [COPILOT]: The process telemetry for msedge.exe, including its expected executable path and the presence of multiple active outbound IP connections to seemingly legitimate services, indicates typical browser activity with no immediate signs of malicious behavior; threat probability score: 2.
+[2026-09-09 22:57:49] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-09 22:58:02] [*] Network Sentinel starting deep socket audit...
+[2026-09-09 22:58:02] STATUS       PROCESS          REMOTE HOST / LOCATION                     PID   
+[2026-09-09 22:58:03] [NEW DESTINATION] msedgewebview2.exe -> 23.210.216.92:443
+[2026-09-09 22:58:03] [TRUSTED]    msedgewebview2.exe a23-210-216-92.deploy.static.akamaitechnologies.com (Los Angeles, US) | RISK: 0/100 13608 
+[2026-09-09 22:58:03]    Evidence: known system process reduced the score | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:58:08] [NEW DESTINATION] Code.exe -> 150.171.109.153:443
+[2026-09-09 22:58:11] [REVIEW]     Code.exe         150.171.109.153 (Cape Town, ZA) | RISK: 0/100 11652 
+[2026-09-09 22:58:11]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:58:11] [NEW DESTINATION] msedgewebview2.exe -> 23.192.167.46:443
+[2026-09-09 22:58:11] [TRUSTED]    msedgewebview2.exe a23-192-167-46.deploy.static.akamaitechnologies.com (Los Angeles, US) | RISK: 0/100 13608 
+[2026-09-09 22:58:11]    Evidence: known system process reduced the score | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:58:16] [NEW DESTINATION] Widgets.exe -> 23.206.188.31:443
+[2026-09-09 22:58:16] [TRUSTED]    Widgets.exe      a23-206-188-31.deploy.static.akamaitechnologies.com (Loc Error) | RISK: 0/100 12488 
+[2026-09-09 22:58:16]    Evidence: known system process reduced the score | Signer: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:58:16] [NEW DESTINATION] explorer.exe -> 23.210.216.74:443
+[2026-09-09 22:58:17] [TRUSTED]    explorer.exe     a23-210-216-74.deploy.static.akamaitechnologies.com (Los Angeles, US) | RISK: 0/100 10072 
+[2026-09-09 22:58:17]    Evidence: known system process reduced the score | Signer: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:58:17] [TRUSTED]    explorer.exe     a23-210-216-74.deploy.static.akamaitechnologies.com (Los Angeles, US) | RISK: 0/100 10072 
+[2026-09-09 22:58:17]    Evidence: known system process reduced the score | Signer: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:58:18] [TRUSTED]    explorer.exe     a23-210-216-74.deploy.static.akamaitechnologies.com (Los Angeles, US) | RISK: 0/100 10072 
+[2026-09-09 22:58:18]    Evidence: known system process reduced the score | Signer: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:58:25] [REVIEW]     Code.exe         138.91.182.224 (San Francisco, US) | RISK: 0/100 11652 
+[2026-09-09 22:58:25]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:58:29] [NEW DESTINATION] Code.exe -> 4.150.223.105:443
+[2026-09-09 22:58:31] [REVIEW]     Code.exe         4.150.223.105 (Des Moines, US) | RISK: 10/100 11652 
+[2026-09-09 22:58:31]    Evidence: remote IP reputation needs review (30%) | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:58:32] [REVIEW]     msedge.exe       server-3-163-125-18.lax54.r.cloudfront.net (Los Angeles, US) | RISK: 0/100 22516 
+[2026-09-09 22:58:32]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:58:33] [REVIEW]     chrome.exe       dl-in-f188.1e100.net (Mountain View, US) | RISK: 0/100 6136  
+[2026-09-09 22:58:33]    Evidence: no high-confidence evidence | Signer: CN=Google LLC, O=Google LLC, L=Mountain View, S=California, C=US, SERIALNUMBER=3582691, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=Delaware, OID.1.3.6.1.4.1.311.60.2.1.3=US
+[2026-09-09 22:58:38] [SYSTEM]     svchost.exe      20.59.87.226 (San Francisco, US) | RISK: 0/100 3976  
+[2026-09-09 22:58:38]    Evidence: known system process reduced the score | Signer: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:58:44] [SYSTEM]     svchost.exe      20.59.87.226 (San Francisco, US) | RISK: 0/100 3976  
+[2026-09-09 22:58:44]    Evidence: known system process reduced the score | Signer: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:58:44] [TRUSTED]    msedgewebview2.exe a23-210-216-92.deploy.static.akamaitechnologies.com (Los Angeles, US) | RISK: 0/100 13608 
+[2026-09-09 22:58:44]    Evidence: known system process reduced the score | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:58:49] [NEW DESTINATION] Code.exe -> 20.184.175.12:443
+[2026-09-09 22:58:54] [REVIEW]     Code.exe         20.184.175.12 (San Francisco, US) | RISK: 0/100 13096 
+[2026-09-09 22:58:54]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:58:54] [NEW DESTINATION] Widgets.exe -> 23.217.118.138:443
+[2026-09-09 22:58:54] [TRUSTED]    Widgets.exe      a23-217-118-138.deploy.static.akamaitechnologies.com (Los Angeles, US) | RISK: 0/100 12488 
+[2026-09-09 22:58:54]    Evidence: known system process reduced the score | Signer: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-09 22:58:59] [NEW DESTINATION] Code.exe -> 172.182.252.137:443
