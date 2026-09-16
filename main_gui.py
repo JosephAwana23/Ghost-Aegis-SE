@@ -8,6 +8,8 @@ import queue
 import socket
 import hashlib
 import requests
+import asyncio  # Added for Ghost Protocol async loop
+from ghost_decoy import GhostDecoy
 from pathlib import Path
 from datetime import datetime, timedelta
 import psutil
@@ -146,6 +148,12 @@ class GhostAegisApp(ctk.CTk):
         self.canary_enabled = False
         self.canary_guard = CanaryGuard()
         self.network_behavior = NetworkBehaviorStore()
+        
+        # Ghost Protocol State
+        self.ghost_decoy = GhostDecoy(port=2222)
+        self.decoy_thread = None
+        self.decoy_loop = None
+
         self.title("Ghost-Aegis | Defensive Suite SE")
         
         # Sized to fit comfortably on 1080p displays with room to expand
@@ -352,6 +360,19 @@ class GhostAegisApp(ctk.CTk):
         )
         self.isolate_button.pack(pady=2, padx=15)
 
+        self._add_panel_section(self.right_frame, "ACTIVE DECOY")
+        
+        self.ghost_button = ctk.CTkButton(
+            self.right_frame,
+            text="Engage Ghost Protocol (Decoy)",
+            width=280,
+            height=28,
+            fg_color="#006400", # Dark Green
+            hover_color="#004d00",
+            command=self.toggle_ghost_protocol
+        )
+        self.ghost_button.pack(pady=2, padx=15)
+
         self._add_panel_section(self.right_frame, "NETWORK MONITORING")
 
         self.sentinel_button = ctk.CTkButton(
@@ -456,6 +477,9 @@ class GhostAegisApp(ctk.CTk):
 
     def destroy(self):
         self.canary_guard.stop()
+        if self.decoy_loop and self.decoy_loop.is_running():
+            self.decoy_loop.call_soon_threadsafe(self.ghost_decoy.stop_server)
+            self.decoy_loop.call_soon_threadsafe(self.decoy_loop.stop)
         super().destroy()
 
     # --- ABOUT DIALOG ---
@@ -1035,6 +1059,29 @@ class GhostAegisApp(ctk.CTk):
                 self.log_event("[+] Outbound network traffic restored.", "trusted")
             except Exception as e:
                 self.log_event(f"[-] Reconnect error: {e}", "threat")
+
+    # --- ACTIVE AI DECOY ---
+    def toggle_ghost_protocol(self):
+        if self.decoy_loop and self.decoy_loop.is_running():
+            # Stop the decoy
+            self.decoy_loop.call_soon_threadsafe(self.ghost_decoy.stop_server)
+            self.decoy_loop.call_soon_threadsafe(self.decoy_loop.stop)
+            self.ghost_button.configure(text="Engage Ghost Protocol (Decoy)", fg_color="#006400")
+            self.log_event("[-] Ghost Protocol Decoy disengaged.", "review")
+            self.decoy_loop = None
+        else:
+            # Start the decoy
+            self.ghost_button.configure(text="Disengage Ghost Protocol", fg_color="#880808")
+            self.log_event("[*] GHOST PROTOCOL ENGAGED: Decoy listener active on Port 2222.", "warn")
+            
+            def run_async_decoy():
+                self.decoy_loop = asyncio.new_event_loop()
+                asyncio.set_event_loop(self.decoy_loop)
+                self.decoy_loop.create_task(self.ghost_decoy.start_server())
+                self.decoy_loop.run_forever()
+
+            self.decoy_thread = threading.Thread(target=run_async_decoy, daemon=True)
+            self.decoy_thread.start()
 
     # --- THREAT INTELLIGENCE & GEOLOCATION ---
     def check_ip_reputation(self, ip_address):
