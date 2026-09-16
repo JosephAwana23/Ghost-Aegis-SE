@@ -14,6 +14,7 @@ import psutil
 import customtkinter as ctk
 from tkinter import filedialog
 from dotenv import load_dotenv
+
 from incident_store import (
     Incident,
     append_incident,
@@ -26,6 +27,30 @@ from incident_store import (
 from persistence_audit import collect_persistence_entries
 from canary_guard import CanaryGuard
 from network_behavior import NetworkBehaviorStore
+
+# --- NEW GHOST AEGIS MODULES ---
+try:
+    from behavior_api import get_behavior_score  # type: ignore[import-not-found]
+except ImportError:
+    # The behavior service is optional; provide a local fallback when absent.
+    def get_behavior_score(keystrokes, mouse_movements):
+        try:
+            delay = float(keystrokes.get("avg_delay", 0))
+            variance = float(keystrokes.get("variance", 0))
+            speed = float(mouse_movements.get("speed", 0))
+            jitter = float(mouse_movements.get("jitter", 0))
+            score = max(0, min(100, round(
+                50 + delay * 10 + variance * 20 + jitter * 10 - speed * 2
+            )))
+            return {"score": score, "risk": "elevated" if score >= 60 else "low"}
+        except (AttributeError, TypeError, ValueError):
+            return {"error": "Invalid behavior telemetry"}
+try:
+    from breach_api import check_breach  # type: ignore[import-not-found]
+except ImportError:
+    # Breach intelligence is optional; keep the GUI usable when the service is absent.
+    def check_breach():
+        return {"error": "Breach intelligence service is unavailable"}
 
 # Load environment secrets
 load_dotenv(dotenv_path=Path(__file__).resolve().with_name(".env"))
@@ -217,6 +242,28 @@ class GhostAegisApp(ctk.CTk):
         )
         self.report_button.pack(pady=2, padx=15)
 
+        self.behavior_button = ctk.CTkButton(
+            self.left_frame,
+            text="Behavior Fingerprint Scan",
+            width=280,
+            height=28,
+            fg_color="#1f538d",
+            hover_color="#14375e",
+            command=self.run_behavior_scan,
+        )
+        self.behavior_button.pack(pady=2, padx=15)
+
+        self.breach_button = ctk.CTkButton(
+            self.left_frame,
+            text="Dark Web Breach Check",
+            width=280,
+            height=28,
+            fg_color="#7B1FA2",
+            hover_color="#4A0F6A",
+            command=self.run_breach_check,
+        )
+        self.breach_button.pack(pady=2, padx=15)
+
         self.persistence_button = ctk.CTkButton(
             self.left_frame,
             text="Audit Persistence",
@@ -383,6 +430,11 @@ class GhostAegisApp(ctk.CTk):
         self.console.tag_config("trusted", foreground="#00FF00")  # Green
         self.console.tag_config("system", foreground="#00E5FF")   # Cyan
         self.console.tag_config("review", foreground="#FFBF00")   # Amber
+        
+        # New Tags
+        self.console.tag_config("identity", foreground="#00AAFF")   # Identity / behavior
+        self.console.tag_config("breach", foreground="#FF00FF")     # Breach intel
+
 
         # --- THREAD QUEUE SETUP ---
         self.log_queue = queue.Queue()
@@ -849,6 +901,88 @@ class GhostAegisApp(ctk.CTk):
             self._queue_log(f"Defense engine failed: {error}", "threat")
         finally:
             self.log_queue.put(("__engine_complete__", None))
+
+    # --- NEW BEHAVIOR & BREACH WORKERS ---
+    def run_behavior_scan(self):
+        self.log_event("[*] Running behavior fingerprint scan...", "identity")
+
+        # Placeholder telemetry – replace with real collectors later
+        keystrokes = {"avg_delay": 0.12, "variance": 0.03}
+        mouse_movements = {"speed": 1.4, "jitter": 0.2}
+
+        result = get_behavior_score(keystrokes, mouse_movements)
+
+        if "error" in result:
+            self.log_event(f"[!] Behavior API error: {result['error']}", "threat")
+            return
+
+        score = result.get("score", 0)
+        risk = result.get("risk", "unknown")
+
+        tag = "identity" if score < 50 else "warn" if score < 75 else "threat"
+        self.log_event(
+            f"[IDENTITY] Behavior Score={score} | Risk={risk}",
+            tag,
+        )
+
+        incident = Incident(
+            process="BehaviorEngine",
+            pid=0,
+            path="behavior_fingerprint",
+            risk_score=score,
+            reasons=[f"Behavior anomaly detected: {risk}"],
+            recommended_action="review_identity",
+        )
+        try:
+            append_incident(incident)
+        except OSError as log_error:
+            self._queue_log(f"Incident record failed: {log_error}", "warn")
+
+    def run_breach_check(self):
+        self.log_event("[*] Checking dark web breach exposure...", "breach")
+        
+        # 1. Try to get the email from the .env file quietly
+        target_email = os.getenv("ADMIN_EMAIL")
+        
+        # 2. If it's missing or blank, pop up a GUI prompt!
+        if not target_email or target_email.strip() == "":
+            dialog = ctk.CTkInputDialog(
+                text="No ADMIN_EMAIL found in .env\n\nEnter the target email to scan:", 
+                title="Dark Web Intelligence"
+            )
+            target_email = dialog.get_input()
+            
+            # If the user hits 'Cancel' or leaves it blank, stop the scan
+            if not target_email:
+                self.log_event("[!] Breach check cancelled: No target email provided.", "warn")
+                return
+
+        # 3. Pass the email into our updated API script
+        result = check_breach(target_email)
+
+        if "error" in result:
+            self.log_event(f"[!] Breach API error: {result['error']}", "threat")
+            return
+
+        exposed = result.get("exposed", False)
+        details = result.get("details", "No details provided")
+
+        if exposed:
+            self.log_event(f"[BREACH] Exposure detected: {details}", "breach")
+            incident = Incident(
+                process="BreachIntel",
+                pid=0,
+                path="dark_web_exposure",
+                risk_score=90,
+                reasons=[f"Dark web exposure: {details}"],
+                recommended_action="rotate_credentials",
+            )
+            try:
+                append_incident(incident)
+            except OSError as log_error:
+                self._queue_log(f"Incident record failed: {log_error}", "warn")
+        else:
+            self.log_event(f"[BREACH] {details}", "trusted")
 
     # --- DEFENSE: STEALTH, EMERGENCY CLEAN, HOST ISOLATION ---
     def run_stealth(self):
