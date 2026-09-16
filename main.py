@@ -18,7 +18,8 @@ qm = QuarantineManager()
 # Utility Functions
 # ------------------------------------
 def format_family(family_int):
-    if family_int == -1:
+    # Using psutil.AF_LINK ensures cross-platform compatibility for Windows and Linux
+    if family_int == getattr(psutil, "AF_LINK", -1):
         return "MAC Address"
     elif family_int == socket.AF_INET:
         return "IPv4"
@@ -172,8 +173,11 @@ if __name__ == "__main__":
     # 1. Route background logs to a file so they don't interrupt your CLI typing
     file_handler = logging.FileHandler("ghost_aegis_telemetry.log")
     file_handler.setFormatter(logging.Formatter("%(asctime)s | %(levelname)s | %(message)s"))
-    logging.getLogger().addHandler(file_handler)
-    logging.getLogger().setLevel(logging.INFO)
+    
+    logger = logging.getLogger()
+    if not logger.handlers:
+        logger.addHandler(file_handler)
+        logger.setLevel(logging.INFO)
 
     # 2. Print initial network interface diagnostics to terminal
     telemetry = monitor_network_interfaces()
