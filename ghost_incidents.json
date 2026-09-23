@@ -1,0 +1,116 @@
+[
+    {
+        "timestamp": "2026-09-22T18:04:26",
+        "process": "chrome.exe",
+        "pid": 24624,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [],
+        "recommended_action": "review",
+        "remote_ip": "54.163.246.63",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-09-22T18:04:31",
+        "process": "chrome.exe",
+        "pid": 24624,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [],
+        "recommended_action": "review",
+        "remote_ip": "140.82.114.26",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-09-22T18:04:36",
+        "process": "chrome.exe",
+        "pid": 24624,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [],
+        "recommended_action": "review",
+        "remote_ip": "52.206.163.226",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-09-22T18:04:46",
+        "process": "Code.exe",
+        "pid": 28092,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 10,
+        "reasons": [
+            "AbuseIPDB reputation score: 17%"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "4.150.223.115",
+        "reputation": 17,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-09-22T18:04:51",
+        "process": "Code.exe",
+        "pid": 28092,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 4,
+        "reasons": [
+            "AbuseIPDB reputation score: 7%"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "150.171.109.150",
+        "reputation": 7,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-09-22T18:04:57",
+        "process": "Code.exe",
+        "pid": 28092,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 0,
+        "reasons": [],
+        "recommended_action": "review",
+        "remote_ip": "138.91.182.224",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-09-22T18:05:02",
+        "process": "Code.exe",
+        "pid": 28092,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 0,
+        "reasons": [],
+        "recommended_action": "review",
+        "remote_ip": "13.66.138.105",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-09-22T18:05:07",
+        "process": "Code.exe",
+        "pid": 28092,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 1,
+        "reasons": [
+            "AbuseIPDB reputation score: 3%"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "13.107.5.93",
+        "reputation": 3,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-09-22T18:05:13",
+        "process": "chrome.exe",
+        "pid": 24624,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [],
+        "recommended_action": "review",
+        "remote_ip": "142.251.2.188",
+        "reputation": 0,
+        "signer": "Google LLC"
+    }
+]
