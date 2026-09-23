@@ -3460,3 +3460,1079 @@ The command completed successfully.
 [2026-09-16 12:48:05] Ghost-Aegis Defensive Suite initialized. Ready.
 [2026-09-16 12:48:07] [*] GHOST PROTOCOL ENGAGED: Decoy listener active on Port 2222.
 [2026-09-16 12:49:55] [-] Ghost Protocol Decoy disengaged.
+[2026-09-22 16:11:15] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-22 16:11:25] [*] Checking dark web breach exposure...
+[2026-09-22 16:11:25] [BREACH] josephawana26@gmail.com is clean. No breaches found.
+[2026-09-22 16:11:32] [*] Network Sentinel starting deep socket audit...
+[2026-09-22 16:11:32] STATUS       PROCESS          REMOTE HOST / LOCATION                     PID   
+[2026-09-22 16:11:37] [NEW DESTINATION] chrome.exe -> 142.251.215.78:443
+[2026-09-22 16:11:40] [REVIEW]     chrome.exe       dclaxb-az-in-f14.1e100.net (Mountain View, US) | RISK: 0/100 10468 
+[2026-09-22 16:11:40]    Evidence: no high-confidence evidence | Signer: Unknown
+[2026-09-22 16:11:48] [TRUSTED]    Code.exe         lb-140-82-113-22-iad.github.com (San Francisco, US) | RISK: 0/100 16484 
+[2026-09-22 16:11:48]    Evidence: known system process reduced the score | Signer: Unknown
+[2026-09-22 16:11:53] [NEW DESTINATION] chrome.exe -> 34.107.204.85:443
+[2026-09-22 16:11:56] [REVIEW]     chrome.exe       85.204.107.34.bc.googleusercontent.com (Kansas City, US) | RISK: 0/100 10468 
+[2026-09-22 16:11:56]    Evidence: no high-confidence evidence | Signer: CN=Google LLC, O=Google LLC, L=Mountain View, S=California, C=US, SERIALNUMBER=3582691, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=Delaware, OID.1.3.6.1.4.1.311.60.2.1.3=US
+[2026-09-22 16:12:01] [NEW DESTINATION] chrome.exe -> 172.217.75.113:443
+[2026-09-22 16:12:04] [REVIEW]     chrome.exe       yuphxej-in-f113.1e100.net (Mountain View, US) | RISK: 0/100 10468 
+[2026-09-22 16:12:04]    Evidence: no high-confidence evidence | Signer: CN=Google LLC, O=Google LLC, L=Mountain View, S=California, C=US, SERIALNUMBER=3582691, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=Delaware, OID.1.3.6.1.4.1.311.60.2.1.3=US
+[2026-09-22 16:12:13] [REVIEW]     Code.exe         138.91.182.224 (San Francisco, US) | RISK: 0/100 16484 
+[2026-09-22 16:12:13]    Evidence: no high-confidence evidence | Signer: Unknown
+[2026-09-22 16:12:17] [NEW DESTINATION] Code.exe -> 51.132.193.108:443
+[2026-09-22 16:12:21] [REVIEW]     Code.exe         51.132.193.108 (City of London, GB) | RISK: 0/100 16484 
+[2026-09-22 16:12:21]    Evidence: no high-confidence evidence | Signer: Unknown
+[2026-09-22 16:12:26] [NEW DESTINATION] chrome.exe -> 140.82.114.26:443
+[2026-09-22 16:12:28] [TRUSTED]    chrome.exe       lb-140-82-114-26-iad.github.com (San Francisco, US) | RISK: 0/100 10468 
+[2026-09-22 16:12:28]    Evidence: known system process reduced the score | Signer: CN=Google LLC, O=Google LLC, L=Mountain View, S=California, C=US, SERIALNUMBER=3582691, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=Delaware, OID.1.3.6.1.4.1.311.60.2.1.3=US
+[2026-09-22 16:12:33] [NEW DESTINATION] MsMpEng.exe -> 48.211.71.198:443
+[2026-09-22 16:12:36] [REVIEW]     MsMpEng.exe      48.211.71.198 (Boydton, US) | RISK: 0/100  5252  
+[2026-09-22 16:12:36]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Windows Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-22 16:12:44] [REVIEW]     python3.12.exe   104.26.14.101 (Toronto, CA) | RISK: 0/100  25172 
+[2026-09-22 16:12:44]    Evidence: no high-confidence evidence | Signer: CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US
+[2026-09-22 16:12:52] [REVIEW]     Code.exe         13.107.5.93 (New York, US) | RISK: 0/100   16484 
+[2026-09-22 16:12:52]    Evidence: no high-confidence evidence | Signer: Unknown
+[2026-09-22 16:12:57] [NEW DESTINATION] Code.exe -> 185.199.111.133:443
+[2026-09-22 16:13:00] [TRUSTED]    Code.exe         cdn-185-199-111-133.github.com (San Francisco, US) | RISK: 0/100 16484 
+[2026-09-22 16:13:00]    Evidence: known system process reduced the score | Signer: Unknown
+[2026-09-22 16:13:04] [NEW DESTINATION] chrome.exe -> 142.251.218.10:443
+[2026-09-22 16:13:08] [REVIEW]     chrome.exe       dclaxa-av-in-f10.1e100.net (Mountain View, US) | RISK: 0/100 10468 
+[2026-09-22 16:13:08]    Evidence: no high-confidence evidence | Signer: CN=Google LLC, O=Google LLC, L=Mountain View, S=California, C=US, SERIALNUMBER=3582691, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=Delaware, OID.1.3.6.1.4.1.311.60.2.1.3=US
+[2026-09-22 16:13:12] [NEW DESTINATION] Code.exe -> 150.171.109.151:443
+[2026-09-22 16:13:16] [REVIEW]     Code.exe         150.171.109.151 (Cape Town, ZA) | RISK: 0/100 16484 
+[2026-09-22 16:13:16]    Evidence: no high-confidence evidence | Signer: Unknown
+[2026-09-22 16:13:24] [REVIEW]     Code.exe         150.171.109.152 (Cape Town, ZA) | RISK: 0/100 16484 
+[2026-09-22 16:13:24]    Evidence: no high-confidence evidence | Signer: Unknown
+[2026-09-22 16:13:32] [REVIEW]     chrome.exe       dl-in-f188.1e100.net (Mountain View, US) | RISK: 0/100 10468 
+[2026-09-22 16:13:32]    Evidence: no high-confidence evidence | Signer: CN=Google LLC, O=Google LLC, L=Mountain View, S=California, C=US, SERIALNUMBER=3582691, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=Delaware, OID.1.3.6.1.4.1.311.60.2.1.3=US
+[2026-09-22 16:13:37] [NEW DESTINATION] chrome.exe -> 142.251.218.14:443
+[2026-09-22 16:13:40] [REVIEW]     chrome.exe       dclaxa-av-in-f14.1e100.net (Mountain View, US) | RISK: 0/100 10468 
+[2026-09-22 16:13:40]    Evidence: no high-confidence evidence | Signer: CN=Google LLC, O=Google LLC, L=Mountain View, S=California, C=US, SERIALNUMBER=3582691, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=Delaware, OID.1.3.6.1.4.1.311.60.2.1.3=US
+[2026-09-22 16:13:45] [NEW DESTINATION] chrome.exe -> 216.137.39.109:443
+[2026-09-22 16:13:48] [REVIEW]     chrome.exe       server-216-137-39-109.lax50.r.cloudfront.net (San Jose, US) | RISK: 0/100 10468 
+[2026-09-22 16:13:48]    Evidence: no high-confidence evidence | Signer: CN=Google LLC, O=Google LLC, L=Mountain View, S=California, C=US, SERIALNUMBER=3582691, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=Delaware, OID.1.3.6.1.4.1.311.60.2.1.3=US
+[2026-09-22 16:13:53] [NEW DESTINATION] chrome.exe -> 185.199.109.133:443
+[2026-09-22 16:13:56] [TRUSTED]    chrome.exe       cdn-185-199-109-133.github.com (San Francisco, US) | RISK: 0/100 10468 
+[2026-09-22 16:13:56]    Evidence: known system process reduced the score | Signer: CN=Google LLC, O=Google LLC, L=Mountain View, S=California, C=US, SERIALNUMBER=3582691, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=Delaware, OID.1.3.6.1.4.1.311.60.2.1.3=US
+[2026-09-22 16:14:00] [NEW DESTINATION] chrome.exe -> 140.82.113.21:443
+[2026-09-22 16:14:03] [TRUSTED]    chrome.exe       lb-140-82-113-21-iad.github.com (San Francisco, US) | RISK: 0/100 10468 
+[2026-09-22 16:14:03]    Evidence: known system process reduced the score | Signer: CN=Google LLC, O=Google LLC, L=Mountain View, S=California, C=US, SERIALNUMBER=3582691, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=Delaware, OID.1.3.6.1.4.1.311.60.2.1.3=US
+[2026-09-22 16:14:03] [NEW DESTINATION] chrome.exe -> 18.164.154.13:443
+[2026-09-22 16:14:07] [REVIEW]     chrome.exe       server-18-164-154-13.lax53.r.cloudfront.net (Los Angeles, US) | RISK: 0/100 10468 
+[2026-09-22 16:14:07]    Evidence: no high-confidence evidence | Signer: CN=Google LLC, O=Google LLC, L=Mountain View, S=California, C=US, SERIALNUMBER=3582691, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=Delaware, OID.1.3.6.1.4.1.311.60.2.1.3=US
+[2026-09-22 16:14:11] [NEW DESTINATION] chrome.exe -> 142.251.32.174:443
+[2026-09-22 16:14:15] [REVIEW]     chrome.exe       dfw28s30-in-f14.1e100.net (Mountain View, US) | RISK: 0/100 10468 
+[2026-09-22 16:14:15]    Evidence: no high-confidence evidence | Signer: CN=Google LLC, O=Google LLC, L=Mountain View, S=California, C=US, SERIALNUMBER=3582691, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=Delaware, OID.1.3.6.1.4.1.311.60.2.1.3=US
+[2026-09-22 16:14:23] [REVIEW]     Code.exe         13.107.5.93 (New York, US) | RISK: 0/100   16484 
+[2026-09-22 16:14:23]    Evidence: no high-confidence evidence | Signer: Unknown
+[2026-09-22 16:14:27] [NEW DESTINATION] chrome.exe -> 34.36.213.229:443
+[2026-09-22 16:14:31] [REVIEW]     chrome.exe       229.213.36.34.bc.googleusercontent.com (Kansas City, US) | RISK: 0/100 10468 
+[2026-09-22 16:14:31]    Evidence: no high-confidence evidence | Signer: CN=Google LLC, O=Google LLC, L=Mountain View, S=California, C=US, SERIALNUMBER=3582691, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=Delaware, OID.1.3.6.1.4.1.311.60.2.1.3=US
+[2026-09-22 16:14:35] [NEW DESTINATION] chrome.exe -> 52.23.111.131:443
+[2026-09-22 16:14:38] [REVIEW]     chrome.exe       ec2-52-23-111-131.compute-1.amazonaws.com (Ashburn, US) | RISK: 0/100 10468 
+[2026-09-22 16:14:38]    Evidence: no high-confidence evidence | Signer: CN=Google LLC, O=Google LLC, L=Mountain View, S=California, C=US, SERIALNUMBER=3582691, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=Delaware, OID.1.3.6.1.4.1.311.60.2.1.3=US
+[2026-09-22 16:14:42] [!] RADAR ENGAGED: Continuous audit sweep every 30s.
+[2026-09-22 16:14:42] [!] RADAR DISENGAGED.
+[2026-09-22 16:14:47] [REVIEW]     Code.exe         13.66.138.105 (Quincy, US) | RISK: 0/100   16484 
+[2026-09-22 16:14:47]    Evidence: no high-confidence evidence | Signer: Unknown
+[2026-09-22 16:14:51] [NEW DESTINATION] chrome.exe -> 151.101.193.91:443
+[2026-09-22 16:14:55] [REVIEW]     chrome.exe       151.101.193.91 (Montreal, CA) | RISK: 0/100 10468 
+[2026-09-22 16:14:55]    Evidence: no high-confidence evidence | Signer: CN=Google LLC, O=Google LLC, L=Mountain View, S=California, C=US, SERIALNUMBER=3582691, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=Delaware, OID.1.3.6.1.4.1.311.60.2.1.3=US
+[2026-09-22 16:15:03] [REVIEW]     Code.exe         138.91.182.224 (San Francisco, US) | RISK: 0/100 16484 
+[2026-09-22 16:15:03]    Evidence: no high-confidence evidence | Signer: Unknown
+[2026-09-22 16:15:08] [NEW DESTINATION] Code.exe -> 23.210.216.89:443
+[2026-09-22 16:15:11] [TRUSTED]    Code.exe         a23-210-216-89.deploy.static.akamaitechnologies.com (Los Angeles, US) | RISK: 0/100 16484 
+[2026-09-22 16:15:11]    Evidence: known system process reduced the score | Signer: Unknown
+[2026-09-22 16:15:15] [NEW DESTINATION] Unknown -> 20.190.151.68:443
+[2026-09-22 16:15:16] [REVIEW]     Unknown          20.190.151.68 (Boydton, US) | RISK: 0/100  22716 
+[2026-09-22 16:15:16]    Evidence: no high-confidence evidence | Signer: Unknown
+[2026-09-22 16:18:35] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-22 16:18:52] [*] Network Sentinel starting deep socket audit...
+[2026-09-22 16:18:53] STATUS       PROCESS          REMOTE HOST / LOCATION                     PID   
+[2026-09-22 16:18:57] [NEW DESTINATION] Code.exe -> 20.29.134.17:443
+[2026-09-22 16:19:01] [REVIEW]     Code.exe         20.29.134.17 (Quincy, US) | RISK: 0/100    16484 
+[2026-09-22 16:19:01]    Evidence: no high-confidence evidence | Signer: Unknown
+[2026-09-22 16:19:04] [TRUSTED]    Code.exe         cdn-185-199-111-133.github.com (San Francisco, US) | RISK: 0/100 16484 
+[2026-09-22 16:19:04]    Evidence: known system process reduced the score | Signer: Unknown
+[2026-09-22 16:19:07] [REVIEW]     chrome.exe       dl-in-f188.1e100.net (Mountain View, US) | RISK: 0/100 10468 
+[2026-09-22 16:19:07]    Evidence: no high-confidence evidence | Signer: CN=Google LLC, O=Google LLC, L=Mountain View, S=California, C=US, SERIALNUMBER=3582691, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=Delaware, OID.1.3.6.1.4.1.311.60.2.1.3=US
+[2026-09-22 16:19:16] [REVIEW]     Code.exe         13.66.138.105 (Quincy, US) | RISK: 0/100   16484 
+[2026-09-22 16:19:16]    Evidence: no high-confidence evidence | Signer: Unknown
+[2026-09-22 16:19:18] [X] Terminated process chrome.exe (PID: 10468).
+[2026-09-22 16:19:20] [NEW DESTINATION] Code.exe -> 51.132.193.107:443
+[2026-09-22 16:19:24] [REVIEW]     Code.exe         51.132.193.107 (City of London, GB) | RISK: 0/100 16484 
+[2026-09-22 16:19:24]    Evidence: no high-confidence evidence | Signer: Unknown
+[2026-09-22 16:19:32] [*] Extracting telemetry and invoking Dual-AI for PID 10468...
+[2026-09-22 16:19:32] [!] PID 10468 is no longer running.
+[2026-09-22 16:19:32] [REVIEW]     Code.exe         138.91.182.224 (San Francisco, US) | RISK: 0/100 16484 
+[2026-09-22 16:19:32]    Evidence: no high-confidence evidence | Signer: Unknown
+[2026-09-22 16:19:39] [SYSTEM]     svchost.exe      20.59.87.227 (San Francisco, US) | RISK: 0/100 3416  
+[2026-09-22 16:19:39]    Evidence: known system process reduced the score | Signer: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-22 16:19:44] [NEW DESTINATION] Unknown -> 185.199.111.215:443
+[2026-09-22 16:19:44] [REVIEW]     Unknown          185.199.111.215 (San Francisco, US) | RISK: 0/100 10468 
+[2026-09-22 16:19:44]    Evidence: no high-confidence evidence | Signer: Unknown
+[2026-09-22 16:19:47] [*] Extracting telemetry and invoking Dual-AI for PID 16484...
+[2026-09-22 16:19:47] [*] Telemetry gathered for Code.exe. Querying AI models...
+[2026-09-22 16:20:01] 🧠 [GEMINI]: **Assessment:** This telemetry represents normal, legitimate Visual Studio Code activity, characterized by expected Electron-based child process spawning and routine outbound connections to official Microsoft and GitHub infrastructure.  **Threat Probability Score:** 1/10
+[2026-09-22 16:20:01] 🤖 [COPILOT]: The process telemetry shows a Visual Studio Code instance with a normal parent-child relationship, executed from its expected path, making outbound connections that include IPs potentially associated with GitHub (185.199.111.133) and Microsoft Azure services, indicating legitimate behavior; threat probability score: 2/10
+[2026-09-22 16:20:31] [*] Extracting telemetry and invoking Dual-AI for PID 10468...
+[2026-09-22 16:20:31] [!] PID 10468 is no longer running.
+[2026-09-22 16:20:40] [+] Canary Shield active: monitoring three protected files.
+[2026-09-22 16:20:44] [*] Spawning Dual-AI Defense Engine daemon in background...
+[2026-09-22 16:20:47] [*] GHOST PROTOCOL ENGAGED: Decoy listener active on Port 2222.
+[2026-09-22 16:20:59] Auditing local Administrators group...
+[2026-09-22 16:20:59] Alias name     Administrators
+Comment        Administrators have complete and unrestricted access to the computer/domain
+
+Members
+
+-------------------------------------------------------------------------------
+ADMIN_Gem
+Administrator
+Gem
+The command completed successfully.
+[2026-09-22 16:21:10] SYSTEM INFO: Microsoft Windows 11 Pro Insider Preview | HOSTNAME: BHG
+[2026-09-22 16:21:15] [IFACE] Local Area Connection* 1
+[2026-09-22 16:21:15]    -> D2-39-57-29-68-BD (MAC Address) | Netmask: None
+[2026-09-22 16:21:15]    -> 169.254.128.143 (IPv4) | Netmask: 255.255.0.0
+[2026-09-22 16:21:15]    -> fe80::fa5e:bf7e:17a5:481 (IPv6) | Netmask: None
+[2026-09-22 16:21:15] [IFACE] Local Area Connection* 2
+[2026-09-22 16:21:15]    -> F2-39-57-29-68-BD (MAC Address) | Netmask: None
+[2026-09-22 16:21:15]    -> 169.254.61.147 (IPv4) | Netmask: 255.255.0.0
+[2026-09-22 16:21:15]    -> fe80::c76c:dcef:df15:240 (IPv6) | Netmask: None
+[2026-09-22 16:21:15] [IFACE] Wi-Fi
+[2026-09-22 16:21:15]    -> D0-39-57-29-68-F0 (MAC Address) | Netmask: None
+[2026-09-22 16:21:15]    -> 192.168.4.70 (IPv4) | Netmask: 255.255.252.0
+[2026-09-22 16:21:15]    -> fdf8:8c26:ce6c:1:4f06:2ecd:c629:1e74 (IPv6) | Netmask: None
+[2026-09-22 16:21:15]    -> fdf8:8c26:ce6c:1:5030:340c:449e:b52e (IPv6) | Netmask: None
+[2026-09-22 16:21:15]    -> fe80::d956:2e8:99ad:9fff (IPv6) | Netmask: None
+[2026-09-22 16:21:15] [IFACE] Ethernet
+[2026-09-22 16:21:15]    -> 08-8F-C3-EC-1F-09 (MAC Address) | Netmask: None
+[2026-09-22 16:21:15]    -> 169.254.238.201 (IPv4) | Netmask: 255.255.0.0
+[2026-09-22 16:21:15]    -> fe80::ac06:e5fe:ce09:5e49 (IPv6) | Netmask: None
+[2026-09-22 16:21:15] [IFACE] vEthernet (Default Switch)
+[2026-09-22 16:21:15]    -> 00-15-5D-6A-39-12 (MAC Address) | Netmask: None
+[2026-09-22 16:21:15]    -> 172.21.0.1 (IPv4) | Netmask: 255.255.240.0
+[2026-09-22 16:21:15]    -> fe80::b8d3:4dd2:8b8b:6576 (IPv6) | Netmask: None
+[2026-09-22 16:21:15] [IFACE] Loopback Pseudo-Interface 1
+[2026-09-22 16:21:15]    -> 127.0.0.1 (IPv4) | Netmask: 255.0.0.0
+[2026-09-22 16:21:15]    -> ::1 (IPv6) | Netmask: None
+[2026-09-22 16:21:15] Interface telemetry refresh complete.
+[2026-09-22 16:21:19] [*] Running behavior fingerprint scan...
+[2026-09-22 16:21:19] [IDENTITY] Behavior Score=34 | Risk=trusted
+[2026-09-22 16:21:27] [*] Reading common Windows persistence locations...
+[2026-09-22 16:21:37] Persistence audit found 284 entries:
+[2026-09-22 16:21:37] [Startup folder] C:\Users\Gem\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\desktop.ini
+[2026-09-22 16:21:37] [Startup folder] C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup\desktop.ini
+[2026-09-22 16:21:37] [Registry Run key] OneDrive="C:\Users\Gem\AppData\Local\Microsoft\OneDrive\OneDrive.exe" /background
+[2026-09-22 16:21:37] [Registry Run key] Grammarly="C:\Users\Gem\AppData\Local\Grammarly\DesktopIntegrations\Grammarly.Desktop.exe" --autostart
+[2026-09-22 16:21:37] [Registry Run key] Docker Desktop=C:\Program Files\Docker\Docker\Docker Desktop.exe
+[2026-09-22 16:21:37] [Registry Run key] GoogleChromeAutoLaunch_F1C429159D580D58BB2153E503A36E35="C:\Program Files\Google\Chrome\Application\chrome.exe" --startup-foreground-launch
+[2026-09-22 16:21:37] [Registry Run key] MicrosoftEdgeAutoLaunch_0B9624D357711B08C611F650F1E0DB60="C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" --no-startup-window --win-session-start
+[2026-09-22 16:21:37] [Registry Run key] SecurityHealth=C:\WINDOWS\system32\SecurityHealthSystray.exe
+[2026-09-22 16:21:37] [Registry Run key] RtkAudUService="C:\WINDOWS\System32\DriverStore\FileRepository\realtekservice.inf_amd64_18daf79b2c8abbf6\RtkAudUService64.exe" -background
+[2026-09-22 16:21:37] [Scheduled task] \NVIDIA App SelfUpdate_{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}
+[2026-09-22 16:21:37] [Scheduled task] \OneDrive Reporting Task-S-1-5-21-3259708315-565447142-176031373-1001
+[2026-09-22 16:21:37] [Scheduled task] \OneDrive Standalone Update Task-S-1-5-21-3259708315-565447142-176031373-1001
+[2026-09-22 16:21:37] [Scheduled task] \OneDrive Startup Task-S-1-5-21-3259708315-565447142-176031373-1001
+[2026-09-22 16:21:37] [Scheduled task] \GoogleUserPEH\RunPlatformExperienceHelper_Daily
+[2026-09-22 16:21:37] [Scheduled task] \GoogleUserPEH\RunPlatformExperienceHelper_Metrics
+[2026-09-22 16:21:37] [Scheduled task] \Lenovo\UDC\Lenovo UDC Diagnostic Scan
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\.NET Framework\.NET Framework NGEN v4.0.30319
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\.NET Framework\.NET Framework NGEN v4.0.30319 64
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\.NET Framework\.NET Framework NGEN v4.0.30319 64 Critical
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\.NET Framework\.NET Framework NGEN v4.0.30319 Critical
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\AccountHealth\RecoverabilityToastTask
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Active Directory Rights Management Services Client\AD RMS Rights Policy Template Management (Automated)
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Active Directory Rights Management Services Client\AD RMS Rights Policy Template Management (Manual)
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\AppID\PolicyConverter
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\AppID\VerifiedPublisherCertStoreCheck
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Application Experience\MareBackup
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser Exp
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Application Experience\PcaPatchDbTask
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Application Experience\SdbinstMergeDbTask
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Application Experience\StartupAppTask
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\ApplicationData\appuriverifierdaily
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\ApplicationData\appuriverifierinstall
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\ApplicationData\CleanupTemporaryState
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\ApplicationData\DsSvcCleanup
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\AppListBackup\Backup
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\AppListBackup\BackupNonMaintenance
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\AppxDeploymentClient\Pre-staged app cleanup
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Autochk\Proxy
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\BitLocker\BitLocker Encrypt All Drives
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\BitLocker\BitLocker MDM policy Refresh
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Bluetooth\UninstallDeviceTask
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\BrokerInfrastructure\BgTaskRegistrationMaintenanceTask
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\capabilityaccessmanager\maintenancetasks
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\CertificateServicesClient\UserTask
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\CertificateServicesClient\UserTask-Roam
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Chkdsk\ProactiveScan
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Chkdsk\SyspartRepair
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\CloudExperienceHost\CreateObjectTask
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\CloudRestore\Backup
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\CloudRestore\Restore
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\ConsentUX\UnifiedConsent\UnifiedConsentSyncTask
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Containers\CmCleanup
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Customer Experience Improvement Program\UsbCeip
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Data Integrity Scan\Data Integrity Check And Scan
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Data Integrity Scan\Data Integrity Scan
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Data Integrity Scan\Data Integrity Scan for Crash Recovery
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Defrag\ScheduledDefrag
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Device Information\Device
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Device Information\Device User
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Device Setup\Driver Recovery on Reboot
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Diagnosis\RecommendedTroubleshootingScanner
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Diagnosis\Scheduled
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Diagnosis\UnexpectedCodepath
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\DirectX\DirectXDatabaseUpdater
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\DirectX\DXGIAdapterCache
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\DiskCleanup\SilentCleanup
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticResolver
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\DiskFootprint\Diagnostics
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\DiskFootprint\StorageSense
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\DUSM\dusmtask
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\EDP\EDP App Launch Task
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\EDP\EDP Auth Task
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\EDP\EDP Inaccessible Credentials Task
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\EDP\StorageCardEncryption Task
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\ExploitGuard\ExploitGuard MDM policy Refresh
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Feedback\Siuf\DmClient
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Feedback\Siuf\DmClientOnScenarioDownload
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\File Classification Infrastructure\Property Definition Sync
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\FileHistory\File History (maintenance mode)
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Flighting\FeatureConfig\BootstrapUsageDataReporting
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Flighting\FeatureConfig\GovernedFeatureUsageProcessing
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Flighting\FeatureConfig\ReconcileConfigs
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Flighting\FeatureConfig\ReconcileFeatures
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Flighting\FeatureConfig\SafeguardsReconciliation
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Flighting\FeatureConfig\UsageDataFlushing
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Flighting\FeatureConfig\UsageDataReceiver
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Flighting\FeatureConfig\UsageDataReporting
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Flighting\OneSettings\RefreshCache
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Hotpatch\Monitoring
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\input\InputSettingsRestoreDataAvailable
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\input\LocalUserSyncDataAvailable
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\input\MouseSyncDataAvailable
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\input\PenSyncDataAvailable
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\input\RemoteMouseSyncDataAvailable
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\input\RemotePenSyncDataAvailable
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\input\RemoteTouchpadSyncDataAvailable
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\input\syncpensettings
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\input\TouchpadSyncDataAvailable
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\InstallService\RestoreDevice
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\InstallService\ScanForUpdates
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\InstallService\ScanForUpdatesAsUser
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\InstallService\WakeUpAndContinueUpdates
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\InstallService\WakeUpAndScanForUpdates
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\International\Synchronize Language Settings
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Kernel\La57Cleanup
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\LanguageComponentsInstaller\Installation
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\LanguageComponentsInstaller\ReconcileLanguageResources
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Location\WindowsActionDialog
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Maintenance\WinSAT
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Management\Autopilot\DetectHardwareChange
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Management\Autopilot\RemediateHardwareChange
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Management\Connectivity\ESIMPM
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Management\Provisioning\Cellular
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Management\Provisioning\Logon
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Management\Provisioning\MdmDiagnosticsCleanup
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Management\Provisioning\Retry
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Management\Provisioning\RunOnReboot
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Maps\MapsToastTask
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Maps\MapsUpdateTask
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\MemoryDiagnostic\AutomaticOfflineMemoryDiagnostic
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\MemoryDiagnostic\ProcessMemoryDiagnosticEvents
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\MemoryDiagnostic\RunFullMemoryDiagnostic
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\MUI\LPRemove
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Multimedia\SystemSoundsService
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Network Connectivity Status Indicator\NcsiIdentifyUserProxies
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\NlaSvc\WiFiTask
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Offline Files\Background Synchronization
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Offline Files\Logon Synchronization
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\PCRPF\PCR Prediction Framework Firmware Update Task
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\PerformanceTrace\ShowFeedbackToast
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\PerformanceTrace\WhesvcToast
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Plug and Play\Device Install Group Policy
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Plug and Play\Device Install Reboot Required
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Plug and Play\Sysprep Generalize Drivers
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Power Efficiency Diagnostics\AnalyzeSystem
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Printing\EduPrintProv
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Printing\PrinterCleanupTask
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Printing\PrintJobCleanupTask
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\RecoveryEnvironment\VerifyWinRE
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\ReFsDedupSvc\Initialization
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Registry\RegIdleBackup
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Servicing\OOBEFodSetup
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Servicing\StartComponentCleanup
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Setup\PITRTask
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Setup\SetupCleanupTask
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Setup\SetupRecoveryDataTask
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\SharedPC\Account Cleanup
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Shell\CreateObjectTask
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Shell\FamilySafetyMonitor
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Shell\FamilySafetyRefreshTask
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Shell\IndexerAutomaticMaintenance
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Shell\ThemesSyncedImageDownload
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\SoftwareProtectionPlatform\SvcRestartTaskLogon
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\SpacePort\SpaceAgentTask
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\SpacePort\SpaceManagerTask
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\StateRepository\MaintenanceTasks
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Storage Tiers Management\Storage Tiers Management Initialization
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Storage Tiers Management\Storage Tiers Optimization
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Subscription\EnableLicenseAcquisition
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Subscription\LicenseAcquisition
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Sustainability\PowerGridForecastTask
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Sustainability\SustainabilityTelemetry
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Sysmain\HybridDriveCachePrepopulate
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Sysmain\HybridDriveCacheRebalance
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Sysmain\ResPriStaticDbSync
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Sysmain\WsSwapAssessmentTask
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\SystemRestore\SR
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Task Manager\Interactive
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\TextServicesFramework\MsCtfMonitor
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Time Synchronization\ForceSynchronizeTime
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Time Synchronization\SynchronizeTime
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Time Zone\SynchronizeTimeZone
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\UPnP\UPnPHostConfig
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\USB\Usb-Notifications
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\WCM\WiFiTask
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\WDI\ResolutionHost
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Windows Defender\Windows Defender Cache Maintenance
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Windows Defender\Windows Defender Cleanup
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Windows Defender\Windows Defender Scheduled Scan
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Windows Defender\Windows Defender Verification
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Windows Error Reporting\QueueReporting
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Windows Filtering Platform\BfeOnServiceStartTypeChange
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Windows Media Sharing\UpdateLibrary
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\WindowsColorSystem\Calibration Loader
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\WindowsUpdate\Scheduled Start
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Wininet\CacheTask
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\WlanSvc\CDSSync
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\WlanSvc\MoProfileManagement
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Work Folders\Work Folders Logon Synchronization
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Work Folders\Work Folders Maintenance Work
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Workplace Join\Automatic-Device-Join
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Workplace Join\Device-Sync
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\Workplace Join\Recovery-Check
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\WwanSvc\NotificationTask
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\Windows\WwanSvc\OobeDiscovery
+[2026-09-22 16:21:37] [Scheduled task] \Microsoft\XblGameSave\XblGameSaveTask
+[2026-09-22 16:21:37] [Scheduled task] \SoftLanding\S-1-5-21-3259708315-565447142-176031373-1001\ActionCenterRefreshForExpirationTask-{1ca746a8-fd50-420f-b2f0-16619dfb1397}
+[2026-09-22 16:21:37] [Scheduled task] \SoftLanding\S-1-5-21-3259708315-565447142-176031373-1001\SoftLandingCreativeManagementTask
+[2026-09-22 16:21:37] [Scheduled task] \SoftLanding\S-1-5-21-3259708315-565447142-176031373-1001\SoftLandingDeferralTask-{87a03751-14ab-4495-98bb-66d9f5a610d5}
+[2026-09-22 16:21:37] [Scheduled task] \SoftLanding\S-1-5-21-3259708315-565447142-176031373-1001\SoftLandingRefreshForExpirationTask-{a68dea31-db7d-4dc6-a907-42be1f4aad52}
+[2026-09-22 16:21:37] [Scheduled task] \SoftLanding\S-1-5-21-3259708315-565447142-176031373-1001\SoftLandingTriggerTask-128000000001615609-render-{8d6b1d92-e70d-47c4-afd9-9717aff6a03a}
+[2026-09-22 16:21:37] [Auto-start service] AMD Crash Defender Service -> C:\WINDOWS\System32\DriverStore\FileRepository\amdfendr.inf_amd64_987f8cede005f427\amdfendrsr.exe
+[2026-09-22 16:21:37] [Auto-start service] AMD External Events Utility -> C:\WINDOWS\System32\DriverStore\FileRepository\u0406494.inf_amd64_5e0d2f15fb74508b\B405142\atiesrxx.exe
+[2026-09-22 16:21:37] [Auto-start service] AmdPpkgSvc -> C:\WINDOWS\System32\DriverStore\FileRepository\amdppkg.inf_amd64_5fd171e24453b255\AmdPpkgSvc.exe
+[2026-09-22 16:21:37] [Auto-start service] AppXSvc -> C:\WINDOWS\system32\svchost.exe -k wsappx -p
+[2026-09-22 16:21:37] [Auto-start service] AudioEndpointBuilder -> C:\WINDOWS\System32\svchost.exe -k LocalSystemNetworkRestricted -p
+[2026-09-22 16:21:37] [Auto-start service] Audiosrv -> C:\WINDOWS\System32\svchost.exe -k LocalServiceNetworkRestricted -p
+[2026-09-22 16:21:37] [Auto-start service] BFE -> C:\WINDOWS\system32\svchost.exe -k LocalServiceNoNetworkFirewall -p
+[2026-09-22 16:21:37] [Auto-start service] BITS -> C:\WINDOWS\System32\svchost.exe -k netsvcs -p
+[2026-09-22 16:21:37] [Auto-start service] BrokerInfrastructure -> C:\WINDOWS\system32\svchost.exe -k DcomLaunch -p
+[2026-09-22 16:21:37] [Auto-start service] camsvc -> C:\WINDOWS\system32\svchost.exe -k osprivacy -p
+[2026-09-22 16:21:37] [Auto-start service] CDPSvc -> C:\WINDOWS\system32\svchost.exe -k LocalService -p
+[2026-09-22 16:21:37] [Auto-start service] CoreMessagingRegistrar -> C:\WINDOWS\system32\svchost.exe -k LocalServiceNoNetwork -p
+[2026-09-22 16:21:37] [Auto-start service] CryptSvc -> C:\WINDOWS\system32\svchost.exe -k NetworkService -p
+[2026-09-22 16:21:37] [Auto-start service] DcomLaunch -> C:\WINDOWS\system32\svchost.exe -k DcomLaunch -p
+[2026-09-22 16:21:37] [Auto-start service] Dhcp -> C:\WINDOWS\system32\svchost.exe -k LocalServiceNetworkRestricted -p
+[2026-09-22 16:21:37] [Auto-start service] DiagTrack -> C:\WINDOWS\System32\svchost.exe -k utcsvc -p
+[2026-09-22 16:21:37] [Auto-start service] DispBrokerDesktopSvc -> C:\WINDOWS\system32\svchost.exe -k LocalService -p
+[2026-09-22 16:21:37] [Auto-start service] Dnscache -> C:\WINDOWS\system32\svchost.exe -k NetworkService -p
+[2026-09-22 16:21:37] [Auto-start service] DoSvc -> C:\WINDOWS\System32\svchost.exe -k NetworkService -p
+[2026-09-22 16:21:37] [Auto-start service] DPS -> C:\WINDOWS\System32\svchost.exe -k LocalServiceNoNetwork -p
+[2026-09-22 16:21:37] [Auto-start service] DusmSvc -> C:\WINDOWS\System32\svchost.exe -k LocalServiceNetworkRestricted -p -s DusmSvc
+[2026-09-22 16:21:37] [Auto-start service] edgeupdate -> "C:\Program Files (x86)\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe" /svc
+[2026-09-22 16:21:37] [Auto-start service] EventLog -> C:\WINDOWS\System32\svchost.exe -k LocalServiceNetworkRestricted -p
+[2026-09-22 16:21:37] [Auto-start service] EventSystem -> C:\WINDOWS\system32\svchost.exe -k LocalServiceRedirectionGuard -p
+[2026-09-22 16:21:37] [Auto-start service] FMAPOService -> C:\WINDOWS\System32\FMService64.exe
+[2026-09-22 16:21:37] [Auto-start service] FontCache -> C:\WINDOWS\system32\svchost.exe -k LocalService -p
+[2026-09-22 16:21:37] [Auto-start service] GoogleUpdaterInternalService152.0.7933.0 -> "C:\Program Files (x86)\Google\GoogleUpdater\152.0.7933.0\updater.exe" --system --windows-service --service=update-internal
+[2026-09-22 16:21:37] [Auto-start service] GoogleUpdaterService152.0.7933.0 -> "C:\Program Files (x86)\Google\GoogleUpdater\152.0.7933.0\updater.exe" --system --windows-service --service=update
+[2026-09-22 16:21:37] [Auto-start service] gpsvc -> C:\WINDOWS\system32\svchost.exe -k GPSvcGroup
+[2026-09-22 16:21:37] [Auto-start service] InventorySvc -> C:\WINDOWS\system32\svchost.exe -k InvSvcGroup -p
+[2026-09-22 16:21:37] [Auto-start service] IpHlpSvc -> C:\WINDOWS\System32\svchost.exe -k NetSvcs -p
+[2026-09-22 16:21:37] [Auto-start service] LanmanServer -> C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+[2026-09-22 16:21:37] [Auto-start service] LanmanWorkstation -> C:\WINDOWS\System32\svchost.exe -k NetworkService -p
+[2026-09-22 16:21:37] [Auto-start service] LenovoFnAndFunctionKeys -> C:\WINDOWS\System32\DriverStore\FileRepository\lenovofnandfunctionkeys.inf_amd64_5e21bf389d23855a\LenovoUtilityService.exe
+[2026-09-22 16:21:37] [Auto-start service] LenovoVantageService -> "C:\Program Files (x86)\Lenovo\VantageService\\5.1.2609.9\LenovoVantageService.exe"
+[2026-09-22 16:21:37] [Auto-start service] MapsBroker -> C:\WINDOWS\System32\svchost.exe -k NetworkService -p
+[2026-09-22 16:21:37] [Auto-start service] MDCoreSvc -> "C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.26080.4-0\MpDefenderCoreService.exe"
+[2026-09-22 16:21:37] [Auto-start service] mpssvc -> C:\WINDOWS\system32\svchost.exe -k LocalServiceNoNetworkFirewall -p
+[2026-09-22 16:21:37] [Auto-start service] nsi -> C:\WINDOWS\system32\svchost.exe -k LocalService -p
+[2026-09-22 16:21:37] [Auto-start service] NvContainerLocalSystem -> "C:\Program Files\NVIDIA Corporation\NvContainer\nvcontainer.exe" -s NvContainerLocalSystem -a -f "C:\ProgramData\NVIDIA Corporation\NVIDIA App\NvContainer\NvContainerLocalSystem.log" -l 3 -d "C:\Program Files\NVIDIA Corporation\NvContainer\plugins\LocalSystem" -r -p 30000  -ert
+[2026-09-22 16:21:37] [Auto-start service] PcaSvc -> C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted -p
+[2026-09-22 16:21:37] [Auto-start service] Power -> C:\WINDOWS\system32\svchost.exe -k DcomLaunch -p
+[2026-09-22 16:21:37] [Auto-start service] ProfSvc -> C:\WINDOWS\system32\svchost.exe -k UserProfileService -p
+[2026-09-22 16:21:37] [Auto-start service] RpcEptMapper -> C:\WINDOWS\system32\svchost.exe -k RPCSS -p
+[2026-09-22 16:21:37] [Auto-start service] RpcSs -> C:\WINDOWS\system32\svchost.exe -k rpcss -p
+[2026-09-22 16:21:37] [Auto-start service] RtkAudioUniversalService -> "C:\WINDOWS\System32\DriverStore\FileRepository\realtekservice.inf_amd64_18daf79b2c8abbf6\RtkAudUService64.exe"
+[2026-09-22 16:21:37] [Auto-start service] RtkBtManServ -> C:\WINDOWS\RtkBtManServ.exe
+[2026-09-22 16:21:37] [Auto-start service] SamSs -> C:\WINDOWS\system32\lsass.exe
+[2026-09-22 16:21:37] [Auto-start service] Schedule -> C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+[2026-09-22 16:21:37] [Auto-start service] SENS -> C:\WINDOWS\system32\svchost.exe -k netsvcsRedirectionGuard -p
+[2026-09-22 16:21:37] [Auto-start service] ShellHWDetection -> C:\WINDOWS\System32\svchost.exe -k netsvcs -p
+[2026-09-22 16:21:37] [Auto-start service] Spooler -> C:\WINDOWS\System32\spoolsv.exe
+[2026-09-22 16:21:37] [Auto-start service] sppsvc -> C:\WINDOWS\system32\sppsvc.exe
+[2026-09-22 16:21:37] [Auto-start service] StateRepository -> C:\WINDOWS\system32\svchost.exe -k appmodel -p
+[2026-09-22 16:21:37] [Auto-start service] StorSvc -> C:\WINDOWS\System32\svchost.exe -k LocalSystemNetworkRestrictedRedirectionGuard -p
+[2026-09-22 16:21:37] [Auto-start service] SysMain -> C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted -p
+[2026-09-22 16:21:37] [Auto-start service] SystemEventsBroker -> C:\WINDOWS\system32\svchost.exe -k DcomLaunch -p
+[2026-09-22 16:21:37] [Auto-start service] TextInputManagementService -> C:\WINDOWS\System32\svchost.exe -k LocalSystemNetworkRestricted -p
+[2026-09-22 16:21:37] [Auto-start service] Themes -> C:\WINDOWS\System32\svchost.exe -k netsvcs -p
+[2026-09-22 16:21:37] [Auto-start service] TrkWks -> C:\WINDOWS\System32\svchost.exe -k LocalSystemNetworkRestricted -p
+[2026-09-22 16:21:37] [Auto-start service] UDCService -> C:\WINDOWS\System32\drivers\Lenovo\udc\Service\UDClientService.exe
+[2026-09-22 16:21:37] [Auto-start service] UserManager -> C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+[2026-09-22 16:21:37] [Auto-start service] UsoSvc -> C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+[2026-09-22 16:21:37] [Auto-start service] vmms -> C:\WINDOWS\system32\vmms.exe
+[2026-09-22 16:21:37] [Auto-start service] VSS -> C:\WINDOWS\system32\vssvc.exe
+[2026-09-22 16:21:37] [Auto-start service] Wcmsvc -> C:\WINDOWS\system32\svchost.exe -k LocalServiceNetworkRestricted -p -s Wcmsvc
+[2026-09-22 16:21:37] [Auto-start service] whesvc -> C:\WINDOWS\system32\svchost.exe -k whesvc -p
+[2026-09-22 16:21:37] [Auto-start service] WinDefend -> "C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.26080.4-0\MsMpEng.exe"
+[2026-09-22 16:21:37] [Auto-start service] Winmgmt -> C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+[2026-09-22 16:21:37] [Auto-start service] WlanSvc -> C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted -p
+[2026-09-22 16:21:37] [Auto-start service] WpnService -> C:\WINDOWS\system32\svchost.exe -k NetworkService -p
+[2026-09-22 16:21:37] [Auto-start service] WSAIFabricSvc -> C:\WINDOWS\system32\svchost.exe -k WSAIFabricSvcGroup -p
+[2026-09-22 16:21:37] [Auto-start service] wscsvc -> C:\WINDOWS\System32\svchost.exe -k LocalServiceNetworkRestricted -p
+[2026-09-22 16:21:37] [Auto-start service] WSearch -> C:\WINDOWS\system32\SearchIndexer.exe /Embedding
+[2026-09-22 16:21:37] [Auto-start service] WSLService -> "C:\Program Files\WSL\wslservice.exe"
+[2026-09-22 16:21:37] [Auto-start service] NahimicService -> "C:\WINDOWS\system32\NahimicService.exe"
+[2026-09-22 16:21:37] [Auto-start service] NVDisplay.ContainerLocalSystem -> C:\WINDOWS\System32\DriverStore\FileRepository\nvltsi.inf_amd64_f0bf3af178442601\Display.NvContainer\NVDisplay.Container.exe -arg <ExeDir>\arguments.txt
+[2026-09-22 16:21:37] [Auto-start service] cbdhsvc_481339 -> C:\WINDOWS\system32\svchost.exe -k ClipboardSvcGroup -p
+[2026-09-22 16:21:37] [Auto-start service] CDPUserSvc_481339 -> C:\WINDOWS\system32\svchost.exe -k UnistackSvcGroup
+[2026-09-22 16:21:37] [Auto-start service] webthreatdefusersvc_481339 -> C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted -p
+[2026-09-22 16:21:37] [Auto-start service] WpnUserService_481339 -> C:\WINDOWS\system32\svchost.exe -k UnistackSvcGroup
+[2026-09-22 16:21:37] [Auto-start service] CoworkVMService -> "C:\Program Files\WindowsApps\Claude_1.34493.1.0_x64__pzs8sxrjxfjjc\app\resources\cowork-svc.exe"
+[2026-09-22 16:22:08] [-] Ghost Protocol Decoy disengaged.
+[2026-09-22 16:22:11] 🚨 [AIR-GAP ACTIVE] Emergency host containment initiated!
+[2026-09-22 16:22:11] [-] Isolation failure: Command '['netsh', 'advfirewall', 'firewall', 'add', 'rule', 'name=GhostAegis_AirGap', 'dir=out', 'action=block']' returned non-zero exit status 1.
+[2026-09-22 16:22:23] ! EXECUTING EMERGENCY CACHE PURGE !
+[2026-09-22 16:22:23] [+] DNS Resolver Cache successfully flushed.
+[2026-09-22 16:22:23] [+] ARP cache table flushed.
+[2026-09-22 16:22:28] [*] Disengaging host containment...
+[2026-09-22 16:22:28] [+] Outbound network traffic restored.
+[2026-09-22 16:22:33] [*] Engaging Stealth Protocol: Dropping inbound ICMP...
+[2026-09-22 16:22:33] Failed to activate stealth: Command '['netsh', 'advfirewall', 'firewall', 'add', 'rule', 'name=GhostAegis_Stealth_DropPing', 'dir=in', 'action=block', 'protocol=icmpv4']' returned non-zero exit status 1.
+[2026-09-22 16:23:41] --- Ghost-Aegis Readiness Check ---
+[2026-09-22 16:23:41] Administrator privileges: LIMITED
+[2026-09-22 16:23:41] Windows Firewall query: READY
+[2026-09-22 16:23:41] Optional AbuseIPDB enrichment: CONFIGURED
+[2026-09-22 16:23:41] Optional AI enrichment: CONFIGURED
+[2026-09-22 16:23:41] Incident history: READY
+[2026-09-22 16:23:41] Readiness check complete. No system changes were made.
+[2026-09-22 16:26:15] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-22 16:27:46] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-22 16:27:55] [-] Elevation required: Run Ghost-Aegis as Administrator to manage firewall rules.
+[2026-09-22 16:32:39] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-22 16:32:43] [*] Network Sentinel starting deep socket audit...
+[2026-09-22 16:32:43] STATUS       PROCESS          REMOTE HOST / LOCATION                     PID   
+[2026-09-22 16:32:46] [-] Elevation required: Run Ghost-Aegis as Administrator to manage firewall rules.
+[2026-09-22 16:32:50] [TRUSTED]    Code.exe         cdn-185-199-108-133.github.com (San Francisco, US) | RISK: 0/100 4192  
+[2026-09-22 16:32:50]    Evidence: known system process reduced the score | Signer: Unknown
+[2026-09-22 16:32:59] [REVIEW]     Code.exe         150.171.109.152 (Cape Town, ZA) | RISK: 0/100 4192  
+[2026-09-22 16:32:59]    Evidence: no high-confidence evidence | Signer: Unknown
+[2026-09-22 16:33:03] [NEW DESTINATION] Code.exe -> 140.82.114.21:443
+[2026-09-22 16:33:06] [TRUSTED]    Code.exe         lb-140-82-114-21-iad.github.com (San Francisco, US) | RISK: 0/100 4192  
+[2026-09-22 16:33:06]    Evidence: known system process reduced the score | Signer: Unknown
+[2026-09-22 16:33:14] [REVIEW]     Code.exe         150.171.109.152 (Cape Town, ZA) | RISK: 0/100 4192  
+[2026-09-22 16:33:14]    Evidence: no high-confidence evidence | Signer: Unknown
+[2026-09-22 16:33:19] [NEW DESTINATION] MpDefenderCoreService.exe -> 4.150.223.99:443
+[2026-09-22 16:33:22] [REVIEW]     MpDefenderCoreService.exe 4.150.223.99 (Des Moines, US) | RISK: 0/100 2840  
+[2026-09-22 16:33:22]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Windows Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-22 16:33:27] [NEW DESTINATION] Code.exe -> 18.65.3.53:443
+[2026-09-22 16:33:31] [REVIEW]     Code.exe         server-18-65-3-53.lax50.r.cloudfront.net (San Jose, US) | RISK: 0/100 4192  
+[2026-09-22 16:33:31]    Evidence: no high-confidence evidence | Signer: Unknown
+[2026-09-22 16:33:33] [-] Elevation required: Run Ghost-Aegis as Administrator to manage firewall rules.
+[2026-09-22 16:36:15] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-22 16:36:22] [*] Engaging Stealth Protocol: Dropping inbound ICMP...
+[2026-09-22 16:36:22] 🛡️ STEALTH ACTIVE: Machine is silent to ICMP ping sweeps.
+[2026-09-22 16:36:27] [*] Network Sentinel starting deep socket audit...
+[2026-09-22 16:36:27] STATUS       PROCESS          REMOTE HOST / LOCATION                     PID   
+[2026-09-22 16:36:32] [NEW DESTINATION] Code.exe -> 185.199.109.133:443
+[2026-09-22 16:36:35] [TRUSTED]    Code.exe         cdn-185-199-109-133.github.com (San Francisco, US) | RISK: 0/100 17124 
+[2026-09-22 16:36:35]    Evidence: known system process reduced the score | Signer: Unknown
+[2026-09-22 16:36:38] ! EXECUTING EMERGENCY CACHE PURGE !
+[2026-09-22 16:36:38] [+] DNS Resolver Cache successfully flushed.
+[2026-09-22 16:36:38] [+] ARP cache table flushed.
+[2026-09-22 16:36:38] [TRUSTED]    Code.exe         cdn-185-199-108-133.github.com (San Francisco, US) | RISK: 0/100 4192  
+[2026-09-22 16:36:38]    Evidence: known system process reduced the score | Signer: Unknown
+[2026-09-22 16:36:42] [NEW DESTINATION] Code.exe -> 150.171.74.16:443
+[2026-09-22 16:36:46] [REVIEW]     Code.exe         150.171.74.16 (New York, US) | RISK: 0/100 17124 
+[2026-09-22 16:36:46]    Evidence: no high-confidence evidence | Signer: Unknown
+[2026-09-22 16:36:46] 🚨 [AIR-GAP ACTIVE] Emergency host containment initiated!
+[2026-09-22 16:36:46] [+] Outbound network traffic successfully blocked.
+[2026-09-22 16:36:49] [*] Disengaging host containment...
+[2026-09-22 16:36:50] [+] Outbound network traffic restored.
+[2026-09-22 16:36:54] [REVIEW]     Code.exe         13.107.5.93 (New York, US) | RISK: 0/100   17124 
+[2026-09-22 16:36:54]    Evidence: no high-confidence evidence | Signer: Unknown
+[2026-09-22 16:36:59] [*] Running behavior fingerprint scan...
+[2026-09-22 16:36:59] [IDENTITY] Behavior Score=31 | Risk=trusted
+[2026-09-22 16:37:02] [TRUSTED]    Code.exe         lb-140-82-113-22-iad.github.com (San Francisco, US) | RISK: 0/100 17124 
+[2026-09-22 16:37:02]    Evidence: known system process reduced the score | Signer: Unknown
+[2026-09-22 16:37:06] [NEW DESTINATION] Code.exe -> 4.150.223.104:443
+[2026-09-22 16:37:06] [IFACE] Local Area Connection* 1
+[2026-09-22 16:37:06]    -> D2-39-57-29-68-BD (MAC Address) | Netmask: None
+[2026-09-22 16:37:06]    -> 169.254.128.143 (IPv4) | Netmask: 255.255.0.0
+[2026-09-22 16:37:06]    -> fe80::fa5e:bf7e:17a5:481 (IPv6) | Netmask: None
+[2026-09-22 16:37:06] [IFACE] Local Area Connection* 2
+[2026-09-22 16:37:06]    -> F2-39-57-29-68-BD (MAC Address) | Netmask: None
+[2026-09-22 16:37:06]    -> 169.254.61.147 (IPv4) | Netmask: 255.255.0.0
+[2026-09-22 16:37:06]    -> fe80::c76c:dcef:df15:240 (IPv6) | Netmask: None
+[2026-09-22 16:37:06] [IFACE] Wi-Fi
+[2026-09-22 16:37:06]    -> D0-39-57-29-68-F0 (MAC Address) | Netmask: None
+[2026-09-22 16:37:06]    -> 192.168.4.70 (IPv4) | Netmask: 255.255.252.0
+[2026-09-22 16:37:06]    -> fdf8:8c26:ce6c:1:4f06:2ecd:c629:1e74 (IPv6) | Netmask: None
+[2026-09-22 16:37:06]    -> fdf8:8c26:ce6c:1:5030:340c:449e:b52e (IPv6) | Netmask: None
+[2026-09-22 16:37:06]    -> fe80::d956:2e8:99ad:9fff (IPv6) | Netmask: None
+[2026-09-22 16:37:06] [IFACE] Ethernet
+[2026-09-22 16:37:06]    -> 08-8F-C3-EC-1F-09 (MAC Address) | Netmask: None
+[2026-09-22 16:37:06]    -> 169.254.238.201 (IPv4) | Netmask: 255.255.0.0
+[2026-09-22 16:37:06]    -> fe80::ac06:e5fe:ce09:5e49 (IPv6) | Netmask: None
+[2026-09-22 16:37:06] [IFACE] vEthernet (Default Switch)
+[2026-09-22 16:37:06]    -> 00-15-5D-6A-39-12 (MAC Address) | Netmask: None
+[2026-09-22 16:37:06]    -> 172.21.0.1 (IPv4) | Netmask: 255.255.240.0
+[2026-09-22 16:37:06]    -> fe80::b8d3:4dd2:8b8b:6576 (IPv6) | Netmask: None
+[2026-09-22 16:37:06] [IFACE] Loopback Pseudo-Interface 1
+[2026-09-22 16:37:06]    -> 127.0.0.1 (IPv4) | Netmask: 255.0.0.0
+[2026-09-22 16:37:06]    -> ::1 (IPv6) | Netmask: None
+[2026-09-22 16:37:06] Interface telemetry refresh complete.
+[2026-09-22 16:37:10] [REVIEW]     Code.exe         4.150.223.104 (Des Moines, US) | RISK: 0/100 29896 
+[2026-09-22 16:37:10]    Evidence: no high-confidence evidence | Signer: Unknown
+[2026-09-22 16:37:15] [NEW DESTINATION] MsMpEng.exe -> 48.211.73.55:443
+[2026-09-22 16:37:18] [REVIEW]     MsMpEng.exe      48.211.73.55 (Boydton, US) | RISK: 0/100   5252  
+[2026-09-22 16:37:18]    Evidence: no high-confidence evidence | Signer: CN=Microsoft Windows Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-22 16:37:22] [NEW DESTINATION] svchost.exe -> 72.145.35.110:443
+[2026-09-22 16:37:25] [SYSTEM]     svchost.exe      72.145.35.110 (Dublin, IE) | RISK: 0/100   8240  
+[2026-09-22 16:37:25]    Evidence: known system process reduced the score | Signer: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-22 16:37:33] [REVIEW]     Code.exe         138.91.182.224 (San Francisco, US) | RISK: 0/100 17124 
+[2026-09-22 16:37:33]    Evidence: no high-confidence evidence | Signer: Unknown
+[2026-09-22 16:37:41] [TRUSTED]    Code.exe         lb-140-82-114-22-iad.github.com (San Francisco, US) | RISK: 0/100 17124 
+[2026-09-22 16:37:41]    Evidence: known system process reduced the score | Signer: Unknown
+[2026-09-22 16:37:49] [REVIEW]     Code.exe         13.107.5.93 (New York, US) | RISK: 0/100   17124 
+[2026-09-22 16:37:49]    Evidence: no high-confidence evidence | Signer: Unknown
+[2026-09-22 16:37:54] [NEW DESTINATION] Code.exe -> 18.65.3.69:443
+[2026-09-22 16:37:57] [REVIEW]     Code.exe         server-18-65-3-69.lax50.r.cloudfront.net (San Jose, US) | RISK: 0/100 17124 
+[2026-09-22 16:37:57]    Evidence: no high-confidence evidence | Signer: Unknown
+[2026-09-22 16:38:02] [NEW DESTINATION] Code.exe -> 4.150.223.99:443
+[2026-09-22 16:38:06] [REVIEW]     Code.exe         4.150.223.99 (Des Moines, US) | RISK: 0/100 4192  
+[2026-09-22 16:38:06]    Evidence: no high-confidence evidence | Signer: Unknown
+[2026-09-22 16:38:14] [REVIEW]     Code.exe         4.150.223.104 (Des Moines, US) | RISK: 0/100 17124 
+[2026-09-22 16:38:14]    Evidence: no high-confidence evidence | Signer: Unknown
+[2026-09-22 16:38:22] [REVIEW]     Code.exe         138.91.182.224 (San Francisco, US) | RISK: 0/100 17124 
+[2026-09-22 16:38:22]    Evidence: no high-confidence evidence | Signer: Unknown
+[2026-09-22 16:38:34] [*] Extracting telemetry and invoking Dual-AI for PID 17124...
+[2026-09-22 16:38:34] [*] Telemetry gathered for Code.exe. Querying AI models...
+[2026-09-22 16:38:39] 🧠 [GEMINI]: **Assessment:** This telemetry represents legitimate Visual Studio Code execution from a standard per-user installation path communicating with trusted GitHub/Fastly infrastructure for routine synchronization, extension management, or updates.  **Threat Probability Score:** 0/10
+[2026-09-22 16:38:39] 🤖 [COPILOT]: Copilot Error: No module named 'openai'
+[2026-09-22 16:39:46] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-22 16:39:51] [*] Extracting telemetry and invoking Dual-AI for PID 29896...
+[2026-09-22 16:39:51] [*] Telemetry gathered for Code.exe. Querying AI models...
+[2026-09-22 16:40:02] 🧠 [GEMINI]: **Assessment:** This telemetry represents legitimate, expected multi-process behavior of Microsoft Visual Studio Code running from its standard per-user installation directory with no malicious indicators observed.  **Threat Probability Score:** 0/10
+[2026-09-22 16:40:02] 🤖 [COPILOT]: The process telemetry for Code.exe, with no active outbound IP connections and a valid executable path, indicates normal execution of Microsoft VS Code with a low threat probability score of 1.
+[2026-09-22 16:40:25] [*] Extracting telemetry and invoking Dual-AI for PID 17124...
+[2026-09-22 16:40:26] [*] Telemetry gathered for Code.exe. Querying AI models...
+[2026-09-22 16:40:32] 🧠 [GEMINI]: **Assessment:** This telemetry represents benign, standard execution of Microsoft Visual Studio Code spawning a legitimate child worker process and communicating with official Microsoft Azure and GitHub/Fastly CDN infrastructure.  **Threat Probability Score:** 1/10
+[2026-09-22 16:40:32] 🤖 [COPILOT]: Assessment: The telemetry shows a legitimate process running from a standard path associated with Visual Studio Code, with multiple IP connections that could be for updates, extensions, or legitimate network activity, and without any further signs of tampering or anomalies, the process appears to be normal.   Threat Probability Score:
+[2026-09-22 16:43:47] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-22 16:44:07] [*] Network Sentinel starting deep socket audit...
+[2026-09-22 16:44:07] STATUS       PROCESS          REMOTE HOST / LOCATION                     PID   
+[2026-09-22 16:44:15] [TRUSTED]    Code.exe         cdn-185-199-109-133.github.com (San Francisco, US) | RISK: 0/100 17124 
+[2026-09-22 16:44:15]    Evidence: known system process reduced the score | Signer: Unknown
+[2026-09-22 16:44:23] [REVIEW]     Code.exe         138.91.182.224 (San Francisco, US) | RISK: 0/100 17124 
+[2026-09-22 16:44:23]    Evidence: no high-confidence evidence | Signer: Unknown
+[2026-09-22 16:44:27] [NEW DESTINATION] Code.exe -> 4.150.223.107:443
+[2026-09-22 16:44:31] [REVIEW]     Code.exe         4.150.223.107 (Des Moines, US) | RISK: 0/100 17124 
+[2026-09-22 16:44:31]    Evidence: no high-confidence evidence | Signer: Unknown
+[2026-09-22 16:44:38] [TRUSTED]    Code.exe         lb-140-82-114-21-iad.github.com (San Francisco, US) | RISK: 0/100 17124 
+[2026-09-22 16:44:38]    Evidence: known system process reduced the score | Signer: Unknown
+[2026-09-22 16:44:46] [SYSTEM]     svchost.exe      20.59.87.226 (San Francisco, US) | RISK: 0/100 3416  
+[2026-09-22 16:44:46]    Evidence: known system process reduced the score | Signer: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-22 16:45:11] [*] Extracting telemetry and invoking Dual-AI for PID 3416...
+[2026-09-22 16:45:11] [*] Telemetry gathered for svchost.exe. Querying AI models...
+[2026-09-22 16:45:23] 🧠 [GEMINI]: **Assessment:** This process exhibits normal operational characteristics, executing from the expected `System32` directory and originating from the legitimate parent process `services.exe`. The outbound connection is directed to an IP address owned by Microsoft (Azure infrastructure), which is standard behavior for background Windows services such as Windows Update or telemetry.  * **Recommendation:** Allow the process. * **Additional Investigation Steps:**    1. Correlate the PID (3416) with the specific hosted Windows service using `tasklist /svc /fi "PID eq 3416"` or `Get-CimInstance Win32_Service -Filter "ProcessId = 3416"`.   2. Inspect network DNS/SNI telemetry to confirm the exact Microsoft domain (e.g., `*.update.microsoft.com` or `*.azure.com`) associated with the connection to `20.59.87.226`. * **Threat Probability Score:** 1/10
+[2026-09-22 16:45:23] 🤖 [COPILOT]: **Assessment:** The process `svchost.exe` is typically a legitimate Windows process, often associated with services running on the system. However, the active outbound connection to IP `20.59.87.226` is unusual for a standard service host process and warrants further scrutiny due to potential misuse
+[2026-09-22 16:50:46] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-22 16:50:56] [*] Engaging Stealth Protocol: Dropping inbound ICMP...
+[2026-09-22 16:50:56] 🛡️ STEALTH ACTIVE: Machine is silent to ICMP ping sweeps.
+[2026-09-22 16:51:06] [*] Engaging Stealth Protocol: Dropping inbound ICMP...
+[2026-09-22 16:51:07] 🛡️ STEALTH ACTIVE: Machine is silent to ICMP ping sweeps.
+[2026-09-22 16:51:11] 🚨 [AIR-GAP ACTIVE] Emergency host containment initiated!
+[2026-09-22 16:51:11] [+] Outbound network traffic successfully blocked.
+[2026-09-22 16:51:14] [*] Disengaging host containment...
+[2026-09-22 16:51:14] [+] Outbound network traffic restored.
+[2026-09-22 16:51:18] [*] Checking dark web breach exposure...
+[2026-09-22 16:51:18] [BREACH] josephawana26@gmail.com is clean. No breaches found.
+[2026-09-22 16:51:21] [*] Running behavior fingerprint scan...
+[2026-09-22 16:51:21] [IDENTITY] Behavior Score=32 | Risk=trusted
+[2026-09-22 16:51:24] --- Ghost-Aegis Readiness Check ---
+[2026-09-22 16:51:24] Administrator privileges: READY
+[2026-09-22 16:51:24] Windows Firewall query: READY
+[2026-09-22 16:51:24] Optional AbuseIPDB enrichment: CONFIGURED
+[2026-09-22 16:51:24] Optional AI enrichment: CONFIGURED
+[2026-09-22 16:51:24] Incident history: READY
+[2026-09-22 16:51:24] Readiness check complete. No system changes were made.
+[2026-09-22 16:51:33] [*] Reading common Windows persistence locations...
+[2026-09-22 16:51:43] Persistence audit found 372 entries:
+[2026-09-22 16:51:43] [Startup folder] C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup\desktop.ini
+[2026-09-22 16:51:43] [Registry Run key] OneDriveSetup=C:\Windows\System32\OneDriveSetup.exe /thfirstsetup
+[2026-09-22 16:51:43] [Registry Run key] SecurityHealth=C:\WINDOWS\system32\SecurityHealthSystray.exe
+[2026-09-22 16:51:43] [Registry Run key] RtkAudUService="C:\WINDOWS\System32\DriverStore\FileRepository\realtekservice.inf_amd64_18daf79b2c8abbf6\RtkAudUService64.exe" -background
+[2026-09-22 16:51:43] [Scheduled task] \CyberBuddy-FML-Agent
+[2026-09-22 16:51:43] [Scheduled task] \MicrosoftEdgeUpdateTaskMachineCore{F12E0BA8-1306-4596-9CB4-7FCC0FD966B6}
+[2026-09-22 16:51:43] [Scheduled task] \MicrosoftEdgeUpdateTaskMachineUA{9BA8D35D-D5F5-4277-9AD0-07FD7E021A69}
+[2026-09-22 16:51:43] [Scheduled task] \npcapwatchdog
+[2026-09-22 16:51:43] [Scheduled task] \NVIDIA App SelfUpdate_{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}
+[2026-09-22 16:51:43] [Scheduled task] \OneDrive Reporting Task-S-1-5-21-3259708315-565447142-176031373-1001
+[2026-09-22 16:51:43] [Scheduled task] \OneDrive Standalone Update Task-S-1-5-21-3259708315-565447142-176031373-1001
+[2026-09-22 16:51:43] [Scheduled task] \OneDrive Startup Task-S-1-5-21-3259708315-565447142-176031373-1001
+[2026-09-22 16:51:43] [Scheduled task] \GoogleSystem\GoogleUpdater\GoogleUpdaterTaskSystem152.0.7933.0{450A5761-7478-453A-B3CF-797564A9FFA6}
+[2026-09-22 16:51:43] [Scheduled task] \GoogleUserPEH\RunPlatformExperienceHelper_Daily
+[2026-09-22 16:51:43] [Scheduled task] \GoogleUserPEH\RunPlatformExperienceHelper_Metrics
+[2026-09-22 16:51:43] [Scheduled task] \Lenovo\UDC\Lenovo UDC Diagnostic Scan
+[2026-09-22 16:51:43] [Scheduled task] \Lenovo\UDC\Lenovo UDC Lazy Deployment
+[2026-09-22 16:51:43] [Scheduled task] \Lenovo\UDC\Lenovo UDC Maintainance Task
+[2026-09-22 16:51:43] [Scheduled task] \Lenovo\UDC\Lenovo UDC Monitor
+[2026-09-22 16:51:43] [Scheduled task] \Lenovo\Vantage\Lenovo.Vantage.ServiceMaintainance
+[2026-09-22 16:51:43] [Scheduled task] \Lenovo\Vantage\Schedule\ConsumerAddinDailyScheduleTask
+[2026-09-22 16:51:43] [Scheduled task] \Lenovo\Vantage\Schedule\DailyTelemetryTransmission
+[2026-09-22 16:51:43] [Scheduled task] \Lenovo\Vantage\Schedule\GenericMessagingAddin
+[2026-09-22 16:51:43] [Scheduled task] \Lenovo\Vantage\Schedule\GenericMessagingAddin_Pulsation
+[2026-09-22 16:51:43] [Scheduled task] \Lenovo\Vantage\Schedule\HeartbeatAddinDailyScheduleTask
+[2026-09-22 16:51:43] [Scheduled task] \Lenovo\Vantage\Schedule\IdeaNotebookAddinDailyEvent
+[2026-09-22 16:51:43] [Scheduled task] \Lenovo\Vantage\Schedule\Lenovo.Vantage.SmartPerformance.MonthlyReport
+[2026-09-22 16:51:43] [Scheduled task] \Lenovo\Vantage\Schedule\Lenovo.Vantage.SmartPerformance.SScanAndFix
+[2026-09-22 16:51:43] [Scheduled task] \Lenovo\Vantage\Schedule\LenovoCompanionAppAddinDailyScheduleTask
+[2026-09-22 16:51:43] [Scheduled task] \Lenovo\Vantage\Schedule\LenovoSupportHealthReportSchedule
+[2026-09-22 16:51:43] [Scheduled task] \Lenovo\Vantage\Schedule\LenovoSystemUpdateAddin_WeeklyTask
+[2026-09-22 16:51:43] [Scheduled task] \Lenovo\Vantage\Schedule\LiveWallpaperDailyScheduleTask
+[2026-09-22 16:51:43] [Scheduled task] \Lenovo\Vantage\Schedule\LiveWallpaperScheduleTask
+[2026-09-22 16:51:43] [Scheduled task] \Lenovo\Vantage\Schedule\SettingsWidgetAddinDailyScheduleTask
+[2026-09-22 16:51:43] [Scheduled task] \Lenovo\Vantage\Schedule\SmartPerformance.ExpireReminder
+[2026-09-22 16:51:43] [Scheduled task] \Lenovo\Vantage\Schedule\VantageCoreAddinDailyScheduleTask
+[2026-09-22 16:51:43] [Scheduled task] \Lenovo\Vantage\Schedule\VantageCoreAddinIdleScheduleTask
+[2026-09-22 16:51:43] [Scheduled task] \Lenovo\Vantage\Schedule\VantageCoreAddinWeekScheduleTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\.NET Framework\.NET Framework NGEN v4.0.30319
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\.NET Framework\.NET Framework NGEN v4.0.30319 64
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\.NET Framework\.NET Framework NGEN v4.0.30319 64 Critical
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\.NET Framework\.NET Framework NGEN v4.0.30319 Critical
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\AccountHealth\RecoverabilityToastTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Active Directory Rights Management Services Client\AD RMS Rights Policy Template Management (Automated)
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Active Directory Rights Management Services Client\AD RMS Rights Policy Template Management (Manual)
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\AppID\EDP Policy Manager
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\AppID\PolicyConverter
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\AppID\VerifiedPublisherCertStoreCheck
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Application Experience\MareBackup
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser Exp
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Application Experience\PcaPatchDbTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Application Experience\SdbinstMergeDbTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Application Experience\StartupAppTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\ApplicationData\appuriverifierdaily
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\ApplicationData\appuriverifierinstall
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\ApplicationData\CleanupTemporaryState
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\ApplicationData\DsSvcCleanup
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\AppListBackup\Backup
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\AppListBackup\BackupNonMaintenance
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\AppxDeploymentClient\Pre-staged app cleanup
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\AppxDeploymentClient\UCPD velocity
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Autochk\Proxy
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\BitLocker\BitLocker Encrypt All Drives
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\BitLocker\BitLocker MDM policy Refresh
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Bluetooth\UninstallDeviceTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\BrokerInfrastructure\BgTaskRegistrationMaintenanceTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\capabilityaccessmanager\maintenancetasks
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\CertificateServicesClient\AikCertEnrollTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\CertificateServicesClient\CryptoPolicyTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\CertificateServicesClient\KeyPreGenTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\CertificateServicesClient\SystemTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\CertificateServicesClient\UserTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\CertificateServicesClient\UserTask-Roam
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Chkdsk\ProactiveScan
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Chkdsk\SyspartRepair
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Clip\License Validation
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Clip\LicenseImdsIntegration
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\CloudExperienceHost\CreateObjectTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\CloudRestore\Backup
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\CloudRestore\Restore
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\ConsentUX\UnifiedConsent\UnifiedConsentSyncTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Containers\CmCleanup
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Customer Experience Improvement Program\UsbCeip
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Data Integrity Scan\Data Integrity Check And Scan
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Data Integrity Scan\Data Integrity Scan
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Data Integrity Scan\Data Integrity Scan for Crash Recovery
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Defrag\ScheduledDefrag
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Device Information\Device
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Device Information\Device User
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Device Setup\Driver Recovery on Reboot
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Device Setup\Metadata Refresh
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\DeviceDirectoryClient\HandleCommand
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\DeviceDirectoryClient\HandleWnsCommand
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\DeviceDirectoryClient\IntegrityCheck
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\DeviceDirectoryClient\LocateCommandUserSession
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\DeviceDirectoryClient\RegisterDeviceAccountChange
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\DeviceDirectoryClient\RegisterDeviceLocationRightsChange
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\DeviceDirectoryClient\RegisterDevicePeriodic24
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\DeviceDirectoryClient\RegisterDevicePolicyChange
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\DeviceDirectoryClient\RegisterDeviceProtectionStateChanged
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\DeviceDirectoryClient\RegisterDeviceSettingChange
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\DeviceDirectoryClient\RegisterDeviceWnsFallback
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\DeviceDirectoryClient\RegisterUserDevice
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Diagnosis\RecommendedTroubleshootingScanner
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Diagnosis\Scheduled
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Diagnosis\UnexpectedCodepath
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\DirectX\DirectXDatabaseUpdater
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\DirectX\DXGIAdapterCache
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\DiskCleanup\SilentCleanup
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticResolver
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\DiskFootprint\Diagnostics
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\DiskFootprint\StorageSense
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\DUSM\dusmtask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\EDP\EDP App Launch Task
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\EDP\EDP Auth Task
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\EDP\EDP Inaccessible Credentials Task
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\EDP\StorageCardEncryption Task
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\EnterpriseMgmt\MDMMaintenenceTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\ExploitGuard\ExploitGuard MDM policy Refresh
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Feedback\Siuf\DmClient
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Feedback\Siuf\DmClientOnScenarioDownload
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\File Classification Infrastructure\Property Definition Sync
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\FileHistory\File History (maintenance mode)
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Flighting\FeatureConfig\BootstrapUsageDataReporting
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Flighting\FeatureConfig\GovernedFeatureUsageProcessing
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Flighting\FeatureConfig\ReconcileConfigs
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Flighting\FeatureConfig\ReconcileFeatures
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Flighting\FeatureConfig\SafeguardsReconciliation
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Flighting\FeatureConfig\UsageDataFlushing
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Flighting\FeatureConfig\UsageDataReceiver
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Flighting\FeatureConfig\UsageDataReporting
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Flighting\OneSettings\RefreshCache
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Hotpatch\Monitoring
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\input\InputSettingsRestoreDataAvailable
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\input\LocalUserSyncDataAvailable
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\input\MouseSyncDataAvailable
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\input\PenSyncDataAvailable
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\input\RemoteMouseSyncDataAvailable
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\input\RemotePenSyncDataAvailable
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\input\RemoteTouchpadSyncDataAvailable
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\input\syncpensettings
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\input\TouchpadSyncDataAvailable
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\InstallService\RestoreDevice
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\InstallService\ScanForUpdates
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\InstallService\ScanForUpdatesAsUser
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\InstallService\SmartRetry
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\InstallService\WakeUpAndContinueUpdates
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\InstallService\WakeUpAndScanForUpdates
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\International\Synchronize Language Settings
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Kernel\La57Cleanup
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\LanguageComponentsInstaller\Installation
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\LanguageComponentsInstaller\ReconcileLanguageResources
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\LanguageComponentsInstaller\Uninstallation
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\License Manager\TempSignedLicenseExchange
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Location\WindowsActionDialog
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Maintenance\WinSAT
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Management\Autopilot\DetectHardwareChange
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Management\Autopilot\RemediateHardwareChange
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Management\Connectivity\ESIMPM
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Management\Provisioning\Cellular
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Management\Provisioning\Logon
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Management\Provisioning\MdmDiagnosticsCleanup
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Management\Provisioning\Retry
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Management\Provisioning\RunOnReboot
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Maps\MapsToastTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Maps\MapsUpdateTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\MemoryDiagnostic\AutomaticOfflineMemoryDiagnostic
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\MemoryDiagnostic\ProcessMemoryDiagnosticEvents
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\MemoryDiagnostic\RunFullMemoryDiagnostic
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\MUI\LPRemove
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Multimedia\SystemSoundsService
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Network Connectivity Status Indicator\NcsiIdentifyUserProxies
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\NlaSvc\WiFiTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Offline Files\Background Synchronization
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Offline Files\Logon Synchronization
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\PCRPF\PCR Prediction Framework Firmware Update Task
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\PerformanceTrace\ShowFeedbackToast
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\PerformanceTrace\WhesvcToast
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\PI\Secure-Boot-Update
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\PI\Sqm-Tasks
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Plug and Play\Device Install Group Policy
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Plug and Play\Device Install Reboot Required
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Plug and Play\Sysprep Generalize Drivers
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Pluton\Pluton-Ksp-Provisioning
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Power Efficiency Diagnostics\AnalyzeSystem
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Printing\EduPrintProv
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Printing\PrinterCleanupTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Printing\PrintJobCleanupTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\PushToInstall\LoginCheck
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\PushToInstall\Registration
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Ras\MobilityManager
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\RecoveryEnvironment\VerifyWinRE
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\ReFsDedupSvc\Initialization
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Registry\RegIdleBackup
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\RemoteAssistance\RemoteAssistanceTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Servicing\OOBEFodSetup
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Servicing\StartComponentCleanup
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Setup\PITRTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Setup\SetupCleanupTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Setup\SetupRecoveryDataTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\SharedPC\Account Cleanup
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Shell\CreateObjectTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Shell\FamilySafetyMonitor
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Shell\FamilySafetyRefreshTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Shell\IndexerAutomaticMaintenance
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Shell\ThemeAssetTask_SyncFODState
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Shell\ThemesSyncedImageDownload
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Shell\UpdateUserPictureTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Shell\UpdateUserPictureTaskContained
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\SoftwareProtectionPlatform\SvcRestartTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\SoftwareProtectionPlatform\SvcRestartTaskLogon
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\SoftwareProtectionPlatform\SvcRestartTaskNetwork
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\SpacePort\SpaceAgentTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\SpacePort\SpaceManagerTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Speech\SpeechModelDownloadTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\StateRepository\MaintenanceTasks
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Storage Tiers Management\Storage Tiers Management Initialization
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Storage Tiers Management\Storage Tiers Optimization
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Subscription\EnableLicenseAcquisition
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Subscription\LicenseAcquisition
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Sustainability\PowerGridForecastTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Sustainability\SustainabilityTelemetry
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Sysmain\HybridDriveCachePrepopulate
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Sysmain\HybridDriveCacheRebalance
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Sysmain\ResPriStaticDbSync
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Sysmain\WsSwapAssessmentTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\SystemRestore\SR
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Task Manager\Interactive
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\TextServicesFramework\MsCtfMonitor
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Time Synchronization\ForceSynchronizeTime
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Time Synchronization\SynchronizeTime
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Time Zone\SynchronizeTimeZone
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\TPM\Tpm-HASCertRetr
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\TPM\Tpm-Maintenance
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\TPM\Tpm-PreAttestationHealthCheck
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\UpdateOrchestrator\Report policies
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\UpdateOrchestrator\Schedule Maintenance Work
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\UpdateOrchestrator\Schedule Scan
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\UpdateOrchestrator\Schedule Scan Static Task
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\UpdateOrchestrator\Schedule Wake To Work
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\UpdateOrchestrator\Schedule Work
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\UpdateOrchestrator\Start Oobe Expedite Work
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\UpdateOrchestrator\StartOobeAppsScanAfterUpdate
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\UpdateOrchestrator\StartOobeAppsScan_LicenseAccepted
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\UpdateOrchestrator\UIEOrchestrator
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\UpdateOrchestrator\USO_UxBroker
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\UpdateOrchestrator\UUS Failover Task
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\UPnP\UPnPHostConfig
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\UsageAndQualityInsights\UsageAndQualityInsights-MaintenanceTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\USB\Usb-Notifications
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\User Profile Service\HiveUploadTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\WaaSMedic\PerformRemediation
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\WCM\WiFiTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\WDI\ResolutionHost
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Windows Defender\Windows Defender Cache Maintenance
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Windows Defender\Windows Defender Cleanup
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Windows Defender\Windows Defender Scheduled Scan
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Windows Defender\Windows Defender Verification
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Windows Error Reporting\QueueReporting
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Windows Filtering Platform\BfeOnServiceStartTypeChange
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Windows Media Sharing\UpdateLibrary
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\WindowsAI\ClickToDo\ModelCachingIdle
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\WindowsAI\ClickToDo\ModelCachingLimit
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\WindowsAI\ClickToDo\ModelCachingUpdate
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\WindowsAI\Recall\InitialConfiguration
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\WindowsAI\Recall\PolicyConfiguration
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\WindowsAI\Settings\InitialConfiguration
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\WindowsColorSystem\Calibration Loader
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\WindowsUpdate\Refresh Group Policy Cache
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\WindowsUpdate\Scheduled Start
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Wininet\CacheTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\WlanSvc\CDSSync
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\WlanSvc\MoProfileManagement
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\WOF\WIM-Hash-Management
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\WOF\WIM-Hash-Validation
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Work Folders\Work Folders Logon Synchronization
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Work Folders\Work Folders Maintenance Work
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Workplace Join\Automatic-Device-Join
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Workplace Join\Device-Sync
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\Workplace Join\Recovery-Check
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\WwanSvc\NotificationTask
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\Windows\WwanSvc\OobeDiscovery
+[2026-09-22 16:51:43] [Scheduled task] \Microsoft\XblGameSave\XblGameSaveTask
+[2026-09-22 16:51:43] [Scheduled task] \SoftLanding\S-1-5-21-3259708315-565447142-176031373-1001\ActionCenterRefreshForExpirationTask-{1ca746a8-fd50-420f-b2f0-16619dfb1397}
+[2026-09-22 16:51:43] [Scheduled task] \SoftLanding\S-1-5-21-3259708315-565447142-176031373-1001\SoftLandingCreativeManagementTask
+[2026-09-22 16:51:43] [Scheduled task] \SoftLanding\S-1-5-21-3259708315-565447142-176031373-1001\SoftLandingDeferralTask-{87a03751-14ab-4495-98bb-66d9f5a610d5}
+[2026-09-22 16:51:43] [Scheduled task] \SoftLanding\S-1-5-21-3259708315-565447142-176031373-1001\SoftLandingRefreshForExpirationTask-{a68dea31-db7d-4dc6-a907-42be1f4aad52}
+[2026-09-22 16:51:43] [Scheduled task] \SoftLanding\S-1-5-21-3259708315-565447142-176031373-1001\SoftLandingTriggerTask-128000000001615609-render-{8d6b1d92-e70d-47c4-afd9-9717aff6a03a}
+[2026-09-22 16:51:43] [Auto-start service] AMD Crash Defender Service -> C:\WINDOWS\System32\DriverStore\FileRepository\amdfendr.inf_amd64_987f8cede005f427\amdfendrsr.exe
+[2026-09-22 16:51:43] [Auto-start service] AMD External Events Utility -> C:\WINDOWS\System32\DriverStore\FileRepository\u0406494.inf_amd64_5e0d2f15fb74508b\B405142\atiesrxx.exe
+[2026-09-22 16:51:43] [Auto-start service] AmdPpkgSvc -> C:\WINDOWS\System32\DriverStore\FileRepository\amdppkg.inf_amd64_5fd171e24453b255\AmdPpkgSvc.exe
+[2026-09-22 16:51:43] [Auto-start service] AppXSvc -> C:\WINDOWS\system32\svchost.exe -k wsappx -p
+[2026-09-22 16:51:43] [Auto-start service] AudioEndpointBuilder -> C:\WINDOWS\System32\svchost.exe -k LocalSystemNetworkRestricted -p
+[2026-09-22 16:51:43] [Auto-start service] Audiosrv -> C:\WINDOWS\System32\svchost.exe -k LocalServiceNetworkRestricted -p
+[2026-09-22 16:51:43] [Auto-start service] BFE -> C:\WINDOWS\system32\svchost.exe -k LocalServiceNoNetworkFirewall -p
+[2026-09-22 16:51:43] [Auto-start service] BITS -> C:\WINDOWS\System32\svchost.exe -k netsvcs -p
+[2026-09-22 16:51:43] [Auto-start service] BrokerInfrastructure -> C:\WINDOWS\system32\svchost.exe -k DcomLaunch -p
+[2026-09-22 16:51:43] [Auto-start service] camsvc -> C:\WINDOWS\system32\svchost.exe -k osprivacy -p
+[2026-09-22 16:51:43] [Auto-start service] CDPSvc -> C:\WINDOWS\system32\svchost.exe -k LocalService -p
+[2026-09-22 16:51:43] [Auto-start service] CoreMessagingRegistrar -> C:\WINDOWS\system32\svchost.exe -k LocalServiceNoNetwork -p
+[2026-09-22 16:51:43] [Auto-start service] CryptSvc -> C:\WINDOWS\system32\svchost.exe -k NetworkService -p
+[2026-09-22 16:51:43] [Auto-start service] DcomLaunch -> C:\WINDOWS\system32\svchost.exe -k DcomLaunch -p
+[2026-09-22 16:51:43] [Auto-start service] Dhcp -> C:\WINDOWS\system32\svchost.exe -k LocalServiceNetworkRestricted -p
+[2026-09-22 16:51:43] [Auto-start service] DiagTrack -> C:\WINDOWS\System32\svchost.exe -k utcsvc -p
+[2026-09-22 16:51:43] [Auto-start service] DispBrokerDesktopSvc -> C:\WINDOWS\system32\svchost.exe -k LocalService -p
+[2026-09-22 16:51:43] [Auto-start service] Dnscache -> C:\WINDOWS\system32\svchost.exe -k NetworkService -p
+[2026-09-22 16:51:43] [Auto-start service] DoSvc -> C:\WINDOWS\System32\svchost.exe -k NetworkService -p
+[2026-09-22 16:51:43] [Auto-start service] DPS -> C:\WINDOWS\System32\svchost.exe -k LocalServiceNoNetwork -p
+[2026-09-22 16:51:43] [Auto-start service] DusmSvc -> C:\WINDOWS\System32\svchost.exe -k LocalServiceNetworkRestricted -p -s DusmSvc
+[2026-09-22 16:51:43] [Auto-start service] edgeupdate -> "C:\Program Files (x86)\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe" /svc
+[2026-09-22 16:51:43] [Auto-start service] EventLog -> C:\WINDOWS\System32\svchost.exe -k LocalServiceNetworkRestricted -p
+[2026-09-22 16:51:43] [Auto-start service] EventSystem -> C:\WINDOWS\system32\svchost.exe -k LocalServiceRedirectionGuard -p
+[2026-09-22 16:51:43] [Auto-start service] FMAPOService -> C:\WINDOWS\System32\FMService64.exe
+[2026-09-22 16:51:43] [Auto-start service] FontCache -> C:\WINDOWS\system32\svchost.exe -k LocalService -p
+[2026-09-22 16:51:43] [Auto-start service] GoogleUpdaterInternalService152.0.7933.0 -> "C:\Program Files (x86)\Google\GoogleUpdater\152.0.7933.0\updater.exe" --system --windows-service --service=update-internal
+[2026-09-22 16:51:43] [Auto-start service] GoogleUpdaterService152.0.7933.0 -> "C:\Program Files (x86)\Google\GoogleUpdater\152.0.7933.0\updater.exe" --system --windows-service --service=update
+[2026-09-22 16:51:43] [Auto-start service] gpsvc -> C:\WINDOWS\system32\svchost.exe -k GPSvcGroup
+[2026-09-22 16:51:43] [Auto-start service] InventorySvc -> C:\WINDOWS\system32\svchost.exe -k InvSvcGroup -p
+[2026-09-22 16:51:43] [Auto-start service] IpHlpSvc -> C:\WINDOWS\System32\svchost.exe -k NetSvcs -p
+[2026-09-22 16:51:43] [Auto-start service] LanmanServer -> C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+[2026-09-22 16:51:43] [Auto-start service] LanmanWorkstation -> C:\WINDOWS\System32\svchost.exe -k NetworkService -p
+[2026-09-22 16:51:43] [Auto-start service] LenovoFnAndFunctionKeys -> C:\WINDOWS\System32\DriverStore\FileRepository\lenovofnandfunctionkeys.inf_amd64_5e21bf389d23855a\LenovoUtilityService.exe
+[2026-09-22 16:51:43] [Auto-start service] LenovoVantageService -> "C:\Program Files (x86)\Lenovo\VantageService\\5.1.2609.9\LenovoVantageService.exe"
+[2026-09-22 16:51:43] [Auto-start service] LSM -> C:\WINDOWS\system32\svchost.exe -k LSMService -p
+[2026-09-22 16:51:43] [Auto-start service] MapsBroker -> C:\WINDOWS\System32\svchost.exe -k NetworkService -p
+[2026-09-22 16:51:43] [Auto-start service] MDCoreSvc -> "C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.26080.4-0\MpDefenderCoreService.exe"
+[2026-09-22 16:51:43] [Auto-start service] mpssvc -> C:\WINDOWS\system32\svchost.exe -k LocalServiceNoNetworkFirewall -p
+[2026-09-22 16:51:43] [Auto-start service] nsi -> C:\WINDOWS\system32\svchost.exe -k LocalService -p
+[2026-09-22 16:51:43] [Auto-start service] NvContainerLocalSystem -> "C:\Program Files\NVIDIA Corporation\NvContainer\nvcontainer.exe" -s NvContainerLocalSystem -a -f "C:\ProgramData\NVIDIA Corporation\NVIDIA App\NvContainer\NvContainerLocalSystem.log" -l 3 -d "C:\Program Files\NVIDIA Corporation\NvContainer\plugins\LocalSystem" -r -p 30000  -ert
+[2026-09-22 16:51:43] [Auto-start service] PcaSvc -> C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted -p
+[2026-09-22 16:51:43] [Auto-start service] Power -> C:\WINDOWS\system32\svchost.exe -k DcomLaunch -p
+[2026-09-22 16:51:43] [Auto-start service] ProfSvc -> C:\WINDOWS\system32\svchost.exe -k UserProfileService -p
+[2026-09-22 16:51:43] [Auto-start service] RpcEptMapper -> C:\WINDOWS\system32\svchost.exe -k RPCSS -p
+[2026-09-22 16:51:43] [Auto-start service] RpcSs -> C:\WINDOWS\system32\svchost.exe -k rpcss -p
+[2026-09-22 16:51:43] [Auto-start service] RtkAudioUniversalService -> "C:\WINDOWS\System32\DriverStore\FileRepository\realtekservice.inf_amd64_18daf79b2c8abbf6\RtkAudUService64.exe"
+[2026-09-22 16:51:43] [Auto-start service] RtkBtManServ -> C:\WINDOWS\RtkBtManServ.exe
+[2026-09-22 16:51:43] [Auto-start service] SamSs -> C:\WINDOWS\system32\lsass.exe
+[2026-09-22 16:51:43] [Auto-start service] Schedule -> C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+[2026-09-22 16:51:43] [Auto-start service] SENS -> C:\WINDOWS\system32\svchost.exe -k netsvcsRedirectionGuard -p
+[2026-09-22 16:51:43] [Auto-start service] ShellHWDetection -> C:\WINDOWS\System32\svchost.exe -k netsvcs -p
+[2026-09-22 16:51:43] [Auto-start service] Spooler -> C:\WINDOWS\System32\spoolsv.exe
+[2026-09-22 16:51:43] [Auto-start service] sppsvc -> C:\WINDOWS\system32\sppsvc.exe
+[2026-09-22 16:51:43] [Auto-start service] StateRepository -> C:\WINDOWS\system32\svchost.exe -k appmodel -p
+[2026-09-22 16:51:43] [Auto-start service] StorSvc -> C:\WINDOWS\System32\svchost.exe -k LocalSystemNetworkRestrictedRedirectionGuard -p
+[2026-09-22 16:51:43] [Auto-start service] SysMain -> C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted -p
+[2026-09-22 16:51:43] [Auto-start service] SystemEventsBroker -> C:\WINDOWS\system32\svchost.exe -k DcomLaunch -p
+[2026-09-22 16:51:43] [Auto-start service] TextInputManagementService -> C:\WINDOWS\System32\svchost.exe -k LocalSystemNetworkRestricted -p
+[2026-09-22 16:51:43] [Auto-start service] Themes -> C:\WINDOWS\System32\svchost.exe -k netsvcs -p
+[2026-09-22 16:51:43] [Auto-start service] TrkWks -> C:\WINDOWS\System32\svchost.exe -k LocalSystemNetworkRestricted -p
+[2026-09-22 16:51:43] [Auto-start service] UDCService -> C:\WINDOWS\System32\drivers\Lenovo\udc\Service\UDClientService.exe
+[2026-09-22 16:51:43] [Auto-start service] UserManager -> C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+[2026-09-22 16:51:43] [Auto-start service] UsoSvc -> C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+[2026-09-22 16:51:43] [Auto-start service] vmms -> C:\WINDOWS\system32\vmms.exe
+[2026-09-22 16:51:43] [Auto-start service] VSS -> C:\WINDOWS\system32\vssvc.exe
+[2026-09-22 16:51:43] [Auto-start service] Wcmsvc -> C:\WINDOWS\system32\svchost.exe -k LocalServiceNetworkRestricted -p -s Wcmsvc
+[2026-09-22 16:51:43] [Auto-start service] whesvc -> C:\WINDOWS\system32\svchost.exe -k whesvc -p
+[2026-09-22 16:51:43] [Auto-start service] WinDefend -> "C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.26080.4-0\MsMpEng.exe"
+[2026-09-22 16:51:43] [Auto-start service] Winmgmt -> C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+[2026-09-22 16:51:43] [Auto-start service] WlanSvc -> C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted -p
+[2026-09-22 16:51:43] [Auto-start service] WpnService -> C:\WINDOWS\system32\svchost.exe -k NetworkService -p
+[2026-09-22 16:51:43] [Auto-start service] WSAIFabricSvc -> C:\WINDOWS\system32\svchost.exe -k WSAIFabricSvcGroup -p
+[2026-09-22 16:51:43] [Auto-start service] wscsvc -> C:\WINDOWS\System32\svchost.exe -k LocalServiceNetworkRestricted -p
+[2026-09-22 16:51:43] [Auto-start service] WSearch -> C:\WINDOWS\system32\SearchIndexer.exe /Embedding
+[2026-09-22 16:51:43] [Auto-start service] WSLService -> "C:\Program Files\WSL\wslservice.exe"
+[2026-09-22 16:51:43] [Auto-start service] NahimicService -> "C:\WINDOWS\system32\NahimicService.exe"
+[2026-09-22 16:51:43] [Auto-start service] NVDisplay.ContainerLocalSystem -> C:\WINDOWS\System32\DriverStore\FileRepository\nvltsi.inf_amd64_f0bf3af178442601\Display.NvContainer\NVDisplay.Container.exe -arg <ExeDir>\arguments.txt
+[2026-09-22 16:51:43] [Auto-start service] cbdhsvc_481339 -> C:\WINDOWS\system32\svchost.exe -k ClipboardSvcGroup -p
+[2026-09-22 16:51:43] [Auto-start service] CDPUserSvc_481339 -> C:\WINDOWS\system32\svchost.exe -k UnistackSvcGroup
+[2026-09-22 16:51:43] [Auto-start service] webthreatdefusersvc_481339 -> C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted -p
+[2026-09-22 16:51:43] [Auto-start service] WpnUserService_481339 -> C:\WINDOWS\system32\svchost.exe -k UnistackSvcGroup
+[2026-09-22 16:51:43] [Auto-start service] CoworkVMService -> "C:\Program Files\WindowsApps\Claude_1.34493.1.0_x64__pzs8sxrjxfjjc\app\resources\cowork-svc.exe"
+[2026-09-22 16:51:53] [*] Extracting telemetry and invoking Dual-AI for PID 14924...
+[2026-09-22 16:51:53] [*] Telemetry gathered for Widgets.exe. Querying AI models...
+[2026-09-22 16:52:04] 🧠 [GEMINI]: **Assessment:** This telemetry represents normal, legitimate behavior of the Windows 11 Widgets feature running from the protected `WindowsApps` directory and spawned via standard system service architecture. The outbound network connection resolves to an Akamai CDN infrastructure commonly utilized by Microsoft to deliver MSN and dynamic widget content, displaying no indicators of malicious activity.  **Recommendation:**  **Allow** the process.  **Additional Investigation Steps:** 1. Verify that the binary's digital signature is valid and issued by Microsoft Corporation. 2. Review local DNS query logs to confirm the outbound IP (`23.210.216.79`) resolves to an expected Microsoft/Akamai domain (e.g., `*.msn.com` or `*.edgekey.net`).  **Threat Probability Score:**  **1/10**
+[2026-09-22 16:52:04] 🤖 [COPILOT]: Assessment: The process "Widgets.exe" appears to be legitimate, running from a trusted path associated with Microsoft's web experience. However, the outbound connection to the IP address '23.210.216.79' warrants investigation, as it could indicate a benign service or part of a potential threat if the
+[2026-09-22 16:52:04] [*] Dual-AI evaluation complete for PID 14924.
+[2026-09-22 16:52:04] [*] Review the above AI assessments and take appropriate action.
+[2026-09-22 16:53:51] [*] Extracting telemetry and invoking Dual-AI for PID 17124...
+[2026-09-22 16:53:51] [*] Telemetry gathered for Code.exe. Querying AI models...
+[2026-09-22 16:53:57] 🧠 [GEMINI]: ### Assessment The telemetry reflects standard, benign activity consistent with Microsoft Visual Studio Code operating from its default per-user installation directory and spawning legitimate worker child processes. The active outbound connection communicates with a verified Microsoft-owned IP range (4.150.223.107), typical for built-in application telemetry, sync services, or extension marketplace traffic.  * **Action Recommendation:** **Allow** the process. * **Additional Investigation Steps:**   1. Verify the file's digital signature (Authenticode) against Microsoft’s public certificates to confirm binary integrity.   2. Inspect command-line arguments and child process trees (e.g., unexpected shell executions like `cmd.exe` or `powershell.exe`) to ensure it is not executing malicious workspace scripts or trojanized extensions.   3. Correlate host DNS queries to confirm the specific FQDN resolved for `4.150.223.107` (e.g., marketplace or telemetry endpoints). * **Threat Probability Score:** **1/10**
+[2026-09-22 16:53:57] 🤖 [COPILOT]: Assessment: The process "Code.exe" is associated with Microsoft Visual Studio Code, which is a legitimate application commonly used for software development. However, an active outbound connection to the IP address '4.150.223.107' should be investigated to ensure it is not associated with any malicious activity.
+[2026-09-22 16:53:57] [*] Dual-AI evaluation complete for PID 17124.
+[2026-09-22 16:53:57] [*] Review the above AI assessments and take appropriate action.
+[2026-09-22 17:00:12] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-22 17:00:19] [*] Extracting telemetry and invoking Dual-AI for PID 29896...
+[2026-09-22 17:00:20] [*] Telemetry gathered for Code.exe. Querying AI models...
+[2026-09-22 17:00:33] 🧠 [GEMINI]: ### **Assessment** This activity represents standard, expected execution of Microsoft Visual Studio Code originating from its legitimate default per-user installation directory and spawning routine Electron child processes. The single outbound connection to Microsoft-owned Azure infrastructure (`4.150.223.96`) is consistent with standard telemetry, extension updates, or account synchronization, presenting a negligible threat.  ### **Recommendation** * **Action:** **Allow** the process.  ### **Additional Investigation Steps** 1. **Verify Digital Signature:** Confirm the binary at the specified path is digitally signed by Microsoft and matches the certificate chain of a genuine VS Code build. 2. **Review Command-Line Arguments:** Inspect the process command-line parameters and subsequent child processes (e.g., shells like `cmd.exe`, `powershell.exe`, or compiler/interpreter binaries) to ensure it is not executing malicious workspace code or unauthorized extensions. 3. **Correlate Network Activity:** Review DNS query logs to identify the exact FQDN resolved for `4.150.223.96` (e.g., `marketplace.visualstudio.com` or telemetry endpoints) to verify legitimate service connectivity.  ### **Threat Probability Score** **1/10** (Benign)
+[2026-09-22 17:00:33] 🤖 [COPILOT]: The process Code.exe, originating from a legitimate Microsoft VS Code installation path, shows a single outbound connection which may be typical for updates or extensions. Allow the process but verify the IP address '4.150.223.96' to ensure it is associated with trusted Microsoft services. Threat Score: 2/10.
+[2026-09-22 17:00:33] [*] Dual-AI evaluation complete for PID 29896.
+[2026-09-22 17:00:33] [*] Review the above AI assessments and take appropriate action.
+[2026-09-22 17:02:36] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-22 17:04:22] [*] Extracting telemetry and invoking Dual-AI for PID 2840...
+[2026-09-22 17:04:22] [*] Telemetry gathered for MpDefenderCoreService.exe. Querying AI models...
+[2026-09-22 17:04:32] 🧠 [GEMINI]: **Assessment:** This process is a legitimate component of the Microsoft Defender Core Service operating from its expected platform update directory and correctly spawned by `services.exe`. The absence of suspicious network activity or abnormal execution characteristics confirms that this is benign security software telemetry.  * **Recommendation:** Allow the process (do not terminate). * **Additional Investigation Steps:** Verify that the executable file is digitally signed by Microsoft Corporation and validate the hash against standard Microsoft Defender update catalogs to rule out any rare binary tampering. * **Threat Probability Score:** 0/10
+[2026-09-22 17:04:32] 🤖 [COPILOT]: Copilot Error: Error code: 400 - {'error': {'message': "Invalid value: 'You...ge.'. Supported values are: 'system', 'assistant', 'user', 'function', 'tool', and 'developer'.", 'type': 'invalid_request_error', 'param': 'messages[0].role', 'code': 'invalid_value'}}
+[2026-09-22 17:04:32] [*] Dual-AI evaluation complete for PID 2840.
+[2026-09-22 17:04:32] [*] Review the above AI assessments and take appropriate action.
+[2026-09-22 17:06:39] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-22 17:06:41] [*] Extracting telemetry and invoking Dual-AI for PID 3416...
+[2026-09-22 17:06:41] [*] Telemetry gathered for svchost.exe. Querying AI models...
+[2026-09-22 17:06:52] 🧠 [GEMINI]: **Assessment:**  The process exhibits standard baseline behavior for a legitimate Windows Service Host, executing from `C:\Windows\System32` spawned by the expected parent `services.exe` with a verified Microsoft binary hash. The outbound connection to IP `20.59.87.226` belongs to Microsoft infrastructure (Azure ASN 8075), which is typical for native OS services such as Windows Update, SmartScreen, or telemetry.  * **Recommendation:** Allow the process. * **Additional Investigation Steps:**    * Correlate the PID (`3416`) with running services (e.g., via `tasklist /svc /fi "PID eq 3416"` or PowerShell `Get-CimInstance Win32_Service`) to identify the exact service hosted in this instance.   * Inspect the full command-line arguments to confirm the standard `-k <servicegroup>` syntax. * **Threat Probability Score:** 0/10
+[2026-09-22 17:06:52] 🤖 [COPILOT]: The process svchost.exe appears legitimate, running from the expected system directory with a valid parent process, but the outbound connection to IP 20.59.87.226 requires verification against known threat intelligence sources. Allow the process to continue but investigate the destination IP for any malicious activity or associations. Threat Score: 3/10.
+[2026-09-22 17:06:52] [*] Dual-AI evaluation complete for PID 3416.
+[2026-09-22 17:06:52] [*] Review the above AI assessments and take appropriate action.
+[2026-09-22 17:22:15] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-22 17:22:22] [*] Polling incident history for global coordinates...
+[2026-09-22 17:22:22] [+] Radar clear. No external threat coordinates found.
+[2026-09-22 17:30:09] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-22 17:30:14] [*] Polling incident history for global coordinates...
+[2026-09-22 17:30:14] [+] Radar clear. No external threat coordinates found.
+[2026-09-22 17:30:58] [*] Network Sentinel starting deep socket audit...
+[2026-09-22 17:30:58] STATUS       PROCESS          REMOTE HOST / LOCATION                     PID   
+[2026-09-22 17:31:03] [NEW DESTINATION] chrome.exe -> 142.251.34.78:443
+[2026-09-22 17:31:06] [REVIEW]     chrome.exe       dclaxb-av-in-f14.1e100.net (Mountain View, US) | RISK: 0/100 24624 
+[2026-09-22 17:31:06]    Evidence: no high-confidence evidence | Signer: CN=Google LLC, O=Google LLC, L=Mountain View, S=California, C=US, SERIALNUMBER=3582691, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=Delaware, OID.1.3.6.1.4.1.311.60.2.1.3=US
+[2026-09-22 17:31:11] [NEW DESTINATION] chrome.exe -> 142.250.141.113:443
+[2026-09-22 17:31:14] [REVIEW]     chrome.exe       dd-in-f113.1e100.net (Mountain View, US) | RISK: 0/100 24624 
+[2026-09-22 17:31:14]    Evidence: no high-confidence evidence | Signer: CN=Google LLC, O=Google LLC, L=Mountain View, S=California, C=US, SERIALNUMBER=3582691, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=Delaware, OID.1.3.6.1.4.1.311.60.2.1.3=US
+[2026-09-22 17:31:19] [NEW DESTINATION] chrome.exe -> 192.178.164.17:443
+[2026-09-22 17:31:22] [REVIEW]     chrome.exe       yuphxer-in-f17.1e100.net (Mountain View, US) | RISK: 0/100 24624 
+[2026-09-22 17:31:22]    Evidence: no high-confidence evidence | Signer: CN=Google LLC, O=Google LLC, L=Mountain View, S=California, C=US, SERIALNUMBER=3582691, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=Delaware, OID.1.3.6.1.4.1.311.60.2.1.3=US
+[2026-09-22 17:31:27] [NEW DESTINATION] chrome.exe -> 142.251.210.131:443
+[2026-09-22 17:31:30] [REVIEW]     chrome.exe       dclaxa-as-in-f3.1e100.net (Mountain View, US) | RISK: 0/100 24624 
+[2026-09-22 17:31:30]    Evidence: no high-confidence evidence | Signer: CN=Google LLC, O=Google LLC, L=Mountain View, S=California, C=US, SERIALNUMBER=3582691, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=Delaware, OID.1.3.6.1.4.1.311.60.2.1.3=US
+[2026-09-22 17:31:32] [*] Polling incident history for global coordinates...
+[2026-09-22 17:31:32] [+] Radar clear. No external threat coordinates found.
+[2026-09-22 17:31:34] [REVIEW]     chrome.exe       yuphxer-in-f17.1e100.net (Mountain View, US) | RISK: 0/100 24624 
+[2026-09-22 17:31:34]    Evidence: no high-confidence evidence | Signer: Unknown
+[2026-09-22 17:31:39] [NEW DESTINATION] chrome.exe -> 192.178.164.92:443
+[2026-09-22 17:31:43] [REVIEW]     chrome.exe       yuphxer-in-f92.1e100.net (Mountain View, US) | RISK: 0/100 24624 
+[2026-09-22 17:31:43]    Evidence: no high-confidence evidence | Signer: Unknown
+[2026-09-22 17:31:53] [REVIEW]     chrome.exe       dclaxa-av-in-f10.1e100.net (Mountain View, US) | RISK: 0/100 24624 
+[2026-09-22 17:31:53]    Evidence: no high-confidence evidence | Signer: Unknown
+[2026-09-22 17:31:58] [NEW DESTINATION] Code.exe -> 150.171.109.148:443
+[2026-09-22 17:32:01] [REVIEW]     Code.exe         150.171.109.148 (Cape Town, ZA) | RISK: 0/100 17124 
+[2026-09-22 17:32:01]    Evidence: no high-confidence evidence | Signer: Unknown
+[2026-09-22 17:32:06] [NEW DESTINATION] chrome.exe -> 172.217.117.4:443
+[2026-09-22 17:32:09] [REVIEW]     chrome.exe       172.217.117.4 (Mountain View, US) | RISK: 0/100 24624 
+[2026-09-22 17:32:09]    Evidence: no high-confidence evidence | Signer: CN=Google LLC, O=Google LLC, L=Mountain View, S=California, C=US, SERIALNUMBER=3582691, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=Delaware, OID.1.3.6.1.4.1.311.60.2.1.3=US
+[2026-09-22 17:32:18] [REVIEW]     Code.exe         4.150.223.107 (Des Moines, US) | RISK: 0/100 17124 
+[2026-09-22 17:32:18]    Evidence: no high-confidence evidence | Signer: Unknown
+[2026-09-22 17:32:23] [NEW DESTINATION] chrome.exe -> 142.251.215.202:443
+[2026-09-22 17:32:26] [REVIEW]     chrome.exe       dclaxa-ay-in-f10.1e100.net (Mountain View, US) | RISK: 0/100 24624 
+[2026-09-22 17:32:26]    Evidence: no high-confidence evidence | Signer: CN=Google LLC, O=Google LLC, L=Mountain View, S=California, C=US, SERIALNUMBER=3582691, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=Delaware, OID.1.3.6.1.4.1.311.60.2.1.3=US
+[2026-09-22 17:32:34] [REVIEW]     chrome.exe       172.217.117.4 (Mountain View, US) | RISK: 0/100 24624 
+[2026-09-22 17:32:34]    Evidence: no high-confidence evidence | Signer: Unknown
+[2026-09-22 17:32:39] [NEW DESTINATION] chrome.exe -> 142.251.45.17:443
+[2026-09-22 17:32:43] [REVIEW]     chrome.exe       dclaxb-ax-in-f17.1e100.net (Mountain View, US) | RISK: 0/100 24624 
+[2026-09-22 17:32:43]    Evidence: no high-confidence evidence | Signer: CN=Google LLC, O=Google LLC, L=Mountain View, S=California, C=US, SERIALNUMBER=3582691, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=Delaware, OID.1.3.6.1.4.1.311.60.2.1.3=US
+[2026-09-22 17:32:47] [NEW DESTINATION] chrome.exe -> 142.251.215.229:443
+[2026-09-22 17:32:51] [REVIEW]     chrome.exe       sea09s35-in-f5.1e100.net (Seattle, US) | RISK: 0/100 24624 
+[2026-09-22 17:32:51]    Evidence: no high-confidence evidence | Signer: CN=Google LLC, O=Google LLC, L=Mountain View, S=California, C=US, SERIALNUMBER=3582691, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=Delaware, OID.1.3.6.1.4.1.311.60.2.1.3=US
+[2026-09-22 17:32:58] [SYSTEM]     svchost.exe      20.59.87.226 (San Francisco, US) | RISK: 0/100 3416  
+[2026-09-22 17:32:58]    Evidence: known system process reduced the score | Signer: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+[2026-09-22 17:37:42] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-22 17:37:45] [*] Polling incident history for global coordinates...
+[2026-09-22 17:37:45] [+] Radar clear. No external threat coordinates found.
+[2026-09-22 17:43:17] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-22 17:43:19] [*] Polling incident history for global coordinates...
+[2026-09-22 17:43:19] [+] Radar clear. No external threat coordinates found.

@@ -47,11 +47,12 @@ except ImportError:
             return {"score": score, "risk": "elevated" if score >= 60 else "low"}
         except (AttributeError, TypeError, ValueError):
             return {"error": "Invalid behavior telemetry"}
+
 try:
     from breach_api import check_breach  # type: ignore[import-not-found]
 except ImportError:
     # Breach intelligence is optional; keep the GUI usable when the service is absent.
-    def check_breach():
+    def check_breach(target_email=""):
         return {"error": "Breach intelligence service is unavailable"}
 
 # Load environment secrets
@@ -106,36 +107,6 @@ def is_suspicious_path(filepath: str) -> bool:
     ]
     path_lower = filepath.lower()
     return any(s_dir in path_lower for s_dir in suspicious_dirs)
-
-
-def block_ip(ip_address: str) -> str:
-    """Blocks an IP address using Windows Firewall outbound rules."""
-    rule_name = f"GhostAegis_Block_{ip_address}"
-    cmd = [
-        "netsh", "advfirewall", "firewall", "add", "rule",
-        f"name={rule_name}", "dir=out", "action=block", f"remoteip={ip_address}"
-    ]
-    try:
-        subprocess.run(cmd, capture_output=True, text=True, check=True)
-        return f"[+] Successfully firewalled IP: {ip_address}"
-    except subprocess.CalledProcessError as e:
-        return f"[-] Failed to block IP {ip_address}: {e.stderr.strip()}"
-
-
-def allow_ip(ip_address: str) -> str:
-    """Removes an active firewall block rule for a given IP."""
-    rule_name = f"GhostAegis_Block_{ip_address}"
-    remove_cmd = ["netsh", "advfirewall", "firewall", "delete", "rule", f"name={rule_name}"]
-    try:
-        result = subprocess.run(
-            remove_cmd, capture_output=True, text=True, check=False,
-        )
-        if result.returncode == 0:
-            return f"[+] Cleared firewall block for IP: {ip_address}"
-        error = result.stderr.strip() or result.stdout.strip() or "unknown error"
-        return f"[-] Failed to clear firewall block for IP {ip_address}: {error}"
-    except OSError as error:
-        return f"[-] Failed to clear firewall block for IP {ip_address}: {error}"
 
 
 class GhostAegisApp(ctk.CTk):
@@ -405,12 +376,29 @@ class GhostAegisApp(ctk.CTk):
         )
         self.network_dashboard_button.pack(pady=2, padx=15)
 
-        # Killswitch & AI Evaluation Group
+        self.map_button = ctk.CTkButton(
+            self.right_frame,
+            text="Global Threat Radar",
+            width=280,
+            height=28,
+            fg_color="#880808",  
+            hover_color="#4D0000",
+            command=self.show_threat_map,
+        )
+        self.map_button.pack(pady=2, padx=15)
+
+        # --- PROCESS RESPONSE (Right Column) ---
         self._add_panel_section(self.right_frame, "PROCESS RESPONSE")
         self.kill_frame = ctk.CTkFrame(self.right_frame, fg_color="transparent")
         self.kill_frame.pack(pady=3, padx=15)
 
-        self.pid_entry = ctk.CTkEntry(self.kill_frame, placeholder_text="PID...", width=80, height=28)
+        # Dropdown selector replacing static text entry
+        self.pid_entry = ctk.CTkComboBox(
+            self.kill_frame,
+            values=["Select PID..."],
+            width=135,
+            height=28
+        )
         self.pid_entry.pack(side="left", padx=(0, 5))
 
         self.kill_button = ctk.CTkButton(
@@ -418,7 +406,7 @@ class GhostAegisApp(ctk.CTk):
             text="Kill PID",
             fg_color="#880808",
             hover_color="#660000",
-            width=80,
+            width=65,
             height=28,
             command=self.terminate_process_callback
         )
@@ -429,7 +417,7 @@ class GhostAegisApp(ctk.CTk):
             text="Dual-AI Eval",
             fg_color="#4B0082",
             hover_color="#300052",
-            width=95,
+            width=85,
             height=28,
             command=self.run_dual_ai_eval
         )
@@ -456,7 +444,6 @@ class GhostAegisApp(ctk.CTk):
         self.console.tag_config("identity", foreground="#00AAFF")   # Identity / behavior
         self.console.tag_config("breach", foreground="#FF00FF")     # Breach intel
 
-
         # --- THREAD QUEUE SETUP ---
         self.log_queue = queue.Queue()
         self.scan_thread_running = False
@@ -464,6 +451,9 @@ class GhostAegisApp(ctk.CTk):
 
         self.check_queue()
         self.log_event("Ghost-Aegis Defensive Suite initialized. Ready.", "trusted")
+        
+        # Seed active network PIDs into the selector right away
+        self.refresh_active_pids()
 
     @staticmethod
     def _add_panel_section(parent, title):
@@ -474,6 +464,38 @@ class GhostAegisApp(ctk.CTk):
             font=("Consolas", 10, "bold"),
             text_color="#7fb3d5",
         ).pack(fill="x", padx=15, pady=(5, 1))
+
+    def _get_selected_pid(self) -> int | None:
+        """Extracts numeric PID whether entered as '4812' or '4812 (powershell.exe)'."""
+        raw = self.pid_entry.get().strip()
+        if not raw or raw in {"Select PID...", "No active net PIDs"}:
+            return None
+        candidate = raw.split()[0].strip("():,")
+        return int(candidate) if candidate.isdigit() else None
+
+    def refresh_active_pids(self):
+        """Scans established external connections and updates the PID selector."""
+        pids = []
+        try:
+            for conn in psutil.net_connections(kind="inet"):
+                if conn.pid and conn.status == psutil.CONN_ESTABLISHED and conn.raddr:
+                    if conn.raddr.ip not in {"127.0.0.1", "0.0.0.0", "::1"}:
+                        try:
+                            name = psutil.Process(conn.pid).name()
+                            entry = f"{conn.pid} ({name})"
+                            if entry not in pids:
+                                pids.append(entry)
+                        except (psutil.NoSuchProcess, psutil.AccessDenied):
+                            continue
+        except Exception:
+            pass
+
+        if pids:
+            self.pid_entry.configure(values=pids)
+            if not self.pid_entry.get() or self.pid_entry.get() == "Select PID...":
+                self.pid_entry.set(pids[0])
+        else:
+            self.pid_entry.configure(values=["No active net PIDs"])
 
     def destroy(self):
         self.canary_guard.stop()
@@ -589,7 +611,7 @@ class GhostAegisApp(ctk.CTk):
         controls = ctk.CTkFrame(dashboard, fg_color="transparent")
         controls.pack(fill="x", padx=15, pady=(5, 0))
         search_entry = ctk.CTkEntry(
-            controls, placeholder_text="Search process, IP, port, or path...", width=300,
+            controls, placeholder_text="Search process, PID, IP, port, or path...", width=300,
         )
         search_entry.pack(side="left", padx=(0, 8))
         filter_menu = ctk.CTkOptionMenu(
@@ -610,7 +632,7 @@ class GhostAegisApp(ctk.CTk):
             dashboard_box.delete("1.0", "end")
             dashboard_box.insert(
                 "end",
-                f"{'PROCESS':<18} {'DESTINATION':<24} {'PORT':<6} "
+                f"{'PID':<8} {'PROCESS':<16} {'DESTINATION':<20} {'PORT':<6} "
                 f"{'SIGHTINGS':<10} {'FIRST SEEN':<11} {'BEACON':<8}\n"
                 + "-" * 90 + "\n",
             )
@@ -622,7 +644,7 @@ class GhostAegisApp(ctk.CTk):
                 row for row in rows
                 if not query or query in " ".join(
                     str(row[field]).lower()
-                    for field in ("process", "destination", "port", "path")
+                    for field in ("pid", "process", "destination", "port", "path")
                 )
             ]
             if selected_filter == "First seen":
@@ -640,7 +662,7 @@ class GhostAegisApp(ctk.CTk):
             for row in rows:
                 dashboard_box.insert(
                     "end",
-                    f"{row['process'][:17]:<18} {row['destination'][:23]:<24} "
+                    f"{str(row['pid']):<8} {row['process'][:15]:<16} {row['destination'][:19]:<20} "
                     f"{row['port']:<6} {row['sightings']:<10} "
                     f"{str(row['first_seen']):<11} {str(row['beacon']):<8}\n"
                     f"  Path: {row['path']}\n"
@@ -684,6 +706,7 @@ class GhostAegisApp(ctk.CTk):
             trust = "BEACON-LIKE" if observation["beacon"] else "FIRST-SEEN" if observation["first_seen"] else "OBSERVED"
             risk = "REVIEW" if observation["beacon"] or observation["first_seen"] else "KNOWN"
             rows.append({
+                "pid": connection.pid,
                 "process": process_name,
                 "destination": remote_ip,
                 "port": port,
@@ -695,6 +718,84 @@ class GhostAegisApp(ctk.CTk):
                 "risk": risk,
             })
         return sorted(rows, key=lambda row: (row["risk"], row["process"].lower()))
+
+    # --- LIVE GLOBAL THREAT RADAR ---
+    def show_threat_map(self):
+        try:
+            import tkintermapview
+        except ImportError:
+            self.log_event("[-] tkintermapview not installed. Run: pip install tkintermapview", "threat")
+            return
+
+        map_win = ctk.CTkToplevel(self)
+        map_win.title("Ghost-Aegis | Global Threat Radar")
+        map_win.geometry("950x650")
+        map_win.attributes("-topmost", True)
+
+        ctk.CTkLabel(
+            map_win,
+            text="LIVE GLOBAL THREAT RADAR",
+            font=("Consolas", 16, "bold"),
+            text_color="#FF3333"
+        ).pack(pady=(15, 5))
+
+        # Initialize Map Widget
+        map_widget = tkintermapview.TkinterMapView(map_win, corner_radius=0)
+        map_widget.pack(fill="both", expand=True, padx=20, pady=(5, 20))
+        
+       # Apply Google Satellite View (No API Key Required)
+        map_widget.set_tile_server("https://mt0.google.com/vt/lyrs=s&hl=en&x={x}&y={y}&z={z}&s=Ga", max_zoom=22)
+
+        # Set Home Base Coordinates (Santa Fe Springs area)
+        home_lat, home_lon = 33.9400, -118.0267
+        map_widget.set_position(home_lat, home_lon)
+        map_widget.set_zoom(2)
+
+        # Plot the Defender
+        map_widget.set_marker(
+            home_lat, home_lon, 
+            text="AEGIS ORIGIN (DEFENDER)", 
+            marker_color_circle="#00FF00",
+            marker_color_outside="#004400"
+        )
+
+        def plot_threats():
+            self._queue_log("[*] Polling incident history for global coordinates...", "system")
+            incidents = load_incidents()
+            plotted_ips = set()
+            count = 0
+
+            # Scan the 20 most recent incidents to prevent rate-limiting the geocoder
+            for incident in reversed(incidents[-20:]):
+                ip = incident.get("remote_ip")
+                risk = incident.get("risk_score", 0)
+
+                if ip and ip not in ["none", "127.0.0.1", "0.0.0.0", "::1"] and risk >= 40 and ip not in plotted_ips:
+                    lat, lon, city = self.get_ip_coords(ip)
+                    if lat and lon:
+                        plotted_ips.add(ip)
+                        count += 1
+                        
+                        # Severe threats are neon red; warnings are amber
+                        color = "#FF3333" if risk >= 70 else "#FFBF00"
+                        
+                        map_widget.set_marker(
+                            lat, lon, 
+                            text=f"[{risk}/100] {city} ({ip})",
+                            marker_color_circle=color,
+                            marker_color_outside="#000000"
+                        )
+                        # Draw vector trace from home to threat
+                        map_widget.set_path([(home_lat, home_lon), (lat, lon)], color=color, width=2)
+
+            if count > 0:
+                self._queue_log(f"[+] Plotted {count} active threat vectors on the map.", "trusted")
+            else:
+                self._queue_log("[+] Radar clear. No external threat coordinates found.", "trusted")
+
+        # Run the API polling in a thread so the UI doesn't freeze while loading
+        threading.Thread(target=plot_threats, daemon=True).start()
+
 
     def toggle_canary_shield(self):
         if self.canary_enabled:
@@ -749,6 +850,11 @@ class GhostAegisApp(ctk.CTk):
                 elif message == "__engine_complete__":
                     self.engine_thread_running = False
                     self.engine_button.configure(state="normal", text="Launch Defense Engine")
+                elif message == "__update_pids__":
+                    if isinstance(tag, list) and tag:
+                        self.pid_entry.configure(values=tag)
+                elif message == "__set_target_pid__":
+                    self.pid_entry.set(str(tag))
                 else:
                     self.log_event(message, tag)
         except queue.Empty:
@@ -968,7 +1074,7 @@ class GhostAegisApp(ctk.CTk):
         # 1. Try to get the email from the .env file quietly
         target_email = os.getenv("ADMIN_EMAIL")
         
-        # 2. If it's missing or blank, pop up a GUI prompt!
+        # 2. If it's missing or blank, pop up a GUI prompt
         if not target_email or target_email.strip() == "":
             dialog = ctk.CTkInputDialog(
                 text="No ADMIN_EMAIL found in .env\n\nEnter the target email to scan:", 
@@ -1011,14 +1117,26 @@ class GhostAegisApp(ctk.CTk):
     # --- DEFENSE: STEALTH, EMERGENCY CLEAN, HOST ISOLATION ---
     def run_stealth(self):
         """Drops inbound ICMP requests to hide machine from subnet sweeps."""
+        if os.name == "nt" and not ctypes.windll.shell32.IsUserAnAdmin():
+            self.log_event("[-] Elevation required: Run Ghost-Aegis as Administrator to manage firewall rules.", "threat")
+            return
+
         self.log_event("[*] Engaging Stealth Protocol: Dropping inbound ICMP...", "warn")
         try:
-            subprocess.run(["netsh", "advfirewall", "firewall", "delete", "rule", "name=GhostAegis_Stealth_DropPing"], capture_output=True)
+            # Delete existing rule first without throwing on missing rule
+            subprocess.run(
+                ["netsh", "advfirewall", "firewall", "delete", "rule", "name=GhostAegis_Stealth_DropPing"],
+                capture_output=True, text=True, check=False
+            )
+            # Add inbound block for ICMPv4
             subprocess.run([
                 "netsh", "advfirewall", "firewall", "add", "rule",
                 "name=GhostAegis_Stealth_DropPing", "dir=in", "action=block", "protocol=icmpv4"
-            ], check=True, capture_output=True)
+            ], capture_output=True, text=True, check=True)
             self.log_event("🛡️ STEALTH ACTIVE: Machine is silent to ICMP ping sweeps.", "trusted")
+        except subprocess.CalledProcessError as e:
+            err_msg = e.stderr.strip() if e.stderr else str(e)
+            self.log_event(f"Failed to activate stealth: {err_msg}", "threat")
         except Exception as e:
             self.log_event(f"Failed to activate stealth: {e}", "threat")
 
@@ -1109,6 +1227,16 @@ class GhostAegisApp(ctk.CTk):
         except Exception:
             return "Loc Error"
 
+    def get_ip_coords(self, ip):
+        """Fetches latitude and longitude for visual plotting."""
+        try:
+            response = requests.get(f"http://ip-api.com/json/{ip}", timeout=2.0).json()
+            if response.get("status") == "success":
+                return response.get("lat"), response.get("lon"), response.get("city")
+        except Exception:
+            pass
+        return None, None, "Unknown"
+
     # --- NETWORK SENTINEL & RADAR ---
     def toggle_radar(self):
         self.radar_enabled = not self.radar_enabled
@@ -1131,6 +1259,9 @@ class GhostAegisApp(ctk.CTk):
 
     def _network_sentinel_worker(self):
         trusted_domains = ["google.com", "github.com", "microsoft.com", "akamai", "azure", "cloudflare"]
+        active_pids = []
+        highest_threat_pid = None
+        max_risk = -1
 
         try:
             result = subprocess.run(["netstat", "-ano"], capture_output=True, text=True, check=True)
@@ -1158,6 +1289,10 @@ class GhostAegisApp(ctk.CTk):
                     except Exception:
                         proc_name = "Unknown"
                         exe_path = ""
+
+                    entry_label = f"{pid} ({proc_name})"
+                    if entry_label not in active_pids:
+                        active_pids.append(entry_label)
 
                     location = self.get_ip_location(ip_only)
                     try:
@@ -1207,6 +1342,11 @@ class GhostAegisApp(ctk.CTk):
                         reputation=reputation,
                         trusted_process=trusted_process,
                     )
+
+                    if risk_score > max_risk:
+                        max_risk = risk_score
+                        highest_threat_pid = pid
+
                     if risk_score >= 70:
                         status, tag_name = "[THREAT]", "threat"
                     elif risk_score >= 40:
@@ -1240,6 +1380,12 @@ class GhostAegisApp(ctk.CTk):
 
             if not found_active:
                 self._queue_log("No active external sockets detected.")
+
+            if active_pids:
+                self.log_queue.put(("__update_pids__", active_pids))
+            if highest_threat_pid and max_risk >= 40:
+                self.log_queue.put(("__set_target_pid__", str(highest_threat_pid)))
+
         except Exception as e:
             self._queue_log(f"Audit Exception: {e}", "threat")
         finally:
@@ -1247,27 +1393,27 @@ class GhostAegisApp(ctk.CTk):
 
     # --- PROCESS TERMINATION & DUAL-AI ANALYSIS ---
     def terminate_process_callback(self):
-        pid_str = self.pid_entry.get().strip()
-        if pid_str.isdigit():
+        pid = self._get_selected_pid()
+        if pid is not None:
             try:
-                p = psutil.Process(int(pid_str))
+                p = psutil.Process(pid)
                 process_name = p.name()
                 p.terminate()
-                self.log_event(f"[X] Terminated process {process_name} (PID: {pid_str}).", "threat")
-                self.pid_entry.delete(0, "end")
+                self.log_event(f"[X] Terminated process {process_name} (PID: {pid}).", "threat")
+                self.refresh_active_pids()
             except Exception as e:
                 self.log_event(f"Process kill error: {e}", "threat")
         else:
-            self.log_event("Invalid PID format entered.", "warn")
+            self.log_event("Invalid or empty PID entered for termination.", "warn")
 
     def run_dual_ai_eval(self):
-        pid_str = self.pid_entry.get().strip()
-        if pid_str.isdigit():
-            self.log_event(f"[*] Extracting telemetry and invoking Dual-AI for PID {pid_str}...", "system")
+        pid = self._get_selected_pid()
+        if pid is not None:
+            self.log_event(f"[*] Extracting telemetry and invoking Dual-AI for PID {pid}...", "system")
             self.ai_eval_button.configure(state="disabled")
-            threading.Thread(target=self._dual_ai_worker, args=(int(pid_str),), daemon=True).start()
+            threading.Thread(target=self._dual_ai_worker, args=(pid,), daemon=True).start()
         else:
-            self.log_event("Invalid PID entered for AI evaluation.", "warn")
+            self.log_event("Invalid or empty PID selected for AI evaluation.", "warn")
 
     def _dual_ai_worker(self, pid):
         try:
@@ -1323,13 +1469,23 @@ class GhostAegisApp(ctk.CTk):
                 import openai
                 openai_key = os.getenv("OPENAI_API_KEY") or os.getenv("COPILOT_API_KEY")
                 if not openai_key:
-                    raise RuntimeError("Missing OPENAI_API_KEY / COPILOT_API_KEY in .env")
+                    raise RuntimeError("Missing OPENAI_API_KEY or COPILOT_API_KEY in .env")
 
                 client = openai.OpenAI(api_key=openai_key)
                 openai_res = client.chat.completions.create(
                     model="gpt-4o",
-                    messages=[{"role": "user", "content": prompt}],
-                    max_tokens=60
+                    messages=[
+                        {
+                            "role": "system", 
+                            "content": "You are a concise Blue Team analyst. You must output exactly one sentence assessing the telemetry, ending with 'Threat Score: X/10'. Never use conversational filler."
+                        },
+                        {
+                            "role": "user", 
+                            "content": prompt
+                        }
+                    ],
+                    max_tokens=150,
+                    temperature=0.2
                 )
                 copilot_verdict = openai_res.choices[0].message.content.strip().replace("\n", " ")
             except Exception as e:
@@ -1348,5 +1504,12 @@ class GhostAegisApp(ctk.CTk):
 
 
 if __name__ == "__main__":
+    if os.name == "nt" and not ctypes.windll.shell32.IsUserAnAdmin():
+        # Prompt Windows UAC and re-run with elevated privileges
+        ctypes.windll.shell32.ShellExecuteW(
+            None, "runas", sys.executable, f'"{os.path.abspath(__file__)}"', None, 1
+        )
+        sys.exit(0)
+
     app = GhostAegisApp()
     app.mainloop()
