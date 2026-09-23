@@ -102,11 +102,12 @@
     "remote_ip": "20.59.87.225",
     "port": "443",
     "first_seen": 1788469238.8463333,
-    "last_seen": 1788470006.920622,
+    "last_seen": 1790194507.4368548,
     "sightings": [
       1788469238.8463333,
       1788469306.0905614,
-      1788470006.920622
+      1788470006.920622,
+      1790194507.4368548
     ]
   },
   "chrome.exe|50.19.177.41|443": {
@@ -538,7 +539,7 @@
     "remote_ip": "138.91.182.224",
     "port": "443",
     "first_seen": 1789019000.7416103,
-    "last_seen": 1790125496.5244365,
+    "last_seen": 1790196619.4179795,
     "sightings": [
       1789019000.7416103,
       1789019074.4005427,
@@ -549,7 +550,10 @@
       1790120250.1453023,
       1790120298.8734426,
       1790120659.59683,
-      1790125496.5244365
+      1790125496.5244365,
+      1790194473.8294585,
+      1790196388.7615836,
+      1790196619.4179795
     ]
   },
   "Code.exe|185.199.108.133|443": {
@@ -703,13 +707,14 @@
     "remote_ip": "13.66.138.105",
     "port": "443",
     "first_seen": 1789019091.4947958,
-    "last_seen": 1790125501.7881582,
+    "last_seen": 1790196624.5542479,
     "sightings": [
       1789019091.4947958,
       1789585074.5195758,
       1790118883.5931904,
       1790119152.282845,
-      1790125501.7881582
+      1790125501.7881582,
+      1790196624.5542479
     ]
   },
   "msedgewebview2.exe|23.210.216.92|443": {
@@ -1403,9 +1408,292 @@
     "remote_ip": "150.171.109.150",
     "port": "443",
     "first_seen": 1790125491.3029752,
-    "last_seen": 1790125491.3029752,
+    "last_seen": 1790194515.8559568,
     "sightings": [
-      1790125491.3029752
+      1790125491.3029752,
+      1790194515.8559568
+    ]
+  },
+  "chrome.exe|74.125.137.188|5228": {
+    "process": "chrome.exe",
+    "remote_ip": "74.125.137.188",
+    "port": "5228",
+    "first_seen": 1790194461.364184,
+    "last_seen": 1790196393.0613241,
+    "sightings": [
+      1790194461.364184,
+      1790196393.0613241
+    ]
+  },
+  "RadeonSoftware.exe|23.40.24.117|80": {
+    "process": "RadeonSoftware.exe",
+    "remote_ip": "23.40.24.117",
+    "port": "80",
+    "first_seen": 1790194465.688887,
+    "last_seen": 1790194465.688887,
+    "sightings": [
+      1790194465.688887
+    ]
+  },
+  "RadeonSoftware.exe|23.5.11.190|80": {
+    "process": "RadeonSoftware.exe",
+    "remote_ip": "23.5.11.190",
+    "port": "80",
+    "first_seen": 1790194469.1014154,
+    "last_seen": 1790194469.1014154,
+    "sightings": [
+      1790194469.1014154
+    ]
+  },
+  "chrome.exe|54.145.234.50|443": {
+    "process": "chrome.exe",
+    "remote_ip": "54.145.234.50",
+    "port": "443",
+    "first_seen": 1790194469.1762996,
+    "last_seen": 1790194469.1762996,
+    "sightings": [
+      1790194469.1762996
+    ]
+  },
+  "StartMenuExperienceHost.exe|52.110.4.9|443": {
+    "process": "StartMenuExperienceHost.exe",
+    "remote_ip": "52.110.4.9",
+    "port": "443",
+    "first_seen": 1790194484.3957918,
+    "last_seen": 1790194484.3957918,
+    "sightings": [
+      1790194484.3957918
+    ]
+  },
+  "StartMenuExperienceHost.exe|52.110.4.30|443": {
+    "process": "StartMenuExperienceHost.exe",
+    "remote_ip": "52.110.4.30",
+    "port": "443",
+    "first_seen": 1790194493.340337,
+    "last_seen": 1790194493.340337,
+    "sightings": [
+      1790194493.340337
+    ]
+  },
+  "chrome.exe|18.209.132.204|443": {
+    "process": "chrome.exe",
+    "remote_ip": "18.209.132.204",
+    "port": "443",
+    "first_seen": 1790194494.2398565,
+    "last_seen": 1790194494.2398565,
+    "sightings": [
+      1790194494.2398565
+    ]
+  },
+  "chrome.exe|44.214.248.101|443": {
+    "process": "chrome.exe",
+    "remote_ip": "44.214.248.101",
+    "port": "443",
+    "first_seen": 1790194494.4399352,
+    "last_seen": 1790194494.4399352,
+    "sightings": [
+      1790194494.4399352
+    ]
+  },
+  "MpDefenderCoreService.exe|52.123.249.158|443": {
+    "process": "MpDefenderCoreService.exe",
+    "remote_ip": "52.123.249.158",
+    "port": "443",
+    "first_seen": 1790194499.1333632,
+    "last_seen": 1790194499.1333632,
+    "sightings": [
+      1790194499.1333632
+    ]
+  },
+  "chrome.exe|18.164.154.93|443": {
+    "process": "chrome.exe",
+    "remote_ip": "18.164.154.93",
+    "port": "443",
+    "first_seen": 1790194510.5566814,
+    "last_seen": 1790194510.5566814,
+    "sightings": [
+      1790194510.5566814
+    ]
+  },
+  "Code.exe|4.150.223.113|443": {
+    "process": "Code.exe",
+    "remote_ip": "4.150.223.113",
+    "port": "443",
+    "first_seen": 1790194521.1076434,
+    "last_seen": 1790194521.1076434,
+    "sightings": [
+      1790194521.1076434
+    ]
+  },
+  "Unknown|23.206.188.67|443": {
+    "process": "Unknown",
+    "remote_ip": "23.206.188.67",
+    "port": "443",
+    "first_seen": 1790196395.2691374,
+    "last_seen": 1790196395.2691374,
+    "sightings": [
+      1790196395.2691374
+    ]
+  },
+  "Unknown|100.60.149.109|443": {
+    "process": "Unknown",
+    "remote_ip": "100.60.149.109",
+    "port": "443",
+    "first_seen": 1790196395.3553782,
+    "last_seen": 1790196395.3553782,
+    "sightings": [
+      1790196395.3553782
+    ]
+  },
+  "Unknown|150.171.74.16|443": {
+    "process": "Unknown",
+    "remote_ip": "150.171.74.16",
+    "port": "443",
+    "first_seen": 1790196399.9409442,
+    "last_seen": 1790196399.9409442,
+    "sightings": [
+      1790196399.9409442
+    ]
+  },
+  "Unknown|150.171.73.16|443": {
+    "process": "Unknown",
+    "remote_ip": "150.171.73.16",
+    "port": "443",
+    "first_seen": 1790196405.2247045,
+    "last_seen": 1790196433.3302667,
+    "sightings": [
+      1790196405.2247045,
+      1790196433.3302667
+    ]
+  },
+  "Unknown|20.184.175.0|443": {
+    "process": "Unknown",
+    "remote_ip": "20.184.175.0",
+    "port": "443",
+    "first_seen": 1790196410.4998324,
+    "last_seen": 1790196410.4998324,
+    "sightings": [
+      1790196410.4998324
+    ]
+  },
+  "Unknown|54.85.123.42|443": {
+    "process": "Unknown",
+    "remote_ip": "54.85.123.42",
+    "port": "443",
+    "first_seen": 1790196411.4767783,
+    "last_seen": 1790196411.4767783,
+    "sightings": [
+      1790196411.4767783
+    ]
+  },
+  "explorer.exe|52.110.19.166|443": {
+    "process": "explorer.exe",
+    "remote_ip": "52.110.19.166",
+    "port": "443",
+    "first_seen": 1790196416.0631557,
+    "last_seen": 1790196416.0631557,
+    "sightings": [
+      1790196416.0631557
+    ]
+  },
+  "Unknown|52.110.19.143|443": {
+    "process": "Unknown",
+    "remote_ip": "52.110.19.143",
+    "port": "443",
+    "first_seen": 1790196422.8244464,
+    "last_seen": 1790196422.8244464,
+    "sightings": [
+      1790196422.8244464
+    ]
+  },
+  "Unknown|13.66.138.105|443": {
+    "process": "Unknown",
+    "remote_ip": "13.66.138.105",
+    "port": "443",
+    "first_seen": 1790196427.9909418,
+    "last_seen": 1790196427.9909418,
+    "sightings": [
+      1790196427.9909418
+    ]
+  },
+  "Unknown|23.206.188.69|443": {
+    "process": "Unknown",
+    "remote_ip": "23.206.188.69",
+    "port": "443",
+    "first_seen": 1790196428.773584,
+    "last_seen": 1790196428.773584,
+    "sightings": [
+      1790196428.773584
+    ]
+  },
+  "msedgewebview2.exe|150.171.28.11|443": {
+    "process": "msedgewebview2.exe",
+    "remote_ip": "150.171.28.11",
+    "port": "443",
+    "first_seen": 1790196590.4136996,
+    "last_seen": 1790196590.4136996,
+    "sightings": [
+      1790196590.4136996
+    ]
+  },
+  "StartMenuExperienceHost.exe|52.110.4.49|443": {
+    "process": "StartMenuExperienceHost.exe",
+    "remote_ip": "52.110.4.49",
+    "port": "443",
+    "first_seen": 1790196597.023811,
+    "last_seen": 1790196597.023811,
+    "sightings": [
+      1790196597.023811
+    ]
+  },
+  "StartMenuExperienceHost.exe|52.110.4.2|443": {
+    "process": "StartMenuExperienceHost.exe",
+    "remote_ip": "52.110.4.2",
+    "port": "443",
+    "first_seen": 1790196603.6692588,
+    "last_seen": 1790196603.6692588,
+    "sightings": [
+      1790196603.6692588
+    ]
+  },
+  "chrome.exe|142.251.166.94|443": {
+    "process": "chrome.exe",
+    "remote_ip": "142.251.166.94",
+    "port": "443",
+    "first_seen": 1790196604.3438785,
+    "last_seen": 1790196604.3438785,
+    "sightings": [
+      1790196604.3438785
+    ]
+  },
+  "Code.exe|4.150.223.111|443": {
+    "process": "Code.exe",
+    "remote_ip": "4.150.223.111",
+    "port": "443",
+    "first_seen": 1790196610.9535785,
+    "last_seen": 1790196610.9535785,
+    "sightings": [
+      1790196610.9535785
+    ]
+  },
+  "msedgewebview2.exe|96.7.181.12|443": {
+    "process": "msedgewebview2.exe",
+    "remote_ip": "96.7.181.12",
+    "port": "443",
+    "first_seen": 1790196614.8369014,
+    "last_seen": 1790196614.8369014,
+    "sightings": [
+      1790196614.8369014
+    ]
+  },
+  "Code.exe|150.171.109.147|443": {
+    "process": "Code.exe",
+    "remote_ip": "150.171.109.147",
+    "port": "443",
+    "first_seen": 1790196629.6715958,
+    "last_seen": 1790196629.6715958,
+    "sightings": [
+      1790196629.6715958
     ]
   }
 }

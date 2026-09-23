@@ -92,6 +92,7 @@ def calculate_risk(suspicious_path=False, unsigned=False, reputation=0, trusted_
         else:
             reasons.append("staged in untrusted directory")
             score += 35
+            
 
     if unsigned:
         reasons.append("unsigned binary")

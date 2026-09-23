@@ -4593,3 +4593,141 @@ The command completed successfully.
 [2026-09-22 18:07:55] [!] No CARTO_API_KEY found in .env. Defaulting to Satellite view.
 [2026-09-22 18:07:55] [*] Polling incident history for global coordinates...
 [2026-09-22 18:07:55] [+] Radar clear. No external threat coordinates found.
+[2026-09-23 13:13:37] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-23 13:13:43] [*] Checking dark web breach exposure...
+[2026-09-23 13:13:44] [BREACH] josephawana26@gmail.com is clean. No breaches found.
+[2026-09-23 13:13:53] [!] No CARTO_API_KEY found in .env. Defaulting to Satellite view.
+[2026-09-23 13:13:53] [*] Polling incident history for global coordinates...
+[2026-09-23 13:13:53] [+] Radar clear. No external threat coordinates found.
+[2026-09-23 13:14:21] [*] Network Sentinel starting deep socket audit...
+[2026-09-23 13:14:21] STATUS       PROCESS          REMOTE HOST / LOCATION                     PID   
+[2026-09-23 13:14:21] [NEW DESTINATION] chrome.exe -> 74.125.137.188:5228
+[2026-09-23 13:14:25] [REVIEW]     chrome.exe       dy-in-f188.1e100.net (Mountain View, US) | RISK: 0/100 11740 
+[2026-09-23 13:14:25]    Evidence:  | Signer: Google LLC
+[2026-09-23 13:14:25] [NEW DESTINATION] RadeonSoftware.exe -> 23.40.24.117:80
+[2026-09-23 13:14:29] [TRUSTED]    RadeonSoftware.exe a23-40-24-117.deploy.static.akamaitechnologies.com (Santa Clara, US) | RISK: 0/100 19644 
+[2026-09-23 13:14:29]    Evidence:  | Signer: Advanced Micro Devices
+[2026-09-23 13:14:29] [NEW DESTINATION] RadeonSoftware.exe -> 23.5.11.190:80
+[2026-09-23 13:14:29] [TRUSTED]    RadeonSoftware.exe a23-5-11-190.deploy.static.akamaitechnologies.com (Los Angeles, US) | RISK: 0/100 19644 
+[2026-09-23 13:14:29]    Evidence:  | Signer: Advanced Micro Devices
+[2026-09-23 13:14:29] [NEW DESTINATION] chrome.exe -> 54.145.234.50:443
+[2026-09-23 13:14:29] [TRUSTED]    chrome.exe       ec2-54-145-234-50.compute-1.amazonaws.com (Ashburn, US) | RISK: 0/100 11740 
+[2026-09-23 13:14:29]    Evidence:  | Signer: Google LLC
+[2026-09-23 13:14:39] [REVIEW]     Code.exe         138.91.182.224 (San Francisco, US) | RISK: 0/100 20092 
+[2026-09-23 13:14:39]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-23 13:14:44] [NEW DESTINATION] StartMenuExperienceHost.exe -> 52.110.4.9:443
+[2026-09-23 13:14:48] [REVIEW]     StartMenuExperienceHost.exe 52.110.4.9 (San Jose, US) | RISK: 0/100    13144 
+[2026-09-23 13:14:48]    Evidence:  | Signer: Microsoft Windows
+[2026-09-23 13:14:51] [*] Running behavior fingerprint scan...
+[2026-09-23 13:14:51] [IDENTITY] Behavior Score=34 | Risk=trusted
+[2026-09-23 13:14:53] [NEW DESTINATION] StartMenuExperienceHost.exe -> 52.110.4.30:443
+[2026-09-23 13:14:53] [REVIEW]     StartMenuExperienceHost.exe 52.110.4.30 (San Jose, US) | RISK: 0/100   13144 
+[2026-09-23 13:14:53]    Evidence:  | Signer: Microsoft Windows
+[2026-09-23 13:14:54] [NEW DESTINATION] chrome.exe -> 18.209.132.204:443
+[2026-09-23 13:14:54] [TRUSTED]    chrome.exe       ec2-18-209-132-204.compute-1.amazonaws.com (Ashburn, US) | RISK: 0/100 11740 
+[2026-09-23 13:14:54]    Evidence:  | Signer: Google LLC
+[2026-09-23 13:14:54] [NEW DESTINATION] chrome.exe -> 44.214.248.101:443
+[2026-09-23 13:14:54] [TRUSTED]    chrome.exe       ec2-44-214-248-101.compute-1.amazonaws.com (Ashburn, US) | RISK: 0/100 11740 
+[2026-09-23 13:14:54]    Evidence:  | Signer: Google LLC
+[2026-09-23 13:14:59] [NEW DESTINATION] MpDefenderCoreService.exe -> 52.123.249.158:443
+[2026-09-23 13:15:02] [REVIEW]     MpDefenderCoreService.exe 52.123.249.158 (San Jose, US) | RISK: 0/100 7092  
+[2026-09-23 13:15:02]    Evidence:  | Signer: Microsoft Windows Publisher
+[2026-09-23 13:15:10] [SYSTEM]     svchost.exe      20.59.87.225 (San Francisco, US) | RISK: 0/100 7064  
+[2026-09-23 13:15:10]    Evidence:  | Signer: Microsoft Windows
+[2026-09-23 13:15:10] [NEW DESTINATION] chrome.exe -> 18.164.154.93:443
+[2026-09-23 13:15:11] [REVIEW]     chrome.exe       server-18-164-154-93.lax53.r.cloudfront.net (Los Angeles, US) | RISK: 0/100 11740 
+[2026-09-23 13:15:11]    Evidence:  | Signer: Google LLC
+[2026-09-23 13:15:16] [REVIEW]     Code.exe         150.171.109.150 (Cape Town, ZA) | RISK: 4/100 20092 
+[2026-09-23 13:15:16]    Evidence: AbuseIPDB reputation score: 7% | Signer: Microsoft Corporation
+[2026-09-23 13:15:21] [NEW DESTINATION] Code.exe -> 4.150.223.113:443
+[2026-09-23 13:15:21] [REVIEW]     Code.exe         4.150.223.113 (Des Moines, US) | RISK: 14/100 20092 
+[2026-09-23 13:15:21]    Evidence: AbuseIPDB reputation score: 24% | Signer: Microsoft Corporation
+[2026-09-23 13:40:42] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-23 13:40:56] 🚨 [AUTO-MITIGATION ARMED] High-risk connections will be killed & blocked on sight.
+[2026-09-23 13:46:06] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-23 13:46:11] 🚨 [AUTO-MITIGATION ARMED] High-risk connections will be killed & blocked on sight.
+[2026-09-23 13:46:24] [*] Network Sentinel starting deep socket audit...
+[2026-09-23 13:46:24] STATUS       PROCESS          REMOTE HOST / LOCATION                     PID   
+[2026-09-23 13:46:32] 🚨 [AUTO-MITIGATE] Process Code.exe (PID 20092) TERMINATED.
+[2026-09-23 13:46:33] 🚨 [AUTO-MITIGATE] [-] Failed to block IP 138.91.182.224: 
+[2026-09-23 13:46:33] [THREAT]     Code.exe         138.91.182.224 (San Francisco, US) | RISK: 80/100 20092 
+[2026-09-23 13:46:33]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-23 13:46:35] 🚨 [AUTO-MITIGATE] Process chrome.exe (PID 11740) TERMINATED.
+[2026-09-23 13:46:35] 🚨 [AUTO-MITIGATE] [-] Failed to block IP 74.125.137.188: 
+[2026-09-23 13:46:35] [THREAT]     chrome.exe       dy-in-f188.1e100.net (Mountain View, US) | RISK: 80/100 11740 
+[2026-09-23 13:46:35]    Evidence:  | Signer: Google LLC
+[2026-09-23 13:46:35] [NEW DESTINATION] Unknown -> 23.206.188.67:443
+[2026-09-23 13:46:35] [WARN]       Unknown          a23-206-188-67.deploy.static.akamaitechnologies.com (Los Angeles, US) | RISK: 60/100 20092 
+[2026-09-23 13:46:35]    Evidence:  | Signer: Unknown
+[2026-09-23 13:46:35] [NEW DESTINATION] Unknown -> 100.60.149.109:443
+[2026-09-23 13:46:35] [WARN]       Unknown          ec2-100-60-149-109.compute-1.amazonaws.com (Ashburn, US) | RISK: 60/100 11740 
+[2026-09-23 13:46:35]    Evidence:  | Signer: Unknown
+[2026-09-23 13:46:40] [NEW DESTINATION] Unknown -> 150.171.74.16:443
+[2026-09-23 13:46:40] [-] Auto-Mitigate kill failed for 20092: process PID not found (pid=20092)
+[2026-09-23 13:46:40] 🚨 [AUTO-MITIGATE] [-] Failed to block IP 150.171.74.16: 
+[2026-09-23 13:46:40] [THREAT]     Unknown          150.171.74.16 (New York, US) | RISK: 80/100 20092 
+[2026-09-23 13:46:40]    Evidence: AbuseIPDB reputation score: 1% | Signer: Unknown
+[2026-09-23 13:46:45] [NEW DESTINATION] Unknown -> 150.171.73.16:443
+[2026-09-23 13:46:45] [-] Auto-Mitigate kill failed for 20092: process PID not found (pid=20092)
+[2026-09-23 13:46:45] 🚨 [AUTO-MITIGATE] [-] Failed to block IP 150.171.73.16: 
+[2026-09-23 13:46:45] [THREAT]     Unknown          150.171.73.16 (Newark, US) | RISK: 80/100  20092 
+[2026-09-23 13:46:45]    Evidence:  | Signer: Unknown
+[2026-09-23 13:46:50] [NEW DESTINATION] Unknown -> 20.184.175.0:443
+[2026-09-23 13:46:51] [-] Auto-Mitigate kill failed for 20092: process PID not found (pid=20092)
+[2026-09-23 13:46:51] 🚨 [AUTO-MITIGATE] [-] Failed to block IP 20.184.175.0: 
+[2026-09-23 13:46:51] [THREAT]     Unknown          20.184.175.0 (San Francisco, US) | RISK: 93/100 20092 
+[2026-09-23 13:46:51]    Evidence: AbuseIPDB reputation score: 23% | Signer: Unknown
+[2026-09-23 13:46:51] [NEW DESTINATION] Unknown -> 54.85.123.42:443
+[2026-09-23 13:46:51] [WARN]       Unknown          ec2-54-85-123-42.compute-1.amazonaws.com (Ashburn, US) | RISK: 60/100 11740 
+[2026-09-23 13:46:51]    Evidence:  | Signer: Unknown
+[2026-09-23 13:46:56] [NEW DESTINATION] explorer.exe -> 52.110.19.166:443
+[2026-09-23 13:46:58] 🚨 [AUTO-MITIGATE] Process explorer.exe (PID 3892) TERMINATED.
+[2026-09-23 13:46:58] 🚨 [AUTO-MITIGATE] [-] Failed to block IP 52.110.19.166: 
+[2026-09-23 13:46:58] [THREAT]     explorer.exe     52.110.19.166 (Phoenix, US) | RISK: 80/100 3892  
+[2026-09-23 13:46:58]    Evidence:  | Signer: Microsoft Windows
+[2026-09-23 13:47:02] [NEW DESTINATION] Unknown -> 52.110.19.143:443
+[2026-09-23 13:47:03] [-] Auto-Mitigate kill failed for 3892: process PID not found (pid=3892)
+[2026-09-23 13:47:03] 🚨 [AUTO-MITIGATE] [-] Failed to block IP 52.110.19.143: 
+[2026-09-23 13:47:03] [THREAT]     Unknown          52.110.19.143 (Phoenix, US) | RISK: 80/100 3892  
+[2026-09-23 13:47:03]    Evidence:  | Signer: Unknown
+[2026-09-23 13:47:08] [NEW DESTINATION] Unknown -> 13.66.138.105:443
+[2026-09-23 13:47:08] [-] Auto-Mitigate kill failed for 20092: process PID not found (pid=20092)
+[2026-09-23 13:47:08] 🚨 [AUTO-MITIGATE] [-] Failed to block IP 13.66.138.105: 
+[2026-09-23 13:47:08] [THREAT]     Unknown          13.66.138.105 (Quincy, US) | RISK: 80/100  20092 
+[2026-09-23 13:47:08]    Evidence:  | Signer: Unknown
+[2026-09-23 13:47:08] [NEW DESTINATION] Unknown -> 23.206.188.69:443
+[2026-09-23 13:47:08] [WARN]       Unknown          a23-206-188-69.deploy.static.akamaitechnologies.com (Los Angeles, US) | RISK: 60/100 20092 
+[2026-09-23 13:47:08]    Evidence:  | Signer: Unknown
+[2026-09-23 13:47:13] [-] Auto-Mitigate kill failed for 20092: process PID not found (pid=20092)
+[2026-09-23 13:47:14] 🚨 [AUTO-MITIGATE] [-] Failed to block IP 150.171.73.16: 
+[2026-09-23 13:47:14] [THREAT]     Unknown          150.171.73.16 (Newark, US) | RISK: 80/100  20092 
+[2026-09-23 13:47:14]    Evidence:  | Signer: Unknown
+[2026-09-23 13:49:42] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-23 13:49:44] 🚨 [AUTO-MITIGATION ARMED] High-risk connections will be killed & blocked on sight.
+[2026-09-23 13:49:45] [*] Network Sentinel starting deep socket audit...
+[2026-09-23 13:49:45] STATUS       PROCESS          REMOTE HOST / LOCATION                     PID   
+[2026-09-23 13:49:50] [NEW DESTINATION] msedgewebview2.exe -> 150.171.28.11:443
+[2026-09-23 13:49:52] [REVIEW]     msedgewebview2.exe 150.171.28.11 (Philadelphia, US) | RISK: 15/100 30484 
+[2026-09-23 13:49:52]    Evidence: AbuseIPDB reputation score: 25% | Signer: Microsoft Corporation
+[2026-09-23 13:49:57] [NEW DESTINATION] StartMenuExperienceHost.exe -> 52.110.4.49:443
+[2026-09-23 13:49:59] [REVIEW]     StartMenuExperienceHost.exe 52.110.4.49 (San Jose, US) | RISK: 0/100   30240 
+[2026-09-23 13:49:59]    Evidence:  | Signer: Microsoft Windows
+[2026-09-23 13:50:03] [NEW DESTINATION] StartMenuExperienceHost.exe -> 52.110.4.2:443
+[2026-09-23 13:50:04] [REVIEW]     StartMenuExperienceHost.exe 52.110.4.2 (San Jose, US) | RISK: 0/100    30240 
+[2026-09-23 13:50:04]    Evidence:  | Signer: Microsoft Windows
+[2026-09-23 13:50:04] [NEW DESTINATION] chrome.exe -> 142.251.166.94:443
+[2026-09-23 13:50:06] [REVIEW]     chrome.exe       gl-in-f94.1e100.net (Mountain View, US) | RISK: 0/100 30308 
+[2026-09-23 13:50:06]    Evidence:  | Signer: Google LLC
+[2026-09-23 13:50:11] [NEW DESTINATION] Code.exe -> 4.150.223.111:443
+[2026-09-23 13:50:14] [REVIEW]     Code.exe         4.150.223.111 (Des Moines, US) | RISK: 18/100 29928 
+[2026-09-23 13:50:14]    Evidence: AbuseIPDB reputation score: 31% | Signer: Microsoft Corporation
+[2026-09-23 13:50:14] [NEW DESTINATION] msedgewebview2.exe -> 96.7.181.12:443
+[2026-09-23 13:50:14] [TRUSTED]    msedgewebview2.exe a96-7-181-12.deploy.static.akamaitechnologies.com (El Segundo, US) | RISK: 0/100 30484 
+[2026-09-23 13:50:14]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-23 13:50:20] [REVIEW]     Code.exe         138.91.182.224 (San Francisco, US) | RISK: 0/100 29928 
+[2026-09-23 13:50:20]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-23 13:50:25] [REVIEW]     Code.exe         13.66.138.105 (Quincy, US) | RISK: 0/100   29928 
+[2026-09-23 13:50:25]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-23 13:50:29] [NEW DESTINATION] Code.exe -> 150.171.109.147:443
+[2026-09-23 13:50:30] [REVIEW]     Code.exe         150.171.109.147 (Cape Town, ZA) | RISK: 0/100 29928 
+[2026-09-23 13:50:30]    Evidence:  | Signer: Microsoft Corporation

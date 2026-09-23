@@ -1,0 +1,1361 @@
+2026-08-28 19:43:13,824 | INFO | --- Ghost Aegis Dual-AI Engine Initialized ---
+2026-08-28 19:43:13,825 | INFO | --- Transitioning to Copilot Interface ---
+2026-08-28 19:43:13,830 | INFO | [*] Telemetry daemon started. Polling every 5s...
+2026-08-28 19:43:14,208 | INFO | [*] Telemetry sweep found 20 active outbound socket(s).
+2026-08-28 19:43:14,208 | INFO | [EVALUATED] Widgets.exe (PID: 11792) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:14,209 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:14,209 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:14,209 | INFO | [EVALUATED] Widgets.exe (PID: 11792) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:14,209 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:14,209 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:14,209 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:14,209 | INFO | [EVALUATED] OneDriveStandaloneUpdater.exe (PID: 5480) | Risk: 1.00 | Class: untrusted
+2026-08-28 19:43:14,210 | WARNING | [ESCALATING] High risk (1.00) on OneDriveStandaloneUpdater.exe! Triggering Dual-AI Analysis...
+2026-08-28 19:43:14,210 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:14,210 | INFO | [EVALUATED] msedgewebview2.exe (PID: 14576) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:14,210 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:14,210 | INFO | [EVALUATED] msedgewebview2.exe (PID: 14576) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:14,210 | INFO | [EVALUATED] NVIDIA Overlay.exe (PID: 10400) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:14,210 | INFO | [EVALUATED] msedgewebview2.exe (PID: 16748) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:14,210 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:14,210 | INFO | [EVALUATED] Widgets.exe (PID: 11792) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:14,210 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:14,210 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:14,210 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:14,210 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:14,736 | INFO | [AI VERDICT] Copilot Local Intelligence -> MALICIOUS | Action: quarantine_process
+2026-08-28 19:43:14,736 | INFO | [AI SUMMARY] CRITICAL THREAT IDENTIFIED. Findings: Process matches suspicious extension pattern.
+2026-08-28 19:43:14,736 | WARNING | [SAFE MODE] Quarantine enforcement disabled. Monitoring only.
+2026-08-28 19:43:20,000 | INFO | [*] Telemetry sweep found 16 active outbound socket(s).
+2026-08-28 19:43:20,000 | INFO | [EVALUATED] Widgets.exe (PID: 11792) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:20,000 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:20,000 | INFO | [EVALUATED] Widgets.exe (PID: 11792) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:20,000 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:20,000 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:20,000 | INFO | [EVALUATED] OneDriveStandaloneUpdater.exe (PID: 5480) | Risk: 1.00 | Class: untrusted
+2026-08-28 19:43:20,000 | WARNING | [ESCALATING] High risk (1.00) on OneDriveStandaloneUpdater.exe! Triggering Dual-AI Analysis...
+2026-08-28 19:43:20,000 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:20,000 | INFO | [EVALUATED] msedgewebview2.exe (PID: 14576) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:20,000 | INFO | [EVALUATED] msedgewebview2.exe (PID: 14576) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:20,001 | INFO | [EVALUATED] NVIDIA Overlay.exe (PID: 10400) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:20,001 | INFO | [EVALUATED] msedgewebview2.exe (PID: 16748) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:20,001 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:20,001 | INFO | [EVALUATED] Widgets.exe (PID: 11792) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:20,001 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:20,001 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:20,001 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:20,494 | INFO | [AI VERDICT] Copilot Local Intelligence -> MALICIOUS | Action: quarantine_process
+2026-08-28 19:43:20,495 | INFO | [AI SUMMARY] CRITICAL THREAT IDENTIFIED. Findings: Process matches suspicious extension pattern.
+2026-08-28 19:43:20,495 | WARNING | [SAFE MODE] Quarantine enforcement disabled. Monitoring only.
+2026-08-28 19:43:25,762 | INFO | [*] Telemetry sweep found 15 active outbound socket(s).
+2026-08-28 19:43:25,762 | INFO | [EVALUATED] Widgets.exe (PID: 11792) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:25,762 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:25,762 | INFO | [EVALUATED] Widgets.exe (PID: 11792) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:25,762 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:25,762 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:25,762 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:25,763 | INFO | [EVALUATED] msedgewebview2.exe (PID: 14576) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:25,763 | INFO | [EVALUATED] msedgewebview2.exe (PID: 14576) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:25,763 | INFO | [EVALUATED] NVIDIA Overlay.exe (PID: 10400) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:25,763 | INFO | [EVALUATED] msedgewebview2.exe (PID: 16748) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:25,763 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:25,763 | INFO | [EVALUATED] Widgets.exe (PID: 11792) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:25,763 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:25,763 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:25,763 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:31,031 | INFO | [*] Telemetry sweep found 15 active outbound socket(s).
+2026-08-28 19:43:31,032 | INFO | [EVALUATED] Widgets.exe (PID: 11792) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:31,032 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:31,032 | INFO | [EVALUATED] Widgets.exe (PID: 11792) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:31,032 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:31,032 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:31,032 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:31,032 | INFO | [EVALUATED] msedgewebview2.exe (PID: 14576) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:31,032 | INFO | [EVALUATED] msedgewebview2.exe (PID: 14576) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:31,032 | INFO | [EVALUATED] NVIDIA Overlay.exe (PID: 10400) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:31,032 | INFO | [EVALUATED] msedgewebview2.exe (PID: 16748) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:31,032 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:31,032 | INFO | [EVALUATED] Widgets.exe (PID: 11792) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:31,032 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:31,033 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:31,033 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:36,295 | INFO | [*] Telemetry sweep found 15 active outbound socket(s).
+2026-08-28 19:43:36,295 | INFO | [EVALUATED] Widgets.exe (PID: 11792) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:36,295 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:36,295 | INFO | [EVALUATED] Widgets.exe (PID: 11792) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:36,295 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:36,295 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:36,296 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:36,296 | INFO | [EVALUATED] msedgewebview2.exe (PID: 14576) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:36,296 | INFO | [EVALUATED] msedgewebview2.exe (PID: 14576) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:36,296 | INFO | [EVALUATED] NVIDIA Overlay.exe (PID: 10400) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:36,296 | INFO | [EVALUATED] msedgewebview2.exe (PID: 16748) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:36,296 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:36,296 | INFO | [EVALUATED] Widgets.exe (PID: 11792) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:36,296 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:36,296 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:36,296 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:41,483 | INFO | [*] Telemetry sweep found 10 active outbound socket(s).
+2026-08-28 19:43:41,483 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:41,484 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:41,484 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:41,484 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:41,484 | INFO | [EVALUATED] NVIDIA Overlay.exe (PID: 10400) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:41,484 | INFO | [EVALUATED] msedgewebview2.exe (PID: 16748) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:41,484 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:41,484 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:41,484 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:41,484 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:46,717 | INFO | [*] Telemetry sweep found 10 active outbound socket(s).
+2026-08-28 19:43:46,717 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:46,717 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:46,717 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:46,717 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:46,717 | INFO | [EVALUATED] NVIDIA Overlay.exe (PID: 10400) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:46,718 | INFO | [EVALUATED] msedgewebview2.exe (PID: 16748) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:46,718 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:46,718 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:46,718 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:46,718 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:51,935 | INFO | [*] Telemetry sweep found 10 active outbound socket(s).
+2026-08-28 19:43:51,936 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:51,936 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:51,936 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:51,936 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:51,936 | INFO | [EVALUATED] NVIDIA Overlay.exe (PID: 10400) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:51,936 | INFO | [EVALUATED] msedgewebview2.exe (PID: 16748) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:51,936 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:51,936 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:51,937 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:51,937 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:57,267 | INFO | [*] Telemetry sweep found 10 active outbound socket(s).
+2026-08-28 19:43:57,267 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:57,268 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:57,268 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:57,268 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:57,268 | INFO | [EVALUATED] NVIDIA Overlay.exe (PID: 10400) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:57,268 | INFO | [EVALUATED] msedgewebview2.exe (PID: 16748) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:57,268 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:43:57,268 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:57,268 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:43:57,268 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:02,481 | INFO | [*] Telemetry sweep found 10 active outbound socket(s).
+2026-08-28 19:44:02,481 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:02,482 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:02,482 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:02,482 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:02,482 | INFO | [EVALUATED] NVIDIA Overlay.exe (PID: 10400) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:02,482 | INFO | [EVALUATED] msedgewebview2.exe (PID: 16748) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:02,482 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:02,482 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:02,482 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:02,482 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:07,695 | INFO | [*] Telemetry sweep found 11 active outbound socket(s).
+2026-08-28 19:44:07,696 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:07,696 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:07,696 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:07,696 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:07,696 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:07,696 | INFO | [EVALUATED] NVIDIA Overlay.exe (PID: 10400) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:07,696 | INFO | [EVALUATED] msedgewebview2.exe (PID: 16748) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:07,696 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:07,696 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:07,696 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:07,696 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:12,907 | INFO | [*] Telemetry sweep found 16 active outbound socket(s).
+2026-08-28 19:44:12,908 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:12,908 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:12,908 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:12,908 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:12,908 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:12,908 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:12,908 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:12,908 | INFO | [EVALUATED] NVIDIA Overlay.exe (PID: 10400) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:12,908 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:12,908 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:12,908 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:12,908 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:12,909 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:12,909 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:12,909 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:12,909 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:18,109 | INFO | [*] Telemetry sweep found 9 active outbound socket(s).
+2026-08-28 19:44:18,110 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:18,110 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:18,110 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:18,110 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:18,110 | INFO | [EVALUATED] NVIDIA Overlay.exe (PID: 10400) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:18,110 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:18,110 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:18,110 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:18,110 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:23,264 | INFO | [*] Telemetry sweep found 9 active outbound socket(s).
+2026-08-28 19:44:23,265 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:23,265 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:23,265 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:23,265 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:23,265 | INFO | [EVALUATED] NVIDIA Overlay.exe (PID: 10400) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:23,265 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:23,265 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:23,265 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:23,265 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:28,460 | INFO | [*] Telemetry sweep found 9 active outbound socket(s).
+2026-08-28 19:44:28,460 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:28,460 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:28,460 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:28,460 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:28,460 | INFO | [EVALUATED] NVIDIA Overlay.exe (PID: 10400) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:28,460 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:28,460 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:28,460 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:28,460 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:33,672 | INFO | [*] Telemetry sweep found 9 active outbound socket(s).
+2026-08-28 19:44:33,673 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:33,673 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:33,673 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:33,673 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:33,673 | INFO | [EVALUATED] NVIDIA Overlay.exe (PID: 10400) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:33,673 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:33,673 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:33,673 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:33,673 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:38,845 | INFO | [*] Telemetry sweep found 9 active outbound socket(s).
+2026-08-28 19:44:38,846 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:38,846 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:38,846 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:38,846 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:38,846 | INFO | [EVALUATED] NVIDIA Overlay.exe (PID: 10400) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:38,846 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:38,846 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:38,846 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:38,846 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:44,030 | INFO | [*] Telemetry sweep found 9 active outbound socket(s).
+2026-08-28 19:44:44,031 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:44,031 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:44,031 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:44,031 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:44,031 | INFO | [EVALUATED] NVIDIA Overlay.exe (PID: 10400) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:44,031 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:44,031 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:44,031 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:44,031 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:49,200 | INFO | [*] Telemetry sweep found 9 active outbound socket(s).
+2026-08-28 19:44:49,200 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:49,200 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:49,200 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:49,200 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:49,200 | INFO | [EVALUATED] NVIDIA Overlay.exe (PID: 10400) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:49,200 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:49,200 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:49,200 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:49,200 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:54,472 | INFO | [*] Telemetry sweep found 8 active outbound socket(s).
+2026-08-28 19:44:54,472 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:54,472 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:54,472 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:54,472 | INFO | [EVALUATED] NVIDIA Overlay.exe (PID: 10400) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:54,472 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:54,472 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:54,472 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:54,472 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:59,658 | INFO | [*] Telemetry sweep found 8 active outbound socket(s).
+2026-08-28 19:44:59,659 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:59,659 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:59,659 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:59,659 | INFO | [EVALUATED] NVIDIA Overlay.exe (PID: 10400) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:59,659 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:44:59,659 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:59,659 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:44:59,659 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:45:04,911 | INFO | [*] Telemetry sweep found 8 active outbound socket(s).
+2026-08-28 19:45:04,911 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:45:04,912 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:45:04,912 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:45:04,912 | INFO | [EVALUATED] NVIDIA Overlay.exe (PID: 10400) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:45:04,912 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:45:04,912 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:45:04,912 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:45:04,912 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:45:10,102 | INFO | [*] Telemetry sweep found 8 active outbound socket(s).
+2026-08-28 19:45:10,102 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:45:10,102 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:45:10,102 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:45:10,102 | INFO | [EVALUATED] NVIDIA Overlay.exe (PID: 10400) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:45:10,102 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:45:10,102 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:45:10,102 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:45:10,102 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:45:15,301 | INFO | [*] Telemetry sweep found 8 active outbound socket(s).
+2026-08-28 19:45:15,301 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:45:15,301 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:45:15,301 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:45:15,301 | INFO | [EVALUATED] NVIDIA Overlay.exe (PID: 10400) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:45:15,301 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:45:15,302 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:45:15,302 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:45:15,302 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:45:20,438 | INFO | [*] Telemetry sweep found 8 active outbound socket(s).
+2026-08-28 19:45:20,438 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:45:20,438 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:45:20,438 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:45:20,438 | INFO | [EVALUATED] NVIDIA Overlay.exe (PID: 10400) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:45:20,438 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:45:20,438 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:45:20,438 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:45:20,438 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:45:25,622 | INFO | [*] Telemetry sweep found 8 active outbound socket(s).
+2026-08-28 19:45:25,622 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:45:25,622 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:45:25,622 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:45:25,622 | INFO | [EVALUATED] NVIDIA Overlay.exe (PID: 10400) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:45:25,622 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:45:25,622 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:45:25,622 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:45:25,622 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:45:30,880 | INFO | [*] Telemetry sweep found 8 active outbound socket(s).
+2026-08-28 19:45:30,880 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:45:30,880 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:45:30,880 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:45:30,880 | INFO | [EVALUATED] NVIDIA Overlay.exe (PID: 10400) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:45:30,881 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:45:30,881 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:45:30,881 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:45:30,881 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:45:33,378 | INFO | [*] Telemetry daemon received shutdown signal.
+2026-08-28 19:45:33,379 | INFO | [*] Ghost-Aegis engine shutdown complete.
+2026-08-28 19:48:22,380 | INFO | --- Ghost Aegis Dual-AI Engine Initialized ---
+2026-08-28 19:48:22,380 | INFO | --- Transitioning to Copilot Interface ---
+2026-08-28 19:48:22,382 | INFO | [*] Telemetry daemon started. Polling every 5s...
+2026-08-28 19:48:22,580 | INFO | [*] Telemetry sweep found 15 active outbound socket(s).
+2026-08-28 19:48:22,580 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:22,580 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:22,580 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:22,580 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:22,580 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:22,580 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:22,580 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:22,580 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:22,580 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:48:22,580 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:22,581 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:22,581 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:22,581 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:22,581 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:22,581 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:27,912 | INFO | [*] Telemetry sweep found 8 active outbound socket(s).
+2026-08-28 19:48:27,912 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:27,913 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:27,913 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:27,913 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:27,913 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:48:27,913 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:27,913 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:27,913 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:33,086 | INFO | [*] Telemetry sweep found 6 active outbound socket(s).
+2026-08-28 19:48:33,086 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:33,087 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:33,087 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:48:33,087 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:33,087 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:33,087 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:38,260 | INFO | [*] Telemetry sweep found 6 active outbound socket(s).
+2026-08-28 19:48:38,260 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:38,260 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:38,260 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:48:38,260 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:38,260 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:38,260 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:43,437 | INFO | [*] Telemetry sweep found 6 active outbound socket(s).
+2026-08-28 19:48:43,437 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:43,437 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:43,437 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:48:43,437 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:43,437 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:43,437 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:48,624 | INFO | [*] Telemetry sweep found 6 active outbound socket(s).
+2026-08-28 19:48:48,625 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:48,625 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:48,625 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:48:48,625 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:48,625 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:48,625 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:53,845 | INFO | [*] Telemetry sweep found 6 active outbound socket(s).
+2026-08-28 19:48:53,845 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:53,845 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:53,845 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:48:53,846 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:53,846 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:53,846 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:59,026 | INFO | [*] Telemetry sweep found 6 active outbound socket(s).
+2026-08-28 19:48:59,026 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:59,027 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:59,027 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:48:59,027 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:59,027 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:48:59,027 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:04,202 | INFO | [*] Telemetry sweep found 6 active outbound socket(s).
+2026-08-28 19:49:04,202 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:04,202 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:04,202 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:49:04,202 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:04,203 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:04,203 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:09,380 | INFO | [*] Telemetry sweep found 6 active outbound socket(s).
+2026-08-28 19:49:09,380 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:09,380 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:09,380 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:49:09,380 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:09,380 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:09,380 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:14,548 | INFO | [*] Telemetry sweep found 6 active outbound socket(s).
+2026-08-28 19:49:14,548 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:14,548 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:14,548 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:49:14,548 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:14,548 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:14,548 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:19,732 | INFO | [*] Telemetry sweep found 6 active outbound socket(s).
+2026-08-28 19:49:19,732 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:19,732 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:19,732 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:49:19,732 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:19,732 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:19,732 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:24,897 | INFO | [*] Telemetry sweep found 6 active outbound socket(s).
+2026-08-28 19:49:24,897 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:24,897 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:24,897 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:49:24,897 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:24,897 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:24,897 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:30,100 | INFO | [*] Telemetry sweep found 7 active outbound socket(s).
+2026-08-28 19:49:30,100 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:30,100 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:30,100 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:49:30,100 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:30,100 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:30,100 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:30,100 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:35,275 | INFO | [*] Telemetry sweep found 6 active outbound socket(s).
+2026-08-28 19:49:35,275 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:35,275 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:35,275 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:49:35,275 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:35,275 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:35,275 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:40,488 | INFO | [*] Telemetry sweep found 6 active outbound socket(s).
+2026-08-28 19:49:40,488 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:40,488 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:40,488 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:49:40,488 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:40,488 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:40,488 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:45,659 | INFO | [*] Telemetry sweep found 6 active outbound socket(s).
+2026-08-28 19:49:45,659 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:45,660 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:45,660 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:49:45,660 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:45,660 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:45,660 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:50,836 | INFO | [*] Telemetry sweep found 6 active outbound socket(s).
+2026-08-28 19:49:50,836 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:50,836 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:50,837 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:49:50,837 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:50,837 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:50,837 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:56,018 | INFO | [*] Telemetry sweep found 6 active outbound socket(s).
+2026-08-28 19:49:56,018 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:56,018 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:56,018 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:49:56,018 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:56,018 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:49:56,018 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:50:01,203 | INFO | [*] Telemetry sweep found 6 active outbound socket(s).
+2026-08-28 19:50:01,203 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:50:01,203 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:50:01,203 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:50:01,203 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:50:01,203 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:50:01,203 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:50:06,403 | INFO | [*] Telemetry sweep found 6 active outbound socket(s).
+2026-08-28 19:50:06,403 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:50:06,403 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:50:06,404 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:50:06,404 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:50:06,404 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:50:06,404 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:03,438 | INFO | --- Ghost Aegis Dual-AI Engine Initialized ---
+2026-08-28 19:53:03,439 | INFO | --- Transitioning to Copilot Interface ---
+2026-08-28 19:53:03,440 | INFO | [*] Telemetry daemon started. Polling every 5s...
+2026-08-28 19:53:03,653 | INFO | [*] Telemetry sweep found 21 active outbound socket(s).
+2026-08-28 19:53:03,653 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:03,653 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:03,653 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:03,653 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:03,653 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:03,653 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:03,653 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:03,653 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:03,653 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:03,654 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:03,654 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:53:03,654 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:03,654 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:03,654 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:03,654 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:03,654 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:03,654 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:03,654 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:03,654 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:03,654 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:03,654 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:08,819 | INFO | [*] Telemetry sweep found 6 active outbound socket(s).
+2026-08-28 19:53:08,819 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:08,819 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:08,820 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:53:08,820 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:08,820 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:08,820 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:13,965 | INFO | [*] Telemetry sweep found 6 active outbound socket(s).
+2026-08-28 19:53:13,965 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:13,965 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:13,966 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:53:13,966 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:13,966 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:13,966 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:19,196 | INFO | [*] Telemetry sweep found 6 active outbound socket(s).
+2026-08-28 19:53:19,197 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:19,197 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:19,197 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:53:19,197 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:19,197 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:19,197 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:24,362 | INFO | [*] Telemetry sweep found 8 active outbound socket(s).
+2026-08-28 19:53:24,362 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:24,362 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:24,362 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:24,363 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:53:24,363 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:24,363 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:24,363 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:24,363 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:29,520 | INFO | [*] Telemetry sweep found 6 active outbound socket(s).
+2026-08-28 19:53:29,521 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:29,521 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:29,521 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:53:29,521 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:29,521 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:29,521 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:34,693 | INFO | [*] Telemetry sweep found 6 active outbound socket(s).
+2026-08-28 19:53:34,694 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:34,694 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:34,694 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:53:34,694 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:34,694 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:34,694 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:39,857 | INFO | [*] Telemetry sweep found 6 active outbound socket(s).
+2026-08-28 19:53:39,857 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:39,857 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:39,857 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:53:39,857 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:39,857 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:39,857 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:53:43,184 | INFO | [*] Telemetry daemon received shutdown signal.
+2026-08-28 19:53:43,185 | INFO | [*] Ghost-Aegis engine shutdown complete.
+2026-08-28 19:57:13,723 | INFO | --- Ghost Aegis Dual-AI Engine Initialized ---
+2026-08-28 19:57:13,723 | INFO | --- Transitioning to Copilot Interface ---
+2026-08-28 19:57:13,724 | INFO | [*] Telemetry daemon started. Polling every 5s...
+2026-08-28 19:57:14,072 | INFO | [*] Telemetry sweep found 41 active outbound socket(s).
+2026-08-28 19:57:14,072 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,072 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,072 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,072 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,072 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,072 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,072 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,073 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,073 | INFO | [EVALUATED] Widgets.exe (PID: 11792) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,073 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,073 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,073 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,073 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,073 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,073 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,073 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,073 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,073 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,073 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,073 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,073 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,073 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,073 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,073 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,073 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,073 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:57:14,073 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,073 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,074 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,074 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,074 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,074 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,074 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,074 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,074 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,074 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,074 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,074 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,074 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,074 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:14,074 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:19,281 | INFO | [*] Telemetry sweep found 8 active outbound socket(s).
+2026-08-28 19:57:19,281 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:19,281 | INFO | [EVALUATED] Widgets.exe (PID: 11792) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:19,281 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:19,281 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:19,281 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:57:19,281 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:19,282 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:19,282 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:24,470 | INFO | [*] Telemetry sweep found 8 active outbound socket(s).
+2026-08-28 19:57:24,471 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:24,471 | INFO | [EVALUATED] Widgets.exe (PID: 11792) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:24,471 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:24,471 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:24,471 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:57:24,471 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:24,471 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:24,471 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:29,638 | INFO | [*] Telemetry sweep found 8 active outbound socket(s).
+2026-08-28 19:57:29,638 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:29,638 | INFO | [EVALUATED] Widgets.exe (PID: 11792) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:29,638 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:29,638 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:29,638 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:57:29,638 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:29,638 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:29,638 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:34,795 | INFO | [*] Telemetry sweep found 7 active outbound socket(s).
+2026-08-28 19:57:34,795 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:34,795 | INFO | [EVALUATED] Widgets.exe (PID: 11792) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:34,795 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:34,795 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:34,795 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:57:34,795 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:34,795 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:39,950 | INFO | [*] Telemetry sweep found 7 active outbound socket(s).
+2026-08-28 19:57:39,950 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:39,950 | INFO | [EVALUATED] Widgets.exe (PID: 11792) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:39,950 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:39,950 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:39,950 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:57:39,950 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:39,950 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:45,124 | INFO | [*] Telemetry sweep found 7 active outbound socket(s).
+2026-08-28 19:57:45,125 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:45,125 | INFO | [EVALUATED] Widgets.exe (PID: 11792) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:45,125 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:45,125 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:45,125 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:57:45,125 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:45,125 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:50,326 | INFO | [*] Telemetry sweep found 10 active outbound socket(s).
+2026-08-28 19:57:50,327 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:50,327 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:50,327 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:50,327 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:50,327 | INFO | [EVALUATED] Widgets.exe (PID: 11792) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:50,327 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:50,327 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:50,327 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:57:50,327 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:50,327 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:55,528 | INFO | [*] Telemetry sweep found 10 active outbound socket(s).
+2026-08-28 19:57:55,528 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:55,528 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:55,528 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:55,529 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:55,529 | INFO | [EVALUATED] Widgets.exe (PID: 11792) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:55,529 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:55,529 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:55,529 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:57:55,529 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:57:55,529 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:00,826 | INFO | [*] Telemetry sweep found 10 active outbound socket(s).
+2026-08-28 19:58:00,826 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:00,826 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:00,826 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:00,827 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:00,827 | INFO | [EVALUATED] Widgets.exe (PID: 11792) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:00,827 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:00,827 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:00,827 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:58:00,827 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:00,827 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:06,019 | INFO | [*] Telemetry sweep found 10 active outbound socket(s).
+2026-08-28 19:58:06,019 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:06,019 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:06,019 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:06,019 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:06,019 | INFO | [EVALUATED] Widgets.exe (PID: 11792) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:06,019 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:06,019 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:06,019 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:58:06,019 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:06,019 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:11,194 | INFO | [*] Telemetry sweep found 10 active outbound socket(s).
+2026-08-28 19:58:11,195 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:11,195 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:11,195 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:11,195 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:11,195 | INFO | [EVALUATED] Widgets.exe (PID: 11792) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:11,195 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:11,196 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:11,196 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:58:11,196 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:11,196 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:16,436 | INFO | [*] Telemetry sweep found 10 active outbound socket(s).
+2026-08-28 19:58:16,437 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:16,437 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:16,437 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:16,437 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:16,437 | INFO | [EVALUATED] Widgets.exe (PID: 11792) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:16,437 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:16,437 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:16,437 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:58:16,437 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:16,437 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:21,680 | INFO | [*] Telemetry sweep found 10 active outbound socket(s).
+2026-08-28 19:58:21,680 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:21,680 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:21,680 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:21,680 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:21,680 | INFO | [EVALUATED] Widgets.exe (PID: 11792) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:21,680 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:21,680 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:21,680 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:58:21,681 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:21,681 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:26,884 | INFO | [*] Telemetry sweep found 10 active outbound socket(s).
+2026-08-28 19:58:26,884 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:26,884 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:26,884 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:26,884 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:26,884 | INFO | [EVALUATED] Widgets.exe (PID: 11792) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:26,884 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:26,884 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:26,884 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:58:26,884 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:26,884 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:32,091 | INFO | [*] Telemetry sweep found 10 active outbound socket(s).
+2026-08-28 19:58:32,091 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:32,091 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:32,091 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:32,091 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:32,091 | INFO | [EVALUATED] Widgets.exe (PID: 11792) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:32,091 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:32,091 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:32,091 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:58:32,092 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:32,092 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:37,290 | INFO | [*] Telemetry sweep found 10 active outbound socket(s).
+2026-08-28 19:58:37,291 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:37,291 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:37,291 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:37,291 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:37,291 | INFO | [EVALUATED] Widgets.exe (PID: 11792) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:37,291 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:37,291 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:37,291 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:58:37,291 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:37,291 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:42,467 | INFO | [*] Telemetry sweep found 9 active outbound socket(s).
+2026-08-28 19:58:42,468 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:42,468 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:42,468 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:42,468 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:42,468 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:42,468 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:42,468 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:58:42,468 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:42,468 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:47,653 | INFO | [*] Telemetry sweep found 9 active outbound socket(s).
+2026-08-28 19:58:47,654 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:47,654 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:47,654 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:47,654 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:47,654 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:47,654 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:47,654 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:58:47,654 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:47,654 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:52,837 | INFO | [*] Telemetry sweep found 9 active outbound socket(s).
+2026-08-28 19:58:52,837 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:52,837 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:52,837 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:52,837 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:52,837 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:52,837 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:52,837 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:58:52,837 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:52,837 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:58,046 | INFO | [*] Telemetry sweep found 9 active outbound socket(s).
+2026-08-28 19:58:58,046 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:58,046 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:58,046 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:58,046 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:58,046 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:58,046 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:58,046 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:58:58,046 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:58:58,046 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:03,233 | INFO | [*] Telemetry sweep found 9 active outbound socket(s).
+2026-08-28 19:59:03,234 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:03,234 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:03,234 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:03,234 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:03,234 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:03,234 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:03,234 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:59:03,234 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:03,234 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:08,405 | INFO | [*] Telemetry sweep found 9 active outbound socket(s).
+2026-08-28 19:59:08,406 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:08,406 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:08,406 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:08,406 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:08,406 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:08,406 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:08,406 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:59:08,406 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:08,406 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:13,592 | INFO | [*] Telemetry sweep found 9 active outbound socket(s).
+2026-08-28 19:59:13,593 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:13,593 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:13,593 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:13,593 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:13,593 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:13,593 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:13,593 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:59:13,593 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:13,593 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:18,758 | INFO | [*] Telemetry sweep found 8 active outbound socket(s).
+2026-08-28 19:59:18,758 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:18,758 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:18,758 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:18,758 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:18,758 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:18,758 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:59:18,758 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:18,758 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:23,963 | INFO | [*] Telemetry sweep found 8 active outbound socket(s).
+2026-08-28 19:59:23,963 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:23,963 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:23,963 | INFO | [EVALUATED] powershell.exe (PID: 20808) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:23,963 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:23,963 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:23,963 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:59:23,963 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:23,963 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:29,096 | INFO | [*] Telemetry sweep found 5 active outbound socket(s).
+2026-08-28 19:59:29,096 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:29,096 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:29,096 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:59:29,096 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:29,096 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:34,225 | INFO | [*] Telemetry sweep found 5 active outbound socket(s).
+2026-08-28 19:59:34,225 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:34,225 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:34,225 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:59:34,225 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:34,225 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:39,383 | INFO | [*] Telemetry sweep found 5 active outbound socket(s).
+2026-08-28 19:59:39,384 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:39,384 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:39,384 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:59:39,384 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:39,384 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:44,528 | INFO | [*] Telemetry sweep found 5 active outbound socket(s).
+2026-08-28 19:59:44,528 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:44,528 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:44,528 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:59:44,528 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:44,528 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:49,665 | INFO | [*] Telemetry sweep found 5 active outbound socket(s).
+2026-08-28 19:59:49,665 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:49,665 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:49,665 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:59:49,665 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:49,665 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:54,806 | INFO | [*] Telemetry sweep found 5 active outbound socket(s).
+2026-08-28 19:59:54,806 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:54,806 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:54,806 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:59:54,806 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:54,806 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:59,958 | INFO | [*] Telemetry sweep found 5 active outbound socket(s).
+2026-08-28 19:59:59,958 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:59,958 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:59,958 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 19:59:59,958 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 19:59:59,958 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:05,125 | INFO | [*] Telemetry sweep found 5 active outbound socket(s).
+2026-08-28 20:00:05,126 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:05,126 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:05,126 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 20:00:05,126 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:05,126 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:10,267 | INFO | [*] Telemetry sweep found 5 active outbound socket(s).
+2026-08-28 20:00:10,267 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:10,267 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:10,267 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 20:00:10,267 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:10,267 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:15,408 | INFO | [*] Telemetry sweep found 5 active outbound socket(s).
+2026-08-28 20:00:15,408 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:15,408 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:15,409 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 20:00:15,409 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:15,409 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:20,544 | INFO | [*] Telemetry sweep found 5 active outbound socket(s).
+2026-08-28 20:00:20,544 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:20,544 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:20,544 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 20:00:20,544 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:20,544 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:25,697 | INFO | [*] Telemetry sweep found 5 active outbound socket(s).
+2026-08-28 20:00:25,697 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:25,697 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:25,697 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 20:00:25,697 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:25,697 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:30,846 | INFO | [*] Telemetry sweep found 5 active outbound socket(s).
+2026-08-28 20:00:30,846 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:30,846 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:30,847 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 20:00:30,847 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:30,847 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:36,113 | INFO | [*] Telemetry sweep found 8 active outbound socket(s).
+2026-08-28 20:00:36,114 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:36,114 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:36,114 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:36,114 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 20:00:36,114 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:36,114 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:36,114 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:36,114 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:41,307 | INFO | [*] Telemetry sweep found 8 active outbound socket(s).
+2026-08-28 20:00:41,307 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:41,307 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:41,307 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:41,307 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 20:00:41,307 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:41,307 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:41,307 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:41,307 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:46,486 | INFO | [*] Telemetry sweep found 8 active outbound socket(s).
+2026-08-28 20:00:46,486 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:46,486 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:46,486 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:46,486 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 20:00:46,486 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:46,486 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:46,487 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:46,487 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:51,658 | INFO | [*] Telemetry sweep found 8 active outbound socket(s).
+2026-08-28 20:00:51,659 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:51,659 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:51,659 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:51,659 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 20:00:51,659 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:51,659 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:51,659 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:51,659 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:56,832 | INFO | [*] Telemetry sweep found 8 active outbound socket(s).
+2026-08-28 20:00:56,833 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:56,833 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:56,833 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:56,833 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 20:00:56,833 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:56,833 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:56,833 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:00:56,833 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:02,041 | INFO | [*] Telemetry sweep found 9 active outbound socket(s).
+2026-08-28 20:01:02,042 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:02,042 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:02,042 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:02,042 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:02,042 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 20:01:02,042 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:02,042 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:02,042 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:02,042 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:07,214 | INFO | [*] Telemetry sweep found 9 active outbound socket(s).
+2026-08-28 20:01:07,214 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:07,214 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:07,214 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:07,214 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:07,214 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 20:01:07,214 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:07,214 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:07,214 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:07,215 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:12,413 | INFO | [*] Telemetry sweep found 9 active outbound socket(s).
+2026-08-28 20:01:12,413 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:12,413 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:12,413 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:12,413 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:12,413 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 20:01:12,414 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:12,414 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:12,414 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:12,414 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:17,606 | INFO | [*] Telemetry sweep found 10 active outbound socket(s).
+2026-08-28 20:01:17,606 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:17,606 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:17,606 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:17,606 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:17,606 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:17,606 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 20:01:17,606 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:17,606 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:17,606 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:17,606 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:22,807 | INFO | [*] Telemetry sweep found 9 active outbound socket(s).
+2026-08-28 20:01:22,807 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:22,807 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:22,807 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:22,807 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:22,807 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 20:01:22,807 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:22,807 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:22,807 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:22,807 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:28,003 | INFO | [*] Telemetry sweep found 9 active outbound socket(s).
+2026-08-28 20:01:28,003 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:28,003 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:28,003 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:28,003 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:28,003 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 20:01:28,003 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:28,003 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:28,003 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:28,003 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:33,223 | INFO | [*] Telemetry sweep found 10 active outbound socket(s).
+2026-08-28 20:01:33,223 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:33,223 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:33,223 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:33,224 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:33,224 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:33,224 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 20:01:33,224 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:33,224 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:33,224 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:33,224 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:38,458 | INFO | [*] Telemetry sweep found 9 active outbound socket(s).
+2026-08-28 20:01:38,459 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:38,459 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:38,459 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:38,459 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:38,459 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 20:01:38,459 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:38,459 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:38,459 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:38,459 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:43,649 | INFO | [*] Telemetry sweep found 9 active outbound socket(s).
+2026-08-28 20:01:43,649 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:43,649 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:43,649 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:43,649 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:43,649 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 20:01:43,649 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:43,649 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:43,649 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:43,649 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:48,838 | INFO | [*] Telemetry sweep found 9 active outbound socket(s).
+2026-08-28 20:01:48,838 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:48,838 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:48,838 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:48,838 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:48,838 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 20:01:48,838 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:48,838 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:48,838 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:48,838 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:54,029 | INFO | [*] Telemetry sweep found 10 active outbound socket(s).
+2026-08-28 20:01:54,029 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:54,029 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:54,029 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:54,029 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:54,029 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 20:01:54,029 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:54,029 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:54,029 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:54,029 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:54,029 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:59,193 | INFO | [*] Telemetry sweep found 7 active outbound socket(s).
+2026-08-28 20:01:59,194 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:59,194 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:59,194 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 20:01:59,194 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:59,194 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:59,194 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:01:59,194 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:12,331 | INFO | --- Ghost Aegis Dual-AI Engine Initialized ---
+2026-08-28 20:03:12,331 | INFO | --- Transitioning to Copilot Interface ---
+2026-08-28 20:03:12,333 | INFO | [*] Telemetry daemon started. Polling every 5s...
+2026-08-28 20:03:12,572 | INFO | [*] Telemetry sweep found 21 active outbound socket(s).
+2026-08-28 20:03:12,572 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:12,573 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:12,573 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:12,573 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 20:03:12,573 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:12,573 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:12,573 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:12,573 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:12,573 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:12,573 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:12,573 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:12,573 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:12,573 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:12,573 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:12,573 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:12,573 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:12,573 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:12,573 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:12,573 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:12,573 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:12,573 | INFO | [EVALUATED] Code.exe (PID: 20088) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:17,814 | INFO | [*] Telemetry sweep found 5 active outbound socket(s).
+2026-08-28 20:03:17,814 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:17,814 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:17,814 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 20:03:17,814 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:17,814 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:23,040 | INFO | [*] Telemetry sweep found 8 active outbound socket(s).
+2026-08-28 20:03:23,041 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:23,041 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:23,041 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:23,041 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:23,041 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 20:03:23,041 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:23,041 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:23,041 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:28,227 | INFO | [*] Telemetry sweep found 8 active outbound socket(s).
+2026-08-28 20:03:28,227 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:28,228 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:28,228 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:28,228 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:28,228 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 20:03:28,228 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:28,228 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:28,228 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:33,434 | INFO | [*] Telemetry sweep found 8 active outbound socket(s).
+2026-08-28 20:03:33,434 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:33,434 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:33,434 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:33,434 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:33,434 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 20:03:33,434 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:33,434 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:33,434 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:38,616 | INFO | [*] Telemetry sweep found 8 active outbound socket(s).
+2026-08-28 20:03:38,616 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:38,616 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:38,616 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:38,616 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:38,616 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 20:03:38,616 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:38,616 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:38,616 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:43,790 | INFO | [*] Telemetry sweep found 7 active outbound socket(s).
+2026-08-28 20:03:43,791 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:43,791 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:43,791 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:43,791 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:43,791 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 20:03:43,791 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:43,791 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:48,983 | INFO | [*] Telemetry sweep found 7 active outbound socket(s).
+2026-08-28 20:03:48,984 | INFO | [EVALUATED] Code.exe (PID: 19332) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:48,984 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:48,984 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:48,984 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:48,984 | INFO | [EVALUATED] chrome.exe (PID: 16224) | Risk: 0.35 | Class: browser
+2026-08-28 20:03:48,984 | INFO | [EVALUATED] StartMenuExperienceHost.exe (PID: 11316) | Risk: 0.40 | Class: generic_binary
+2026-08-28 20:03:48,984 | INFO | [EVALUATED] powershell.exe (PID: 5708) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:33,786 | INFO | --- Ghost Aegis Dual-AI Engine Initialized ---
+2026-09-06 08:19:33,787 | INFO | --- Transitioning to Copilot Interface ---
+2026-09-06 08:19:33,790 | INFO | [*] Telemetry daemon started. Polling every 5s...
+2026-09-06 08:19:34,194 | INFO | [*] Telemetry sweep found 34 active outbound socket(s).
+2026-09-06 08:19:34,195 | INFO | [EVALUATED] Code.exe (PID: 8620) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:34,195 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:34,195 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:34,195 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:34,195 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:34,195 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:34,195 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:34,195 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:34,195 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:34,195 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:34,195 | INFO | [EVALUATED] Code.exe (PID: 15788) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:34,196 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:34,196 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:34,196 | INFO | [EVALUATED] Code.exe (PID: 15788) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:34,196 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:34,196 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:34,196 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:34,196 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:34,196 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:34,196 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:34,196 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:34,196 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:34,196 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:34,196 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:34,196 | INFO | [EVALUATED] Code.exe (PID: 8620) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:34,196 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:34,196 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:34,197 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:34,197 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:34,197 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:34,197 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:34,197 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:34,197 | INFO | [EVALUATED] Code.exe (PID: 8620) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:34,197 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:39,711 | INFO | [*] Telemetry sweep found 33 active outbound socket(s).
+2026-09-06 08:19:39,711 | INFO | [EVALUATED] Code.exe (PID: 8620) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:39,711 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:39,711 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:39,711 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:39,711 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:39,711 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:39,711 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:39,712 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:39,712 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:39,712 | INFO | [EVALUATED] Code.exe (PID: 15788) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:39,712 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:39,712 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:39,712 | INFO | [EVALUATED] Code.exe (PID: 15788) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:39,712 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:39,712 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:39,712 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:39,712 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:39,712 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:39,712 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:39,712 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:39,712 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:39,712 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:39,712 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:39,712 | INFO | [EVALUATED] Code.exe (PID: 8620) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:39,712 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:39,712 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:39,712 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:39,712 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:39,712 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:39,712 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:39,712 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:39,712 | INFO | [EVALUATED] Code.exe (PID: 8620) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:39,712 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:45,308 | INFO | [*] Telemetry sweep found 34 active outbound socket(s).
+2026-09-06 08:19:45,308 | INFO | [EVALUATED] Code.exe (PID: 8620) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:45,309 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:45,309 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:45,309 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:45,309 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:45,309 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:45,309 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:45,309 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:45,309 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:45,309 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:45,309 | INFO | [EVALUATED] Code.exe (PID: 15788) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:45,309 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:45,309 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:45,309 | INFO | [EVALUATED] Code.exe (PID: 15788) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:45,309 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:45,309 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:45,309 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:45,309 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:45,309 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:45,309 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:45,309 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:45,309 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:45,309 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:45,309 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:45,309 | INFO | [EVALUATED] Code.exe (PID: 8620) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:45,309 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:45,309 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:45,309 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:45,310 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:45,310 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:45,310 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:45,310 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:45,310 | INFO | [EVALUATED] Code.exe (PID: 8620) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:45,310 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:50,815 | INFO | [*] Telemetry sweep found 34 active outbound socket(s).
+2026-09-06 08:19:50,816 | INFO | [EVALUATED] Code.exe (PID: 8620) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:50,816 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:50,816 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:50,816 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:50,816 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:50,816 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:50,816 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:50,816 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:50,816 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:50,816 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:50,816 | INFO | [EVALUATED] Code.exe (PID: 15788) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:50,816 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:50,816 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:50,816 | INFO | [EVALUATED] Code.exe (PID: 15788) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:50,816 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:50,816 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:50,816 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:50,816 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:50,816 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:50,816 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:50,816 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:50,816 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:50,816 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:50,816 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:50,816 | INFO | [EVALUATED] Code.exe (PID: 8620) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:50,816 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:50,816 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:50,816 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:50,816 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:50,816 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:50,816 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:50,816 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:50,816 | INFO | [EVALUATED] Code.exe (PID: 8620) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:50,816 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:56,248 | INFO | [*] Telemetry sweep found 30 active outbound socket(s).
+2026-09-06 08:19:56,249 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:56,249 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:56,249 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:56,249 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:56,249 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:56,249 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:56,249 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:56,249 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:56,249 | INFO | [EVALUATED] Code.exe (PID: 15788) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:56,249 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:56,249 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:56,249 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:56,249 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:56,249 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:56,249 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:56,249 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:56,249 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:56,249 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:56,249 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:19:56,249 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:56,249 | INFO | [EVALUATED] Code.exe (PID: 8620) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:56,249 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:56,249 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:56,249 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:56,249 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:56,249 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:56,249 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:56,249 | INFO | [EVALUATED] Code.exe (PID: 21004) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:56,249 | INFO | [EVALUATED] Code.exe (PID: 8620) | Risk: 0.40 | Class: generic_binary
+2026-09-06 08:19:56,249 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
+2026-09-06 08:20:00,010 | INFO | [*] Telemetry daemon received shutdown signal.
+2026-09-06 08:20:00,011 | INFO | [*] Ghost-Aegis engine shutdown complete.

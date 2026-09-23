@@ -55,16 +55,22 @@ except ImportError:
     def check_breach(target_email=""):
         return {"error": "Breach intelligence service is unavailable"}
 
-# Load environment secrets
-load_dotenv(dotenv_path=Path(__file__).resolve().with_name(".env"))
+# --- EXECUTABLE PATH RESOLUTION ---
+# Determine if running as a compiled .exe or a Python script
+if getattr(sys, 'frozen', False):
+    BASE_DIR = Path(sys.executable).parent
+else:
+    BASE_DIR = Path(__file__).resolve().parent
+
+# Load environment secrets securely from the app directory
+load_dotenv(dotenv_path=BASE_DIR / ".env")
 
 # Dynamic import of main.py (Defense Engine)
 try:
     import importlib.util
-
-    _main_path = Path(__file__).resolve().with_name("main.py")
+    _main_path = BASE_DIR / "main.py"
     if _main_path.exists():
-        spec = importlib.util.spec_from_file_location("jit_engine_main", _main_path)
+        spec = importlib.util.spec_from_file_location("jit_engine_main", str(_main_path))
         if spec and spec.loader:
             jit_engine = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(jit_engine)
@@ -109,6 +115,20 @@ def is_suspicious_path(filepath: str) -> bool:
     return any(s_dir in path_lower for s_dir in suspicious_dirs)
 
 
+def block_ip(ip_address: str) -> str:
+    """Blocks an IP address using Windows Firewall outbound rules."""
+    rule_name = f"GhostAegis_Block_{ip_address.replace(':', '_')}"
+    cmd = [
+        "netsh", "advfirewall", "firewall", "add", "rule",
+        f"name={rule_name}", "dir=out", "action=block", f"remoteip={ip_address}"
+    ]
+    try:
+        subprocess.run(cmd, capture_output=True, text=True, check=True)
+        return f"[+] Successfully firewalled IP: {ip_address}"
+    except subprocess.CalledProcessError as e:
+        return f"[-] Failed to block IP {ip_address}: {e.stderr.strip()}"
+
+
 class GhostAegisApp(ctk.CTk):
     def __init__(self):
         super().__init__()
@@ -117,6 +137,7 @@ class GhostAegisApp(ctk.CTk):
         self.radar_enabled = False
         self.host_isolated = False
         self.canary_enabled = False
+        self.auto_mitigate_enabled = False  # Added Auto-Mitigation State
         self.canary_guard = CanaryGuard()
         self.network_behavior = NetworkBehaviorStore()
         
@@ -401,6 +422,19 @@ class GhostAegisApp(ctk.CTk):
 
         # --- PROCESS RESPONSE (Right Column) ---
         self._add_panel_section(self.right_frame, "PROCESS RESPONSE")
+        
+        # New Auto-Mitigate Toggle
+        self.auto_mitigate_button = ctk.CTkButton(
+            self.right_frame,
+            text="Zero-Touch Auto-Mitigate: OFF",
+            fg_color="#1f538d",
+            hover_color="#14375e",
+            width=280,
+            height=28,
+            command=self.toggle_auto_mitigate
+        )
+        self.auto_mitigate_button.pack(pady=(3, 3), padx=15)
+
         self.kill_frame = ctk.CTkFrame(self.right_frame, fg_color="transparent")
         self.kill_frame.pack(pady=3, padx=15)
 
@@ -476,6 +510,26 @@ class GhostAegisApp(ctk.CTk):
             font=("Consolas", 10, "bold"),
             text_color="#7fb3d5",
         ).pack(fill="x", padx=15, pady=(5, 1))
+
+    # --- ZERO-TOUCH AUTO-MITIGATION ---
+    def toggle_auto_mitigate(self):
+        """Arms or disarms autonomous threat neutralization."""
+        self.auto_mitigate_enabled = not self.auto_mitigate_enabled
+        if self.auto_mitigate_enabled:
+            self.auto_mitigate_button.configure(
+                text="Zero-Touch Auto-Mitigate: ARMED", 
+                fg_color="#880808", 
+                hover_color="#660000"
+            )
+            self.log_event("🚨 [AUTO-MITIGATION ARMED] High-risk connections will be killed & blocked on sight.", "threat")
+        else:
+            self.auto_mitigate_button.configure(
+                text="Zero-Touch Auto-Mitigate: OFF", 
+                fg_color="#1f538d", 
+                hover_color="#14375e"
+            )
+            self.log_event("[*] Auto-mitigation disarmed. Returning to manual review mode.", "review")
+
 
     def _get_selected_pid(self) -> int | None:
         """Extracts numeric PID whether entered as '4812' or '4812 (powershell.exe)'."""
@@ -1402,7 +1456,7 @@ class GhostAegisApp(ctk.CTk):
         threading.Thread(target=self._network_sentinel_worker, daemon=True).start()
 
     def _network_sentinel_worker(self):
-        trusted_domains = ["google.com", "github.com", "microsoft.com", "akamai", "azure", "cloudflare"]
+        trusted_domains = ["google.com", "github.com", "microsoft.com", "akamai", "azure", "cloudflare", "amazonaws", "apple.com", "mozilla.org", "openai.com", "abuseipdb.com", "carto.com", "ip-api.com", "ipinfo.io", "ipstack.com", "ipgeolocation.io", "ipdata.co", "ipwhois.io", "ipapi.co", "iplocation.net", "ip2location.com", "maxmind.com", "shodan.io", "censys.io"]    
         active_pids = []
         highest_threat_pid = None
         max_risk = -1
@@ -1491,10 +1545,27 @@ class GhostAegisApp(ctk.CTk):
                         max_risk = risk_score
                         highest_threat_pid = pid
 
+                    recommended_act = "review"
+                    
                     if risk_score >= 70:
                         status, tag_name = "[THREAT]", "threat"
+                        recommended_act = "block_and_review"
+                        
+                        # --- ZERO-TOUCH AUTO-MITIGATION ---
+                        if getattr(self, "auto_mitigate_enabled", False):
+                            recommended_act = "auto_blocked_and_killed"
+                            try:
+                                psutil.Process(pid).terminate()
+                                self._queue_log(f"🚨 [AUTO-MITIGATE] Process {proc_name} (PID {pid}) TERMINATED.", "threat")
+                            except Exception as e:
+                                self._queue_log(f"[-] Auto-Mitigate kill failed for {pid}: {e}", "warn")
+                            
+                            block_result = block_ip(ip_only)
+                            self._queue_log(f"🚨 [AUTO-MITIGATE] {block_result}", "threat")
+                            
                     elif risk_score >= 40:
                         status, tag_name = "[WARN]", "warn"
+                        
                     display_host = f"{display_host} | RISK: {risk_score}/100"
 
                     incident = Incident(
@@ -1506,9 +1577,7 @@ class GhostAegisApp(ctk.CTk):
                         signer=signer,
                         risk_score=risk_score,
                         reasons=reasons,
-                        recommended_action=(
-                            "block_and_review" if risk_score >= 70 else "review"
-                        ),
+                        recommended_action=recommended_act,
                     )
                     try:
                         append_incident(incident)
