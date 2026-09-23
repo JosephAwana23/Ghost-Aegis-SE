@@ -221,6 +221,18 @@ class GhostAegisApp(ctk.CTk):
         )
         self.report_button.pack(pady=2, padx=15)
 
+        # AI Report Generator Button
+        self.ai_report_button = ctk.CTkButton(
+            self.left_frame,
+            text="Generate AI Incident Brief",
+            width=280,
+            height=28,
+            fg_color="#4B0082",
+            hover_color="#300052",
+            command=self.run_ai_incident_report,
+        )
+        self.ai_report_button.pack(pady=2, padx=15)
+
         self.behavior_button = ctk.CTkButton(
             self.left_frame,
             text="Behavior Fingerprint Scan",
@@ -743,8 +755,16 @@ class GhostAegisApp(ctk.CTk):
         map_widget = tkintermapview.TkinterMapView(map_win, corner_radius=0)
         map_widget.pack(fill="both", expand=True, padx=20, pady=(5, 20))
         
-       # Apply Google Satellite View (No API Key Required)
-        map_widget.set_tile_server("https://mt0.google.com/vt/lyrs=s&hl=en&x={x}&y={y}&z={z}&s=Ga", max_zoom=22)
+        # Check for the API key in the .env file securely
+        carto_key = os.getenv("CARTO_API_KEY")
+        
+        if carto_key and carto_key.strip():
+            # Apply Dark Mode Tile Server using the secure key
+            map_widget.set_tile_server(f"https://a.basemaps.cartocdn.com/dark_all/{{z}}/{{x}}/{{y}}.png?key={carto_key}", max_zoom=19)
+        else:
+            # Fallback to Google Satellite if no key is found in .env
+            self.log_event("[!] No CARTO_API_KEY found in .env. Defaulting to Satellite view.", "warn")
+            map_widget.set_tile_server("https://mt0.google.com/vt/lyrs=s&hl=en&x={x}&y={y}&z={z}&s=Ga", max_zoom=22)
 
         # Set Home Base Coordinates (Santa Fe Springs area)
         home_lat, home_lon = 33.9400, -118.0267
@@ -796,6 +816,126 @@ class GhostAegisApp(ctk.CTk):
         # Run the API polling in a thread so the UI doesn't freeze while loading
         threading.Thread(target=plot_threats, daemon=True).start()
 
+    # --- AI EXECUTIVE BRIEFING GENERATOR ---
+    def run_ai_incident_report(self):
+        """Launches background generation of the AI Executive Incident Brief."""
+        incidents = load_incidents()
+        if not incidents:
+            self.log_event("[!] No incidents logged yet to generate an IR report.", "warn")
+            return
+
+        gemini_key = os.getenv("GEMINI_API_KEY")
+        if not gemini_key:
+            self.log_event("[-] GEMINI_API_KEY missing in .env. Cannot generate AI briefing.", "threat")
+            return
+
+        self.ai_report_button.configure(state="disabled", text="Synthesizing Brief...")
+        self.log_event("[*] Aggregating telemetry and generating AI Incident Response Brief...", "system")
+        threading.Thread(target=self._ai_incident_report_worker, args=(incidents[-35:], gemini_key), daemon=True).start()
+
+    def _ai_incident_report_worker(self, incidents, api_key):
+        """Worker thread to query Gemini and build a formal post-mortem."""
+        try:
+            from google import genai
+
+            # Condense recent incident telemetry
+            telemetry_lines = []
+            for inc in incidents:
+                telemetry_lines.append(
+                    f"- Timestamp: {inc.get('timestamp', 'N/A')} | Process: {inc.get('process')} "
+                    f"(PID: {inc.get('pid')}) | Path: {inc.get('path')} | Remote IP: {inc.get('remote_ip')} "
+                    f"| Risk Score: {inc.get('risk_score')}/100 | Signer: {inc.get('signer')} "
+                    f"| Flags: {', '.join(inc.get('reasons', []))}"
+                )
+            telemetry_dump = "\n".join(telemetry_lines)
+
+            prompt = (
+                "You are a Lead Incident Response Commander and Cyber Threat Intelligence Analyst. "
+                "Synthesize the following security telemetry log into an executive-level Incident Response Briefing "
+                "and Post-Mortem Report. Structure your response cleanly using formal Markdown with these sections:\n\n"
+                "# GHOST-AEGIS EXECUTIVE INCIDENT RESPONSE BRIEF\n"
+                "## 1. Executive Summary & Threat Posture Verdict\n"
+                "## 2. Key Indicators of Compromise (IOCs) & Flagged Entities\n"
+                "## 3. Attack Chain & Anomaly Analysis (TTPs)\n"
+                "## 4. Tactical Containment & System Hardening Directives\n\n"
+                "Be authoritative, analytical, and concise. Avoid filler. Focus on risk mitigation.\n\n"
+                f"### TELEMETRY LOGS:\n{telemetry_dump}"
+            )
+
+            client = genai.Client(api_key=api_key)
+            response = client.models.generate_content(
+                model="gemini-3.8-flash",
+                contents=prompt,
+            )
+            report_text = (response.text or "Error: Empty response returned from AI model.").strip()
+            self._queue_log("[+] AI Incident Brief synthesized successfully.", "trusted")
+            self.log_queue.put(("__ai_report_complete__", report_text))
+
+        except Exception as error:
+            self._queue_log(f"AI Report Generation failed: {error}", "threat")
+            self.log_queue.put(("__ai_report_complete__", None))
+
+    def show_ai_report_window(self, report_markdown: str):
+        """Displays the generated report in a review window with Markdown export."""
+        report_win = ctk.CTkToplevel(self)
+        report_win.title("Ghost-Aegis | AI Incident Response Briefing")
+        report_win.geometry("900x650")
+        report_win.attributes("-topmost", True)
+
+        ctk.CTkLabel(
+            report_win,
+            text="EXECUTIVE INCIDENT RESPONSE BRIEFING",
+            font=("Consolas", 15, "bold"),
+            text_color="#00E5FF",
+        ).pack(pady=(12, 4))
+
+        report_box = ctk.CTkTextbox(
+            report_win,
+            font=("Consolas", 11),
+            fg_color="#000000",
+            text_color="#00FF00",
+            wrap="word",
+        )
+        report_box.pack(fill="both", expand=True, padx=15, pady=8)
+        report_box.insert("1.0", report_markdown)
+        report_box.configure(state="disabled")
+
+        action_frame = ctk.CTkFrame(report_win, fg_color="transparent")
+        action_frame.pack(fill="x", padx=15, pady=(4, 12))
+
+        def save_markdown():
+            destination = filedialog.asksaveasfilename(
+                title="Save Executive Briefing",
+                defaultextension=".md",
+                filetypes=[("Markdown Document", "*.md"), ("Text Document", "*.txt"), ("All Files", "*.*")],
+                initialfile=f"IR_Brief_{datetime.now().strftime('%Y%m%d_%H%M%S')}.md"
+            )
+            if not destination:
+                return
+            try:
+                with open(destination, "w", encoding="utf-8") as f:
+                    f.write(report_markdown)
+                self.log_event(f"[+] Executive IR Brief exported to: {destination}", "trusted")
+            except OSError as write_err:
+                self.log_event(f"Failed to save IR Brief: {write_err}", "threat")
+
+        ctk.CTkButton(
+            action_frame,
+            text="Save to Markdown (.md)",
+            fg_color="#1f538d",
+            hover_color="#14375e",
+            command=save_markdown,
+            width=180,
+        ).pack(side="left")
+
+        ctk.CTkButton(
+            action_frame,
+            text="CLOSE",
+            fg_color="#444444",
+            command=report_win.destroy,
+            width=100,
+        ).pack(side="right")
+
 
     def toggle_canary_shield(self):
         if self.canary_enabled:
@@ -843,6 +983,10 @@ class GhostAegisApp(ctk.CTk):
                         self.after(30000, self._run_scheduled_radar_scan)
                 elif message == "__ai_eval_complete__":
                     self.ai_eval_button.configure(state="normal")
+                elif message == "__ai_report_complete__":
+                    self.ai_report_button.configure(state="normal", text="Generate AI Incident Brief")
+                    if isinstance(tag, str):
+                        self.show_ai_report_window(tag)
                 elif message == "__interfaces_complete__":
                     self.interfaces_button.configure(state="normal", text="Interface Telemetry")
                 elif message == "__persistence_complete__":
