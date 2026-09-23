@@ -1504,12 +1504,5 @@ class GhostAegisApp(ctk.CTk):
 
 
 if __name__ == "__main__":
-    if os.name == "nt" and not ctypes.windll.shell32.IsUserAnAdmin():
-        # Prompt Windows UAC and re-run with elevated privileges
-        ctypes.windll.shell32.ShellExecuteW(
-            None, "runas", sys.executable, f'"{os.path.abspath(__file__)}"', None, 1
-        )
-        sys.exit(0)
-
     app = GhostAegisApp()
     app.mainloop()
