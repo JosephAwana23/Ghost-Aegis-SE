@@ -6,3 +6,6 @@ ghost_incidents.json
 ghost_aegis.log
 __pycache__/
 oracleJdk-26/
+data/
+*.log
+logs/*.json

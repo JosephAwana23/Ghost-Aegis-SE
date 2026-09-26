@@ -7,16 +7,20 @@ import threading
 import queue
 import socket
 import hashlib
+import json
+import ipaddress
+import re
 import requests
-import asyncio  # Added for Ghost Protocol async loop
-from ghost_decoy import GhostDecoy
+import asyncio
 from pathlib import Path
 from datetime import datetime, timedelta
+
 import psutil
 import customtkinter as ctk
 from tkinter import filedialog
 from dotenv import load_dotenv
 
+from ghost_decoy import GhostDecoy
 from incident_store import (
     Incident,
     append_incident,
@@ -34,7 +38,6 @@ from network_behavior import NetworkBehaviorStore
 try:
     from behavior_api import get_behavior_score  # type: ignore[import-not-found]
 except ImportError:
-    # The behavior service is optional; provide a local fallback when absent.
     def get_behavior_score(keystrokes, mouse_movements):
         try:
             delay = float(keystrokes.get("avg_delay", 0))
@@ -51,18 +54,15 @@ except ImportError:
 try:
     from breach_api import check_breach  # type: ignore[import-not-found]
 except ImportError:
-    # Breach intelligence is optional; keep the GUI usable when the service is absent.
     def check_breach(target_email=""):
         return {"error": "Breach intelligence service is unavailable"}
 
 # --- EXECUTABLE PATH RESOLUTION ---
-# Determine if running as a compiled .exe or a Python script
 if getattr(sys, 'frozen', False):
     BASE_DIR = Path(sys.executable).parent
 else:
     BASE_DIR = Path(__file__).resolve().parent
 
-# Load environment secrets securely from the app directory
 load_dotenv(dotenv_path=BASE_DIR / ".env")
 
 # Dynamic import of main.py (Defense Engine)
@@ -84,6 +84,100 @@ except Exception:
 # --- GLOBAL CONFIG & STYLES ---
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("blue")
+
+# --- CORE INFRASTRUCTURE WHITELISTS ---
+STATIC_IP_WHITELIST = {
+    "127.0.0.1", "::1", "0.0.0.0",
+    "1.1.1.1", "1.0.0.1", "8.8.8.8", "8.8.4.4",
+}
+
+PROCESS_WHITELIST = {
+    "svchost.exe", "system", "ntoskrnl.exe", "lsass.exe",
+    "code.exe", "chrome.exe", "msedge.exe", "firefox.exe",
+    "explorer.exe", "python.exe", "pythonw.exe", "cmd.exe", "conhost.exe",
+}
+
+
+# --- IN-CONTEXT AI MEMORY & THREAT DNA ---
+class AnalystMemory:
+    """Stores analyst triage feedback to provide dynamic few-shot context to AI evaluators."""
+    def __init__(self, filepath="data/analyst_memory.json"):
+        self.filepath = Path(filepath)
+        self._lock = threading.Lock()
+        self.data = self._load()
+
+    def has_decision(self, process_name: str, remote_ip: str) -> bool:
+        """Checks if an exact process + destination pair has already been learned."""
+        p = str(process_name).strip().lower()
+        ip = str(remote_ip).strip()
+        with self._lock:
+            for cat in ("benign_baselines", "confirmed_threats"):
+                for entry in self.data.get(cat, []):
+                    if entry.get("process") == p and entry.get("remote_ip") == ip:
+                        return True
+        return False
+
+    def _load(self):
+        try:
+            with self.filepath.open("r", encoding="utf-8") as f:
+                return json.load(f)
+        except (FileNotFoundError, json.JSONDecodeError):
+            return {"benign_baselines": [], "confirmed_threats": []}
+
+    def record_decision(self, process_name: str, remote_ip: str, verdict: str, reason: str):
+        entry = {
+            "process": str(process_name).strip().lower(),
+            "remote_ip": str(remote_ip).strip(),
+            "reason": reason,
+            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        }
+        category = "benign_baselines" if verdict.lower() == "benign" else "confirmed_threats"
+        with self._lock:
+            self.data.setdefault("benign_baselines", [])
+            self.data.setdefault("confirmed_threats", [])
+            self.data[category] = [
+                x for x in self.data[category]
+                if not (x.get("process") == entry["process"] and x.get("remote_ip") == entry["remote_ip"])
+            ]
+            self.data[category].append(entry)
+            self.data[category] = self.data[category][-20:]
+            self._save()
+
+    def _save(self):
+        self.filepath.parent.mkdir(parents=True, exist_ok=True)
+        tmp = Path(f"{self.filepath}.tmp")
+        try:
+            with tmp.open("w", encoding="utf-8") as f:
+                json.dump(self.data, f, indent=2)
+            tmp.replace(self.filepath)
+        except Exception:
+            if tmp.exists():
+                tmp.unlink()
+
+    def get_prompt_context(self) -> str:
+        with self._lock:
+            benign = self.data.get("benign_baselines", [])
+            threats = self.data.get("confirmed_threats", [])
+
+        if not benign and not threats:
+            return ""
+
+        lines = ["[LEARNED LOCAL HOST BASELINE & ANALYST DECISIONS]"]
+        if benign:
+            lines.append("Verified Safe Exceptions on this specific machine:")
+            for b in benign[-5:]:
+                lines.append(f" - Process '{b['process']}' contacting {b['remote_ip']} ({b['reason']})")
+        if threats:
+            lines.append("Previously Confirmed Malicious Patterns on this host:")
+            for t in threats[-5:]:
+                lines.append(f" - Process '{t['process']}' targeting {t['remote_ip']} ({t['reason']})")
+        return "\n".join(lines)
+
+
+def generate_threat_dna(process: str, signer: str, remote_ip: str, reasons: list) -> str:
+    """Computes a persistent canonical hash for clustering repeated threats."""
+    payload = f"{process.lower()}|{signer}|{remote_ip}|{','.join(sorted(reasons))}"
+    return hashlib.sha256(payload.encode("utf-8")).hexdigest()[:16].upper()
 
 
 # --- BLUE TEAM TELEMETRY HELPERS ---
@@ -115,18 +209,39 @@ def is_suspicious_path(filepath: str) -> bool:
     return any(s_dir in path_lower for s_dir in suspicious_dirs)
 
 
-def block_ip(ip_address: str) -> str:
-    """Blocks an IP address using Windows Firewall outbound rules."""
-    rule_name = f"GhostAegis_Block_{ip_address.replace(':', '_')}"
+def is_whitelisted_ip(ip_str: str) -> bool:
+    """Checks if an IP is local, loopback, or in trusted RFC1918 / DNS infrastructure."""
+    if not ip_str or ip_str in ["none", "N/A", "Unknown"]:
+        return True
+    if ip_str in STATIC_IP_WHITELIST:
+        return True
+    try:
+        ip = ipaddress.ip_address(ip_str)
+        if ip.is_private or ip.is_loopback or ip.is_link_local:
+            return True
+    except ValueError:
+        return True
+    return False
+
+
+def block_ip(ip_address: str, rule_suffix: str = "Block") -> str:
+    """Safely blocks an IP address using Windows Firewall outbound rules with whitelisting."""
+    if is_whitelisted_ip(ip_address):
+        return f"[!] Whitelist bypass: {ip_address} is protected from firewall blocks."
+
+    rule_name = f"GhostAegis_{rule_suffix}_{ip_address.replace(':', '_')}"
     cmd = [
         "netsh", "advfirewall", "firewall", "add", "rule",
         f"name={rule_name}", "dir=out", "action=block", f"remoteip={ip_address}"
     ]
     try:
-        subprocess.run(cmd, capture_output=True, text=True, check=True)
+        flags = subprocess.CREATE_NO_WINDOW if hasattr(subprocess, "CREATE_NO_WINDOW") else 0
+        subprocess.run(cmd, capture_output=True, text=True, check=True, creationflags=flags)
         return f"[+] Successfully firewalled IP: {ip_address}"
     except subprocess.CalledProcessError as e:
         return f"[-] Failed to block IP {ip_address}: {e.stderr.strip()}"
+    except Exception as e:
+        return f"[-] Error firewalling {ip_address}: {e}"
 
 
 class GhostAegisApp(ctk.CTk):
@@ -137,9 +252,10 @@ class GhostAegisApp(ctk.CTk):
         self.radar_enabled = False
         self.host_isolated = False
         self.canary_enabled = False
-        self.auto_mitigate_enabled = False  # Added Auto-Mitigation State
+        self.auto_mitigate_enabled = False
         self.canary_guard = CanaryGuard()
         self.network_behavior = NetworkBehaviorStore()
+        self.analyst_memory = AnalystMemory(filepath=BASE_DIR / "data" / "analyst_memory.json")
         
         # Ghost Protocol State
         self.ghost_decoy = GhostDecoy(port=2222)
@@ -147,8 +263,6 @@ class GhostAegisApp(ctk.CTk):
         self.decoy_loop = None
 
         self.title("Ghost-Aegis | Defensive Suite SE")
-        
-        # Sized to fit comfortably on 1080p displays with room to expand
         self.geometry("1200x900")
         self.minsize(1000, 700)
 
@@ -171,7 +285,6 @@ class GhostAegisApp(ctk.CTk):
         )
         self.status_label.pack(pady=4)
 
-        # Container packs compact horizontally without vertically crowding out the console
         self.button_container = ctk.CTkFrame(self, fg_color="transparent")
         self.button_container.pack(pady=6, padx=15, fill="x", expand=False)
 
@@ -242,7 +355,6 @@ class GhostAegisApp(ctk.CTk):
         )
         self.report_button.pack(pady=2, padx=15)
 
-        # AI Report Generator Button
         self.ai_report_button = ctk.CTkButton(
             self.left_frame,
             text="Generate AI Incident Brief",
@@ -371,7 +483,7 @@ class GhostAegisApp(ctk.CTk):
             text="Engage Ghost Protocol (Decoy)",
             width=280,
             height=28,
-            fg_color="#006400", # Dark Green
+            fg_color="#006400",
             hover_color="#004d00",
             command=self.toggle_ghost_protocol
         )
@@ -420,10 +532,9 @@ class GhostAegisApp(ctk.CTk):
         )
         self.map_button.pack(pady=2, padx=15)
 
-        # --- PROCESS RESPONSE (Right Column) ---
-        self._add_panel_section(self.right_frame, "PROCESS RESPONSE")
-        
-        # New Auto-Mitigate Toggle
+        # --- PROCESS RESPONSE & ADAPTIVE TRIAGE (Right Column) ---
+        self._add_panel_section(self.right_frame, "PROCESS RESPONSE & ADAPTIVE TRIAGE")
+
         self.auto_mitigate_button = ctk.CTkButton(
             self.right_frame,
             text="Zero-Touch Auto-Mitigate: OFF",
@@ -435,17 +546,17 @@ class GhostAegisApp(ctk.CTk):
         )
         self.auto_mitigate_button.pack(pady=(3, 3), padx=15)
 
+        # Row 1: PID Selection & Execution
         self.kill_frame = ctk.CTkFrame(self.right_frame, fg_color="transparent")
-        self.kill_frame.pack(pady=3, padx=15)
+        self.kill_frame.pack(pady=2, padx=15)
 
-        # Dropdown selector replacing static text entry
         self.pid_entry = ctk.CTkComboBox(
             self.kill_frame,
             values=["Select PID..."],
-            width=135,
+            width=130,
             height=28
         )
-        self.pid_entry.pack(side="left", padx=(0, 5))
+        self.pid_entry.pack(side="left", padx=(0, 4))
 
         self.kill_button = ctk.CTkButton(
             self.kill_frame,
@@ -456,27 +567,52 @@ class GhostAegisApp(ctk.CTk):
             height=28,
             command=self.terminate_process_callback
         )
-        self.kill_button.pack(side="left", padx=(0, 5))
+        self.kill_button.pack(side="left", padx=(0, 4))
 
         self.ai_eval_button = ctk.CTkButton(
             self.kill_frame,
             text="Dual-AI Eval",
             fg_color="#4B0082",
             hover_color="#300052",
-            width=85,
+            width=77,
             height=28,
             command=self.run_dual_ai_eval
         )
         self.ai_eval_button.pack(side="left")
 
-        # --- 5. LOGGING CONSOLE (EXPANDED DYNAMICALLY) ---
+        # Row 2: In-Context AI Memory Triage Buttons
+        self.triage_frame = ctk.CTkFrame(self.right_frame, fg_color="transparent")
+        self.triage_frame.pack(pady=(2, 4), padx=15)
+
+        self.baseline_button = ctk.CTkButton(
+            self.triage_frame,
+            text="Learn: Mark Safe",
+            fg_color="#1E6B37",
+            hover_color="#154B27",
+            width=138,
+            height=26,
+            command=self.mark_selected_safe
+        )
+        self.baseline_button.pack(side="left", padx=(0, 4))
+
+        self.confirm_threat_button = ctk.CTkButton(
+            self.triage_frame,
+            text="Learn: Threat Pattern",
+            fg_color="#7B1113",
+            hover_color="#4D0000",
+            width=138,
+            height=26,
+            command=self.mark_selected_threat
+        )
+        self.confirm_threat_button.pack(side="left")
+
+        # --- 5. LOGGING CONSOLE ---
         self.console = ctk.CTkTextbox(
             self,
             font=("Consolas", 12),
             fg_color="#000000",
             text_color="#00FF00"
         )
-        # expand=True and fill="both" let the console claim all remaining vertical space
         self.console.pack(pady=(6, 15), padx=20, fill="both", expand=True)
 
         # High-visibility Dark Mode Log Tags
@@ -485,10 +621,9 @@ class GhostAegisApp(ctk.CTk):
         self.console.tag_config("trusted", foreground="#00FF00")  # Green
         self.console.tag_config("system", foreground="#00E5FF")   # Cyan
         self.console.tag_config("review", foreground="#FFBF00")   # Amber
-        
-        # New Tags
-        self.console.tag_config("identity", foreground="#00AAFF")   # Identity / behavior
-        self.console.tag_config("breach", foreground="#FF00FF")     # Breach intel
+        self.console.tag_config("identity", foreground="#00AAFF") # Identity / behavior
+        self.console.tag_config("breach", foreground="#FF00FF")   # Breach intel
+        self.console.tag_config("learning", foreground="#BA55D3") # AI Memory / Baseline
 
         # --- THREAD QUEUE SETUP ---
         self.log_queue = queue.Queue()
@@ -497,8 +632,6 @@ class GhostAegisApp(ctk.CTk):
 
         self.check_queue()
         self.log_event("Ghost-Aegis Defensive Suite initialized. Ready.", "trusted")
-        
-        # Seed active network PIDs into the selector right away
         self.refresh_active_pids()
 
     @staticmethod
@@ -510,6 +643,61 @@ class GhostAegisApp(ctk.CTk):
             font=("Consolas", 10, "bold"),
             text_color="#7fb3d5",
         ).pack(fill="x", padx=15, pady=(5, 1))
+
+    # --- AUTONOMOUS AI AUDIT TELEMETRY LEARNING ---
+    def _auto_learn_telemetry(self, proc_name: str, remote_ip: str, signer: str, risk_score: int, exe_path: str, observation: dict, reasons: list):
+        """
+        Evaluates active telemetry during audit sweeps and feeds verified extremes
+        (low-noise stable traffic vs severe attack indicators) into the AI Memory Store.
+        """
+        proc_lower = proc_name.lower()
+
+        # Guard: Ignore standard whitelisted core utilities and already-learned targets
+        if proc_lower in PROCESS_WHITELIST or is_whitelisted_ip(remote_ip):
+            return
+        if self.analyst_memory.has_decision(proc_lower, remote_ip):
+            return
+
+        sightings = observation.get("sightings", 0)
+        is_beacon = observation.get("beacon", False)
+
+        # CRITERIA 1: Autonomous Safe Baseline Learning
+        # Must be signed, normal directory, zero beaconing, low risk, and verified across >= 4 sweeps
+        if (
+            signer not in ["Unsigned", "Unknown", "Unavailable", ""]
+            and not is_suspicious_path(exe_path)
+            and not is_beacon
+            and risk_score <= 15
+            and sightings >= 4
+        ):
+            reason_str = f"Auto-Learned Safe: Signed by '{signer}' with stable baseline ({sightings} audits, 0 anomalies)"
+            self.analyst_memory.record_decision(
+                process_name=proc_lower,
+                remote_ip=remote_ip,
+                verdict="benign",
+                reason=reason_str
+            )
+            self._queue_log(
+                f"🧠 [AUTO-LEARN BASELINE] '{proc_name}' -> {remote_ip} learned as Safe (Signer: {signer}).",
+                "learning"
+            )
+            return
+
+        # CRITERIA 2: Autonomous Threat Pattern Learning
+        # High risk threshold (>= 80) triggered by anomalies, invalid paths, or reputation drops
+        if risk_score >= 80:
+            evidence_summary = ", ".join(reasons[:2]) if reasons else "Severe heuristic anomaly"
+            reason_str = f"Auto-Learned Threat: Heuristic Score {risk_score}/100 [{evidence_summary}]"
+            self.analyst_memory.record_decision(
+                process_name=proc_lower,
+                remote_ip=remote_ip,
+                verdict="malicious",
+                reason=reason_str
+            )
+            self._queue_log(
+                f"🚨 [AUTO-LEARN THREAT] Critical pattern logged: '{proc_name}' -> {remote_ip} ({evidence_summary}).",
+                "threat"
+            )
 
     # --- ZERO-TOUCH AUTO-MITIGATION ---
     def toggle_auto_mitigate(self):
@@ -530,7 +718,6 @@ class GhostAegisApp(ctk.CTk):
             )
             self.log_event("[*] Auto-mitigation disarmed. Returning to manual review mode.", "review")
 
-
     def _get_selected_pid(self) -> int | None:
         """Extracts numeric PID whether entered as '4812' or '4812 (powershell.exe)'."""
         raw = self.pid_entry.get().strip()
@@ -545,7 +732,7 @@ class GhostAegisApp(ctk.CTk):
         try:
             for conn in psutil.net_connections(kind="inet"):
                 if conn.pid and conn.status == psutil.CONN_ESTABLISHED and conn.raddr:
-                    if conn.raddr.ip not in {"127.0.0.1", "0.0.0.0", "::1"}:
+                    if not is_whitelisted_ip(conn.raddr.ip):
                         try:
                             name = psutil.Process(conn.pid).name()
                             entry = f"{conn.pid} ({name})"
@@ -565,10 +752,65 @@ class GhostAegisApp(ctk.CTk):
 
     def destroy(self):
         self.canary_guard.stop()
+        if hasattr(self.network_behavior, "flush"):
+            self.network_behavior.flush()
         if self.decoy_loop and self.decoy_loop.is_running():
             self.decoy_loop.call_soon_threadsafe(self.ghost_decoy.stop_server)
             self.decoy_loop.call_soon_threadsafe(self.decoy_loop.stop)
         super().destroy()
+
+    # --- IN-CONTEXT AI FEEDBACK / TRIAGE ACTIONS ---
+    def mark_selected_safe(self):
+        """Records selected PID / process as verified benign baseline."""
+        pid = self._get_selected_pid()
+        if not pid:
+            self.log_event("Select a running process PID to mark as safe baseline.", "warn")
+            return
+
+        try:
+            p = psutil.Process(pid)
+            proc_name = p.name()
+            connections = p.net_connections()
+            ips = [c.raddr.ip for c in connections if c.raddr and not is_whitelisted_ip(c.raddr.ip)]
+            target_ip = ips[0] if ips else "Any"
+
+            self.analyst_memory.record_decision(
+                process_name=proc_name,
+                remote_ip=target_ip,
+                verdict="benign",
+                reason="Analyst verified as safe host behavior via GUI"
+            )
+            self.log_event(f"🧠 [AI MEMORY] Learned Safe Baseline: '{proc_name}' -> {target_ip}. Dual-AI will trust this pattern.", "learning")
+        except psutil.NoSuchProcess:
+            self.log_event(f"[!] PID {pid} is no longer running.", "warn")
+        except Exception as e:
+            self.log_event(f"Memory update error: {e}", "threat")
+
+    def mark_selected_threat(self):
+        """Records selected PID / process as confirmed attack pattern."""
+        pid = self._get_selected_pid()
+        if not pid:
+            self.log_event("Select a running process PID to mark as threat pattern.", "warn")
+            return
+
+        try:
+            p = psutil.Process(pid)
+            proc_name = p.name()
+            connections = p.net_connections()
+            ips = [c.raddr.ip for c in connections if c.raddr and not is_whitelisted_ip(c.raddr.ip)]
+            target_ip = ips[0] if ips else "Any"
+
+            self.analyst_memory.record_decision(
+                process_name=proc_name,
+                remote_ip=target_ip,
+                verdict="malicious",
+                reason="Analyst confirmed malicious behavior via GUI"
+            )
+            self.log_event(f"🧠 [AI MEMORY] Confirmed Attack Pattern: '{proc_name}' -> {target_ip}. Dual-AI will score aggressively.", "threat")
+        except psutil.NoSuchProcess:
+            self.log_event(f"[!] PID {pid} is no longer running.", "warn")
+        except Exception as e:
+            self.log_event(f"Memory update error: {e}", "threat")
 
     # --- ABOUT DIALOG ---
     def show_about_window(self):
@@ -584,8 +826,8 @@ class GhostAegisApp(ctk.CTk):
             "Mission: Save the World through Internet Safety.\n\n"
             "Ghost-Aegis is an active defensive engineering suite designed for "
             "Blue Team operations. It integrates real-time socket inspection, "
-            "automated host isolation, JIT administrative protection, and "
-            "heuristic threat analysis."
+            "automated host isolation, JIT administrative protection, "
+            "threat DNA clustering, and adaptive Dual-AI in-context memory."
         )
 
         mission_box = ctk.CTkTextbox(about_win, width=380, height=130, font=("Arial", 12))
@@ -600,8 +842,8 @@ class GhostAegisApp(ctk.CTk):
 
     def show_incidents_window(self):
         incidents_win = ctk.CTkToplevel(self)
-        incidents_win.title("Ghost-Aegis | Incident Evidence")
-        incidents_win.geometry("900x560")
+        incidents_win.title("Ghost-Aegis | Incident Evidence & Threat DNA")
+        incidents_win.geometry("950x580")
         incidents_win.attributes("-topmost", True)
 
         evidence_box = ctk.CTkTextbox(
@@ -617,10 +859,16 @@ class GhostAegisApp(ctk.CTk):
             evidence_box.insert("end", "No incidents recorded yet. Run Network Sentinel Audit first.\n")
         else:
             for incident in reversed(incidents[-100:]):
+                dna = generate_threat_dna(
+                    incident.get("process", "unknown"),
+                    incident.get("signer", "Unknown"),
+                    incident.get("remote_ip", "none"),
+                    incident.get("reasons", [])
+                )
                 evidence_box.insert(
                     "end",
                     f"[{incident.get('timestamp', 'unknown')}] "
-                    f"{incident.get('process', 'unknown')} (PID {incident.get('pid', '?')})\n"
+                    f"{incident.get('process', 'unknown')} (PID {incident.get('pid', '?')}) | Threat DNA: {dna}\n"
                     f"  Risk: {incident.get('risk_score', 0)}/100 | "
                     f"Remote: {incident.get('remote_ip', 'none')} | "
                     f"Signer: {incident.get('signer', 'Unknown')}\n"
@@ -758,7 +1006,7 @@ class GhostAegisApp(ctk.CTk):
             if connection.status != psutil.CONN_ESTABLISHED or not connection.raddr or not connection.pid:
                 continue
             remote_ip = connection.raddr.ip
-            if remote_ip in {"127.0.0.1", "0.0.0.0", "::1"}:
+            if is_whitelisted_ip(remote_ip):
                 continue
             try:
                 process = psutil.Process(connection.pid)
@@ -805,27 +1053,20 @@ class GhostAegisApp(ctk.CTk):
             text_color="#FF3333"
         ).pack(pady=(15, 5))
 
-        # Initialize Map Widget
         map_widget = tkintermapview.TkinterMapView(map_win, corner_radius=0)
         map_widget.pack(fill="both", expand=True, padx=20, pady=(5, 20))
         
-        # Check for the API key in the .env file securely
         carto_key = os.getenv("CARTO_API_KEY")
-        
         if carto_key and carto_key.strip():
-            # Apply Dark Mode Tile Server using the secure key
             map_widget.set_tile_server(f"https://a.basemaps.cartocdn.com/dark_all/{{z}}/{{x}}/{{y}}.png?key={carto_key}", max_zoom=19)
         else:
-            # Fallback to Google Satellite if no key is found in .env
             self.log_event("[!] No CARTO_API_KEY found in .env. Defaulting to Satellite view.", "warn")
             map_widget.set_tile_server("https://mt0.google.com/vt/lyrs=s&hl=en&x={x}&y={y}&z={z}&s=Ga", max_zoom=22)
 
-        # Set Home Base Coordinates (Santa Fe Springs area)
         home_lat, home_lon = 33.9400, -118.0267
         map_widget.set_position(home_lat, home_lon)
         map_widget.set_zoom(2)
 
-        # Plot the Defender
         map_widget.set_marker(
             home_lat, home_lon, 
             text="AEGIS ORIGIN (DEFENDER)", 
@@ -839,27 +1080,22 @@ class GhostAegisApp(ctk.CTk):
             plotted_ips = set()
             count = 0
 
-            # Scan the 20 most recent incidents to prevent rate-limiting the geocoder
             for incident in reversed(incidents[-20:]):
                 ip = incident.get("remote_ip")
                 risk = incident.get("risk_score", 0)
 
-                if ip and ip not in ["none", "127.0.0.1", "0.0.0.0", "::1"] and risk >= 40 and ip not in plotted_ips:
+                if ip and not is_whitelisted_ip(ip) and risk >= 40 and ip not in plotted_ips:
                     lat, lon, city = self.get_ip_coords(ip)
                     if lat and lon:
                         plotted_ips.add(ip)
                         count += 1
-                        
-                        # Severe threats are neon red; warnings are amber
                         color = "#FF3333" if risk >= 70 else "#FFBF00"
-                        
                         map_widget.set_marker(
                             lat, lon, 
                             text=f"[{risk}/100] {city} ({ip})",
                             marker_color_circle=color,
                             marker_color_outside="#000000"
                         )
-                        # Draw vector trace from home to threat
                         map_widget.set_path([(home_lat, home_lon), (lat, lon)], color=color, width=2)
 
             if count > 0:
@@ -867,12 +1103,10 @@ class GhostAegisApp(ctk.CTk):
             else:
                 self._queue_log("[+] Radar clear. No external threat coordinates found.", "trusted")
 
-        # Run the API polling in a thread so the UI doesn't freeze while loading
         threading.Thread(target=plot_threats, daemon=True).start()
 
     # --- AI EXECUTIVE BRIEFING GENERATOR ---
     def run_ai_incident_report(self):
-        """Launches background generation of the AI Executive Incident Brief."""
         incidents = load_incidents()
         if not incidents:
             self.log_event("[!] No incidents logged yet to generate an IR report.", "warn")
@@ -888,15 +1122,19 @@ class GhostAegisApp(ctk.CTk):
         threading.Thread(target=self._ai_incident_report_worker, args=(incidents[-35:], gemini_key), daemon=True).start()
 
     def _ai_incident_report_worker(self, incidents, api_key):
-        """Worker thread to query Gemini and build a formal post-mortem."""
         try:
             from google import genai
 
-            # Condense recent incident telemetry
             telemetry_lines = []
             for inc in incidents:
+                dna = generate_threat_dna(
+                    inc.get("process", "unknown"),
+                    inc.get("signer", "Unknown"),
+                    inc.get("remote_ip", "none"),
+                    inc.get("reasons", [])
+                )
                 telemetry_lines.append(
-                    f"- Timestamp: {inc.get('timestamp', 'N/A')} | Process: {inc.get('process')} "
+                    f"- Timestamp: {inc.get('timestamp', 'N/A')} | DNA: {dna} | Process: {inc.get('process')} "
                     f"(PID: {inc.get('pid')}) | Path: {inc.get('path')} | Remote IP: {inc.get('remote_ip')} "
                     f"| Risk Score: {inc.get('risk_score')}/100 | Signer: {inc.get('signer')} "
                     f"| Flags: {', '.join(inc.get('reasons', []))}"
@@ -918,7 +1156,7 @@ class GhostAegisApp(ctk.CTk):
 
             client = genai.Client(api_key=api_key)
             response = client.models.generate_content(
-                model="gemini-3.8-flash",
+                model="gemini-2.5-flash",
                 contents=prompt,
             )
             report_text = (response.text or "Error: Empty response returned from AI model.").strip()
@@ -930,7 +1168,6 @@ class GhostAegisApp(ctk.CTk):
             self.log_queue.put(("__ai_report_complete__", None))
 
     def show_ai_report_window(self, report_markdown: str):
-        """Displays the generated report in a review window with Markdown export."""
         report_win = ctk.CTkToplevel(self)
         report_win.title("Ghost-Aegis | AI Incident Response Briefing")
         report_win.geometry("900x650")
@@ -989,7 +1226,6 @@ class GhostAegisApp(ctk.CTk):
             command=report_win.destroy,
             width=100,
         ).pack(side="right")
-
 
     def toggle_canary_shield(self):
         if self.canary_enabled:
@@ -1170,7 +1406,6 @@ class GhostAegisApp(ctk.CTk):
             self.log_queue.put(("__persistence_complete__", None))
 
     def run_readiness_check(self):
-        """Report prerequisites without changing system state."""
         is_admin = bool(ctypes.windll.shell32.IsUserAnAdmin()) if os.name == "nt" else False
         self.log_event("--- Ghost-Aegis Readiness Check ---", "system")
         self.log_event(
@@ -1222,7 +1457,6 @@ class GhostAegisApp(ctk.CTk):
 
     def _defense_engine_worker(self):
         try:
-            import asyncio
             asyncio.run(jit_engine.run_defense_engine(start_cli=False, safe_mode=True))
             self._queue_log("Defense engine loop ended.", "trusted")
         except Exception as error:
@@ -1230,28 +1464,21 @@ class GhostAegisApp(ctk.CTk):
         finally:
             self.log_queue.put(("__engine_complete__", None))
 
-    # --- NEW BEHAVIOR & BREACH WORKERS ---
+    # --- BEHAVIOR & BREACH WORKERS ---
     def run_behavior_scan(self):
         self.log_event("[*] Running behavior fingerprint scan...", "identity")
-
-        # Placeholder telemetry – replace with real collectors later
         keystrokes = {"avg_delay": 0.12, "variance": 0.03}
         mouse_movements = {"speed": 1.4, "jitter": 0.2}
 
         result = get_behavior_score(keystrokes, mouse_movements)
-
         if "error" in result:
             self.log_event(f"[!] Behavior API error: {result['error']}", "threat")
             return
 
         score = result.get("score", 0)
         risk = result.get("risk", "unknown")
-
         tag = "identity" if score < 50 else "warn" if score < 75 else "threat"
-        self.log_event(
-            f"[IDENTITY] Behavior Score={score} | Risk={risk}",
-            tag,
-        )
+        self.log_event(f"[IDENTITY] Behavior Score={score} | Risk={risk}", tag)
 
         incident = Incident(
             process="BehaviorEngine",
@@ -1268,33 +1495,24 @@ class GhostAegisApp(ctk.CTk):
 
     def run_breach_check(self):
         self.log_event("[*] Checking dark web breach exposure...", "breach")
-        
-        # 1. Try to get the email from the .env file quietly
         target_email = os.getenv("ADMIN_EMAIL")
-        
-        # 2. If it's missing or blank, pop up a GUI prompt
         if not target_email or target_email.strip() == "":
             dialog = ctk.CTkInputDialog(
                 text="No ADMIN_EMAIL found in .env\n\nEnter the target email to scan:", 
                 title="Dark Web Intelligence"
             )
             target_email = dialog.get_input()
-            
-            # If the user hits 'Cancel' or leaves it blank, stop the scan
             if not target_email:
                 self.log_event("[!] Breach check cancelled: No target email provided.", "warn")
                 return
 
-        # 3. Pass the email into our updated API script
         result = check_breach(target_email)
-
         if "error" in result:
             self.log_event(f"[!] Breach API error: {result['error']}", "threat")
             return
 
         exposed = result.get("exposed", False)
         details = result.get("details", "No details provided")
-
         if exposed:
             self.log_event(f"[BREACH] Exposure detected: {details}", "breach")
             incident = Incident(
@@ -1314,19 +1532,16 @@ class GhostAegisApp(ctk.CTk):
 
     # --- DEFENSE: STEALTH, EMERGENCY CLEAN, HOST ISOLATION ---
     def run_stealth(self):
-        """Drops inbound ICMP requests to hide machine from subnet sweeps."""
         if os.name == "nt" and not ctypes.windll.shell32.IsUserAnAdmin():
             self.log_event("[-] Elevation required: Run Ghost-Aegis as Administrator to manage firewall rules.", "threat")
             return
 
         self.log_event("[*] Engaging Stealth Protocol: Dropping inbound ICMP...", "warn")
         try:
-            # Delete existing rule first without throwing on missing rule
             subprocess.run(
                 ["netsh", "advfirewall", "firewall", "delete", "rule", "name=GhostAegis_Stealth_DropPing"],
                 capture_output=True, text=True, check=False
             )
-            # Add inbound block for ICMPv4
             subprocess.run([
                 "netsh", "advfirewall", "firewall", "add", "rule",
                 "name=GhostAegis_Stealth_DropPing", "dir=in", "action=block", "protocol=icmpv4"
@@ -1339,7 +1554,6 @@ class GhostAegisApp(ctk.CTk):
             self.log_event(f"Failed to activate stealth: {e}", "threat")
 
     def run_cleanup(self):
-        """Purges ARP tables and flushes resolver caches."""
         self.log_event("! EXECUTING EMERGENCY CACHE PURGE !", "threat")
         try:
             subprocess.run(["ipconfig", "/flushdns"], capture_output=True, check=True)
@@ -1354,7 +1568,6 @@ class GhostAegisApp(ctk.CTk):
             self.log_event(f"[-] ARP Purge error: {e}", "warn")
 
     def toggle_host_isolation(self):
-        """Emergency Air-Gap toggle: drops all outbound traffic."""
         self.host_isolated = not self.host_isolated
         if self.host_isolated:
             self.isolate_button.configure(text="Restore Network", fg_color="#e67e22")
@@ -1379,14 +1592,12 @@ class GhostAegisApp(ctk.CTk):
     # --- ACTIVE AI DECOY ---
     def toggle_ghost_protocol(self):
         if self.decoy_loop and self.decoy_loop.is_running():
-            # Stop the decoy
             self.decoy_loop.call_soon_threadsafe(self.ghost_decoy.stop_server)
             self.decoy_loop.call_soon_threadsafe(self.decoy_loop.stop)
             self.ghost_button.configure(text="Engage Ghost Protocol (Decoy)", fg_color="#006400")
             self.log_event("[-] Ghost Protocol Decoy disengaged.", "review")
             self.decoy_loop = None
         else:
-            # Start the decoy
             self.ghost_button.configure(text="Disengage Ghost Protocol", fg_color="#880808")
             self.log_event("[*] GHOST PROTOCOL ENGAGED: Decoy listener active on Port 2222.", "warn")
             
@@ -1401,6 +1612,8 @@ class GhostAegisApp(ctk.CTk):
 
     # --- THREAT INTELLIGENCE & GEOLOCATION ---
     def check_ip_reputation(self, ip_address):
+        if is_whitelisted_ip(ip_address):
+            return 0
         api_key = os.getenv("ABUSEIPDB_API_KEY")
         if not api_key:
             return 0
@@ -1417,6 +1630,8 @@ class GhostAegisApp(ctk.CTk):
         return 0
 
     def get_ip_location(self, ip):
+        if is_whitelisted_ip(ip):
+            return "Internal/Trusted"
         try:
             response = requests.get(f"http://ip-api.com/json/{ip}", timeout=1.5).json()
             if response.get("status") == "success":
@@ -1426,7 +1641,8 @@ class GhostAegisApp(ctk.CTk):
             return "Loc Error"
 
     def get_ip_coords(self, ip):
-        """Fetches latitude and longitude for visual plotting."""
+        if is_whitelisted_ip(ip):
+            return None, None, "Internal"
         try:
             response = requests.get(f"http://ip-api.com/json/{ip}", timeout=2.0).json()
             if response.get("status") == "success":
@@ -1456,7 +1672,7 @@ class GhostAegisApp(ctk.CTk):
         threading.Thread(target=self._network_sentinel_worker, daemon=True).start()
 
     def _network_sentinel_worker(self):
-        trusted_domains = ["google.com", "github.com", "microsoft.com", "akamai", "azure", "cloudflare", "amazonaws", "apple.com", "mozilla.org", "openai.com", "abuseipdb.com", "carto.com", "ip-api.com", "ipinfo.io", "ipstack.com", "ipgeolocation.io", "ipdata.co", "ipwhois.io", "ipapi.co", "iplocation.net", "ip2location.com", "maxmind.com", "shodan.io", "censys.io"]    
+        trusted_domains = ["google.com", "github.com", "microsoft.com", "akamai", "azure", "cloudflare", "amazonaws", "apple.com", "mozilla.org", "openai.com", "abuseipdb.com", "carto.com", "ip-api.com"]    
         active_pids = []
         highest_threat_pid = None
         max_risk = -1
@@ -1477,7 +1693,7 @@ class GhostAegisApp(ctk.CTk):
                         continue
                     pid = int(pid_str)
 
-                    if ip_only in ["127.0.0.1", "0.0.0.0", "::1"]:
+                    if is_whitelisted_ip(ip_only):
                         continue
 
                     try:
@@ -1505,22 +1721,15 @@ class GhostAegisApp(ctk.CTk):
                         behavior = self.network_behavior.observe(
                             proc_name, ip_only, remote_port,
                         )
-                    except OSError as history_error:
+                    except Exception as history_error:
                         behavior = {"first_seen": False, "beacon": False}
-                        self._queue_log(
-                            f"Network history unavailable: {history_error}", "warn"
-                        )
-                    if behavior["first_seen"]:
-                        self._queue_log(
-                            f"[NEW DESTINATION] {proc_name} -> {ip_only}:{remote_port}",
-                            "review",
-                        )
-                    if behavior["beacon"]:
-                        self._queue_log(
-                            f"[BEACON PATTERN] {proc_name} repeatedly contacts "
-                            f"{ip_only}:{remote_port} at regular intervals.",
-                            "warn",
-                        )
+                        self._queue_log(f"Network history error: {history_error}", "warn")
+
+                    if behavior.get("first_seen"):
+                        self._queue_log(f"[NEW DESTINATION] {proc_name} -> {ip_only}:{remote_port}", "review")
+                    if behavior.get("beacon"):
+                        self._queue_log(f"[BEACON PATTERN] {proc_name} repeatedly contacts {ip_only}:{remote_port}", "warn")
+
                     signer = get_authenticode_signer(exe_path)
                     reputation = 0
                     trusted_process = False
@@ -1528,7 +1737,7 @@ class GhostAegisApp(ctk.CTk):
                     if any(d in hostname.lower() for d in trusted_domains):
                         status, tag_name = "[TRUSTED]", "trusted"
                         trusted_process = True
-                    elif proc_name.lower() in ["svchost.exe", "lsass.exe"]:
+                    elif proc_name.lower() in PROCESS_WHITELIST:
                         status, tag_name = "[SYSTEM]", "system"
                         trusted_process = True
                     else:
@@ -1551,7 +1760,6 @@ class GhostAegisApp(ctk.CTk):
                         status, tag_name = "[THREAT]", "threat"
                         recommended_act = "block_and_review"
                         
-                        # --- ZERO-TOUCH AUTO-MITIGATION ---
                         if getattr(self, "auto_mitigate_enabled", False):
                             recommended_act = "auto_blocked_and_killed"
                             try:
@@ -1560,7 +1768,7 @@ class GhostAegisApp(ctk.CTk):
                             except Exception as e:
                                 self._queue_log(f"[-] Auto-Mitigate kill failed for {pid}: {e}", "warn")
                             
-                            block_result = block_ip(ip_only)
+                            block_result = block_ip(ip_only, rule_suffix="ThreatAuto")
                             self._queue_log(f"🚨 [AUTO-MITIGATE] {block_result}", "threat")
                             
                     elif risk_score >= 40:
@@ -1584,6 +1792,17 @@ class GhostAegisApp(ctk.CTk):
                     except OSError as log_error:
                         self._queue_log(f"Incident record failed: {log_error}", "warn")
 
+                    # --- AUTONOMOUS AI AUDIT LEARNING ---
+                    self._auto_learn_telemetry(
+                        proc_name=proc_name,
+                        remote_ip=ip_only,
+                        signer=signer,
+                        risk_score=risk_score,
+                        exe_path=exe_path,
+                        observation=behavior,
+                        reasons=reasons
+                    )
+
                     self._queue_log(f"{status:<12} {proc_name:<16} {display_host:<42} {pid:<6}", tag_name)
                     self._queue_log(
                         f"   Evidence: {'; '.join(reasons)} | Signer: {signer}",
@@ -1604,7 +1823,7 @@ class GhostAegisApp(ctk.CTk):
         finally:
             self.log_queue.put(("__scan_complete__", None))
 
-    # --- PROCESS TERMINATION & DUAL-AI ANALYSIS ---
+    # --- PROCESS TERMINATION & DUAL-AI ANALYSIS WITH IN-CONTEXT MEMORY ---
     def terminate_process_callback(self):
         pid = self._get_selected_pid()
         if pid is not None:
@@ -1643,7 +1862,10 @@ class GhostAegisApp(ctk.CTk):
 
             file_hash = get_file_sha256(exe_path)
             connections = target_proc.net_connections()
-            remote_ips = [c.raddr.ip for c in connections if c.raddr]
+            remote_ips = [c.raddr.ip for c in connections if c.raddr and not is_whitelisted_ip(c.raddr.ip)]
+
+            # 1. Fetch Learned Host Memory Context
+            memory_context = self.analyst_memory.get_prompt_context()
 
             context = (
                 f"Process Name: {proc_name} (PID: {pid})\n"
@@ -1652,16 +1874,18 @@ class GhostAegisApp(ctk.CTk):
                 f"SHA256 Hash: {file_hash}\n"
                 f"Active Outbound IP Connections: {remote_ips}"
             )
-            self._queue_log(f"[*] Telemetry gathered for {proc_name}. Querying AI models...", "system")
+            self._queue_log(f"[*] Telemetry gathered for {proc_name}. Querying AI models with host memory...", "system")
 
             prompt = (
-                "You are an expert Blue Team cybersecurity analyst. "
+                "You are an expert Blue Team cybersecurity analyst for Ghost-Aegis.\n"
                 "Analyze the following process telemetry and provide a 1-sentence assessment "
-                "along with a threat probability score (0-10):\n\n"
+                "ending strictly with 'Threat Score: X/10'.\n\n"
+                f"{memory_context}\n\n"
                 f"{context}"
             )
 
-            # 1. Gemini Engine Query
+            # 2. Gemini Engine Query
+            gemini_score = 0
             try:
                 from google import genai
                 gemini_key = os.getenv("GEMINI_API_KEY")
@@ -1670,14 +1894,18 @@ class GhostAegisApp(ctk.CTk):
 
                 gemini_client = genai.Client(api_key=gemini_key)
                 gemini_res = gemini_client.models.generate_content(
-                    model="gemini-3.8-flash",
+                    model="gemini-2.5-flash",
                     contents=prompt,
                 )
                 gemini_verdict = (gemini_res.text or "No response").strip().replace("\n", " ")
+                score_match = re.search(r"(\d{1,2})/10", gemini_verdict)
+                if score_match:
+                    gemini_score = int(score_match.group(1))
             except Exception as e:
                 gemini_verdict = f"Gemini Error: {e}"
 
-            # 2. Copilot / Secondary Model Query
+            # 3. Copilot / Secondary Model Query
+            copilot_score = 0
             try:
                 import openai
                 openai_key = os.getenv("OPENAI_API_KEY") or os.getenv("COPILOT_API_KEY")
@@ -1701,12 +1929,29 @@ class GhostAegisApp(ctk.CTk):
                     temperature=0.2
                 )
                 copilot_verdict = openai_res.choices[0].message.content.strip().replace("\n", " ")
+                score_match = re.search(r"(\d{1,2})/10", copilot_verdict)
+                if score_match:
+                    copilot_score = int(score_match.group(1))
             except Exception as e:
                 copilot_verdict = f"Copilot Error: {e}"
 
-            # 3. Present Verdicts to Console
+            # 4. Present Verdicts to Console
             self._queue_log(f"🧠 [GEMINI]: {gemini_verdict}", "review")
             self._queue_log(f"🤖 [COPILOT]: {copilot_verdict}", "review")
+
+            # 5. Autonomous Mitigation Trigger if Armed and AI Score >= 8/10
+            max_ai_score = max(gemini_score, copilot_score)
+            if max_ai_score >= 8 and getattr(self, "auto_mitigate_enabled", False):
+                self._queue_log(f"🚨 [AI CONSENSUS CONTAINMENT] Severe Threat Score ({max_ai_score}/10) reached for PID {pid}.", "threat")
+                try:
+                    target_proc.terminate()
+                    self._queue_log(f"🚨 [AUTO-MITIGATE] Neutralized malicious binary: {proc_name} (PID: {pid}).", "threat")
+                except Exception as term_err:
+                    self._queue_log(f"[-] Failed to terminate PID {pid}: {term_err}", "warn")
+
+                for ip in remote_ips:
+                    block_msg = block_ip(ip, rule_suffix="AIConsensus")
+                    self._queue_log(f"🚨 [AUTO-MITIGATE] {block_msg}", "threat")
 
         except psutil.NoSuchProcess:
             self._queue_log(f"[!] PID {pid} is no longer running.", "warn")
