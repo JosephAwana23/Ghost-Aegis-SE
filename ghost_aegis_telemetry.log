@@ -1359,3 +1359,19 @@
 2026-09-06 08:19:56,249 | INFO | [EVALUATED] chrome.exe (PID: 16184) | Risk: 0.35 | Class: browser
 2026-09-06 08:20:00,010 | INFO | [*] Telemetry daemon received shutdown signal.
 2026-09-06 08:20:00,011 | INFO | [*] Ghost-Aegis engine shutdown complete.
+2026-09-26 11:46:39,201 | INFO | --- Ghost Aegis Dual-AI Engine Initialized ---
+2026-09-26 11:46:40,606 | INFO | --- Transitioning to Copilot Interface ---
+2026-09-26 11:46:40,621 | INFO | [*] Telemetry daemon started. Polling every 5s...
+2026-09-26 11:46:40,805 | INFO | [*] Telemetry sweep found 5 active outbound socket(s).
+2026-09-26 11:46:40,805 | INFO | [EVALUATED] Code.exe (PID: 25668) | Risk: 0.40 | Class: generic_binary
+2026-09-26 11:46:40,805 | INFO | [EVALUATED] Code.exe (PID: 26680) | Risk: 0.40 | Class: generic_binary
+2026-09-26 11:46:40,806 | INFO | [EVALUATED] chrome.exe (PID: 22040) | Risk: 0.35 | Class: browser
+2026-09-26 11:46:40,806 | INFO | [EVALUATED] Code.exe (PID: 25668) | Risk: 0.40 | Class: generic_binary
+2026-09-26 11:46:40,806 | INFO | [EVALUATED] Code.exe (PID: 25668) | Risk: 0.40 | Class: generic_binary
+2026-09-26 11:46:45,949 | INFO | [*] Telemetry sweep found 4 active outbound socket(s).
+2026-09-26 11:46:45,949 | INFO | [EVALUATED] Code.exe (PID: 25668) | Risk: 0.40 | Class: generic_binary
+2026-09-26 11:46:45,949 | INFO | [EVALUATED] chrome.exe (PID: 22040) | Risk: 0.35 | Class: browser
+2026-09-26 11:46:45,949 | INFO | [EVALUATED] Code.exe (PID: 25668) | Risk: 0.40 | Class: generic_binary
+2026-09-26 11:46:45,949 | INFO | [EVALUATED] Code.exe (PID: 25668) | Risk: 0.40 | Class: generic_binary
+2026-09-26 11:46:49,409 | INFO | [*] Telemetry daemon received shutdown signal.
+2026-09-26 11:46:49,410 | INFO | [*] Ghost-Aegis engine shutdown complete.

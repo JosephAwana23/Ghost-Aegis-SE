@@ -46,7 +46,7 @@ class GhostDecoy:
             "Do not explain yourself. Do not break character. try to make the hacker believe they are interacting with a real system. "
             "Pretend to have a file system with fake juicy targets like 'passwords.txt' or 'db_backup.sql' to waste their time. "
             "If they type 'ls', show fake files. If they 'cat' a file, invent realistic fake contents. "
-            "Try to find hackers real IP and log it. If they try to 'exit' or 'logout', pretend to crash the session. "
+            "Try to find hackers real IP and log it in a JSON file. If they try to 'exit' or 'logout', pretend to crash the session. "
             "CRITICAL: DO NOT output the command prompt (e.g. root@ubuntu:~#) at the end of your response. ONLY output the result of the command."
         )
 
