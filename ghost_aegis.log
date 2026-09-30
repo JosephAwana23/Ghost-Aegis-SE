@@ -4731,3 +4731,299 @@ The command completed successfully.
 [2026-09-23 13:50:29] [NEW DESTINATION] Code.exe -> 150.171.109.147:443
 [2026-09-23 13:50:30] [REVIEW]     Code.exe         150.171.109.147 (Cape Town, ZA) | RISK: 0/100 29928 
 [2026-09-23 13:50:30]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-23 14:05:16] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-23 14:05:20] [*] GHOST PROTOCOL ENGAGED: Decoy listener active on Port 2222.
+[2026-09-23 14:10:32] [-] Ghost Protocol Decoy disengaged.
+[2026-09-23 14:20:32] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-23 14:20:41] [!] No CARTO_API_KEY found in .env. Defaulting to Satellite view.
+[2026-09-23 14:20:41] [*] Polling incident history for global coordinates...
+[2026-09-23 14:20:42] [+] Plotted 9 active threat vectors.
+[2026-09-23 14:21:12] [*] Checking dark web breach exposure...
+[2026-09-23 14:21:12] [BREACH] josephawana26@gmail.com is clean. No breaches found.
+[2026-09-23 14:21:25] 🚨 [IPS ARMED] High-risk connections will be killed & blocked instantly.
+[2026-09-23 14:21:26] [*] IPS disarmed. Returning to manual review mode.
+[2026-09-23 14:21:42] [*] Network Sentinel audit...
+[2026-09-23 14:21:42] STATUS       PROCESS          REMOTE HOST                                PID   
+[2026-09-23 14:21:47] [NEW] Code.exe -> 4.207.44.75:443
+[2026-09-23 14:21:51] Audit Exception: name 'is_suspicious_path' is not defined
+[2026-09-23 14:22:05] [*] Network Sentinel audit...
+[2026-09-23 14:22:05] STATUS       PROCESS          REMOTE HOST                                PID   
+[2026-09-23 14:22:10] Audit Exception: name 'is_suspicious_path' is not defined
+[2026-09-23 14:22:14] [!] RADAR ENGAGED: Audit sweep every 30s.
+[2026-09-23 14:22:14] [*] Network Sentinel audit...
+[2026-09-23 14:22:14] STATUS       PROCESS          REMOTE HOST                                PID   
+[2026-09-23 14:22:19] Audit Exception: name 'is_suspicious_path' is not defined
+[2026-09-25 14:56:38] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-25 16:28:39] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-25 16:29:13] 🧠 [AI MEMORY] Confirmed Attack Pattern: 'msedge.exe' -> 104.18.23.222. Dual-AI will score aggressively.
+[2026-09-25 16:30:00] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-25 16:30:10] 🧠 [AI MEMORY] Confirmed Attack Pattern: 'Code.exe' -> 138.91.182.224. Dual-AI will score aggressively.
+[2026-09-25 16:30:18] 🧠 [AI MEMORY] Learned Safe Baseline: 'Code.exe' -> 138.91.182.224. Dual-AI will trust this pattern.
+[2026-09-25 16:30:25] [*] Extracting telemetry and invoking Dual-AI for PID 14268...
+[2026-09-25 16:30:25] [*] Telemetry gathered for Code.exe. Querying AI models with host memory...
+[2026-09-25 16:30:38] [*] Aggregating telemetry and generating AI Incident Response Brief...
+[2026-09-25 16:30:39] AI Report Generation failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).', 'status': 'NOT_FOUND'}}
+[2026-09-25 16:30:42] 🧠 [GEMINI]: Although Code.exe exhibits standard development traffic connecting to Microsoft and GitHub infrastructure, the connection to 138.91.182.224 directly matches a previously confirmed malicious pattern on this host, warranting immediate escalation. Threat Score: 9/10
+[2026-09-25 16:30:42] 🤖 [COPILOT]: The process 'code.exe' is exhibiting potentially suspicious behavior by establishing connections to multiple IPs, including a previously confirmed malicious pattern, warranting further investigation; Threat Score: 6/10.
+[2026-09-25 16:30:52] 🧠 [AI MEMORY] Learned Safe Baseline: 'Code.exe' -> 138.91.182.224. Dual-AI will trust this pattern.
+[2026-09-25 16:30:58] 🧠 [AI MEMORY] Learned Safe Baseline: 'Code.exe' -> 20.184.175.17. Dual-AI will trust this pattern.
+[2026-09-25 16:34:56] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-25 16:35:00] 🧠 [AI MEMORY] Learned Safe Baseline: 'chrome.exe' -> 142.251.34.74. Dual-AI will trust this pattern.
+[2026-09-25 16:35:06] [*] Checking dark web breach exposure...
+[2026-09-25 16:35:06] [BREACH] josephawana26@gmail.com is clean. No breaches found.
+[2026-09-25 16:35:12] [!] No CARTO_API_KEY found in .env. Defaulting to Satellite view.
+[2026-09-25 16:35:12] [*] Polling incident history for global coordinates...
+[2026-09-25 16:35:13] [+] Plotted 9 active threat vectors on the map.
+[2026-09-25 16:35:27] [*] Network Sentinel starting deep socket audit...
+[2026-09-25 16:35:27] STATUS       PROCESS          REMOTE HOST / LOCATION                     PID   
+[2026-09-25 16:35:32] [NEW DESTINATION] Code.exe -> 20.89.1.11:443
+[2026-09-25 16:35:34] [SYSTEM]     Code.exe         20.89.1.11 (Tokyo, JP) | RISK: 0/100       14268 
+[2026-09-25 16:35:34]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-25 16:35:38] [*] Extracting telemetry and invoking Dual-AI for PID 18648...
+[2026-09-25 16:35:39] [*] Telemetry gathered for chrome.exe. Querying AI models with host memory...
+[2026-09-25 16:35:39] [SYSTEM]     msedge.exe       74.179.65.112 (Quincy, US) | RISK: 0/100   10108 
+[2026-09-25 16:35:40]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-25 16:35:40] [NEW DESTINATION] chrome.exe -> 142.251.34.74:443
+[2026-09-25 16:35:40] [SYSTEM]     chrome.exe       dclaxb-av-in-f10.1e100.net (New Haven, US) | RISK: 0/100 18648 
+[2026-09-25 16:35:40]    Evidence:  | Signer: Google LLC
+[2026-09-25 16:35:45] [NEW DESTINATION] StartMenuExperienceHost.exe -> 52.110.4.7:443
+[2026-09-25 16:35:47] [REVIEW]     StartMenuExperienceHost.exe 52.110.4.7 (San Jose, US) | RISK: 0/100    14004 
+[2026-09-25 16:35:47]    Evidence:  | Signer: Microsoft Windows
+[2026-09-25 16:35:49] 🧠 [GEMINI]: The `chrome.exe` process is executing from its standard path with normal parentage and outbound connections to benign Google infrastructure and verified safe IP addresses. Threat Score: 1/10
+[2026-09-25 16:35:49] 🤖 [COPILOT]: The process 'chrome.exe' is exhibiting mostly normal behavior with one new outbound connection to 35.201.78.161, which requires further verification; Threat Score: 3/10.
+[2026-09-25 16:35:52] [NEW DESTINATION] msedge.exe -> 104.18.23.222:443
+[2026-09-25 16:35:52] [SYSTEM]     msedge.exe       104.18.23.222 (Toronto, CA) | RISK: 0/100  10108 
+[2026-09-25 16:35:52]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-25 16:35:52] [SYSTEM]     chrome.exe       dy-in-f188.1e100.net (Mountain View, US) | RISK: 0/100 18648 
+[2026-09-25 16:35:52]    Evidence:  | Signer: Google LLC
+[2026-09-25 16:35:52] [SYSTEM]     chrome.exe       dclaxb-av-in-f10.1e100.net (New Haven, US) | RISK: 0/100 18648 
+[2026-09-25 16:35:52]    Evidence:  | Signer: Google LLC
+[2026-09-25 16:35:57] [SYSTEM]     svchost.exe      20.59.87.227 (San Francisco, US) | RISK: 0/100 7092  
+[2026-09-25 16:35:57]    Evidence:  | Signer: Microsoft Windows
+[2026-09-25 16:36:02] [NEW DESTINATION] StartMenuExperienceHost.exe -> 52.110.4.57:443
+[2026-09-25 16:36:03] [REVIEW]     StartMenuExperienceHost.exe 52.110.4.57 (San Jose, US) | RISK: 0/100   14004 
+[2026-09-25 16:36:03]    Evidence:  | Signer: Microsoft Windows
+[2026-09-25 16:36:03] [NEW DESTINATION] chrome.exe -> 35.201.78.161:443
+[2026-09-25 16:36:03] [SYSTEM]     chrome.exe       161.78.201.35.bc.googleusercontent.com (Kansas City, US) | RISK: 0/100 18648 
+[2026-09-25 16:36:03]    Evidence:  | Signer: Google LLC
+[2026-09-25 16:36:14] 🧠 [AI MEMORY] Learned Safe Baseline: 'msedge.exe' -> 74.179.65.112. Dual-AI will trust this pattern.
+[2026-09-25 16:50:38] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-25 16:52:10] 🧠 [AI MEMORY] Learned Safe Baseline: 'chrome.exe' -> 34.107.204.85. Dual-AI will trust this pattern.
+[2026-09-25 16:52:24] [*] Extracting telemetry and invoking Dual-AI for PID 18648...
+[2026-09-25 16:52:24] [*] Telemetry gathered for chrome.exe. Querying AI models with host memory...
+[2026-09-25 16:52:32] 🧠 [GEMINI]: The telemetry reflects legitimate Google Chrome execution from the standard path exhibiting expected web-browsing network activity, including connections matching verified safe host baseline exceptions. Threat Score: 0/10
+[2026-09-25 16:52:32] 🤖 [COPILOT]: The process 'chrome.exe' is exhibiting potentially suspicious behavior by connecting to multiple unverified IP addresses, including 104.18.21.157 and 172.64.150.178, which could indicate malicious activity; Threat Score: 6/10.
+[2026-09-25 16:53:05] [*] Network Sentinel starting deep socket audit...
+[2026-09-25 16:53:05] STATUS       PROCESS          REMOTE HOST / LOCATION                     PID   
+[2026-09-25 16:53:06] [SYSTEM]     chrome.exe       85.204.107.34.bc.googleusercontent.com (Kansas City, US) | RISK: 0/100 18648 
+[2026-09-25 16:53:06]    Evidence:  | Signer: Google LLC
+[2026-09-25 16:53:06] [TRUSTED]    chrome.exe       ec2-54-163-246-63.compute-1.amazonaws.com (Ashburn, US) | RISK: 0/100 18648 
+[2026-09-25 16:53:06]    Evidence:  | Signer: Google LLC
+[2026-09-25 16:53:09] [TRUSTED]    Code.exe         cdn-185-199-111-133.github.com (San Francisco, US) | RISK: 0/100 23288 
+[2026-09-25 16:53:09]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-25 16:53:09] [SYSTEM]     chrome.exe       85.204.107.34.bc.googleusercontent.com (Kansas City, US) | RISK: 0/100 18648 
+[2026-09-25 16:53:09]    Evidence:  | Signer: Google LLC
+[2026-09-25 16:53:09] [NEW DESTINATION] msedge.exe -> 34.160.81.0:443
+[2026-09-25 16:53:10] [SYSTEM]     msedge.exe       0.81.160.34.bc.googleusercontent.com (Kansas City, US) | RISK: 0/100 4412  
+[2026-09-25 16:53:10]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-25 16:53:10] [SYSTEM]     chrome.exe       85.204.107.34.bc.googleusercontent.com (Kansas City, US) | RISK: 0/100 18648 
+[2026-09-25 16:53:10]    Evidence:  | Signer: Google LLC
+[2026-09-25 16:53:14] [SYSTEM]     Code.exe         13.66.138.105 (Quincy, US) | RISK: 0/100   23288 
+[2026-09-25 16:53:14]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-25 16:53:19] [NEW DESTINATION] chrome.exe -> 172.64.150.178:443
+[2026-09-25 16:53:19] [SYSTEM]     chrome.exe       172.64.150.178 (Toronto, CA) | RISK: 0/100 18648 
+[2026-09-25 16:53:19]    Evidence:  | Signer: Google LLC
+[2026-09-25 16:53:23] [SYSTEM]     msedge.exe       104.18.23.222 (Toronto, CA) | RISK: 0/100  4412  
+[2026-09-25 16:53:23]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-25 16:53:24] [NEW DESTINATION] chrome.exe -> 3.223.146.21:443
+[2026-09-25 16:53:24] [TRUSTED]    chrome.exe       ec2-3-223-146-21.compute-1.amazonaws.com (Ashburn, US) | RISK: 0/100 18648 
+[2026-09-25 16:53:24]    Evidence:  | Signer: Google LLC
+[2026-09-25 16:53:24] [SYSTEM]     chrome.exe       85.204.107.34.bc.googleusercontent.com (Kansas City, US) | RISK: 0/100 18648 
+[2026-09-25 16:53:24]    Evidence:  | Signer: Google LLC
+[2026-09-25 16:53:28] [NEW DESTINATION] chrome.exe -> 104.16.141.209:443
+[2026-09-25 16:53:28] [SYSTEM]     chrome.exe       104.16.141.209 (Toronto, CA) | RISK: 0/100 18648 
+[2026-09-25 16:53:28]    Evidence:  | Signer: Google LLC
+[2026-09-25 16:53:34] [REVIEW]     StartMenuExperienceHost.exe 52.110.4.7 (San Jose, US) | RISK: 0/100    14004 
+[2026-09-25 16:53:34]    Evidence:  | Signer: Microsoft Windows
+[2026-09-25 16:53:38] [SYSTEM]     msedge.exe       74.179.65.112 (Quincy, US) | RISK: 0/100   4412  
+[2026-09-25 16:53:38]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-25 16:53:43] [NEW DESTINATION] Code.exe -> 20.42.65.90:443
+[2026-09-25 16:53:43] [SYSTEM]     Code.exe         20.42.65.90 (Boydton, US) | RISK: 0/100    23288 
+[2026-09-25 16:53:43]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-25 16:53:43] [NEW DESTINATION] msedge.exe -> 23.206.188.208:443
+[2026-09-25 16:53:43] [TRUSTED]    msedge.exe       a23-206-188-208.deploy.static.akamaitechnologies.com (Los Angeles, US) | RISK: 0/100 4412  
+[2026-09-25 16:53:43]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-25 16:53:48] [NEW DESTINATION] chrome.exe -> 216.198.54.3:443
+[2026-09-25 16:53:48] [SYSTEM]     chrome.exe       216.198.54.3 (San Francisco, US) | RISK: 0/100 18648 
+[2026-09-25 16:53:48]    Evidence:  | Signer: Google LLC
+[2026-09-25 16:53:53] [SYSTEM]     chrome.exe       172.64.150.178 (Toronto, CA) | RISK: 0/100 18648 
+[2026-09-25 16:53:53]    Evidence:  | Signer: Google LLC
+[2026-09-25 16:53:53] 🧠 [AI MEMORY] Learned Safe Baseline: 'StartMenuExperienceHost.exe' -> 52.110.4.7. Dual-AI will trust this pattern.
+[2026-09-25 16:53:58] [SYSTEM]     msedge.exe       150.171.27.11 (New York, US) | RISK: 0/100 4412  
+[2026-09-25 16:53:58]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-25 16:54:02] [NEW DESTINATION] python3.12.exe -> 172.66.0.243:443
+[2026-09-25 16:54:03] [REVIEW]     python3.12.exe   172.66.0.243 (Toronto, CA) | RISK: 0/100   37384 
+[2026-09-25 16:54:03]    Evidence:  | Signer: Python Software Foundation
+[2026-09-25 16:54:03] [NEW DESTINATION] chrome.exe -> 18.214.153.105:443
+[2026-09-25 16:54:03] [TRUSTED]    chrome.exe       ec2-18-214-153-105.compute-1.amazonaws.com (Ashburn, US) | RISK: 0/100 18648 
+[2026-09-25 16:54:03]    Evidence:  | Signer: Google LLC
+[2026-09-25 16:54:08] [NEW DESTINATION] msedge.exe -> 52.96.156.66:443
+[2026-09-25 16:54:08] [SYSTEM]     msedge.exe       52.96.156.66 (Phoenix, US) | RISK: 0/100   4412  
+[2026-09-25 16:54:08]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-25 16:54:08] [SYSTEM]     chrome.exe       dy-in-f188.1e100.net (Mountain View, US) | RISK: 0/100 18648 
+[2026-09-25 16:54:08]    Evidence:  | Signer: Google LLC
+[2026-09-25 16:54:13] [SYSTEM]     svchost.exe      20.59.87.227 (San Francisco, US) | RISK: 0/100 7092  
+[2026-09-25 16:54:13]    Evidence:  | Signer: Microsoft Windows
+[2026-09-25 16:54:18] [REVIEW]     StartMenuExperienceHost.exe 52.110.4.57 (San Jose, US) | RISK: 0/100   14004 
+[2026-09-25 16:54:18]    Evidence:  | Signer: Microsoft Windows
+[2026-09-25 16:54:18] [SYSTEM]     chrome.exe       229.213.36.34.bc.googleusercontent.com (Kansas City, US) | RISK: 0/100 18648 
+[2026-09-25 16:54:18]    Evidence:  | Signer: Google LLC
+[2026-09-25 16:54:23] [NEW DESTINATION] chrome.exe -> 216.198.53.3:443
+[2026-09-25 16:54:23] [SYSTEM]     chrome.exe       216.198.53.3 (San Francisco, US) | RISK: 0/100 18648 
+[2026-09-25 16:54:23]    Evidence:  | Signer: Google LLC
+[2026-09-25 16:54:28] [NEW DESTINATION] chrome.exe -> 104.18.21.157:443
+[2026-09-25 16:54:28] [SYSTEM]     chrome.exe       104.18.21.157 (Toronto, CA) | RISK: 0/100  18648 
+[2026-09-25 16:54:28]    Evidence:  | Signer: Google LLC
+[2026-09-25 16:54:28] [NEW DESTINATION] chrome.exe -> 18.164.154.37:443
+[2026-09-25 16:54:28] [SYSTEM]     chrome.exe       server-18-164-154-37.lax53.r.cloudfront.net (Los Angeles, US) | RISK: 0/100 18648 
+[2026-09-25 16:54:28]    Evidence:  | Signer: Google LLC
+[2026-09-25 16:54:32] [SYSTEM]     msedge.exe       104.18.23.222 (Toronto, CA) | RISK: 0/100  4412  
+[2026-09-25 16:54:32]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-25 16:54:55] [*] Network Sentinel starting deep socket audit...
+[2026-09-25 16:54:55] STATUS       PROCESS          REMOTE HOST / LOCATION                     PID   
+[2026-09-25 16:54:55] [SYSTEM]     chrome.exe       85.204.107.34.bc.googleusercontent.com (Kansas City, US) | RISK: 0/100 18648 
+[2026-09-25 16:54:55]    Evidence:  | Signer: Google LLC
+[2026-09-25 16:54:55] [TRUSTED]    chrome.exe       ec2-54-163-246-63.compute-1.amazonaws.com (Ashburn, US) | RISK: 0/100 18648 
+[2026-09-25 16:54:55]    Evidence:  | Signer: Google LLC
+[2026-09-25 16:54:55] [TRUSTED]    Code.exe         cdn-185-199-111-133.github.com (San Francisco, US) | RISK: 0/100 23288 
+[2026-09-25 16:54:55]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-25 16:54:55] [SYSTEM]     chrome.exe       85.204.107.34.bc.googleusercontent.com (Kansas City, US) | RISK: 0/100 18648 
+[2026-09-25 16:54:55]    Evidence:  | Signer: Google LLC
+[2026-09-25 16:54:55] [SYSTEM]     msedge.exe       0.81.160.34.bc.googleusercontent.com (Kansas City, US) | RISK: 0/100 4412  
+[2026-09-25 16:54:55]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-25 16:55:00] [SYSTEM]     Code.exe         150.171.109.147 (Cape Town, ZA) | RISK: 0/100 23288 
+[2026-09-25 16:55:00]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-25 16:55:00] [SYSTEM]     chrome.exe       85.204.107.34.bc.googleusercontent.com (Kansas City, US) | RISK: 0/100 18648 
+[2026-09-25 16:55:00]    Evidence:  | Signer: Google LLC
+[2026-09-25 16:55:05] [SYSTEM]     msedge.exe       104.18.23.222 (Toronto, CA) | RISK: 0/100  4412  
+[2026-09-25 16:55:05]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-25 16:55:05] [TRUSTED]    chrome.exe       ec2-3-223-146-21.compute-1.amazonaws.com (Ashburn, US) | RISK: 0/100 18648 
+[2026-09-25 16:55:05]    Evidence:  | Signer: Google LLC
+[2026-09-25 16:55:05] [SYSTEM]     chrome.exe       85.204.107.34.bc.googleusercontent.com (Kansas City, US) | RISK: 0/100 18648 
+[2026-09-25 16:55:05]    Evidence:  | Signer: Google LLC
+[2026-09-25 16:55:10] [REVIEW]     StartMenuExperienceHost.exe 52.110.4.7 (San Jose, US) | RISK: 0/100    14004 
+[2026-09-25 16:55:10]    Evidence:  | Signer: Microsoft Windows
+[2026-09-25 16:55:15] [SYSTEM]     msedge.exe       74.179.65.112 (Quincy, US) | RISK: 0/100   4412  
+[2026-09-25 16:55:15]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-25 16:55:19] [SYSTEM]     Code.exe         20.42.65.90 (Boydton, US) | RISK: 0/100    23288 
+[2026-09-25 16:55:19]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-25 16:55:19] [TRUSTED]    msedge.exe       a23-206-188-208.deploy.static.akamaitechnologies.com (Los Angeles, US) | RISK: 0/100 4412  
+[2026-09-25 16:55:19]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-25 16:55:24] [REVIEW]     python3.12.exe   172.66.0.243 (Toronto, CA) | RISK: 0/100   37384 
+[2026-09-25 16:55:24]    Evidence:  | Signer: Python Software Foundation
+[2026-09-25 16:55:24] [TRUSTED]    chrome.exe       ec2-18-214-153-105.compute-1.amazonaws.com (Ashburn, US) | RISK: 0/100 18648 
+[2026-09-25 16:55:24]    Evidence:  | Signer: Google LLC
+[2026-09-25 16:55:29] [SYSTEM]     msedge.exe       52.96.156.66 (Phoenix, US) | RISK: 0/100   4412  
+[2026-09-25 16:55:29]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-25 16:55:29] [SYSTEM]     chrome.exe       dy-in-f188.1e100.net (Mountain View, US) | RISK: 0/100 18648 
+[2026-09-25 16:55:29]    Evidence:  | Signer: Google LLC
+[2026-09-25 16:55:34] [SYSTEM]     svchost.exe      20.59.87.227 (San Francisco, US) | RISK: 0/100 7092  
+[2026-09-25 16:55:34]    Evidence:  | Signer: Microsoft Windows
+[2026-09-25 16:55:39] [REVIEW]     StartMenuExperienceHost.exe 52.110.4.57 (San Jose, US) | RISK: 0/100   14004 
+[2026-09-25 16:55:39]    Evidence:  | Signer: Microsoft Windows
+[2026-09-25 16:55:39] [SYSTEM]     chrome.exe       229.213.36.34.bc.googleusercontent.com (Kansas City, US) | RISK: 0/100 18648 
+[2026-09-25 16:55:39]    Evidence:  | Signer: Google LLC
+[2026-09-25 16:55:43] [SYSTEM]     chrome.exe       104.18.21.157 (Toronto, CA) | RISK: 0/100  18648 
+[2026-09-25 16:55:43]    Evidence:  | Signer: Google LLC
+[2026-09-25 16:55:44] [SYSTEM]     chrome.exe       server-18-164-154-37.lax53.r.cloudfront.net (Los Angeles, US) | RISK: 0/100 18648 
+[2026-09-25 16:55:44]    Evidence:  | Signer: Google LLC
+[2026-09-25 16:55:49] [SYSTEM]     msedge.exe       104.18.23.222 (Toronto, CA) | RISK: 0/100  4412  
+[2026-09-25 16:55:49]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-25 16:55:59] [*] Network Sentinel starting deep socket audit...
+[2026-09-25 16:55:59] STATUS       PROCESS          REMOTE HOST / LOCATION                     PID   
+[2026-09-25 16:55:59] [TRUSTED]    Code.exe         cdn-185-199-111-133.github.com (San Francisco, US) | RISK: 0/100 23288 
+[2026-09-25 16:55:59]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-25 16:55:59] [SYSTEM]     msedge.exe       0.81.160.34.bc.googleusercontent.com (Kansas City, US) | RISK: 0/100 4412  
+[2026-09-25 16:55:59]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-25 16:56:04] [REVIEW]     StartMenuExperienceHost.exe 52.110.4.7 (San Jose, US) | RISK: 0/100    14004 
+[2026-09-25 16:56:04]    Evidence:  | Signer: Microsoft Windows
+[2026-09-25 16:56:09] [SYSTEM]     msedge.exe       74.179.65.112 (Quincy, US) | RISK: 0/100   4412  
+[2026-09-25 16:56:09]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-25 16:56:14] [SYSTEM]     Code.exe         20.42.65.90 (Boydton, US) | RISK: 0/100    23288 
+[2026-09-25 16:56:14]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-25 16:56:14] [TRUSTED]    msedge.exe       a23-206-188-208.deploy.static.akamaitechnologies.com (Los Angeles, US) | RISK: 0/100 4412  
+[2026-09-25 16:56:14]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-25 16:56:18] [SYSTEM]     msedge.exe       52.96.156.66 (Phoenix, US) | RISK: 0/100   4412  
+[2026-09-25 16:56:18]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-25 16:56:18] [SYSTEM]     chrome.exe       dy-in-f188.1e100.net (Mountain View, US) | RISK: 0/100 18648 
+[2026-09-25 16:56:18]    Evidence:  | Signer: Google LLC
+[2026-09-25 16:56:21] [*] Extracting telemetry and invoking Dual-AI for PID 14004...
+[2026-09-25 16:56:21] [*] Telemetry gathered for StartMenuExperienceHost.exe. Querying AI models with host memory...
+[2026-09-25 16:56:23] [SYSTEM]     svchost.exe      20.59.87.227 (San Francisco, US) | RISK: 0/100 7092  
+[2026-09-25 16:56:23]    Evidence:  | Signer: Microsoft Windows
+[2026-09-25 16:56:27] 🧠 [GEMINI]: The process StartMenuExperienceHost.exe is operating from a legitimate system path and communicating with Microsoft infrastructure in alignment with verified safe baseline behavior. Threat Score: 0/10
+[2026-09-25 16:56:27] 🤖 [COPILOT]: The process 'StartMenuExperienceHost.exe' is making an outbound connection to a new IP address '52.110.4.57', which has not been previously verified as safe, warranting further investigation; Threat Score: 4/10.
+[2026-09-25 16:56:28] [SYSTEM]     Code.exe         13.66.138.105 (Quincy, US) | RISK: 0/100   23288 
+[2026-09-25 16:56:28]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-25 16:56:33] [REVIEW]     StartMenuExperienceHost.exe 52.110.4.57 (San Jose, US) | RISK: 0/100   14004 
+[2026-09-25 16:56:33]    Evidence:  | Signer: Microsoft Windows
+[2026-09-28 10:56:25] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-28 10:56:32] [*] Aggregating telemetry and generating AI Incident Response Brief...
+[2026-09-28 10:56:34] AI Report Generation failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).', 'status': 'NOT_FOUND'}}
+[2026-09-28 10:57:46] [*] Aggregating telemetry and generating AI Incident Response Brief...
+[2026-09-28 10:57:47] AI Report Generation failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).', 'status': 'NOT_FOUND'}}
+[2026-09-28 10:58:01] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-28 10:58:03] [*] Aggregating telemetry and generating AI Incident Response Brief...
+[2026-09-28 10:58:05] AI Report Generation failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).', 'status': 'NOT_FOUND'}}
+[2026-09-28 11:01:11] Ghost-Aegis Defensive Suite initialized. Ready.
+[2026-09-28 11:01:40] [*] Aggregating telemetry and generating AI Incident Response Brief...
+[2026-09-28 11:01:58] [*] Extracting telemetry and invoking Dual-AI for PID 7024...
+[2026-09-28 11:01:58] [*] Telemetry gathered for svchost.exe. Querying AI models with host memory...
+[2026-09-28 11:01:59] [+] AI Incident Brief synthesized successfully.
+[2026-09-28 11:02:13] 🧠 [GEMINI]: The telemetry depicts normal operating system behavior, with a legitimate instance of `svchost.exe` spawned by `services.exe` communicating with Microsoft Azure infrastructure. Threat Score: 1/10
+[2026-09-28 11:02:13] 🤖 [COPILOT]: The process 'svchost.exe' is connecting to an IP not previously marked as safe or malicious, requiring further investigation; Threat Score: 4/10.
+[2026-09-28 11:02:23] Process kill error: (pid=7024, name='svchost.exe')
+[2026-09-28 11:02:28] Process kill error: (pid=7024, name='svchost.exe')
+[2026-09-28 11:02:35] [*] Network Sentinel starting deep socket audit...
+[2026-09-28 11:02:35] STATUS       PROCESS          REMOTE HOST / LOCATION                     PID   
+[2026-09-28 11:02:40] [NEW DESTINATION] chrome.exe -> 52.5.175.116:443
+[2026-09-28 11:02:41] [TRUSTED]    chrome.exe       ec2-52-5-175-116.compute-1.amazonaws.com (Ashburn, US) | RISK: 0/100 18852 
+[2026-09-28 11:02:41]    Evidence:  | Signer: Google LLC
+[2026-09-28 11:02:45] [NEW DESTINATION] Code.exe -> 52.178.17.235:443
+[2026-09-28 11:02:48] [SYSTEM]     Code.exe         52.178.17.235 (Amsterdam, NL) | RISK: 0/100 20456 
+[2026-09-28 11:02:48]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-28 11:02:52] [*] Extracting telemetry and invoking Dual-AI for PID 20456...
+[2026-09-28 11:02:52] [*] Telemetry gathered for Code.exe. Querying AI models with host memory...
+[2026-09-28 11:02:53] [SYSTEM]     Code.exe         138.91.182.224 (San Francisco, US) | RISK: 0/100 20456 
+[2026-09-28 11:02:53]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-28 11:02:57] [TRUSTED]    Code.exe         lb-140-82-112-21-iad.github.com (San Francisco, US) | RISK: 0/100 20456 
+[2026-09-28 11:02:57]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-28 11:03:02] 🧠 [GEMINI]: Code.exe is exhibiting known malicious behavior by establishing an active outbound connection to 138.91.182.224, matching a previously confirmed adversary pattern on this host. Threat Score: 10/10
+[2026-09-28 11:03:02] 🤖 [COPILOT]: The process 'code.exe' is exhibiting suspicious behavior by connecting to a previously confirmed malicious IP address (138.91.182.224), indicating potential compromise; Threat Score: 7/10.
+[2026-09-28 11:03:02] [SYSTEM]     Code.exe         13.66.138.105 (Quincy, US) | RISK: 0/100   20456 
+[2026-09-28 11:03:02]    Evidence:  | Signer: Microsoft Corporation
+[2026-09-28 11:03:07] [SYSTEM]     chrome.exe       85.204.107.34.bc.googleusercontent.com (Kansas City, US) | RISK: 0/100 18852 
+[2026-09-28 11:03:07]    Evidence:  | Signer: Google LLC
+[2026-09-28 11:03:07] [SYSTEM]     chrome.exe       85.204.107.34.bc.googleusercontent.com (Kansas City, US) | RISK: 0/100 18852 
+[2026-09-28 11:03:07]    Evidence:  | Signer: Google LLC
+[2026-09-28 11:03:07] [SYSTEM]     chrome.exe       dl-in-f188.1e100.net (New Haven, US) | RISK: 0/100 18852 
+[2026-09-28 11:03:07]    Evidence:  | Signer: Google LLC
+[2026-09-28 11:03:12] [SYSTEM]     svchost.exe      20.59.87.227 (San Francisco, US) | RISK: 0/100 7024  
+[2026-09-28 11:03:12]    Evidence:  | Signer: Microsoft Windows
+[2026-09-28 11:03:17] [SYSTEM]     chrome.exe       229.213.36.34.bc.googleusercontent.com (Kansas City, US) | RISK: 0/100 18852 
+[2026-09-28 11:03:17]    Evidence:  | Signer: Google LLC
+[2026-09-28 11:03:20] [X] Terminated process Code.exe (PID: 20456).
+[2026-09-28 11:03:22] [TRUSTED]    chrome.exe       ec2-44-214-248-101.compute-1.amazonaws.com (Ashburn, US) | RISK: 0/100 18852 
+[2026-09-28 11:03:22]    Evidence:  | Signer: Google LLC
+[2026-09-28 11:03:26] [NEW DESTINATION] Unknown -> 185.199.108.133:443
+[2026-09-28 11:03:26] [TRUSTED]    Unknown          cdn-185-199-108-133.github.com (San Francisco, US) | RISK: 0/100 20456 
+[2026-09-28 11:03:26]    Evidence:  | Signer: Unknown
+[2026-09-28 11:03:31] [SYSTEM]     svchost.exe      20.59.87.227 (San Francisco, US) | RISK: 0/100 7024  
+[2026-09-28 11:03:31]    Evidence:  | Signer: Microsoft Windows
+[2026-09-28 11:03:34] [*] Extracting telemetry and invoking Dual-AI for PID 20456...
+[2026-09-28 11:03:34] [!] PID 20456 is no longer running.
+[2026-09-28 11:03:36] [*] Extracting telemetry and invoking Dual-AI for PID 20456...
+[2026-09-28 11:03:36] [!] PID 20456 is no longer running.
+[2026-09-28 11:03:42] [*] Checking dark web breach exposure...
+[2026-09-28 11:03:45] [BREACH] josephawana26@gmail.com is clean. No breaches found.
+[2026-09-30 09:43:30] Ghost-Aegis Defensive Suite initialized. Ready.

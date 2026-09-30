@@ -634,6 +634,7 @@ class GhostAegisApp(ctk.CTk):
         self.log_event("Ghost-Aegis Defensive Suite initialized. Ready.", "trusted")
         self.refresh_active_pids()
 
+    # --- 6. PANEL SECTION LABELS ---
     @staticmethod
     def _add_panel_section(parent, title):
         ctk.CTkLabel(
@@ -881,6 +882,8 @@ class GhostAegisApp(ctk.CTk):
             command=incidents_win.destroy,
         ).pack(pady=(0, 12))
 
+        ## --- REPORT EXPORT ---
+
     def export_report(self):
         destination = filedialog.asksaveasfilename(
             title="Export Ghost-Aegis Investigation Report",
@@ -894,6 +897,8 @@ class GhostAegisApp(ctk.CTk):
             self.log_event(f"[+] Investigation report exported: {report_path}", "trusted")
         except OSError as error:
             self.log_event(f"Report export failed: {error}", "threat")
+
+            ## --- NETWORK TRUST DASHBOARD ---
 
     def show_network_dashboard(self):
         dashboard = ctk.CTkToplevel(self)
@@ -1156,7 +1161,7 @@ class GhostAegisApp(ctk.CTk):
 
             client = genai.Client(api_key=api_key)
             response = client.models.generate_content(
-                model="gemini-2.5-flash",
+                model="gemini-3.8-flash",
                 contents=prompt,
             )
             report_text = (response.text or "Error: Empty response returned from AI model.").strip()
@@ -1227,6 +1232,8 @@ class GhostAegisApp(ctk.CTk):
             width=100,
         ).pack(side="right")
 
+        ### --- CANARY SHIELD MONITORING ---
+
     def toggle_canary_shield(self):
         if self.canary_enabled:
             self.canary_guard.stop()
@@ -1295,6 +1302,8 @@ class GhostAegisApp(ctk.CTk):
             pass
 
         self.after(100, self.check_queue)
+
+        ## --- LOGGING & CONSOLE OUTPUT ---
 
     def _queue_log(self, message, tag=None):
         self.log_queue.put((message, tag))
@@ -1443,6 +1452,8 @@ class GhostAegisApp(ctk.CTk):
         except (OSError, subprocess.SubprocessError):
             return "UNAVAILABLE"
 
+        ## --- DEFENSE ENGINE: DUAL-AI DAEMON ---
+
     def run_defense_engine(self):
         if self.engine_thread_running:
             return
@@ -1492,6 +1503,8 @@ class GhostAegisApp(ctk.CTk):
             append_incident(incident)
         except OSError as log_error:
             self._queue_log(f"Incident record failed: {log_error}", "warn")
+
+            ### --- DARK WEB BREACH CHECK ---
 
     def run_breach_check(self):
         self.log_event("[*] Checking dark web breach exposure...", "breach")
@@ -1552,6 +1565,8 @@ class GhostAegisApp(ctk.CTk):
             self.log_event(f"Failed to activate stealth: {err_msg}", "threat")
         except Exception as e:
             self.log_event(f"Failed to activate stealth: {e}", "threat")
+
+            ### --- EMERGENCY CLEANUP & AIR-GAP ISOLATION ---
 
     def run_cleanup(self):
         self.log_event("! EXECUTING EMERGENCY CACHE PURGE !", "threat")
@@ -1894,7 +1909,7 @@ class GhostAegisApp(ctk.CTk):
 
                 gemini_client = genai.Client(api_key=gemini_key)
                 gemini_res = gemini_client.models.generate_content(
-                    model="gemini-2.5-flash",
+                    model="gemini-3.8-flash",
                     contents=prompt,
                 )
                 gemini_verdict = (gemini_res.text or "No response").strip().replace("\n", " ")
