@@ -1640,5 +1640,1447 @@
         "remote_ip": "20.59.87.227",
         "reputation": 0,
         "signer": "Microsoft Windows"
+    },
+    {
+        "timestamp": "2026-10-05T12:25:12",
+        "process": "MsMpEng.exe",
+        "pid": 5556,
+        "path": "C:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\4.18.26080.4-0\\MsMpEng.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: e6a038bf2652"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "48.211.71.201",
+        "reputation": 0,
+        "signer": "Microsoft Windows Publisher"
+    },
+    {
+        "timestamp": "2026-10-05T12:25:20",
+        "process": "MsMpEng.exe",
+        "pid": 5556,
+        "path": "C:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\4.18.26080.4-0\\MsMpEng.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 73b2f8516b17"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "48.211.71.201",
+        "reputation": 0,
+        "signer": "Microsoft Windows Publisher"
+    },
+    {
+        "timestamp": "2026-10-05T12:25:27",
+        "process": "Code.exe",
+        "pid": 5256,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: deea17f8a059"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "185.199.110.133",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-05T12:25:40",
+        "process": "Code.exe",
+        "pid": 5256,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: ccaf47e45b0a"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "40.79.141.156",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-05T12:25:49",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 1e70de637d57"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "151.101.2.132",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:25:55",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: d88db14299d9"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "151.101.3.42",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:25:58",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 9f6193f459ed"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "184.195.73.80",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:26:09",
+        "process": "OneDrive.Sync.Service.exe",
+        "pid": 13912,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Microsoft\\OneDrive\\26.178.0913.0006\\OneDrive.Sync.Service.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: d8db963892da"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "20.184.175.18",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-05T12:26:10",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 3b82d44e41e6"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "142.251.34.78",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:26:10",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: fd05c1add9c6"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "18.164.154.93",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:26:15",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 8606d55218ad"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "150.171.22.12",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:26:20",
+        "process": "Code.exe",
+        "pid": 5256,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: dca55ad26d31"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "150.171.109.154",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-05T12:26:43",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 167c3363c405"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "151.101.67.42",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:26:49",
+        "process": "Code.exe",
+        "pid": 28988,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 662ae16436fc"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "20.184.175.20",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-05T12:26:55",
+        "process": "Code.exe",
+        "pid": 28988,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 06c3ab527523"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "20.184.175.20",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-05T12:27:05",
+        "process": "Code.exe",
+        "pid": 28988,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 33c04b56a675"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "20.184.175.20",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-05T12:27:10",
+        "process": "Code.exe",
+        "pid": 28988,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 2e57a4796b82"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "20.184.175.20",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-05T12:27:15",
+        "process": "Code.exe",
+        "pid": 28988,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: d70898260baf"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "20.184.175.20",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-05T12:27:15",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 9a6466875426"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "142.251.34.78",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:27:18",
+        "process": "Widgets.exe",
+        "pid": 12972,
+        "path": "C:\\Program Files\\WindowsApps\\MicrosoftWindows.Client.WebExperience_526.23000.0.0_x64__cw5n1h2txyewy\\Dashboard\\Widgets.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 150451851feb"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "23.206.188.205",
+        "reputation": 0,
+        "signer": "Microsoft Windows"
+    },
+    {
+        "timestamp": "2026-10-05T12:27:23",
+        "process": "Code.exe",
+        "pid": 5256,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 593a3090b181"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "150.171.74.16",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-05T12:27:31",
+        "process": "svchost.exe",
+        "pid": 5536,
+        "path": "C:\\Windows\\System32\\svchost.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 9267b158865c"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "20.59.87.227",
+        "reputation": 0,
+        "signer": "Microsoft Windows"
+    },
+    {
+        "timestamp": "2026-10-05T12:27:47",
+        "process": "Code.exe",
+        "pid": 5256,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 6ced793e400f"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "199.232.210.172",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-05T12:27:51",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: ddfd79d70a8a"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "172.64.146.215",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:27:53",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 71ec70004553"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "44.209.216.181",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:27:58",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: b029d22635c1"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "151.101.195.42",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:28:04",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 60afd9bc458b"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "151.101.193.40",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:28:09",
+        "process": "Code.exe",
+        "pid": 5256,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 8ceafbe6b41e"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "150.171.74.16",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-05T12:28:10",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 1e7fd47302a8"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "142.251.2.188",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:28:15",
+        "process": "Code.exe",
+        "pid": 5256,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: e603ece5b48a"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "13.66.138.105",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-05T12:28:20",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: c30a3540addf"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "151.101.130.133",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:36:22",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 98dc33b347f9"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "34.107.204.85",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:36:22",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 5f00222f2565"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "52.84.20.102",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:36:22",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 83b805112a80"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "23.21.88.49",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:36:22",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 49b034b60172"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "142.251.34.78",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:36:23",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: eb5993ab98fc"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "192.178.164.100",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:36:23",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 4d2855dcb5af"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "34.107.204.85",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:36:23",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: b51e4ef2bcfc"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "100.48.26.119",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:36:23",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: d1ee4eef0010"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "54.157.156.145",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:36:23",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 1a9291f16423"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "99.84.41.72",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:36:23",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 3ea0143a32a0"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "54.165.85.6",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:36:23",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 1b8d4fcfbb90"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "18.65.3.74",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:36:23",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: aa9fc8183ac6"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "54.239.180.21",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:36:28",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: b84bf9567f0d"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "142.251.156.2",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:36:28",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: c08b844af66c"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "18.65.3.74",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:36:29",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: e8a4b44274a7"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "99.84.41.72",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:36:29",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: bcec34bdb704"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "34.195.59.239",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:36:31",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 686891f68087"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "18.164.154.37",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:36:31",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: d151932d36c8"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "52.71.195.44",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:36:32",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 2f0aa5dff2ff"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "99.84.41.15",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:36:33",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: ecfc0230d7b0"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "13.249.182.65",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:36:38",
+        "process": "svchost.exe",
+        "pid": 7148,
+        "path": "C:\\Windows\\System32\\svchost.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 8a38cc40522e"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "20.161.205.129",
+        "reputation": 0,
+        "signer": "Microsoft Windows"
+    },
+    {
+        "timestamp": "2026-10-05T12:36:39",
+        "process": "Widgets.exe",
+        "pid": 12972,
+        "path": "C:\\Program Files\\WindowsApps\\MicrosoftWindows.Client.WebExperience_526.23000.0.0_x64__cw5n1h2txyewy\\Dashboard\\Widgets.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 8cc61ec56770"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "23.206.188.205",
+        "reputation": 0,
+        "signer": "Microsoft Windows"
+    },
+    {
+        "timestamp": "2026-10-05T12:36:44",
+        "process": "svchost.exe",
+        "pid": 5536,
+        "path": "C:\\Windows\\System32\\svchost.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 4c1b72ed6c82"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "20.59.87.227",
+        "reputation": 0,
+        "signer": "Microsoft Windows"
+    },
+    {
+        "timestamp": "2026-10-05T12:36:44",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: b9c4893ca79c"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "35.171.212.174",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:36:49",
+        "process": "MsMpEng.exe",
+        "pid": 5556,
+        "path": "C:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\4.18.26080.4-0\\MsMpEng.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 6fd80b7bf94d"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "172.178.160.26",
+        "reputation": 0,
+        "signer": "Microsoft Windows Publisher"
+    },
+    {
+        "timestamp": "2026-10-05T12:36:49",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: dc1f55dbbdfd"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "142.251.2.188",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:37:24",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 37d932db1af5"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "34.107.204.85",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:37:24",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 059e884abd66"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "52.84.20.102",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:37:24",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 7c0e7c1b1c64"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "23.21.88.49",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:37:25",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: c6765027efd5"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "142.251.34.78",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:37:26",
+        "process": "svchost.exe",
+        "pid": 2496,
+        "path": "C:\\Windows\\System32\\svchost.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 13d6207eb97f"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "23.63.210.161",
+        "reputation": 0,
+        "signer": "Microsoft Windows"
+    },
+    {
+        "timestamp": "2026-10-05T12:37:27",
+        "process": "svchost.exe",
+        "pid": 2496,
+        "path": "C:\\Windows\\System32\\svchost.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 17ed8f46e4e8"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "142.251.40.99",
+        "reputation": 0,
+        "signer": "Microsoft Windows"
+    },
+    {
+        "timestamp": "2026-10-05T12:37:27",
+        "process": "svchost.exe",
+        "pid": 2496,
+        "path": "C:\\Windows\\System32\\svchost.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 8fec4de3a242"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "23.210.216.162",
+        "reputation": 0,
+        "signer": "Microsoft Windows"
+    },
+    {
+        "timestamp": "2026-10-05T12:37:33",
+        "process": "svchost.exe",
+        "pid": 2496,
+        "path": "C:\\Windows\\System32\\svchost.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: c5a6893c969d"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "199.232.210.172",
+        "reputation": 0,
+        "signer": "Microsoft Windows"
+    },
+    {
+        "timestamp": "2026-10-05T12:37:34",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 09f10cb9827f"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "192.178.164.100",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:37:35",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: a0cff6809265"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "34.107.204.85",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:37:36",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: c24085273660"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "54.157.156.145",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:37:37",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 8262e6810277"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "99.84.41.72",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:37:40",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: e1938d7da32c"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "54.165.85.6",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:37:40",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 9c092ae7c0b4"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "18.65.3.74",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:37:40",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: d197b77e1b7f"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "54.239.180.21",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:37:45",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: b847807227fb"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "142.251.156.2",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:37:46",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: cd8884051f54"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "18.65.3.74",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:37:46",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 022443abcf77"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "99.84.41.72",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:37:47",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: d13aa5df26e9"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "34.195.59.239",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:37:47",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 7e066e71ff01"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "18.164.154.37",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:37:47",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 24b6808fda94"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "99.84.41.15",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:37:47",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: d7d7096b6c5b"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "13.249.182.65",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:37:52",
+        "process": "svchost.exe",
+        "pid": 7148,
+        "path": "C:\\Windows\\System32\\svchost.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: b4597e650dff"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "20.161.205.129",
+        "reputation": 0,
+        "signer": "Microsoft Windows"
+    },
+    {
+        "timestamp": "2026-10-05T12:37:52",
+        "process": "Widgets.exe",
+        "pid": 12972,
+        "path": "C:\\Program Files\\WindowsApps\\MicrosoftWindows.Client.WebExperience_526.23000.0.0_x64__cw5n1h2txyewy\\Dashboard\\Widgets.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: e9374ee0ed99"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "23.206.188.205",
+        "reputation": 0,
+        "signer": "Microsoft Windows"
+    },
+    {
+        "timestamp": "2026-10-05T12:37:57",
+        "process": "svchost.exe",
+        "pid": 5536,
+        "path": "C:\\Windows\\System32\\svchost.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: ee8690a33429"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "20.59.87.227",
+        "reputation": 0,
+        "signer": "Microsoft Windows"
+    },
+    {
+        "timestamp": "2026-10-05T12:38:02",
+        "process": "MsMpEng.exe",
+        "pid": 5556,
+        "path": "C:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\4.18.26080.4-0\\MsMpEng.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 005109ceb9b5"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "172.178.160.26",
+        "reputation": 0,
+        "signer": "Microsoft Windows Publisher"
+    },
+    {
+        "timestamp": "2026-10-05T12:38:03",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 699e7afa4bdf"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "142.251.2.188",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:40:58",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 295330eb4176"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "34.107.204.85",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:40:58",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 8dd82f20f2cc"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "23.21.88.49",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:40:59",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: ce835df0e3ac"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "142.251.34.78",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:40:59",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 8fcef2169bec"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "192.178.164.100",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:41:03",
+        "process": "Code.exe",
+        "pid": 5256,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 477777aca04b"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "150.171.109.148",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-05T12:41:04",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 01177bb6c8e4"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "34.107.204.85",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:41:04",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 2b35d5b93753"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "99.84.41.72",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:41:04",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 072f9023147f"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "54.165.85.6",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:41:04",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 0e97ce946faf"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "100.48.26.119",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:41:09",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: f0dcea1e081f"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "142.251.156.2",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:41:09",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 7d6e16f7ae3a"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "34.195.59.239",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:41:09",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 9848ea3012c5"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "18.164.154.37",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:41:09",
+        "process": "Widgets.exe",
+        "pid": 12972,
+        "path": "C:\\Program Files\\WindowsApps\\MicrosoftWindows.Client.WebExperience_526.23000.0.0_x64__cw5n1h2txyewy\\Dashboard\\Widgets.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 304ff4e0e5a7"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "23.206.188.205",
+        "reputation": 0,
+        "signer": "Microsoft Windows"
+    },
+    {
+        "timestamp": "2026-10-05T12:41:14",
+        "process": "svchost.exe",
+        "pid": 5536,
+        "path": "C:\\Windows\\System32\\svchost.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: d306c50047a4"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "20.59.87.227",
+        "reputation": 0,
+        "signer": "Microsoft Windows"
+    },
+    {
+        "timestamp": "2026-10-05T12:41:14",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 15b93a49bbe0"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "184.194.203.9",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-05T12:41:14",
+        "process": "chrome.exe",
+        "pid": 5396,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: dd2f3713d792"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "142.251.2.188",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-09T15:52:07",
+        "process": "BehaviorEngine",
+        "pid": 0,
+        "path": "behavior_fingerprint",
+        "risk_score": 35,
+        "reasons": [
+            "Behavior anomaly detected: trusted"
+        ],
+        "recommended_action": "review_identity",
+        "remote_ip": "none",
+        "reputation": 0,
+        "signer": "Unknown"
+    },
+    {
+        "timestamp": "2026-10-09T15:52:53",
+        "process": "msedge.exe",
+        "pid": 19584,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 7ae0043b42a1"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "104.16.139.209",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-09T15:52:58",
+        "process": "msedge.exe",
+        "pid": 19584,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 8b617b613423"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "74.179.65.112",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
     }
 ]

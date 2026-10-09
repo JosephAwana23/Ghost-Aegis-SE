@@ -97,6 +97,69 @@ PROCESS_WHITELIST = {
     "explorer.exe", "python.exe", "pythonw.exe", "cmd.exe", "conhost.exe",
 }
 
+# ==============================================================================
+# --- NEW INTEGRATION: SENTINEL-SANITIZE (ZERO DATA LEAKAGE & MITRE MAPPING) ---
+# ==============================================================================
+class SentinelSanitizer:
+    """Enterprise Data Sanitization, MITRE ATT&CK Mapping, and Cryptographic Chaining"""
+    
+    RFC1918_REGEX = re.compile(r"\b(10\.\d{1,3}\.\d{1,3}\.\d{1,3}|172\.(1[6-9]|2\d|3[0-1])\.\d{1,3}\.\d{1,3}|192\.168\.\d{1,3}\.\d{1,3})\b")
+    PAN_CANDIDATE_REGEX = re.compile(r"\b(?:\d[ -]*?){13,19}\b")
+    
+    DETECTION_RULES = [
+        {"id": "T1110.001", "technique": "Password Guessing", "tactic": "Credential Access", "keywords": ["failed login", "invalid credentials"], "severity": "MEDIUM"},
+        {"id": "T1059.001", "technique": "PowerShell Execution", "tactic": "Execution", "keywords": ["powershell.exe", "-enc", "downloadstring", "invoke-expression"], "severity": "HIGH"},
+        {"id": "T1046", "technique": "Network Service Discovery", "tactic": "Discovery", "keywords": ["port scan", "syn scan", "nmap"], "severity": "LOW"},
+        {"id": "T1574", "technique": "Hijack Execution Flow", "tactic": "Persistence", "keywords": ["unquoted service path", "dll hijacking"], "severity": "HIGH"},
+    ]
+
+    def __init__(self):
+        # Genesis block for tamper-evident chaining
+        self.previous_hash = hashlib.sha256(b"GHOST_AEGIS_GENESIS_BLOCK").hexdigest()
+
+    @staticmethod
+    def is_luhn_valid(card_number: str) -> bool:
+        digits = [int(c) for c in card_number if c.isdigit()]
+        if len(digits) < 13 or len(digits) > 19: return False
+        checksum = 0
+        for idx, digit in enumerate(digits[::-1]):
+            if idx % 2 == 1:
+                doubled = digit * 2
+                checksum += (doubled - 9) if doubled > 9 else doubled
+            else: checksum += digit
+        return checksum % 10 == 0
+
+    def scrub_text(self, text: str) -> str:
+        if not isinstance(text, str): return text
+        # Mask internal IPs
+        text = self.RFC1918_REGEX.sub("[INTERNAL_IP_MASKED]", text)
+        # Redact valid PCI PANs
+        def replace_card(match):
+            raw = match.group(0)
+            cleaned = re.sub(r"[^\d]", "", raw)
+            if self.is_luhn_valid(cleaned):
+                return f"[CARD_REDACTED_****{cleaned[-4:]}]"
+            return raw
+        return self.PAN_CANDIDATE_REGEX.sub(replace_card, text)
+
+    def sanitize_log(self, record: dict | list | str) -> dict | list | str:
+        if isinstance(record, dict): return {k: self.sanitize_log(v) for k, v in record.items()}
+        elif isinstance(record, list): return [self.sanitize_log(elem) for elem in record]
+        elif isinstance(record, str): return self.scrub_text(record)
+        return record
+
+    def correlate_mitre(self, log_str: str) -> list:
+        lowered = log_str.lower()
+        return [rule for rule in self.DETECTION_RULES if any(kw in lowered for kw in rule["keywords"])]
+
+    def secure_hash_log(self, sanitized_data: dict) -> str:
+        """Calculates a tamper-proof cryptographic chain hash."""
+        payload_str = json.dumps(sanitized_data, sort_keys=True)
+        chain_data = self.previous_hash + payload_str
+        current_hash = hashlib.sha256(chain_data.encode()).hexdigest()
+        self.previous_hash = current_hash
+        return current_hash
+# ==============================================================================
 
 # --- IN-CONTEXT AI MEMORY & THREAT DNA ---
 class AnalystMemory:
@@ -173,7 +236,7 @@ class AnalystMemory:
                 lines.append(f" - Process '{t['process']}' targeting {t['remote_ip']} ({t['reason']})")
         return "\n".join(lines)
 
-
+# --- THREAT DNA HASHING FOR CLUSTERING ---
 def generate_threat_dna(process: str, signer: str, remote_ip: str, reasons: list) -> str:
     """Computes a persistent canonical hash for clustering repeated threats."""
     payload = f"{process.lower()}|{signer}|{remote_ip}|{','.join(sorted(reasons))}"
@@ -253,9 +316,12 @@ class GhostAegisApp(ctk.CTk):
         self.host_isolated = False
         self.canary_enabled = False
         self.auto_mitigate_enabled = False
+        
+        # Instantiate Active Defense Modules
         self.canary_guard = CanaryGuard()
         self.network_behavior = NetworkBehaviorStore()
         self.analyst_memory = AnalystMemory(filepath=BASE_DIR / "data" / "analyst_memory.json")
+        self.sanitizer = SentinelSanitizer()  # <-- NEW: PII/PCI Sanitization Engine
         
         # Ghost Protocol State
         self.ghost_decoy = GhostDecoy(port=2222)
@@ -1138,12 +1204,28 @@ class GhostAegisApp(ctk.CTk):
                     inc.get("remote_ip", "none"),
                     inc.get("reasons", [])
                 )
+                
+                # --- ZERO DATA LEAKAGE: Sanitize Telemetry before AI Ingestion ---
+                raw_inc_data = {
+                    "timestamp": inc.get('timestamp', 'N/A'),
+                    "dna": dna,
+                    "process": inc.get('process'),
+                    "pid": inc.get('pid'),
+                    "path": inc.get('path'),
+                    "remote_ip": inc.get('remote_ip'),
+                    "risk_score": inc.get('risk_score'),
+                    "signer": inc.get('signer'),
+                    "flags": inc.get('reasons', [])
+                }
+                clean_inc = self.sanitizer.sanitize_log(raw_inc_data)
+                
                 telemetry_lines.append(
-                    f"- Timestamp: {inc.get('timestamp', 'N/A')} | DNA: {dna} | Process: {inc.get('process')} "
-                    f"(PID: {inc.get('pid')}) | Path: {inc.get('path')} | Remote IP: {inc.get('remote_ip')} "
-                    f"| Risk Score: {inc.get('risk_score')}/100 | Signer: {inc.get('signer')} "
-                    f"| Flags: {', '.join(inc.get('reasons', []))}"
+                    f"- Timestamp: {clean_inc['timestamp']} | DNA: {clean_inc['dna']} | Process: {clean_inc['process']} "
+                    f"(PID: {clean_inc['pid']}) | Path: {clean_inc['path']} | Remote IP: {clean_inc['remote_ip']} "
+                    f"| Risk Score: {clean_inc['risk_score']}/100 | Signer: {clean_inc['signer']} "
+                    f"| Flags: {', '.join(clean_inc['flags'])}"
                 )
+            
             telemetry_dump = "\n".join(telemetry_lines)
 
             prompt = (
@@ -1765,6 +1847,28 @@ class GhostAegisApp(ctk.CTk):
                         trusted_process=trusted_process,
                     )
 
+                    # --- NEW SENTINEL-SANITIZE INTEGRATION: MITRE & CHAINING ---
+                    raw_event_data = {
+                        "process": proc_name,
+                        "path": exe_path,
+                        "remote_ip": ip_only,
+                        "port": remote_port,
+                        "reasons": reasons
+                    }
+                    sanitized_event = self.sanitizer.sanitize_log(raw_event_data)
+                    crypto_hash = self.sanitizer.secure_hash_log(sanitized_event)
+                    mitre_hits = self.sanitizer.correlate_mitre(json.dumps(sanitized_event))
+                    
+                    for hit in mitre_hits:
+                        reasons.append(f"MITRE: {hit['id']} ({hit['technique']})")
+                        # Boost risk score if severe tactic identified
+                        if hit['severity'] in ["HIGH", "CRITICAL"]:
+                            risk_score = max(risk_score, 85)
+                    
+                    # Attach the cryptographic chain hash to the forensic log
+                    reasons.append(f"ChainHash: {crypto_hash[:12]}")
+                    # -------------------------------------------------------------
+
                     if risk_score > max_risk:
                         max_risk = risk_score
                         highest_threat_pid = pid
@@ -1882,21 +1986,28 @@ class GhostAegisApp(ctk.CTk):
             # 1. Fetch Learned Host Memory Context
             memory_context = self.analyst_memory.get_prompt_context()
 
-            context = (
-                f"Process Name: {proc_name} (PID: {pid})\n"
-                f"Parent Process: {parent_name}\n"
-                f"Executable Path: {exe_path} (Staged Dir: {is_suspicious_path(exe_path)})\n"
-                f"SHA256 Hash: {file_hash}\n"
-                f"Active Outbound IP Connections: {remote_ips}"
-            )
-            self._queue_log(f"[*] Telemetry gathered for {proc_name}. Querying AI models with host memory...", "system")
+            # --- ZERO DATA LEAKAGE: Sanitize Context for AI ---
+            raw_context_data = {
+                "Process Name": proc_name,
+                "PID": pid,
+                "Parent Process": parent_name,
+                "Executable Path": exe_path,
+                "Staged Dir": is_suspicious_path(exe_path),
+                "SHA256 Hash": file_hash,
+                "Active Outbound IP Connections": remote_ips
+            }
+            sanitized_context = self.sanitizer.sanitize_log(raw_context_data)
+            context = json.dumps(sanitized_context, indent=2)
+            # --------------------------------------------------
+
+            self._queue_log(f"[*] Telemetry gathered and sanitized for {proc_name}. Querying AI models with host memory...", "system")
 
             prompt = (
                 "You are an expert Blue Team cybersecurity analyst for Ghost-Aegis.\n"
                 "Analyze the following process telemetry and provide a 1-sentence assessment "
                 "ending strictly with 'Threat Score: X/10'.\n\n"
                 f"{memory_context}\n\n"
-                f"{context}"
+                f"### SANITIZED TELEMETRY:\n{context}"
             )
 
             # 2. Gemini Engine Query
