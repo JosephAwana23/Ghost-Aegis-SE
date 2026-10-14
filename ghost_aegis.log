@@ -5634,3 +5634,61 @@ The command completed successfully.
 [2026-10-09 15:52:58] [SYSTEM]     msedge.exe       74.179.65.112 (Quincy, US) | RISK: 0/100   19584 
 [2026-10-09 15:52:58]    Evidence: ChainHash: 8b617b613423 | Signer: Microsoft Corporation
 [2026-10-09 15:52:58] [NEW DESTINATION] Code.exe -> 184.29.57.148:443
+[2026-10-14 09:54:31] Ghost-Aegis initialized | Tier-1: gemini-3.8-flash | Tier-3 Escalation: gemini-4-argon
+[2026-10-14 09:54:41] [*] Network Sentinel starting deep socket audit...
+[2026-10-14 09:54:41] STATUS       PROCESS          REMOTE HOST / LOCATION                     PID   
+[2026-10-14 09:54:42] [SYSTEM]     chrome.exe       dd-in-f188.1e100.net (Mountain View, US) | RISK: 0/100 19064 
+[2026-10-14 09:54:42]    Evidence: ChainHash: 21d717f77084 | Signer: Google LLC
+[2026-10-14 09:54:49] [SYSTEM]     Code.exe         172.182.252.137 (Phoenix, US) | RISK: 0/100 23356 
+[2026-10-14 09:54:49]    Evidence: ChainHash: e8369536d88b | Signer: Microsoft Corporation
+[2026-10-14 09:54:49] [NEW DESTINATION] NVIDIA Overlay.exe -> 172.217.75.95:443
+[2026-10-14 09:54:50] [REVIEW]     NVIDIA Overlay.exe yuphxej-in-f95.1e100.net (Mountain View, US) | RISK: 0/100 6428  
+[2026-10-14 09:54:50]    Evidence: ChainHash: cde93a24b125 | Signer: NVIDIA Corporation
+[2026-10-14 09:54:55] [NEW DESTINATION] MsMpEng.exe -> 48.211.71.196:443
+[2026-10-14 09:54:56] [REVIEW]     MsMpEng.exe      48.211.71.196 (Boydton, US) | RISK: 0/100  5828  
+[2026-10-14 09:54:56]    Evidence: ChainHash: 3df534a760c8 | Signer: Microsoft Windows Publisher
+[2026-10-14 09:55:01] [NEW DESTINATION] Code.exe -> 40.79.150.125:443
+[2026-10-14 09:55:01] [SYSTEM]     Code.exe         40.79.150.125 (Paris, FR) | RISK: 0/100    12600 
+[2026-10-14 09:55:01]    Evidence: ChainHash: 34553984622c | Signer: Microsoft Corporation
+[2026-10-14 09:55:02] [*] Checking dark web breach exposure...
+[2026-10-14 09:55:02] [BREACH] josephawana26@gmail.com is clean. No breaches found.
+[2026-10-14 09:55:06] [SYSTEM]     Code.exe         40.79.150.125 (Paris, FR) | RISK: 0/100    12600 
+[2026-10-14 09:55:06]    Evidence: ChainHash: ef9290033f38 | Signer: Microsoft Corporation
+[2026-10-14 09:55:07] [*] Aggregating telemetry and generating AI Incident Response Brief...
+[2026-10-14 09:55:10] [SYSTEM]     Code.exe         40.79.150.125 (Paris, FR) | RISK: 0/100    12600 
+[2026-10-14 09:55:10]    Evidence: ChainHash: 0cb0db393e02 | Signer: Microsoft Corporation
+[2026-10-14 09:55:15] [SYSTEM]     Code.exe         40.79.150.125 (Paris, FR) | RISK: 0/100    12600 
+[2026-10-14 09:55:15]    Evidence: ChainHash: cf2007fb672d | Signer: Microsoft Corporation
+[2026-10-14 09:55:19] [SYSTEM]     Code.exe         40.79.150.125 (Paris, FR) | RISK: 0/100    12600 
+[2026-10-14 09:55:19]    Evidence: ChainHash: ff009256df73 | Signer: Microsoft Corporation
+[2026-10-14 09:55:20] [NEW DESTINATION] chrome.exe -> 34.233.74.134:443
+[2026-10-14 09:55:20] [TRUSTED]    chrome.exe       ec2-34-233-74-134.compute-1.amazonaws.com (Ashburn, US) | RISK: 0/100 19064 
+[2026-10-14 09:55:20]    Evidence: ChainHash: a645506ae371 | Signer: Google LLC
+[2026-10-14 09:55:20] [TRUSTED]    Code.exe         lb-140-82-114-21-iad.github.com (San Francisco, US) | RISK: 0/100 23356 
+[2026-10-14 09:55:20]    Evidence: ChainHash: aa331f61f6f2 | Signer: Microsoft Corporation
+[2026-10-14 09:55:24] [NEW DESTINATION] StartMenuExperienceHost.exe -> 52.110.1.161:443
+[2026-10-14 09:55:26] [REVIEW]     StartMenuExperienceHost.exe 52.110.1.161 (Des Moines, US) | RISK: 0/100 7044  
+[2026-10-14 09:55:26]    Evidence: ChainHash: f055d2535003 | Signer: Microsoft Windows
+[2026-10-14 09:55:29] [+] AI Incident Brief synthesized via gemini-3.8-flash.
+[2026-10-14 09:55:30] [NEW DESTINATION] StartMenuExperienceHost.exe -> 52.110.1.206:443
+[2026-10-14 09:55:31] [REVIEW]     StartMenuExperienceHost.exe 52.110.1.206 (Des Moines, US) | RISK: 1/100 7044  
+[2026-10-14 09:55:31]    Evidence: AbuseIPDB reputation score: 3%; ChainHash: 89ecf2c99814 | Signer: Microsoft Windows
+[2026-10-14 09:55:35] [NEW DESTINATION] Code.exe -> 20.52.64.205:443
+[2026-10-14 09:55:35] [SYSTEM]     Code.exe         20.52.64.205 (Frankfurt am Main, DE) | RISK: 0/100 23356 
+[2026-10-14 09:55:35]    Evidence: ChainHash: 726367663daa | Signer: Microsoft Corporation
+[2026-10-14 09:55:41] [SYSTEM]     svchost.exe      20.59.87.227 (San Francisco, US) | RISK: 0/100 5816  
+[2026-10-14 09:55:41]    Evidence: ChainHash: b00635ffbc08 | Signer: Microsoft Windows
+[2026-10-14 09:55:45] [*] Extracting telemetry and invoking Tiered Dual-AI for PID 6428...
+[2026-10-14 09:55:45] [*] Telemetry sanitized for NVIDIA Overlay.exe. Running Tier-1 Triage (gemini-3.8-flash)...
+[2026-10-14 09:55:45] [SYSTEM]     Code.exe         13.66.138.105 (Quincy, US) | RISK: 0/100   23356 
+[2026-10-14 09:55:45]    Evidence: ChainHash: ee9df3e69a33 | Signer: Microsoft Corporation
+[2026-10-14 09:55:45] [SYSTEM]     Code.exe         server-18-65-3-13.lax50.r.cloudfront.net (San Jose, US) | RISK: 0/100 23356 
+[2026-10-14 09:55:45]    Evidence: ChainHash: 3423bbd3e4b0 | Signer: Microsoft Corporation
+[2026-10-14 09:55:46] [NEW DESTINATION] WinStore.App.exe -> 23.36.136.35:443
+[2026-10-14 09:55:47] [TRUSTED]    WinStore.App.exe a23-36-136-35.deploy.static.akamaitechnologies.com (Los Angeles, US) | RISK: 30/100 16348 
+[2026-10-14 09:55:47]    Evidence: unsigned binary; ChainHash: 0d9b58a5c283 | Signer: Unsigned
+[2026-10-14 09:55:47] [TRUSTED]    WinStore.App.exe a23-36-136-35.deploy.static.akamaitechnologies.com (Los Angeles, US) | RISK: 30/100 16348 
+[2026-10-14 09:55:47]    Evidence: unsigned binary; ChainHash: be3f87620abb | Signer: Unsigned
+[2026-10-14 09:55:49] 🧠 [GEMINI-3.8-FLASH TRIAGE]: The telemetry reflects benign behavior from the legitimate NVIDIA App CEF overlay process executing from its standard directory and making routine outbound network traffic to a reputable IP address. Threat Score: 1/10
+[2026-10-14 09:55:52] 🤖 [COPILOT]: The process "NVIDIA Overlay.exe" making an outbound connection to 172.217.75.95 is not previously verified as safe or malicious, warranting further investigation; Threat Score: 4/10.
+[2026-10-14 09:59:46] Ghost-Aegis initialized | Tier-1: gemini-3.8-flash | Tier-3 Escalation: gemini-4-argon

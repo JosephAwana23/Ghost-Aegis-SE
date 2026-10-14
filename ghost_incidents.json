@@ -3082,5 +3082,274 @@
         "remote_ip": "74.179.65.112",
         "reputation": 0,
         "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T09:54:42",
+        "process": "chrome.exe",
+        "pid": 19064,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 21d717f77084"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "142.250.141.188",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-14T09:54:49",
+        "process": "Code.exe",
+        "pid": 23356,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: e8369536d88b"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "172.182.252.137",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T09:54:50",
+        "process": "NVIDIA Overlay.exe",
+        "pid": 6428,
+        "path": "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\CEF\\NVIDIA Overlay.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: cde93a24b125"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "172.217.75.95",
+        "reputation": 0,
+        "signer": "NVIDIA Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T09:54:56",
+        "process": "MsMpEng.exe",
+        "pid": 5828,
+        "path": "C:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\4.18.26090.9-0\\MsMpEng.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 3df534a760c8"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "48.211.71.196",
+        "reputation": 0,
+        "signer": "Microsoft Windows Publisher"
+    },
+    {
+        "timestamp": "2026-10-14T09:55:01",
+        "process": "Code.exe",
+        "pid": 12600,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 34553984622c"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "40.79.150.125",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T09:55:06",
+        "process": "Code.exe",
+        "pid": 12600,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: ef9290033f38"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "40.79.150.125",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T09:55:10",
+        "process": "Code.exe",
+        "pid": 12600,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 0cb0db393e02"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "40.79.150.125",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T09:55:15",
+        "process": "Code.exe",
+        "pid": 12600,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: cf2007fb672d"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "40.79.150.125",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T09:55:19",
+        "process": "Code.exe",
+        "pid": 12600,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: ff009256df73"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "40.79.150.125",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T09:55:19",
+        "process": "chrome.exe",
+        "pid": 19064,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: a645506ae371"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "34.233.74.134",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-14T09:55:20",
+        "process": "Code.exe",
+        "pid": 23356,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: aa331f61f6f2"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "140.82.114.21",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T09:55:25",
+        "process": "StartMenuExperienceHost.exe",
+        "pid": 7044,
+        "path": "C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: f055d2535003"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "52.110.1.161",
+        "reputation": 0,
+        "signer": "Microsoft Windows"
+    },
+    {
+        "timestamp": "2026-10-14T09:55:31",
+        "process": "StartMenuExperienceHost.exe",
+        "pid": 7044,
+        "path": "C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe",
+        "risk_score": 1,
+        "reasons": [
+            "AbuseIPDB reputation score: 3%",
+            "ChainHash: 89ecf2c99814"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "52.110.1.206",
+        "reputation": 3,
+        "signer": "Microsoft Windows"
+    },
+    {
+        "timestamp": "2026-10-14T09:55:35",
+        "process": "Code.exe",
+        "pid": 23356,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 726367663daa"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "20.52.64.205",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T09:55:41",
+        "process": "svchost.exe",
+        "pid": 5816,
+        "path": "C:\\Windows\\System32\\svchost.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: b00635ffbc08"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "20.59.87.227",
+        "reputation": 0,
+        "signer": "Microsoft Windows"
+    },
+    {
+        "timestamp": "2026-10-14T09:55:45",
+        "process": "Code.exe",
+        "pid": 23356,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: ee9df3e69a33"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "13.66.138.105",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T09:55:45",
+        "process": "Code.exe",
+        "pid": 23356,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 3423bbd3e4b0"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "18.65.3.13",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T09:55:47",
+        "process": "WinStore.App.exe",
+        "pid": 16348,
+        "path": "C:\\Program Files\\WindowsApps\\Microsoft.WindowsStore_22609.1401.4.0_x64__8wekyb3d8bbwe\\WinStore.App.exe",
+        "risk_score": 30,
+        "reasons": [
+            "unsigned binary",
+            "ChainHash: 0d9b58a5c283"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "23.36.136.35",
+        "reputation": 0,
+        "signer": "Unsigned"
+    },
+    {
+        "timestamp": "2026-10-14T09:55:47",
+        "process": "WinStore.App.exe",
+        "pid": 16348,
+        "path": "C:\\Program Files\\WindowsApps\\Microsoft.WindowsStore_22609.1401.4.0_x64__8wekyb3d8bbwe\\WinStore.App.exe",
+        "risk_score": 30,
+        "reasons": [
+            "unsigned binary",
+            "ChainHash: be3f87620abb"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "23.36.136.35",
+        "reputation": 0,
+        "signer": "Unsigned"
     }
 ]
