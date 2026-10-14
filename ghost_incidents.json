@@ -3351,5 +3351,775 @@
         "remote_ip": "23.36.136.35",
         "reputation": 0,
         "signer": "Unsigned"
+    },
+    {
+        "timestamp": "2026-10-14T10:07:17",
+        "process": "chrome.exe",
+        "pid": 19064,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 21d717f77084"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "142.250.141.188",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-14T10:07:23",
+        "process": "Code.exe",
+        "pid": 23356,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 8dcec2c5cd70"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "13.66.138.105",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:07:28",
+        "process": "Code.exe",
+        "pid": 23356,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: b99ee3d2b971"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "192.0.73.2",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:07:32",
+        "process": "Code.exe",
+        "pid": 23356,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: f68a50f1eab9"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "20.52.64.205",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:07:37",
+        "process": "svchost.exe",
+        "pid": 5816,
+        "path": "C:\\Windows\\System32\\svchost.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 3a63758c2866"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "20.59.87.227",
+        "reputation": 0,
+        "signer": "Microsoft Windows"
+    },
+    {
+        "timestamp": "2026-10-14T10:07:42",
+        "process": "Code.exe",
+        "pid": 23356,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 32b3f45a0a7e"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "150.171.109.146",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:08:16",
+        "process": "msedge.exe",
+        "pid": 27972,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: b6c705a57530"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "150.171.28.11",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:08:21",
+        "process": "msedge.exe",
+        "pid": 27972,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 4e1239500fd5"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "20.190.132.41",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:08:26",
+        "process": "msedge.exe",
+        "pid": 27972,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: da0819b31658"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "104.18.37.78",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:08:26",
+        "process": "chrome.exe",
+        "pid": 19064,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 2d73cbf17576"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "142.250.141.188",
+        "reputation": 0,
+        "signer": "Google LLC"
+    },
+    {
+        "timestamp": "2026-10-14T10:08:31",
+        "process": "Code.exe",
+        "pid": 23356,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: c136739326ae"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "13.66.138.105",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:08:35",
+        "process": "msedge.exe",
+        "pid": 27972,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: baa580486874"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "20.190.132.105",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:08:40",
+        "process": "msedge.exe",
+        "pid": 27972,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 48f9afcae4e2"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "150.171.27.11",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:08:40",
+        "process": "msedge.exe",
+        "pid": 27972,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 8716e79ee84d"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "99.84.215.127",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:08:45",
+        "process": "msedge.exe",
+        "pid": 27972,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: a144a270a7f5"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "52.96.104.210",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:08:45",
+        "process": "msedge.exe",
+        "pid": 27972,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: ccab37223453"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "23.62.54.24",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:08:49",
+        "process": "msedge.exe",
+        "pid": 27972,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 90841b83779c"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "13.107.6.202",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:08:54",
+        "process": "msedge.exe",
+        "pid": 27972,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 64822dc10a65"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "52.96.104.210",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:08:55",
+        "process": "msedge.exe",
+        "pid": 27972,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: f1a6a7c84d42"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "99.84.41.101",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:09:00",
+        "process": "svchost.exe",
+        "pid": 19228,
+        "path": "C:\\Windows\\System32\\svchost.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: b83e27db7a64"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "40.126.62.129",
+        "reputation": 0,
+        "signer": "Microsoft Windows"
+    },
+    {
+        "timestamp": "2026-10-14T10:09:20",
+        "process": "svchost.exe",
+        "pid": 19228,
+        "path": "C:\\Windows\\System32\\svchost.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 304aa93bbc38"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "40.126.62.129",
+        "reputation": 0,
+        "signer": "Microsoft Windows"
+    },
+    {
+        "timestamp": "2026-10-14T10:09:25",
+        "process": "svchost.exe",
+        "pid": 19228,
+        "path": "C:\\Windows\\System32\\svchost.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 2c83d21772be"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "40.126.62.129",
+        "reputation": 0,
+        "signer": "Microsoft Windows"
+    },
+    {
+        "timestamp": "2026-10-14T10:09:30",
+        "process": "msedge.exe",
+        "pid": 27972,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 973b9cb3b714"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "20.209.226.33",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:09:35",
+        "process": "svchost.exe",
+        "pid": 19228,
+        "path": "C:\\Windows\\System32\\svchost.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: d1d517622869"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "40.126.62.129",
+        "reputation": 0,
+        "signer": "Microsoft Windows"
+    },
+    {
+        "timestamp": "2026-10-14T10:09:35",
+        "process": "msedge.exe",
+        "pid": 27972,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 1d5759259300"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "34.36.213.229",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:09:39",
+        "process": "msedge.exe",
+        "pid": 27972,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 615a0a35b7eb"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "20.209.226.33",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:09:44",
+        "process": "msedge.exe",
+        "pid": 27972,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 3c81d540f541"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "20.190.132.41",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:09:48",
+        "process": "msedge.exe",
+        "pid": 27972,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 67fe726f289e"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "142.251.152.119",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:09:53",
+        "process": "msedge.exe",
+        "pid": 27972,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: c35b1b5b078d"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "150.171.27.11",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:09:58",
+        "process": "msedge.exe",
+        "pid": 27972,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: f866e30ef218"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "20.184.175.12",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:10:02",
+        "process": "msedge.exe",
+        "pid": 27972,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 0fa6204c19e5"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "150.171.27.11",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:10:07",
+        "process": "msedge.exe",
+        "pid": 28324,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 5cf151094a75"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "52.96.104.210",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:10:12",
+        "process": "msedge.exe",
+        "pid": 28324,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: b1f905816282"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "52.96.104.210",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:10:12",
+        "process": "msedge.exe",
+        "pid": 27972,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: fc9e648b7d8c"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "23.62.54.137",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:10:16",
+        "process": "msedge.exe",
+        "pid": 27972,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 38564ddcf510"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "104.18.19.203",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:10:21",
+        "process": "msedge.exe",
+        "pid": 27972,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 88b77530342f"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "20.209.226.33",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:10:21",
+        "process": "msedge.exe",
+        "pid": 27972,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 4ba8b6c54462"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "23.62.54.4",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:10:26",
+        "process": "msedge.exe",
+        "pid": 27972,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: bbfea202a1f1"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "150.171.109.152",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:10:30",
+        "process": "msedge.exe",
+        "pid": 27972,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: b1cacf3adddc"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "104.16.140.209",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:10:35",
+        "process": "Code.exe",
+        "pid": 23356,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 28b7cf49f612"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "20.52.64.205",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:10:39",
+        "process": "msedge.exe",
+        "pid": 27972,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 6dc033bb3c84"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "104.18.37.78",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:10:44",
+        "process": "msedge.exe",
+        "pid": 27972,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 456a7d6301ae"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "20.209.226.33",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:10:49",
+        "process": "svchost.exe",
+        "pid": 5816,
+        "path": "C:\\Windows\\System32\\svchost.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 61b5315af465"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "20.59.87.227",
+        "reputation": 0,
+        "signer": "Microsoft Windows"
+    },
+    {
+        "timestamp": "2026-10-14T10:10:53",
+        "process": "msedge.exe",
+        "pid": 27972,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 4dbb8e9d96f5"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "74.179.65.112",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:10:58",
+        "process": "msedge.exe",
+        "pid": 27972,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: c7e0b562dea9"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "20.184.175.12",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:11:02",
+        "process": "msedge.exe",
+        "pid": 27972,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: d3a8c17bdfe7"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "150.171.27.11",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:11:07",
+        "process": "Code.exe",
+        "pid": 23356,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 9edddc2bc4f2"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "150.171.109.146",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:11:12",
+        "process": "svchost.exe",
+        "pid": 2428,
+        "path": "C:\\Windows\\System32\\svchost.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 1e6f2634163b"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "199.232.210.172",
+        "reputation": 0,
+        "signer": "Microsoft Windows"
+    },
+    {
+        "timestamp": "2026-10-14T10:11:16",
+        "process": "msedge.exe",
+        "pid": 27972,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 252ba1e6a546"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "104.18.19.203",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:11:21",
+        "process": "msedge.exe",
+        "pid": 27972,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 4a713e96536b"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "104.18.37.78",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:11:26",
+        "process": "msedge.exe",
+        "pid": 27972,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 4dbb82b4047b"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "72.152.54.138",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-10-14T10:11:30",
+        "process": "svchost.exe",
+        "pid": 19228,
+        "path": "C:\\Windows\\System32\\svchost.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: f7399f1fe920"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "40.126.62.129",
+        "reputation": 0,
+        "signer": "Microsoft Windows"
+    },
+    {
+        "timestamp": "2026-10-14T10:11:35",
+        "process": "svchost.exe",
+        "pid": 19228,
+        "path": "C:\\Windows\\System32\\svchost.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 9dc46a080196"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "40.126.62.129",
+        "reputation": 0,
+        "signer": "Microsoft Windows"
+    },
+    {
+        "timestamp": "2026-10-14T10:11:39",
+        "process": "svchost.exe",
+        "pid": 19228,
+        "path": "C:\\Windows\\System32\\svchost.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 4ffd7b2967ba"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "40.126.62.129",
+        "reputation": 0,
+        "signer": "Microsoft Windows"
+    },
+    {
+        "timestamp": "2026-10-14T10:13:08",
+        "process": "BehaviorEngine",
+        "pid": 0,
+        "path": "behavior_fingerprint",
+        "risk_score": 31,
+        "reasons": [
+            "Behavior anomaly detected: trusted"
+        ],
+        "recommended_action": "review_identity",
+        "remote_ip": "none",
+        "reputation": 0,
+        "signer": "Unknown"
     }
 ]

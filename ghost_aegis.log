@@ -5692,3 +5692,160 @@ The command completed successfully.
 [2026-10-14 09:55:49] 🧠 [GEMINI-3.8-FLASH TRIAGE]: The telemetry reflects benign behavior from the legitimate NVIDIA App CEF overlay process executing from its standard directory and making routine outbound network traffic to a reputable IP address. Threat Score: 1/10
 [2026-10-14 09:55:52] 🤖 [COPILOT]: The process "NVIDIA Overlay.exe" making an outbound connection to 172.217.75.95 is not previously verified as safe or malicious, warranting further investigation; Threat Score: 4/10.
 [2026-10-14 09:59:46] Ghost-Aegis initialized | Tier-1: gemini-3.8-flash | Tier-3 Escalation: gemini-4-argon
+[2026-10-14 10:05:28] Ghost-Aegis initialized | Tier-1: gemini-3.8-flash | Tier-3 Escalation: gemini-4-argon
+[2026-10-14 10:07:04] Ghost-Aegis initialized | Tier-1: gemini-3.8-flash | Tier-3 Escalation: gemini-4-argon
+[2026-10-14 10:07:17] [*] Network Sentinel starting deep socket audit...
+[2026-10-14 10:07:17] STATUS       PROCESS          REMOTE HOST / LOCATION                     PID   
+[2026-10-14 10:07:17] [SYSTEM]     chrome.exe       dd-in-f188.1e100.net (Mountain View, US) | RISK: 0/100 19064 
+[2026-10-14 10:07:17]    Evidence: ChainHash: 21d717f77084 | Signer: Google LLC
+[2026-10-14 10:07:23] [SYSTEM]     Code.exe         13.66.138.105 (Quincy, US) | RISK: 0/100   23356 
+[2026-10-14 10:07:23]    Evidence: ChainHash: 8dcec2c5cd70 | Signer: Microsoft Corporation
+[2026-10-14 10:07:28] [NEW DESTINATION] Code.exe -> 192.0.73.2:443
+[2026-10-14 10:07:28] [SYSTEM]     Code.exe         192.0.73.2 (San Francisco, US) | RISK: 0/100 23356 
+[2026-10-14 10:07:28]    Evidence: ChainHash: b99ee3d2b971 | Signer: Microsoft Corporation
+[2026-10-14 10:07:32] [SYSTEM]     Code.exe         20.52.64.205 (Frankfurt am Main, DE) | RISK: 0/100 23356 
+[2026-10-14 10:07:32]    Evidence: ChainHash: f68a50f1eab9 | Signer: Microsoft Corporation
+[2026-10-14 10:07:37] [SYSTEM]     svchost.exe      20.59.87.227 (San Francisco, US) | RISK: 0/100 5816  
+[2026-10-14 10:07:37]    Evidence: ChainHash: 3a63758c2866 | Signer: Microsoft Windows
+[2026-10-14 10:07:42] [SYSTEM]     Code.exe         150.171.109.146 (Johannesburg, ZA) | RISK: 0/100 23356 
+[2026-10-14 10:07:42]    Evidence: ChainHash: 32b3f45a0a7e | Signer: Microsoft Corporation
+[2026-10-14 10:08:05] [*] Network Sentinel starting deep socket audit...
+[2026-10-14 10:08:06] STATUS       PROCESS          REMOTE HOST / LOCATION                     PID   
+[2026-10-14 10:08:16] [NEW DESTINATION] msedge.exe -> 150.171.28.11:443
+[2026-10-14 10:08:17] [SYSTEM]     msedge.exe       150.171.28.11 (Loc Error) | RISK: 0/100    27972 
+[2026-10-14 10:08:17]    Evidence: ChainHash: b6c705a57530 | Signer: Microsoft Corporation
+[2026-10-14 10:08:22] [NEW DESTINATION] msedge.exe -> 20.190.132.41:443
+[2026-10-14 10:08:22] [SYSTEM]     msedge.exe       20.190.132.41 (San Francisco, US) | RISK: 0/100 27972 
+[2026-10-14 10:08:22]    Evidence: ChainHash: 4e1239500fd5 | Signer: Microsoft Corporation
+[2026-10-14 10:08:26] [NEW DESTINATION] msedge.exe -> 104.18.37.78:443
+[2026-10-14 10:08:26] [SYSTEM]     msedge.exe       104.18.37.78 (Toronto, CA) | RISK: 0/100   27972 
+[2026-10-14 10:08:26]    Evidence: ChainHash: da0819b31658 | Signer: Microsoft Corporation
+[2026-10-14 10:08:26] [SYSTEM]     chrome.exe       dd-in-f188.1e100.net (Mountain View, US) | RISK: 0/100 19064 
+[2026-10-14 10:08:26]    Evidence: ChainHash: 2d73cbf17576 | Signer: Google LLC
+[2026-10-14 10:08:31] [SYSTEM]     Code.exe         13.66.138.105 (Quincy, US) | RISK: 0/100   23356 
+[2026-10-14 10:08:31]    Evidence: ChainHash: c136739326ae | Signer: Microsoft Corporation
+[2026-10-14 10:08:35] [NEW DESTINATION] msedge.exe -> 20.190.132.105:443
+[2026-10-14 10:08:35] [SYSTEM]     msedge.exe       20.190.132.105 (San Francisco, US) | RISK: 0/100 27972 
+[2026-10-14 10:08:35]    Evidence: ChainHash: baa580486874 | Signer: Microsoft Corporation
+[2026-10-14 10:08:36] [*] Extracting telemetry and invoking Tiered Dual-AI for PID 27972...
+[2026-10-14 10:08:36] [*] Telemetry sanitized for msedge.exe. Running Tier-1 Triage (gemini-3.8-flash)...
+[2026-10-14 10:08:40] [SYSTEM]     msedge.exe       150.171.27.11 (Teterboro, US) | RISK: 0/100 27972 
+[2026-10-14 10:08:40]    Evidence: ChainHash: 48f9afcae4e2 | Signer: Microsoft Corporation
+[2026-10-14 10:08:40] [NEW DESTINATION] msedge.exe -> 99.84.215.127:443
+[2026-10-14 10:08:40] [SYSTEM]     msedge.exe       server-99-84-215-127.lax54.r.cloudfront.net (Los Angeles, US) | RISK: 0/100 27972 
+[2026-10-14 10:08:40]    Evidence: ChainHash: 8716e79ee84d | Signer: Microsoft Corporation
+[2026-10-14 10:08:42] 🧠 [GEMINI-3.8-FLASH TRIAGE]: The telemetry indicates standard web browsing activity for Microsoft Edge running from its legitimate directory without contacting any confirmed malicious indicators. Threat Score: 1/10
+[2026-10-14 10:08:45] [NEW DESTINATION] msedge.exe -> 52.96.104.210:443
+[2026-10-14 10:08:45] [SYSTEM]     msedge.exe       52.96.104.210 (Phoenix, US) | RISK: 0/100  27972 
+[2026-10-14 10:08:45]    Evidence: ChainHash: a144a270a7f5 | Signer: Microsoft Corporation
+[2026-10-14 10:08:45] [NEW DESTINATION] msedge.exe -> 23.62.54.24:443
+[2026-10-14 10:08:45] [TRUSTED]    msedge.exe       a23-62-54-24.deploy.static.akamaitechnologies.com (Los Angeles, US) | RISK: 0/100 27972 
+[2026-10-14 10:08:45]    Evidence: ChainHash: ccab37223453 | Signer: Microsoft Corporation
+[2026-10-14 10:08:46] 🤖 [COPILOT]: The process 'msedge.exe' is making connections to multiple IPs, including 104.18.19.203 and 104.18.37.78, which are similar to previously confirmed malicious patterns, indicating potential suspicious activity; Threat Score: 7/10.
+[2026-10-14 10:08:49] [NEW DESTINATION] msedge.exe -> 13.107.6.202:443
+[2026-10-14 10:08:49] [SYSTEM]     msedge.exe       13.107.6.202 (Newark, US) | RISK: 0/100    27972 
+[2026-10-14 10:08:49]    Evidence: ChainHash: 90841b83779c | Signer: Microsoft Corporation
+[2026-10-14 10:08:54] [SYSTEM]     msedge.exe       52.96.104.210 (Phoenix, US) | RISK: 0/100  27972 
+[2026-10-14 10:08:54]    Evidence: ChainHash: 64822dc10a65 | Signer: Microsoft Corporation
+[2026-10-14 10:08:55] [SYSTEM]     msedge.exe       server-99-84-41-101.lax54.r.cloudfront.net (Los Angeles, US) | RISK: 0/100 27972 
+[2026-10-14 10:08:55]    Evidence: ChainHash: f1a6a7c84d42 | Signer: Microsoft Corporation
+[2026-10-14 10:09:00] [NEW DESTINATION] svchost.exe -> 40.126.62.129:443
+[2026-10-14 10:09:00] [SYSTEM]     svchost.exe      40.126.62.129 (Phoenix, US) | RISK: 0/100  19228 
+[2026-10-14 10:09:00]    Evidence: ChainHash: b83e27db7a64 | Signer: Microsoft Windows
+[2026-10-14 10:09:20] [SYSTEM]     svchost.exe      40.126.62.129 (Loc Error) | RISK: 0/100    19228 
+[2026-10-14 10:09:20]    Evidence: ChainHash: 304aa93bbc38 | Signer: Microsoft Windows
+[2026-10-14 10:09:25] [SYSTEM]     svchost.exe      40.126.62.129 (Phoenix, US) | RISK: 0/100  19228 
+[2026-10-14 10:09:25]    Evidence: ChainHash: 2c83d21772be | Signer: Microsoft Windows
+[2026-10-14 10:09:30] [NEW DESTINATION] msedge.exe -> 20.209.226.33:443
+[2026-10-14 10:09:30] [SYSTEM]     msedge.exe       20.209.226.33 (Boydton, US) | RISK: 0/100  27972 
+[2026-10-14 10:09:30]    Evidence: ChainHash: 973b9cb3b714 | Signer: Microsoft Corporation
+[2026-10-14 10:09:31] 🧠 [AI MEMORY] Confirmed Attack Pattern: 'msedge.exe' -> 20.190.132.42. Dual-AI will score aggressively.
+[2026-10-14 10:09:35] [SYSTEM]     svchost.exe      40.126.62.129 (Phoenix, US) | RISK: 0/100  19228 
+[2026-10-14 10:09:35]    Evidence: ChainHash: d1d517622869 | Signer: Microsoft Windows
+[2026-10-14 10:09:35] [SYSTEM]     msedge.exe       229.213.36.34.bc.googleusercontent.com (Kansas City, US) | RISK: 0/100 27972 
+[2026-10-14 10:09:35]    Evidence: ChainHash: 1d5759259300 | Signer: Microsoft Corporation
+[2026-10-14 10:09:39] [SYSTEM]     msedge.exe       20.209.226.33 (Boydton, US) | RISK: 0/100  27972 
+[2026-10-14 10:09:39]    Evidence: ChainHash: 615a0a35b7eb | Signer: Microsoft Corporation
+[2026-10-14 10:09:44] [SYSTEM]     msedge.exe       20.190.132.41 (San Francisco, US) | RISK: 0/100 27972 
+[2026-10-14 10:09:44]    Evidence: ChainHash: 3c81d540f541 | Signer: Microsoft Corporation
+[2026-10-14 10:09:49] [NEW DESTINATION] msedge.exe -> 142.251.152.119:443
+[2026-10-14 10:09:49] [SYSTEM]     msedge.exe       142.251.152.119 (New Haven, US) | RISK: 0/100 27972 
+[2026-10-14 10:09:49]    Evidence: ChainHash: 67fe726f289e | Signer: Microsoft Corporation
+[2026-10-14 10:09:51] [*] Extracting telemetry and invoking Tiered Dual-AI for PID 27972...
+[2026-10-14 10:09:51] [*] Telemetry sanitized for msedge.exe. Running Tier-1 Triage (gemini-3.8-flash)...
+[2026-10-14 10:09:53] [SYSTEM]     msedge.exe       150.171.27.11 (Teterboro, US) | RISK: 0/100 27972 
+[2026-10-14 10:09:53]    Evidence: ChainHash: c35b1b5b078d | Signer: Microsoft Corporation
+[2026-10-14 10:09:55] 🧠 [GEMINI-3.8-FLASH TRIAGE]: The process msedge.exe is actively connecting to 20.190.132.42, an outbound destination previously confirmed as malicious on this host. Threat Score: 10/10
+[2026-10-14 10:09:55] ⚡ [TIER-3 ESCALATION] Anomaly flagged (Score: 10/10 | Staged: False). Escalating to gemini-4-argon (thinking_level='high')...
+[2026-10-14 10:09:58] [NEW DESTINATION] msedge.exe -> 20.184.175.12:443
+[2026-10-14 10:09:58] [SYSTEM]     msedge.exe       20.184.175.12 (San Francisco, US) | RISK: 0/100 27972 
+[2026-10-14 10:09:58]    Evidence: ChainHash: f866e30ef218 | Signer: Microsoft Corporation
+[2026-10-14 10:10:03] [SYSTEM]     msedge.exe       150.171.27.11 (Teterboro, US) | RISK: 0/100 27972 
+[2026-10-14 10:10:03]    Evidence: ChainHash: 0fa6204c19e5 | Signer: Microsoft Corporation
+[2026-10-14 10:10:07] [SYSTEM]     msedge.exe       52.96.104.210 (Phoenix, US) | RISK: 0/100  28324 
+[2026-10-14 10:10:07]    Evidence: ChainHash: 5cf151094a75 | Signer: Microsoft Corporation
+[2026-10-14 10:10:10] 🛡️ [GEMINI-4-ARGON DEEP AUDIT]: Deep inspection confirms that msedge.exe (PID 27972) is actively communicating with 20.190.132.42, directly matching a previously verified malicious network pattern on this host. Immediately terminate the process tree, block outbound traffic to 20.190.132.42 at the host firewall, and audit the user's browser profile for malicious extensions or session hijacking. Threat Score: 10/10
+[2026-10-14 10:10:12] [SYSTEM]     msedge.exe       52.96.104.210 (Phoenix, US) | RISK: 0/100  28324 
+[2026-10-14 10:10:12]    Evidence: ChainHash: b1f905816282 | Signer: Microsoft Corporation
+[2026-10-14 10:10:12] [NEW DESTINATION] msedge.exe -> 23.62.54.137:443
+[2026-10-14 10:10:12] [TRUSTED]    msedge.exe       a23-62-54-137.deploy.static.akamaitechnologies.com (Los Angeles, US) | RISK: 0/100 27972 
+[2026-10-14 10:10:12]    Evidence: ChainHash: fc9e648b7d8c | Signer: Microsoft Corporation
+[2026-10-14 10:10:12] 🤖 [COPILOT]: The process 'msedge.exe' is connecting to a previously confirmed malicious IP address (20.190.132.42), indicating potential malicious activity. Threat Score: 8/10.
+[2026-10-14 10:10:16] [NEW DESTINATION] msedge.exe -> 104.18.19.203:443
+[2026-10-14 10:10:16] [SYSTEM]     msedge.exe       104.18.19.203 (Toronto, CA) | RISK: 0/100  27972 
+[2026-10-14 10:10:16]    Evidence: ChainHash: 38564ddcf510 | Signer: Microsoft Corporation
+[2026-10-14 10:10:21] [SYSTEM]     msedge.exe       20.209.226.33 (Boydton, US) | RISK: 0/100  27972 
+[2026-10-14 10:10:21]    Evidence: ChainHash: 88b77530342f | Signer: Microsoft Corporation
+[2026-10-14 10:10:21] [NEW DESTINATION] msedge.exe -> 23.62.54.4:443
+[2026-10-14 10:10:21] [TRUSTED]    msedge.exe       a23-62-54-4.deploy.static.akamaitechnologies.com (Los Angeles, US) | RISK: 0/100 27972 
+[2026-10-14 10:10:21]    Evidence: ChainHash: 4ba8b6c54462 | Signer: Microsoft Corporation
+[2026-10-14 10:10:26] [NEW DESTINATION] msedge.exe -> 150.171.109.152:443
+[2026-10-14 10:10:26] [SYSTEM]     msedge.exe       150.171.109.152 (Johannesburg, ZA) | RISK: 0/100 27972 
+[2026-10-14 10:10:26]    Evidence: ChainHash: bbfea202a1f1 | Signer: Microsoft Corporation
+[2026-10-14 10:10:30] [NEW DESTINATION] msedge.exe -> 104.16.140.209:443
+[2026-10-14 10:10:30] [SYSTEM]     msedge.exe       104.16.140.209 (Toronto, CA) | RISK: 0/100 27972 
+[2026-10-14 10:10:30]    Evidence: ChainHash: b1cacf3adddc | Signer: Microsoft Corporation
+[2026-10-14 10:10:33] 🧠 [AI MEMORY] Learned Safe Baseline: 'msedge.exe' -> 20.190.132.42. Dual-AI will trust this pattern.
+[2026-10-14 10:10:35] [SYSTEM]     Code.exe         20.52.64.205 (Frankfurt am Main, DE) | RISK: 0/100 23356 
+[2026-10-14 10:10:35]    Evidence: ChainHash: 28b7cf49f612 | Signer: Microsoft Corporation
+[2026-10-14 10:10:37] [*] Extracting telemetry and invoking Tiered Dual-AI for PID 27972...
+[2026-10-14 10:10:37] [*] Telemetry sanitized for msedge.exe. Running Tier-1 Triage (gemini-3.8-flash)...
+[2026-10-14 10:10:40] [SYSTEM]     msedge.exe       104.18.37.78 (Toronto, CA) | RISK: 0/100   27972 
+[2026-10-14 10:10:40]    Evidence: ChainHash: 6dc033bb3c84 | Signer: Microsoft Corporation
+[2026-10-14 10:10:44] [SYSTEM]     msedge.exe       20.209.226.33 (Boydton, US) | RISK: 0/100  27972 
+[2026-10-14 10:10:44]    Evidence: ChainHash: 456a7d6301ae | Signer: Microsoft Corporation
+[2026-10-14 10:10:49] [SYSTEM]     svchost.exe      20.59.87.227 (San Francisco, US) | RISK: 0/100 5816  
+[2026-10-14 10:10:49]    Evidence: ChainHash: 61b5315af465 | Signer: Microsoft Windows
+[2026-10-14 10:10:49] 🧠 [GEMINI-3.8-FLASH TRIAGE]: Although msedge.exe executes from the standard directory, it establishes an outbound connection to 20.190.132.42, matching a previously confirmed malicious pattern on this endpoint. Threat Score: 9/10
+[2026-10-14 10:10:49] ⚡ [TIER-3 ESCALATION] Anomaly flagged (Score: 9/10 | Staged: False). Escalating to gemini-4-argon (thinking_level='high')...
+[2026-10-14 10:10:53] [SYSTEM]     msedge.exe       74.179.65.112 (Quincy, US) | RISK: 0/100   27972 
+[2026-10-14 10:10:53]    Evidence: ChainHash: 4dbb8e9d96f5 | Signer: Microsoft Corporation
+[2026-10-14 10:10:53] 🧠 [AI MEMORY] Learned Safe Baseline: 'msedge.exe' -> 20.190.132.42. Dual-AI will trust this pattern.
+[2026-10-14 10:10:58] [SYSTEM]     msedge.exe       20.184.175.12 (San Francisco, US) | RISK: 0/100 27972 
+[2026-10-14 10:10:58]    Evidence: ChainHash: c7e0b562dea9 | Signer: Microsoft Corporation
+[2026-10-14 10:11:03] [SYSTEM]     msedge.exe       150.171.27.11 (Teterboro, US) | RISK: 0/100 27972 
+[2026-10-14 10:11:03]    Evidence: ChainHash: d3a8c17bdfe7 | Signer: Microsoft Corporation
+[2026-10-14 10:11:04] 🧠 [AI MEMORY] Learned Safe Baseline: 'msedge.exe' -> 20.190.132.42. Dual-AI will trust this pattern.
+[2026-10-14 10:11:07] [SYSTEM]     Code.exe         150.171.109.146 (Johannesburg, ZA) | RISK: 0/100 23356 
+[2026-10-14 10:11:07]    Evidence: ChainHash: 9edddc2bc4f2 | Signer: Microsoft Corporation
+[2026-10-14 10:11:12] [SYSTEM]     svchost.exe      199.232.210.172 (Montreal, CA) | RISK: 0/100 2428  
+[2026-10-14 10:11:12]    Evidence: ChainHash: 1e6f2634163b | Signer: Microsoft Windows
+[2026-10-14 10:11:16] [SYSTEM]     msedge.exe       104.18.19.203 (Toronto, CA) | RISK: 0/100  27972 
+[2026-10-14 10:11:16]    Evidence: ChainHash: 252ba1e6a546 | Signer: Microsoft Corporation
+[2026-10-14 10:11:21] [SYSTEM]     msedge.exe       104.18.37.78 (Toronto, CA) | RISK: 0/100   27972 
+[2026-10-14 10:11:21]    Evidence: ChainHash: 4a713e96536b | Signer: Microsoft Corporation
+[2026-10-14 10:11:26] [NEW DESTINATION] msedge.exe -> 72.152.54.138:443
+[2026-10-14 10:11:26] [SYSTEM]     msedge.exe       72.152.54.138 (Des Moines, US) | RISK: 0/100 27972 
+[2026-10-14 10:11:26]    Evidence: ChainHash: 4dbb82b4047b | Signer: Microsoft Corporation
+[2026-10-14 10:11:30] [SYSTEM]     svchost.exe      40.126.62.129 (Phoenix, US) | RISK: 0/100  19228 
+[2026-10-14 10:11:30]    Evidence: ChainHash: f7399f1fe920 | Signer: Microsoft Windows
+[2026-10-14 10:11:35] [SYSTEM]     svchost.exe      40.126.62.129 (Phoenix, US) | RISK: 0/100  19228 
+[2026-10-14 10:11:35]    Evidence: ChainHash: 9dc46a080196 | Signer: Microsoft Windows
+[2026-10-14 10:11:35] 🛡️ [GEMINI-4-ARGON DEEP AUDIT]: Deep inspection confirms this is a false positive caused by conflicting analyst baseline entries, as a legitimate `msedge.exe` binary is executing from its standard installation directory and communicating with benign Microsoft cloud infrastructure (`20.190.132.42`) alongside other verified safe endpoints. Allow the process to continue uninterrupted and purge the erroneous malicious pattern entry for `20.190.132.42` from the local host baseline to prevent recurring false alerts. Threat Score: 0/10
+[2026-10-14 10:11:37] 🤖 [COPILOT]: The process 'msedge.exe' is connecting to a previously confirmed malicious IP address 20.190.132.42, indicating potential malicious behavior. Threat Score: 8/10.
+[2026-10-14 10:11:39] [SYSTEM]     svchost.exe      40.126.62.129 (Phoenix, US) | RISK: 0/100  19228 
+[2026-10-14 10:11:39]    Evidence: ChainHash: 4ffd7b2967ba | Signer: Microsoft Windows
+[2026-10-14 10:13:08] [*] Running behavior fingerprint scan...
+[2026-10-14 10:13:08] [IDENTITY] Behavior Score=31 | Risk=trusted
+[2026-10-14 10:13:13] [*] Aggregating telemetry and generating AI Incident Response Brief...
+[2026-10-14 10:13:42] [+] AI Incident Brief synthesized via gemini-3.8-flash.
