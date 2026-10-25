@@ -101,7 +101,7 @@ PROCESS_WHITELIST = {
     "svchost.exe", "system", "ntoskrnl.exe", "lsass.exe",
     "code.exe", "chrome.exe", "msedge.exe", "firefox.exe",
     "explorer.exe", "python.exe", "pythonw.exe", "cmd.exe", "conhost.exe", "wininit.exe", "winlogon.exe", "services.exe", "dllhost.exe","windowsdefender.exe", "searchindexer.exe", "runtimebroker.exe"
-}
+},"nvidia-container-runtime.exe", "nvidia-container-toolkit.exe", "nvidia-smi.exe", "nvidia-settings.exe", "nvidia-cuda-mps-server.exe", "nvidia-cuda-mps-control.exe", "nvidia-persistenced.exe", "nvidia-smi.exe", "nvidia-settings.exe", "nvidia-cuda-mps-server.exe", "nvidia-cuda-mps-control.exe", "nvidia-persistenced.exe"
 
 # ==============================================================================
 # --- NEW INTEGRATION: SENTINEL-SANITIZE (ZERO DATA LEAKAGE & MITRE MAPPING) ---

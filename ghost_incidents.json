@@ -4121,5 +4121,19 @@
         "remote_ip": "none",
         "reputation": 0,
         "signer": "Unknown"
+    },
+    {
+        "timestamp": "2026-10-25T08:28:59",
+        "process": "msedge.exe",
+        "pid": 3280,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 25e6a7edec5f"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "216.198.54.3",
+        "reputation": 0,
+        "signer": "Microsoft Corporation"
     }
 ]
