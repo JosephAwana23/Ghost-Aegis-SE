@@ -1,0 +1,14 @@
+{
+  "timestamp": "2026-11-15 06:19:05",
+  "process_name": "chrome.exe",
+  "pid": 17104,
+  "original_path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+  "cmdline": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --no-pre-read-main-dll --metrics-shmem-handle=2260,i,5610871669135846759,5906500709275854645,524288 --field-trial-handle=2072,i,1925105464238566652,4588921628485671423,262144 --variations-seed-version=20261114-030037.314000-production --pseudonymization-salt-handle=2088,i,10980207220481672163,3557841597679945507,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2324 /prefetch:11",
+  "sha256": "19349f9d510cb374be6d9e77568fa456b11f2e3e9b011660b63dc99d27c52a3a",
+  "risk_score": 95,
+  "forensic_reasons": [
+    "Manual Analyst Freeze & Quarantine"
+  ],
+  "binary_vaulted": false,
+  "vault_file": "N/A (System/Locked)"
+}

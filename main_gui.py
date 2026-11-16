@@ -1,6 +1,7 @@
 import os
 import sys
 import math
+import time
 import base64
 import shutil
 import ctypes
@@ -16,7 +17,7 @@ import re
 import requests
 import asyncio
 from pathlib import Path
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 import psutil
 import customtkinter as ctk
@@ -68,6 +69,9 @@ else:
 
 load_dotenv(dotenv_path=BASE_DIR / ".env")
 
+RULE_FILE_PATH = BASE_DIR / "rules.yar"
+EDR_CHAIN_LOG_PATH = BASE_DIR / "aegis_edr_alerts.jsonl"
+
 # Dynamic import of main.py (Defense Engine)
 try:
     import importlib.util
@@ -104,8 +108,204 @@ STATIC_IP_WHITELIST = {
 PROCESS_WHITELIST = {
     "svchost.exe", "system", "ntoskrnl.exe", "lsass.exe",
     "code.exe", "chrome.exe", "msedge.exe", "firefox.exe",
-    "explorer.exe", "python.exe", "pythonw.exe", "cmd.exe", "conhost.exe", "powershell.exe", "pwsh.exe", "taskhostw.exe", "wininit.exe", "googlechrome.exe", "googleupdate.exe", "onenote.exe", "teams.exe", "outlook.exe", "word.exe", "excel.exe", "powerpnt.exe","notepad.exe", "notepad++.exe", "putty.exe", "winscp.exe", "filezilla.exe", "vscode.exe", "sublime_text.exe", "intellij.exe", "pycharm.exe", "eclipse.exe", "netbeans.exe", "androidstudio.exe", "virtualbox.exe", "vmware.exe", "docker.exe", "DRIVERS\WUDFRd.sys", "DRIVERS\dxgkrnl.sys", "DRIVERS\ndis.sys", "DRIVERS\ntfs.sys", "DRIVERS\volsnap.sys", "DRIVERS\disk.sys", "DRIVERS\fltmgr.sys", "DRIVERS\storport.sys", "DRIVERS\usbport.sys", "DRIVERS\usbhub.sys", "DRIVERS\usbccgp.sys", "DRIVERS\usbvideo.sys", "DRIVERS\usbser.sys", "DRIVERS\usbuhci.sys", "DRIVERS\usbohci.sys", "DRIVERS\usbehci.sys", "DRIVERS\usbfilter.sys", "Lenovo\Vantage\LenovoVantageService.exe", "Lenovo\Vantage\LenovoVantage.exe", "Lenovo\Vantage\LenovoVantageUI.exe", "Lenovo\Vantage\LenovoVantageUpdater.exe", "Lenovo\Vantage\LenovoVantageServiceHost.exe", "Lenovo\Vantage\LenovoVantageServiceManager.exe", "Lenovo\Vantage\LenovoVantageServiceInstaller.exe", "Lenovo\Vantage\LenovoVantageServiceUninstaller.exe", "Lenovo\Vantage\LenovoVantageServiceRepair.exe", "Lenovo\Vantage\LenovoVantageServiceUpdate.exe", "Lenovo\Vantage\LenovoVantageServiceCheck.exe", "Lenovo\Vantage\LenovoVantageServiceMonitor.exe", "Lenovo\Vantage\LenovoVantageServiceScheduler.exe", "Lenovo\Vantage\LenovoVantageServiceLogger.exe",
+    "explorer.exe", "python.exe", "pythonw.exe", "cmd.exe", "conhost.exe", "powershell.exe", "pwsh.exe", "taskhostw.exe", "wininit.exe", "googlechrome.exe", "googleupdate.exe", "onenote.exe", "teams.exe", "outlook.exe", "word.exe", "excel.exe", "powerpnt.exe", "notepad.exe", "notepad++.exe", "putty.exe", "winscp.exe", "filezilla.exe", "vscode.exe", "sublime_text.exe", "intellij.exe", "pycharm.exe", "eclipse.exe", "netbeans.exe", "androidstudio.exe", "virtualbox.exe", "vmware.exe", "docker.exe", r"DRIVERS\WUDFRd.sys", r"DRIVERS\dxgkrnl.sys", r"DRIVERS\ndis.sys", r"DRIVERS\ntfs.sys", r"DRIVERS\volsnap.sys", r"DRIVERS\disk.sys", r"DRIVERS\fltmgr.sys", r"DRIVERS\storport.sys", r"DRIVERS\usbport.sys", r"DRIVERS\usbhub.sys", r"DRIVERS\usbccgp.sys", r"DRIVERS\usbvideo.sys", r"DRIVERS\usbser.sys", r"DRIVERS\usbuhci.sys", r"DRIVERS\usbohci.sys", r"DRIVERS\usbehci.sys", r"DRIVERS\usbfilter.sys", r"Lenovo\Vantage\LenovoVantageService.exe", r"Lenovo\Vantage\LenovoVantage.exe", r"Lenovo\Vantage\LenovoVantageUI.exe", r"Lenovo\Vantage\LenovoVantageUpdater.exe", r"Lenovo\Vantage\LenovoVantageServiceHost.exe", r"Lenovo\Vantage\LenovoVantageServiceManager.exe", r"Lenovo\Vantage\LenovoVantageServiceInstaller.exe", r"Lenovo\Vantage\LenovoVantageServiceUninstaller.exe", r"Lenovo\Vantage\LenovoVantageServiceRepair.exe", r"Lenovo\Vantage\LenovoVantageServiceUpdate.exe", r"Lenovo\Vantage\LenovoVantageServiceCheck.exe", r"Lenovo\Vantage\LenovoVantageServiceMonitor.exe", r"Lenovo\Vantage\LenovoVantageServiceScheduler.exe", r"Lenovo\Vantage\LenovoVantageServiceLogger.exe",
 }
+
+
+# ==============================================================================
+# --- NATIVE PURE-PYTHON YARA ENGINE & CRYPTOGRAPHIC CHAIN AUDITOR ---
+# ==============================================================================
+DEFAULT_YARA_RULES = """rule Windows_Encoded_PowerShell {
+    meta:
+        description = "Detects base64 encoded PowerShell execution flags"
+        mitre_attack = "T1059.001"
+        severity = "HIGH"
+    strings:
+        $enc1 = "-enc " ascii wide nocase
+        $enc2 = "-EncodedCommand " ascii wide nocase
+        $bypass = "ExecutionPolicy Bypass" ascii wide nocase
+        $hidden = "-WindowStyle Hidden" ascii wide nocase
+    condition:
+        any of them
+}
+
+rule Suspicious_LOLBin_Execution {
+    meta:
+        description = "Detects Living-off-the-Land binaries used for payload staging"
+        mitre_attack = "T1218"
+        severity = "CRITICAL"
+    strings:
+        $certutil = "certutil -urlcache -split -f" ascii wide nocase
+        $bitsadmin = "bitsadmin /transfer" ascii wide nocase
+        $mshta = "mshta vbscript:" ascii wide nocase
+    condition:
+        any of them
+}
+"""
+
+
+class AegisYaraEngine:
+    """
+    Pure-Python YARA Rule Parser & Command-Line / Memory Scanner for Ghost-Aegis SE.
+    Parses standard .yar files natively without requiring libyara.dll.
+    """
+    def __init__(self, rule_path: Path | str = RULE_FILE_PATH):
+        self.rule_path = Path(rule_path)
+        if not self.rule_path.exists():
+            try:
+                self.rule_path.write_text(DEFAULT_YARA_RULES, encoding="utf-8")
+            except Exception:
+                pass
+        self.rules = self._parse_yar_file(self.rule_path)
+
+    def _parse_yar_file(self, filepath: Path) -> list:
+        try:
+            content = filepath.read_text(encoding="utf-8")
+        except Exception:
+            content = DEFAULT_YARA_RULES
+
+        parsed_rules = []
+        rule_blocks = re.findall(r"rule\s+(\w+)\s*\{(.*?)\}", content, re.DOTALL)
+
+        for rule_name, body in rule_blocks:
+            meta = {}
+            for m_key, m_val in re.findall(r'(\w+)\s*=\s*"([^"]+)"', body):
+                if not m_key.startswith("$"):
+                    meta[m_key] = m_val
+
+            strings = []
+            for s_id, s_val, mods in re.findall(r'(\$\w+)\s*=\s*"([^"]+)"([^\r\n]*)', body):
+                flags = re.IGNORECASE if "nocase" in mods.lower() else 0
+                strings.append((s_id, re.compile(re.escape(s_val), flags)))
+
+            condition = "all" if "all of them" in body else "any"
+            parsed_rules.append({
+                "name": rule_name,
+                "meta": meta,
+                "strings": strings,
+                "condition": condition
+            })
+        return parsed_rules
+
+    def scan_command_line(self, pid: int, process_name: str, cmdline: str) -> list:
+        if not cmdline:
+            return []
+
+        alerts = []
+        for rule in self.rules:
+            matched_ids = [s_id for s_id, regex in rule["strings"] if regex.search(cmdline)]
+            triggered = (
+                (rule["condition"] == "any" and len(matched_ids) > 0) or
+                (rule["condition"] == "all" and len(matched_ids) == len(rule["strings"]))
+            )
+            if triggered:
+                alerts.append({
+                    "timestamp": datetime.now(timezone.utc).isoformat(),
+                    "pid": pid,
+                    "process": process_name,
+                    "rule_triggered": rule["name"],
+                    "mitre_id": rule["meta"].get("mitre_attack", "Unknown"),
+                    "severity": rule["meta"].get("severity", "MEDIUM"),
+                    "matched_indicators": matched_ids,
+                    "matched_cmdline": cmdline
+                })
+        return alerts
+
+
+class ForensicChainAuditor:
+    """Manages and verifies the tamper-evident SHA-256 chain in aegis_edr_alerts.jsonl."""
+
+    def __init__(self, log_path: Path | str = EDR_CHAIN_LOG_PATH):
+        self.log_path = Path(log_path)
+        self._lock = threading.Lock()
+        self.last_hash = self._load_last_hash()
+
+    def _load_last_hash(self) -> str:
+        if not self.log_path.exists():
+            return "0" * 64
+        try:
+            lines = [line.strip() for line in self.log_path.read_text(encoding="utf-8").splitlines() if line.strip()]
+            if lines:
+                last_record = json.loads(lines[-1])
+                return last_record.get("sha256_seal", "0" * 64)
+        except Exception:
+            pass
+        return "0" * 64
+
+    def seal_alert(self, alert_data: dict) -> dict:
+        with self._lock:
+            record = dict(alert_data)
+            record["prev_hash"] = self.last_hash
+            raw_payload = json.dumps(record, sort_keys=True).encode("utf-8")
+            current_hash = hashlib.sha256(raw_payload).hexdigest()
+            record["sha256_seal"] = current_hash
+            self.last_hash = current_hash
+
+            with self.log_path.open("a", encoding="utf-8") as f:
+                f.write(json.dumps(record) + "\n")
+            return record
+
+    def verify_chain(self) -> tuple[bool, int, str]:
+        """Returns (all_intact, record_count, formatted_audit_report)."""
+        lines_out = [
+            "=" * 78,
+            " 🛡️  GHOST-AEGIS SE: CRYPTOGRAPHIC CHAIN-OF-CUSTODY AUDITOR",
+            "=" * 78,
+        ]
+        if not self.log_path.exists():
+            lines_out.append(f"\n[-] No forensic chain file found at: {self.log_path}")
+            return True, 0, "\n".join(lines_out)
+
+        raw_lines = [line.strip() for line in self.log_path.read_text(encoding="utf-8").splitlines() if line.strip()]
+        if not raw_lines:
+            lines_out.append("\n[-] Forensic ledger is empty.")
+            return True, 0, "\n".join(lines_out)
+
+        expected_prev_hash = "0" * 64
+        tamper_detected = False
+
+        for idx, line in enumerate(raw_lines, start=1):
+            try:
+                record = json.loads(line)
+            except json.JSONDecodeError:
+                tamper_detected = True
+                lines_out.append(f"\n[Event #{idx}] CORRUPTED JSON RECORD DETECTED!")
+                continue
+
+            recorded_seal = record.pop("sha256_seal", None)
+            recorded_prev = record.get("prev_hash", None)
+
+            raw_payload = json.dumps(record, sort_keys=True).encode("utf-8")
+            calculated_seal = hashlib.sha256(raw_payload).hexdigest()
+
+            chain_valid = (recorded_prev == expected_prev_hash) and (recorded_seal == calculated_seal)
+            status = "VALID (INTACT)" if chain_valid else "TAMPERED / BROKEN"
+            if not chain_valid:
+                tamper_detected = True
+
+            lines_out.append(f"\n[Event #{idx}] {record.get('timestamp', 'Unknown')}")
+            lines_out.append(
+                f"  ├─ Rule & MITRE : {record.get('rule_triggered')} ({record.get('mitre_id')}) | Severity: {record.get('severity')}"
+            )
+            lines_out.append(
+                f"  ├─ Target PID   : {record.get('pid')} (PPID: {record.get('ppid')}) -> {record.get('process')}"
+            )
+            lines_out.append(f"  ├─ Indicators   : {', '.join(record.get('matched_indicators', []))}")
+            lines_out.append(f"  ├─ Prev Hash    : {str(recorded_prev)[:36]}...")
+            lines_out.append(f"  ├─ SHA-256 Seal : {calculated_seal[:36]}...")
+            lines_out.append(f"  └─ Chain Status : {status}")
+
+            expected_prev_hash = recorded_seal
+
+        lines_out.append("\n" + "=" * 78)
+        if not tamper_detected:
+            lines_out.append(f"[+] AUDIT PASSED: All {len(raw_lines)} EDR evidence records are cryptographically intact.")
+        else:
+            lines_out.append("[!] CRITICAL WARNING: Evidence tampering detected in the forensic chain!")
+        lines_out.append("=" * 78)
+
+        return (not tamper_detected), len(raw_lines), "\n".join(lines_out)
+
 
 # ==============================================================================
 # --- SENTINEL-SANITIZE (ZERO DATA LEAKAGE & MITRE MAPPING) ---
@@ -754,6 +954,7 @@ class GhostAegisApp(ctk.CTk):
         self.host_isolated = False
         self.canary_enabled = False
         self.auto_mitigate_enabled = False
+        self.yara_interceptor_enabled = False
         self.selected_gemini_model = "gemini-4-hydrogen"
         
         # Instantiate Active Defense & Enterprise EDR Modules
@@ -765,13 +966,18 @@ class GhostAegisApp(ctk.CTk):
         self.quarantine_vault = ForensicQuarantineVault(vault_dir=BASE_DIR / "quarantine")
         self.arp_guard = ArpSpoofGuard()
         self.siem_streamer = SiemStreamer()
+
+        # Instantiate New Native YARA Engine & Cryptographic Chain Auditor
+        self.yara_engine = AegisYaraEngine(RULE_FILE_PATH)
+        self.chain_auditor = ForensicChainAuditor(EDR_CHAIN_LOG_PATH)
+        self.known_pids = set(psutil.pids())
         
         # Ghost Protocol State
         self.ghost_decoy = GhostDecoy(port=2222)
         self.decoy_thread = None
         self.decoy_loop = None
 
-        self.title("Ghost-Aegis | Defensive Suite SE (v2.5 Enterprise EDR | Gemini 4 Suite)")
+        self.title("Ghost-Aegis | Defensive Suite SE (v2.5 Enterprise EDR | YARA + SHA-256 Chain | Gemini 4 Suite)")
         self.geometry("1220x950")
         self.minsize(1020, 750)
 
@@ -788,7 +994,7 @@ class GhostAegisApp(ctk.CTk):
         self.status_frame.pack(pady=3, padx=20, fill="x")
         self.status_label = ctk.CTkLabel(
             self.status_frame,
-            text="🛡️ SYSTEM HARDENED | GEMINI 4 (HYDROGEN / ARGON / CARBON) + EDR VAULT READY",
+            text="🛡️ SYSTEM HARDENED | GEMINI 4 + NATIVE YARA INTERCEPTOR + SHA-256 CHAIN VAULT READY",
             text_color="#00FF00",
             font=("Consolas", 13, "bold")
         )
@@ -821,17 +1027,17 @@ class GhostAegisApp(ctk.CTk):
         self._add_panel_section(self.left_frame, "IDENTITY & ACCESS")
         self.jit_button = ctk.CTkButton(
             self.left_frame, text="JIT Admin (15m Auto-Demote)",
-            width=280, height=26, command=self.run_jit,
+            width=280, height=25, command=self.run_jit,
         )
         self.jit_button.pack(pady=2, padx=15)
 
         self.audit_button = ctk.CTkButton(
-            self.left_frame, text="Audit Admins", width=280, height=26, command=self.run_audit,
+            self.left_frame, text="Audit Admins", width=280, height=25, command=self.run_audit,
         )
         self.audit_button.pack(pady=2, padx=15)
 
         self.info_button = ctk.CTkButton(
-            self.left_frame, text="System Architecture", width=280, height=26, command=self.show_sys_info,
+            self.left_frame, text="System Architecture", width=280, height=25, command=self.show_sys_info,
         )
         self.info_button.pack(pady=2, padx=15)
 
@@ -841,7 +1047,7 @@ class GhostAegisApp(ctk.CTk):
             self.left_frame,
             text="Interface Telemetry",
             width=280,
-            height=26,
+            height=25,
             command=self.run_interface_telemetry,
         )
         self.interfaces_button.pack(pady=2, padx=15)
@@ -850,7 +1056,7 @@ class GhostAegisApp(ctk.CTk):
             self.left_frame,
             text="Hunt Event IDs (4625/4720/7045/1102)",
             width=280,
-            height=26,
+            height=25,
             fg_color="#8B4000",
             hover_color="#5C2A00",
             command=self.run_event_log_hunt,
@@ -861,7 +1067,7 @@ class GhostAegisApp(ctk.CTk):
             self.left_frame,
             text="View Incident Evidence",
             width=280,
-            height=26,
+            height=25,
             command=self.show_incidents_window,
         )
         self.incidents_button.pack(pady=2, padx=15)
@@ -870,7 +1076,7 @@ class GhostAegisApp(ctk.CTk):
             self.left_frame,
             text="Export Investigation Report",
             width=280,
-            height=26,
+            height=25,
             command=self.export_report,
         )
         self.report_button.pack(pady=2, padx=15)
@@ -879,7 +1085,7 @@ class GhostAegisApp(ctk.CTk):
             self.left_frame,
             text="Generate AI Incident Brief (4-Carbon)",
             width=280,
-            height=26,
+            height=25,
             fg_color="#4B0082",
             hover_color="#300052",
             command=self.run_ai_incident_report,
@@ -890,7 +1096,7 @@ class GhostAegisApp(ctk.CTk):
             self.left_frame,
             text="Behavior Fingerprint Scan",
             width=280,
-            height=26,
+            height=25,
             fg_color="#1f538d",
             hover_color="#14375e",
             command=self.run_behavior_scan,
@@ -901,7 +1107,7 @@ class GhostAegisApp(ctk.CTk):
             self.left_frame,
             text="Dark Web Breach Check",
             width=280,
-            height=26,
+            height=25,
             fg_color="#7B1FA2",
             hover_color="#4A0F6A",
             command=self.run_breach_check,
@@ -912,7 +1118,7 @@ class GhostAegisApp(ctk.CTk):
             self.left_frame,
             text="Audit Persistence",
             width=280,
-            height=26,
+            height=25,
             command=self.run_persistence_audit,
         )
         self.persistence_button.pack(pady=2, padx=15)
@@ -921,29 +1127,66 @@ class GhostAegisApp(ctk.CTk):
             self.left_frame,
             text="System Readiness Check",
             width=280,
-            height=26,
+            height=25,
             command=self.run_readiness_check,
         )
         self.readiness_button.pack(pady=2, padx=15)
 
-        self._add_panel_section(self.left_frame, "ACTIVE PROTECTION")
+        self._add_panel_section(self.left_frame, "ACTIVE PROTECTION & YARA INTERCEPTOR")
 
         self.canary_button = ctk.CTkButton(
             self.left_frame,
             text="Start Canary Shield",
             width=280,
-            height=26,
+            height=25,
             fg_color="#1f538d",
             hover_color="#14375e",
             command=self.toggle_canary_shield,
         )
         self.canary_button.pack(pady=2, padx=15)
 
+        self.yara_interceptor_button = ctk.CTkButton(
+            self.left_frame,
+            text="Start YARA PID Interceptor (Real-Time)",
+            width=280,
+            height=25,
+            fg_color="#006644",
+            hover_color="#004d33",
+            command=self.toggle_yara_interceptor,
+        )
+        self.yara_interceptor_button.pack(pady=2, padx=15)
+
+        # Compact Row: Verify SHA-256 Chain + Safe YARA Self-Test
+        self.yara_tools_frame = ctk.CTkFrame(self.left_frame, fg_color="transparent")
+        self.yara_tools_frame.pack(pady=2, padx=15)
+
+        self.verify_chain_button = ctk.CTkButton(
+            self.yara_tools_frame,
+            text="Verify SHA-256 Chain",
+            width=148,
+            height=25,
+            fg_color="#005577",
+            hover_color="#00384F",
+            command=self.run_forensic_chain_audit,
+        )
+        self.verify_chain_button.pack(side="left", padx=(0, 4))
+
+        self.safe_yara_test_button = ctk.CTkButton(
+            self.yara_tools_frame,
+            text="Safe YARA Test",
+            width=128,
+            height=25,
+            fg_color="#5B2C6F",
+            hover_color="#4A235A",
+            command=self.run_safe_yara_test,
+        )
+        self.safe_yara_test_button.pack(side="left")
+
         self.engine_button = ctk.CTkButton(
             self.left_frame,
             text="Launch Defense Engine",
             width=280,
-            height=26,
+            height=25,
             fg_color="#4B0082",
             hover_color="#300052",
             command=self.run_defense_engine,
@@ -954,7 +1197,7 @@ class GhostAegisApp(ctk.CTk):
             self.left_frame,
             text="About Ghost-Aegis",
             width=280,
-            height=26,
+            height=25,
             fg_color="gray",
             hover_color="#333333",
             command=self.show_about_window
@@ -1199,9 +1442,13 @@ class GhostAegisApp(ctk.CTk):
         self.scan_thread_running = False
         self.engine_thread_running = False
 
+        # Start Real-Time Process Creation Interceptor Worker Thread (active when toggled)
+        self.interceptor_thread = threading.Thread(target=self._yara_interceptor_loop, daemon=True)
+        self.interceptor_thread.start()
+
         self.check_queue()
         self.log_event(
-            "Ghost-Aegis v2.5 initialized | Gemini 4 Models active: gemini-4-hydrogen, gemini-4-argon, gemini-4-carbon.",
+            f"Ghost-Aegis v2.5 initialized | Gemini 4 Models active | Loaded {len(self.yara_engine.rules)} Native YARA rules from {RULE_FILE_PATH.name}.",
             "trusted",
         )
         self.refresh_active_pids()
@@ -1224,11 +1471,180 @@ class GhostAegisApp(ctk.CTk):
             "system",
         )
 
+    # ==========================================================================
+    # --- REAL-TIME YARA PID INTERCEPTOR & CRYPTOGRAPHIC CHAIN METHODS ---
+    # ==========================================================================
+    def toggle_yara_interceptor(self):
+        self.yara_interceptor_enabled = not self.yara_interceptor_enabled
+        if self.yara_interceptor_enabled:
+            self.known_pids = set(psutil.pids())
+            self.yara_interceptor_button.configure(
+                text="Stop YARA PID Interceptor (ACTIVE)",
+                fg_color="#e67e22",
+                hover_color="#b85d00",
+            )
+            self.log_event(
+                f"🛡️ [YARA PID INTERCEPTOR ARMED] Hooking new Windows process spawns (50ms kernel table diff) across {len(self.yara_engine.rules)} YARA rules...",
+                "trusted",
+            )
+        else:
+            self.yara_interceptor_button.configure(
+                text="Start YARA PID Interceptor (Real-Time)",
+                fg_color="#006644",
+                hover_color="#004d33",
+            )
+            self.log_event("[*] Real-Time YARA Process Interceptor paused.", "review")
+
+    def _yara_interceptor_loop(self):
+        while True:
+            if self.yara_interceptor_enabled:
+                try:
+                    current_pids = set(psutil.pids())
+                    new_pids = current_pids - self.known_pids
+                    for pid in new_pids:
+                        self._inspect_spawned_pid(pid)
+                    self.known_pids = current_pids
+                except Exception:
+                    pass
+            time.sleep(0.05)
+
+    def _inspect_spawned_pid(self, pid: int):
+        try:
+            proc = psutil.Process(pid)
+            name = proc.name()
+            ppid = proc.ppid()
+            cmdline_list = proc.cmdline()
+            cmdline = " ".join(cmdline_list) if cmdline_list else ""
+            exe_path = proc.exe()
+        except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
+            return
+
+        alerts = self.yara_engine.scan_command_line(pid, name, cmdline)
+        for alert in alerts:
+            alert["ppid"] = ppid
+            alert["exe_path"] = exe_path
+            sealed = self.chain_auditor.seal_alert(alert)
+
+            self._queue_log(
+                f"🚨 [GHOST-AEGIS YARA EDR ALERT] Rule: {sealed['rule_triggered']} | MITRE: {sealed['mitre_id']} | "
+                f"Severity: {sealed['severity']} | PID: {pid} (PPID: {ppid}) -> {name}",
+                "threat",
+            )
+            self._queue_log(
+                f"   Indicators: {sealed['matched_indicators']} | Cmd: {cmdline[:120]}",
+                "threat",
+            )
+            self._queue_log(
+                f"   PrevHash: {sealed['prev_hash'][:20]}... -> SHA-256 Seal: {sealed['sha256_seal'][:24]}...",
+                "system",
+            )
+            self.log_queue.put(("__set_target_pid__", f"{pid} ({name})"))
+
+            # Record to Incident Store & Stream to SIEM
+            risk_val = 95 if sealed["severity"] == "CRITICAL" else 85
+            reasons = [
+                f"YARA:{sealed['rule_triggered']}",
+                f"MITRE:{sealed['mitre_id']}",
+                f"ChainSeal:{sealed['sha256_seal'][:12]}",
+            ]
+            incident = Incident(
+                process=name,
+                pid=pid,
+                path=exe_path,
+                remote_ip="local_spawn",
+                reputation=0,
+                signer=get_authenticode_signer(exe_path),
+                risk_score=risk_val,
+                reasons=reasons,
+                recommended_action="quarantine_and_review",
+            )
+            try:
+                append_incident(incident)
+            except Exception:
+                pass
+
+            self.siem_streamer.emit(sealed, sealed["sha256_seal"])
+
+            if getattr(self, "auto_mitigate_enabled", False):
+                vault_res = self.quarantine_vault.freeze_and_quarantine(
+                    pid=pid,
+                    reasons=reasons,
+                    risk_score=risk_val,
+                )
+                if vault_res.get("success"):
+                    self._queue_log(
+                        f"🚨 [AUTO-MITIGATE YARA VAULT] {name} (PID {pid}) FROZEN, VAULTED & KILLED.",
+                        "threat",
+                    )
+
+    def run_safe_yara_test(self):
+        """Simulates an encoded PowerShell payload in memory to test YARA + SHA-256 sealing without tripping Defender AMSI."""
+        test_cmd = "powershell.exe -WindowStyle Hidden -enc SQBFAFgA_GHOST_AEGIS_SAFE_MEMORY_TEST"
+        alerts = self.yara_engine.scan_command_line(
+            pid=os.getpid(),
+            process_name="powershell_sim.exe",
+            cmdline=test_cmd,
+        )
+        for alert in alerts:
+            alert["ppid"] = os.getppid()
+            alert["exe_path"] = str(BASE_DIR / "Memory_Simulation_Test")
+            sealed = self.chain_auditor.seal_alert(alert)
+            self.log_event(
+                f"🧪 [SAFE YARA MEMORY TEST] Triggered '{sealed['rule_triggered']}' ({sealed['mitre_id']}) | "
+                f"Sealed to {EDR_CHAIN_LOG_PATH.name} (SHA-256: {sealed['sha256_seal'][:24]}...)",
+                "learning",
+            )
+
+    def run_forensic_chain_audit(self):
+        intact, count, report_text = self.chain_auditor.verify_chain()
+        if count == 0:
+            self.log_event(f"[*] Cryptographic Chain Audit: No records in {EDR_CHAIN_LOG_PATH.name} yet.", "review")
+        elif intact:
+            self.log_event(
+                f"🔐 [CHAIN-OF-CUSTODY PASSED] All {count} EDR records in {EDR_CHAIN_LOG_PATH.name} are cryptographically intact.",
+                "trusted",
+            )
+        else:
+            self.log_event(
+                f"🚨 [CHAIN TAMPER DETECTED] Cryptographic mismatch found in {EDR_CHAIN_LOG_PATH.name}!",
+                "threat",
+            )
+
+        ledger_win = ctk.CTkToplevel(self)
+        ledger_win.title("Ghost-Aegis | Cryptographic Chain-of-Custody Auditor (SHA-256)")
+        ledger_win.geometry("920x620")
+        ledger_win.attributes("-topmost", True)
+
+        ctk.CTkLabel(
+            ledger_win,
+            text="🛡️ CRYPTOGRAPHIC CHAIN-OF-CUSTODY AUDITOR (SHA-256 LEDGER)",
+            font=("Consolas", 15, "bold"),
+            text_color="#00FF00" if intact else "#FF3333",
+        ).pack(pady=(12, 4))
+
+        box = ctk.CTkTextbox(
+            ledger_win,
+            font=("Consolas", 11),
+            fg_color="#000000",
+            text_color="#00E5FF" if intact else "#FF3333",
+        )
+        box.pack(fill="both", expand=True, padx=15, pady=8)
+        box.insert("1.0", report_text)
+        box.configure(state="disabled")
+
+        ctk.CTkButton(
+            ledger_win,
+            text="CLOSE",
+            fg_color="#444444",
+            width=100,
+            command=ledger_win.destroy,
+        ).pack(pady=(2, 12))
+
     # --- ON-DEMAND EDR PE & CMDLINE INSPECTOR ---
     def inspect_selected_pid_edr(self):
         pid = self._get_selected_pid()
         if not pid:
-            self.log_event("Select an active PID to run PE Entropy & Command-Line Deobfuscation.", "warn")
+            self.log_event("Select an active PID to run PE Entropy, YARA & Command-Line Deobfuscation.", "warn")
             return
         try:
             proc = psutil.Process(pid)
@@ -1240,6 +1656,7 @@ class GhostAegisApp(ctk.CTk):
 
         cmd_info = self.edr_inspector.inspect_cmdline(pid)
         pe_info = self.edr_inspector.scan_pe_binary(exe_path)
+        yara_hits = self.yara_engine.scan_command_line(pid, proc_name, cmd_info["cmdline"])
 
         self.log_event(f"🔬 [EDR DEEP INSPECT] {proc_name} (PID: {pid})", "system")
         self.log_event(f"   Cmdline: {cmd_info['cmdline'] or 'N/A'}", "review")
@@ -1247,10 +1664,16 @@ class GhostAegisApp(ctk.CTk):
             self.log_event(f"   [!] LOLBIN DETECTED: {cmd_info['lolbin_hit']}", "threat")
         if cmd_info["decoded_b64"]:
             self.log_event(f"   [!] DECODED BASE64 PAYLOAD: {cmd_info['decoded_b64']}", "threat")
+        if yara_hits:
+            for yh in yara_hits:
+                self.log_event(
+                    f"   [!] YARA RULE MATCH: {yh['rule_triggered']} (MITRE {yh['mitre_id']}) -> {yh['matched_indicators']}",
+                    "threat",
+                )
         self.log_event(
             f"   PE Shannon Entropy: {pe_info['entropy']}/8.00 ({'PACKED/ENCRYPTED SUSPECT' if pe_info['packed'] else 'Normal'}) | "
             f"Injection APIs: {', '.join(pe_info['suspicious_apis']) if pe_info['suspicious_apis'] else 'None'}",
-            "threat" if (pe_info["packed"] or pe_info["suspicious_apis"]) else "trusted"
+            "threat" if (pe_info["packed"] or pe_info["suspicious_apis"] or yara_hits) else "trusted"
         )
 
     # --- ON-DEMAND FREEZE & QUARANTINE VAULT ---
@@ -1404,6 +1827,7 @@ class GhostAegisApp(ctk.CTk):
             self.pid_entry.configure(values=["No active net PIDs"])
 
     def destroy(self):
+        self.yara_interceptor_enabled = False
         self.canary_guard.stop()
         if hasattr(self.network_behavior, "flush"):
             self.network_behavior.flush()
@@ -1477,9 +1901,10 @@ class GhostAegisApp(ctk.CTk):
             "Mission: Save the World through Internet Safety.\n\n"
             "Ghost-Aegis is an active defensive engineering suite designed for "
             "Blue Team operations. Powered by Gemini 4 (Hydrogen, Argon, Carbon) "
-            "and Copilot, it integrates LOLBin & Base64 PowerShell deobfuscation, "
-            "PE Shannon entropy analysis, process suspension & quarantine vaulting, "
-            "ARP spoof detection, and Windows Event ID threat hunting."
+            "and Copilot, it integrates Native YARA Process Interception, SHA-256 "
+            "Cryptographic Chain-of-Custody Auditing, LOLBin & Base64 PowerShell "
+            "deobfuscation, PE Shannon entropy analysis, process quarantine "
+            "vaulting, ARP spoof detection, and Windows Event ID threat hunting."
         )
 
         mission_box = ctk.CTkTextbox(about_win, width=400, height=150, font=("Arial", 12))
@@ -1489,7 +1914,7 @@ class GhostAegisApp(ctk.CTk):
 
         ctk.CTkLabel(about_win, text="Cyber Defense Lead:", font=("Arial", 12, "bold"), text_color="#3b8ed0").pack()
         ctk.CTkLabel(about_win, text='[Homero "Joseph Awana" Antillon / Gemini 4 / Copilot]', font=("Consolas", 14)).pack(pady=5)
-        ctk.CTkLabel(about_win, text="Gemini 4 Hydrogen • Argon • Carbon • Pure-Python EDR", font=("Arial", 9)).pack(pady=(15, 0))
+        ctk.CTkLabel(about_win, text="Gemini 4 Hydrogen • Argon • Carbon • Pure-Python YARA EDR", font=("Arial", 9)).pack(pady=(15, 0))
         ctk.CTkButton(about_win, text="CLOSE", fg_color="#444444", command=about_win.destroy).pack(pady=15)
 
     def show_incidents_window(self):
@@ -2091,6 +2516,14 @@ class GhostAegisApp(ctk.CTk):
             "trusted" if firewall_status == "READY" else "warn",
         )
         self.log_event(
+            f"Native YARA Engine ({RULE_FILE_PATH.name}): {len(self.yara_engine.rules)} rules compiled (DLL-Free READY)",
+            "trusted",
+        )
+        self.log_event(
+            f"SHA-256 Chain Ledger ({EDR_CHAIN_LOG_PATH.name}): Head Hash {self.chain_auditor.last_hash[:16]}...",
+            "trusted",
+        )
+        self.log_event(
             f"Optional AbuseIPDB enrichment: "
             f"{'CONFIGURED' if os.getenv('ABUSEIPDB_API_KEY') else 'NOT CONFIGURED'}",
             "trusted" if os.getenv("ABUSEIPDB_API_KEY") else "review",
@@ -2356,7 +2789,7 @@ class GhostAegisApp(ctk.CTk):
 
         self.scan_thread_running = True
         self.sentinel_button.configure(state="disabled", text="Scanning Sockets...")
-        self.log_event("[*] Network Sentinel starting deep socket + EDR + ARP audit...", "system")
+        self.log_event("[*] Network Sentinel starting deep socket + YARA + EDR + ARP audit...", "system")
         threading.Thread(target=self._network_sentinel_worker, daemon=True).start()
 
     def _network_sentinel_worker(self):
@@ -2446,6 +2879,12 @@ class GhostAegisApp(ctk.CTk):
                     if cmd_info["suspicious_flags"]:
                         reasons.extend(cmd_info["suspicious_flags"])
                         risk_score = min(100, risk_score + cmd_info["risk_boost"])
+
+                    # Scan command line against Native YARA Rules
+                    yara_hits = self.yara_engine.scan_command_line(pid, proc_name, cmd_info["cmdline"])
+                    for yh in yara_hits:
+                        reasons.append(f"YARA:{yh['rule_triggered']}({yh['mitre_id']})")
+                        risk_score = max(risk_score, 90)
 
                     if not trusted_process and exe_path:
                         pe_info = self.edr_inspector.scan_pe_binary(exe_path)
@@ -2577,7 +3016,7 @@ class GhostAegisApp(ctk.CTk):
         if pid is not None:
             preferred_gemini = self.gemini_model_menu.get()
             self.log_event(
-                f"[*] Extracting deep EDR telemetry and invoking Dual-AI ({preferred_gemini} + Copilot) for PID {pid}...",
+                f"[*] Extracting deep EDR + YARA telemetry and invoking Dual-AI ({preferred_gemini} + Copilot) for PID {pid}...",
                 "system",
             )
             self.ai_eval_button.configure(state="disabled")
@@ -2608,6 +3047,7 @@ class GhostAegisApp(ctk.CTk):
 
             cmd_info = self.edr_inspector.inspect_cmdline(pid)
             pe_info = self.edr_inspector.scan_pe_binary(exe_path if exe_path != "Unavailable" else "")
+            yara_hits = self.yara_engine.scan_command_line(pid, proc_name, cmd_info["cmdline"])
 
             memory_context = self.analyst_memory.get_prompt_context()
 
@@ -2619,6 +3059,7 @@ class GhostAegisApp(ctk.CTk):
                 "Command Line": cmd_info["cmdline"],
                 "Decoded Base64 Payload": cmd_info["decoded_b64"],
                 "LOLBin Alert": cmd_info["lolbin_hit"],
+                "YARA Rule Hits": [f"{y['rule_triggered']} ({y['mitre_id']})" for y in yara_hits],
                 "PE Shannon Entropy": pe_info["entropy"],
                 "Packed Binary Suspect": pe_info["packed"],
                 "Injection API Imports": pe_info["suspicious_apis"],
@@ -2630,14 +3071,14 @@ class GhostAegisApp(ctk.CTk):
             context = json.dumps(sanitized_context, indent=2)
 
             self._queue_log(
-                f"[*] EDR telemetry & PE entropy gathered for {proc_name}. Querying {preferred_gemini} & Copilot...",
+                f"[*] EDR telemetry, YARA hits & PE entropy gathered for {proc_name}. Querying {preferred_gemini} & Copilot...",
                 "system",
             )
 
             prompt = (
                 "You are an expert Blue Team cybersecurity analyst for Ghost-Aegis.\n"
                 "Analyze the following process telemetry (including command-line arguments, decoded Base64, "
-                "PE entropy, and injection APIs) and provide a 1-sentence assessment "
+                "YARA hits, PE entropy, and injection APIs) and provide a 1-sentence assessment "
                 "ending strictly with 'Threat Score: X/10'.\n\n"
                 f"{memory_context}\n\n"
                 f"### SANITIZED TELEMETRY:\n{context}"
