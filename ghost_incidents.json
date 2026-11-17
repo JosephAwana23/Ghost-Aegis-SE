@@ -3082,5 +3082,145 @@
         "remote_ip": "74.179.65.112",
         "reputation": 0,
         "signer": "Microsoft Corporation"
+    },
+    {
+        "timestamp": "2026-11-16T20:19:33",
+        "process": "chrome.exe",
+        "pid": 16832,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 07bd8eb1f808"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "100.59.105.114",
+        "reputation": 0,
+        "signer": "Unknown"
+    },
+    {
+        "timestamp": "2026-11-16T20:19:38",
+        "process": "chrome.exe",
+        "pid": 16832,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: f12d74ba8b4a"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "13.223.119.217",
+        "reputation": 0,
+        "signer": "Unknown"
+    },
+    {
+        "timestamp": "2026-11-16T20:19:45",
+        "process": "svchost.exe",
+        "pid": 6928,
+        "path": "C:\\Windows\\System32\\svchost.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: d9b176c81b14"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "20.59.87.225",
+        "reputation": 0,
+        "signer": "Unknown"
+    },
+    {
+        "timestamp": "2026-11-16T20:19:50",
+        "process": "chrome.exe",
+        "pid": 16832,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: f1ef065e049a"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "100.60.13.233",
+        "reputation": 0,
+        "signer": "Unknown"
+    },
+    {
+        "timestamp": "2026-11-16T20:19:53",
+        "process": "msedge.exe",
+        "pid": 23544,
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 7b9c49875365"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "2603:1036:307:486c::2",
+        "reputation": 0,
+        "signer": "Unknown"
+    },
+    {
+        "timestamp": "2026-11-16T20:19:55",
+        "process": "Code.exe",
+        "pid": 1632,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 46c482106b33"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "2603:1061:14:99::1",
+        "reputation": 0,
+        "signer": "Unknown"
+    },
+    {
+        "timestamp": "2026-11-16T20:19:59",
+        "process": "CrossDeviceService.exe",
+        "pid": 12208,
+        "path": "C:\\Program Files\\WindowsApps\\MicrosoftWindows.CrossDevice_1.26102.70.0_x64__cw5n1h2txyewy\\CrossDeviceService.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 297dbe69849c"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "2603:1030:40c:4::1d",
+        "reputation": 0,
+        "signer": "Unknown"
+    },
+    {
+        "timestamp": "2026-11-16T20:19:59",
+        "process": "chrome.exe",
+        "pid": 16832,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 70f04ec429f8"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "2607:f8b0:4023:c03::bc",
+        "reputation": 0,
+        "signer": "Unknown"
+    },
+    {
+        "timestamp": "2026-11-16T20:20:00",
+        "process": "Code.exe",
+        "pid": 1632,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 39f5f1b59265"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "2606:50c0:8001::154",
+        "reputation": 0,
+        "signer": "Unknown"
+    },
+    {
+        "timestamp": "2026-11-16T20:43:06",
+        "process": "BehaviorEngine",
+        "pid": 0,
+        "path": "behavior_fingerprint",
+        "risk_score": 32,
+        "reasons": [
+            "Behavior anomaly detected: trusted"
+        ],
+        "recommended_action": "review_identity",
+        "remote_ip": "none",
+        "reputation": 0,
+        "signer": "Unknown"
     }
 ]

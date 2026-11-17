@@ -5634,3 +5634,69 @@ The command completed successfully.
 [2026-10-09 15:52:58] [SYSTEM]     msedge.exe       74.179.65.112 (Quincy, US) | RISK: 0/100   19584 
 [2026-10-09 15:52:58]    Evidence: ChainHash: 8b617b613423 | Signer: Microsoft Corporation
 [2026-10-09 15:52:58] [NEW DESTINATION] Code.exe -> 184.29.57.148:443
+[2026-11-16 20:15:13] Ghost-Aegis v3.0 initialized | Single Investigation View + Process Tree active | Loaded 5 Native YARA rules.
+[2026-11-16 20:16:08] [*] Extracting deep EDR + Process Tree + YARA telemetry and invoking Dual-AI (gemini-4-hydrogen + Copilot) for PID 10516...
+[2026-11-16 20:16:08] [!] PID 10516 is no longer running.
+[2026-11-16 20:16:32] 🧪 [SAFE YARA MEMORY TEST] Triggered 'Windows_Encoded_PowerShell' (T1059.001) | Process Tree & Alert Sealed to aegis_edr_alerts.jsonl (SHA-256: 86a8ef00d4d500d0c24cc751...)
+[2026-11-16 20:17:28] [*] Extracting deep EDR + Process Tree + YARA telemetry and invoking Dual-AI (gemini-4-hydrogen + Copilot) for PID 15544...
+[2026-11-16 20:17:28] [*] EDR telemetry, Process Tree, YARA hits & PE entropy gathered for python.exe. Querying gemini-4-hydrogen & Copilot...
+[2026-11-16 20:17:40] 🧠 [GEMINI-4-HYDROGEN]: This telemetry reflects benign developer activity in which Visual Studio Code (`Code.exe`) spawned PowerShell and the `debugpy` debugger to execute a local Python script (`main_gui.py`), with no YARA hits, injection APIs, packing indicators, or external network connections observed, resulting in a Threat Score: 1/10
+[2026-11-16 20:17:40] 🤖 [COPILOT]: The telemetry indicates a legitimate Python process executing a debugging tool with no signs of malicious activity, as evidenced by the lack of YARA hits, decoded payloads, and injection APIs. Threat Score: 2/10.
+[2026-11-16 20:18:10] SYSTEM INFO: Microsoft Windows 11 Pro Insider Preview | HOSTNAME: BHG
+[2026-11-16 20:18:40] 🔐 [CHAIN-OF-CUSTODY PASSED] All 4 EDR records in aegis_edr_alerts.jsonl are cryptographically intact.
+[2026-11-16 20:19:26] [*] Network Sentinel starting deep socket + YARA + EDR + ARP audit...
+[2026-11-16 20:19:26] STATUS       PROCESS          REMOTE HOST / LOCATION                     PID   
+[2026-11-16 20:19:31] [NEW DESTINATION] chrome.exe -> 100.59.105.114:443
+[2026-11-16 20:19:33] [TRUSTED]    chrome.exe       ec2-100-59-105-114.compute-1.amazonaws.com (Ashburn, US) | RISK: 0/100 16832 
+[2026-11-16 20:19:33]    Evidence: ChainHash: 07bd8eb1f808 | Signer: Unknown
+[2026-11-16 20:19:38] [NEW DESTINATION] chrome.exe -> 13.223.119.217:443
+[2026-11-16 20:19:38] [TRUSTED]    chrome.exe       ec2-13-223-119-217.compute-1.amazonaws.com (Ashburn, US) | RISK: 0/100 16832 
+[2026-11-16 20:19:38]    Evidence: ChainHash: f12d74ba8b4a | Signer: Unknown
+[2026-11-16 20:19:45] [SYSTEM]     svchost.exe      20.59.87.225 (San Francisco, US) | RISK: 0/100 6928  
+[2026-11-16 20:19:46]    Evidence: ChainHash: d9b176c81b14 | Signer: Unknown
+[2026-11-16 20:19:51] [NEW DESTINATION] chrome.exe -> 100.60.13.233:443
+[2026-11-16 20:19:51] [TRUSTED]    chrome.exe       ec2-100-60-13-233.compute-1.amazonaws.com (Ashburn, US) | RISK: 0/100 16832 
+[2026-11-16 20:19:51]    Evidence: ChainHash: f1ef065e049a | Signer: Unknown
+[2026-11-16 20:19:51] [NEW DESTINATION] msedge.exe -> 2603:1036:307:486c::2:443
+[2026-11-16 20:19:53] [SYSTEM]     msedge.exe       2603:1036:307:486c::2 (San Jose, US) | RISK: 0/100 23544 
+[2026-11-16 20:19:53]    Evidence: ChainHash: 7b9c49875365 | Signer: Unknown
+[2026-11-16 20:19:53] [NEW DESTINATION] Code.exe -> 2603:1061:14:99::1:443
+[2026-11-16 20:19:55] [SYSTEM]     Code.exe         2603:1061:14:99::1 (Toronto, CA) | RISK: 0/100 1632  
+[2026-11-16 20:19:55]    Evidence: ChainHash: 46c482106b33 | Signer: Unknown
+[2026-11-16 20:19:55] [NEW DESTINATION] CrossDeviceService.exe -> 2603:1030:40c:4::1d:443
+[2026-11-16 20:19:59] [REVIEW]     CrossDeviceService.exe 2603:1030:40c:4::1d (Boydton, US) | RISK: 0/100 12208 
+[2026-11-16 20:19:59]    Evidence: ChainHash: 297dbe69849c | Signer: Unknown
+[2026-11-16 20:19:59] [NEW DESTINATION] chrome.exe -> 2607:f8b0:4023:c03::bc:5228
+[2026-11-16 20:19:59] [SYSTEM]     chrome.exe       dy-in-f188.1e100.net (Las Vegas, US) | RISK: 0/100 16832 
+[2026-11-16 20:19:59]    Evidence: ChainHash: 70f04ec429f8 | Signer: Unknown
+[2026-11-16 20:20:00] [NEW DESTINATION] Code.exe -> 2606:50c0:8001::154:443
+[2026-11-16 20:20:00] [SYSTEM]     Code.exe         2606:50c0:8001::154 (San Francisco, US) | RISK: 0/100 1632  
+[2026-11-16 20:20:00]    Evidence: ChainHash: 39f5f1b59265 | Signer: Unknown
+[2026-11-16 20:36:52] Ghost-Aegis v3.0 initialized | Single Investigation View + Process Tree active | Loaded 5 YARA rules & 5 Sigma rules.
+[2026-11-16 20:37:21] Ghost-Aegis v3.0 initialized | Single Investigation View + Process Tree active | Loaded 5 YARA rules & 5 Sigma rules.
+[2026-11-16 20:38:44] 🧪 [SAFE YARA+SIGMA TEST] Triggered 'YARA: Windows_Encoded_PowerShell' (T1059.001) | Process Tree & Alert Sealed to aegis_edr_alerts.jsonl (SHA-256: da29226434906af37394dd4f...)
+[2026-11-16 20:38:44] 🧪 [SAFE YARA+SIGMA TEST] Triggered 'SIGMA: Suspicious Encoded PowerShell or Download Cradle' (T1059.001) | Process Tree & Alert Sealed to aegis_edr_alerts.jsonl (SHA-256: f45c6831af11350150a6e9b2...)
+[2026-11-16 20:39:51] [*] Querying Windows Security & System Event Logs (4625, 4720, 7045, 1102) & evaluating Sigma rules...
+[2026-11-16 20:39:52] 🚨 [EVENT ID 7045] New Windows Service Installed (MITRE T1543.003) (5 recent hits in System log)
+[2026-11-16 20:39:52]    🛡️ [SIGMA: Suspicious New Windows Service Installed] MITRE T1543.003 | Sealed to aegis_edr_alerts.jsonl (SHA-256: 310305dfbfa4bcfd03c0...)
+[2026-11-16 20:41:49] [*] Extracting deep EDR + Process Tree + YARA & Sigma telemetry and invoking Dual-AI (gemini-4-hydrogen + Copilot) for PID 15544...
+[2026-11-16 20:41:49] [!] PID 15544 is no longer running.
+[2026-11-16 20:42:02] [*] Extracting deep EDR + Process Tree + YARA & Sigma telemetry and invoking Dual-AI (gemini-4-hydrogen + Copilot) for PID 4...
+[2026-11-16 20:42:02] [*] EDR telemetry, Process Tree, YARA & Sigma hits gathered for System. Querying gemini-4-hydrogen & Copilot...
+[2026-11-16 20:42:10] 🧠 [GEMINI-4-HYDROGEN]: The telemetry reflects the benign Windows kernel System process (PID 4) with expected lineage from the System Idle Process and no malicious indicators, security rule hits, or suspicious network activity; Threat Score: 0/10
+[2026-11-16 20:42:10] 🤖 [COPILOT]: The telemetry indicates a benign system process with no suspicious activity or indicators of compromise. Threat Score: 1/10.
+[2026-11-16 20:42:30] 🚨 [AUTO-MITIGATION ARMED] High-risk processes will be Frozen, Vaulted, Killed & Firewalled on sight.
+[2026-11-16 20:42:39] 🛡️ [YARA + SIGMA INTERCEPTOR ARMED] Hooking new Windows process spawns (50ms kernel table diff) across 5 YARA & 5 Sigma rules...
+[2026-11-16 20:42:53] [*] Checking dark web breach exposure...
+[2026-11-16 20:42:54] [BREACH] josephawana26@gmail.com is clean. No breaches found.
+[2026-11-16 20:43:06] [*] Running behavior fingerprint scan...
+[2026-11-16 20:43:06] [IDENTITY] Behavior Score=32 | Risk=trusted
+[2026-11-16 20:44:43] [!] No CARTO_API_KEY found in .env. Defaulting to Satellite view.
+[2026-11-16 20:44:43] [*] Polling incident history for global coordinates...
+[2026-11-16 20:44:43] [+] Radar clear. No external threat coordinates found.
+[2026-11-16 20:50:05] Ghost-Aegis v3.0 initialized | Single Investigation View + Process Tree active | Loaded 5 YARA rules & 5 Sigma rules.
+[2026-11-16 20:50:44] [*] Polling incident history for global coordinates...
+[2026-11-16 20:50:44] [+] Radar clear. No external threat coordinates found.
+[2026-11-16 20:53:27] Ghost-Aegis v3.0 initialized | Single Investigation View + Process Tree active | Loaded 5 YARA rules & 5 Sigma rules.
+[2026-11-16 20:54:09] 🧪 [SAFE YARA+SIGMA TEST] Triggered 'YARA: Windows_Encoded_PowerShell' (T1059.001) | Process Tree & Alert Sealed to aegis_edr_alerts.jsonl (SHA-256: a08fdd23020e5842d23568c7...)
+[2026-11-16 20:54:09] 🧪 [SAFE YARA+SIGMA TEST] Triggered 'SIGMA: Suspicious Encoded PowerShell or Download Cradle' (T1059.001) | Process Tree & Alert Sealed to aegis_edr_alerts.jsonl (SHA-256: e38c22285965895e38597144...)
