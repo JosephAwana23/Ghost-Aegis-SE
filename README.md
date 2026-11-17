@@ -15,8 +15,7 @@ Designed with a **zero-DLL-dependency architecture** to operate cleanly on harde
 ## 📸 Live Platform Screenshots (v3.0)
 
 ### 1. Single Investigation View Workbench (Process Ancestry Tree & Kill-Chain Timeline)
-*Correlates live `psutil` PPID process lineage (`explorer.exe` $\rightarrow$ `Code.exe` $\rightarrow$ `pwsh.exe` $\rightarrow$ `python.exe`), Windows Event ID `7045` Sigma detection (`T1543.003`), Threat DNA hashing (`50C4C343ECF9C0AA`), and verified SHA-256 chain-of-custody seals in a single pane:*
-
+*Correlates live `psutil` PPID process lineage (`explorer.exe` → `Code.exe` → `pwsh.exe` → `python.exe`), Windows Event ID `7045` Sigma detection (`T1543.003`), Threat DNA hashing (`50C4C343ECF9C0AA`), and verified SHA-256 chain-of-custody seals in a single pane:*
 ![Ghost-Aegis v3.0 Single Investigation Workbench](assets/workbench_v3.png)
 
 ### 2. Main EDR/XDR Command Console & Cryptographic Alert Sealing
@@ -79,6 +78,6 @@ Before any process or network telemetry is sent to **Gemini 4** or **Copilot**, 
 
 ### 1. Clone & Install Dependencies
 ```bash
-git clone [https://github.com/JosephAwana23/Ghost-Aegis.git](https://github.com/JosephAwana23/Ghost-Aegis.git)
-cd Ghost-Aegis
+git clone https://github.com/JosephAwana23/Ghost-Aegis-SE.git
+cd Ghost-Aegis-SE
 pip install psutil customtkinter requests python-dotenv tkintermapview
