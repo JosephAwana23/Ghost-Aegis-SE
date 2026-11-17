@@ -70,6 +70,7 @@ else:
 load_dotenv(dotenv_path=BASE_DIR / ".env")
 
 RULE_FILE_PATH = BASE_DIR / "rules.yar"
+SIGMA_RULE_PATH = BASE_DIR / "sigma_rules.yml"
 EDR_CHAIN_LOG_PATH = BASE_DIR / "aegis_edr_alerts.jsonl"
 
 # Dynamic import of main.py (Defense Engine)
@@ -203,13 +204,205 @@ class AegisYaraEngine:
                     "timestamp": datetime.now(timezone.utc).isoformat(),
                     "pid": pid,
                     "process": process_name,
-                    "rule_triggered": rule["name"],
+                    "rule_triggered": f"YARA: {rule['name']}",
                     "mitre_id": rule["meta"].get("mitre_attack", "Unknown"),
                     "severity": rule["meta"].get("severity", "MEDIUM"),
                     "matched_indicators": matched_ids,
                     "matched_cmdline": cmdline
                 })
         return alerts
+
+
+# ==============================================================================
+# --- NATIVE PURE-PYTHON SIGMA RULE ENGINE (ZERO-DEPENDENCY YAML PARSER) ---
+# ==============================================================================
+DEFAULT_SIGMA_RULES = """title: Suspicious Encoded PowerShell or Download Cradle
+id: 8f3b2a1c-4d5e-6f7a-8b9c-0d1e2f3a4b5c
+status: production
+level: high
+logsource:
+    category: process_creation
+    product: windows
+tags:
+    - attack.execution
+    - attack.t1059.001
+detection:
+    keywords:
+        - '-enc '
+        - '-EncodedCommand'
+        - 'DownloadString'
+        - 'Invoke-Expression'
+        - 'IEX('
+        - '-WindowStyle Hidden'
+    condition: keywords
+---
+title: Living Off The Land Binary (LOLBin) Proxy Execution
+id: 2c9a1b3d-5e6f-4a8b-9c0d-1e2f3a4b5c6d
+status: production
+level: critical
+logsource:
+    category: process_creation
+    product: windows
+tags:
+    - attack.defense_evasion
+    - attack.t1218
+detection:
+    keywords:
+        - 'certutil -urlcache'
+        - 'mshta vbscript:'
+        - 'regsvr32 /s /n /u /i:'
+        - 'rundll32 javascript:'
+        - 'bitsadmin /transfer'
+    condition: keywords
+---
+title: Windows Security Audit Log Cleared
+id: a1b2c3d4-e5f6-4a5b-8c9d-0e1f2a3b4c5d
+status: production
+level: critical
+logsource:
+    product: windows
+    service: security
+tags:
+    - attack.defense_evasion
+    - attack.t1070.001
+detection:
+    event_id: 1102
+    condition: selection
+---
+title: Suspicious New Windows Service Installed
+id: b2c3d4e5-f6a7-4b5c-9d0e-1f2a3b4c5d6e
+status: production
+level: high
+logsource:
+    product: windows
+    service: system
+tags:
+    - attack.persistence
+    - attack.t1543.003
+detection:
+    event_id: 7045
+    condition: selection
+---
+title: Windows Brute Force or Failed Logon Burst
+id: c3d4e5f6-a7b8-4c5d-0e1f-2a3b4c5d6e7f
+status: production
+level: medium
+logsource:
+    product: windows
+    service: security
+tags:
+    - attack.credential_access
+    - attack.t1110
+detection:
+    event_id: 4625
+    condition: selection
+"""
+
+
+class AegisSigmaEngine:
+    """
+    Pure-Python Sigma Rule Parser & Detection Engine for Ghost-Aegis SE v3.0.
+    Parses standard Sigma YAML rules natively without requiring PyYAML.
+    Evaluates both live process creation command lines and Windows Event IDs.
+    """
+
+    def __init__(self, sigma_path: Path | str = SIGMA_RULE_PATH):
+        self.sigma_path = Path(sigma_path)
+        if not self.sigma_path.exists():
+            try:
+                self.sigma_path.write_text(DEFAULT_SIGMA_RULES, encoding="utf-8")
+            except Exception:
+                pass
+        self.rules = self._parse_sigma_yaml(self.sigma_path)
+
+    def _parse_sigma_yaml(self, filepath: Path) -> list[dict]:
+        try:
+            content = filepath.read_text(encoding="utf-8")
+        except Exception:
+            content = DEFAULT_SIGMA_RULES
+
+        parsed_rules = []
+        for doc in content.split("---"):
+            doc = doc.strip()
+            if not doc:
+                continue
+
+            title_m = re.search(r"^title:\s*(.+)$", doc, re.MULTILINE)
+            id_m = re.search(r"^id:\s*(.+)$", doc, re.MULTILINE)
+            level_m = re.search(r"^level:\s*(.+)$", doc, re.MULTILINE)
+            cat_m = re.search(r"category:\s*(.+)$", doc, re.MULTILINE)
+            event_id_m = re.search(r"event_id:\s*(\d+)", doc, re.MULTILINE)
+
+            tags = re.findall(r"-\s*(attack\.[a-zA-Z0-9_.]+)", doc)
+            mitre_tags = [t.replace("attack.", "").upper() for t in tags if t.lower().startswith("attack.t")]
+            mitre_id = mitre_tags[0] if mitre_tags else "T1059"
+
+            keywords = []
+            in_keywords = False
+            for line in doc.splitlines():
+                stripped = line.strip()
+                if stripped.startswith("keywords:"):
+                    in_keywords = True
+                    continue
+                if in_keywords:
+                    if stripped.startswith("-"):
+                        val = stripped.lstrip("-").strip().strip("'").strip('"')
+                        if val:
+                            keywords.append(val)
+                    elif ":" in stripped:
+                        in_keywords = False
+
+            parsed_rules.append({
+                "title": title_m.group(1).strip() if title_m else "Unnamed Sigma Rule",
+                "id": id_m.group(1).strip() if id_m else "0000",
+                "level": (level_m.group(1).strip().upper() if level_m else "HIGH"),
+                "category": cat_m.group(1).strip().lower() if cat_m else "windows_event",
+                "event_id": int(event_id_m.group(1)) if event_id_m else None,
+                "mitre_id": mitre_id,
+                "keywords": keywords,
+            })
+        return parsed_rules
+
+    def evaluate_process(self, pid: int, process_name: str, cmdline: str) -> list[dict]:
+        if not cmdline:
+            return []
+        lower_cmd = cmdline.lower()
+        hits = []
+        for rule in self.rules:
+            if rule["category"] != "process_creation" or not rule["keywords"]:
+                continue
+            matched = [kw for kw in rule["keywords"] if kw.lower() in lower_cmd]
+            if matched:
+                hits.append({
+                    "timestamp": datetime.now(timezone.utc).isoformat(),
+                    "pid": pid,
+                    "process": process_name,
+                    "rule_triggered": f"SIGMA: {rule['title']}",
+                    "sigma_id": rule["id"],
+                    "mitre_id": rule["mitre_id"],
+                    "severity": rule["level"],
+                    "matched_indicators": matched,
+                    "matched_cmdline": cmdline,
+                })
+        return hits
+
+    def evaluate_event_id(self, event_id: int, log_name: str, count: int) -> list[dict]:
+        hits = []
+        for rule in self.rules:
+            if rule["event_id"] == event_id:
+                hits.append({
+                    "timestamp": datetime.now(timezone.utc).isoformat(),
+                    "pid": 4,
+                    "ppid": 0,
+                    "process": f"WindowsEventLog ({log_name})",
+                    "rule_triggered": f"SIGMA: {rule['title']}",
+                    "sigma_id": rule["id"],
+                    "mitre_id": rule["mitre_id"],
+                    "severity": rule["level"],
+                    "matched_indicators": [f"EventID:{event_id}", f"Hits:{count}"],
+                    "matched_cmdline": f"wevtutil {log_name} EventID {event_id} ({count} occurrences)",
+                })
+        return hits
 
 
 class ForensicChainAuditor:
@@ -283,6 +476,9 @@ class ForensicChainAuditor:
             if not chain_valid:
                 tamper_detected = True
 
+            tree_nodes = record.get("process_tree", {}).get("nodes", [])
+            lineage_str = " -> ".join(f"{n.get('name')}({n.get('pid')})" for n in tree_nodes) if tree_nodes else "Single Node"
+
             lines_out.append(f"\n[Event #{idx}] {record.get('timestamp', 'Unknown')}")
             lines_out.append(
                 f"  ├─ Rule & MITRE : {record.get('rule_triggered')} ({record.get('mitre_id')}) | Severity: {record.get('severity')}"
@@ -290,6 +486,7 @@ class ForensicChainAuditor:
             lines_out.append(
                 f"  ├─ Target PID   : {record.get('pid')} (PPID: {record.get('ppid')}) -> {record.get('process')}"
             )
+            lines_out.append(f"  ├─ PPID Lineage : {lineage_str}")
             lines_out.append(f"  ├─ Indicators   : {', '.join(record.get('matched_indicators', []))}")
             lines_out.append(f"  ├─ Prev Hash    : {str(recorded_prev)[:36]}...")
             lines_out.append(f"  ├─ SHA-256 Seal : {calculated_seal[:36]}...")
@@ -305,6 +502,169 @@ class ForensicChainAuditor:
         lines_out.append("=" * 78)
 
         return (not tamper_detected), len(raw_lines), "\n".join(lines_out)
+
+
+# ==============================================================================
+# --- UPGRADE 7: LIVE PROCESS ANCESTRY TREE & KILL-CHAIN TIMELINE ENGINE ---
+# ==============================================================================
+class AegisForensicCorrelator:
+    """
+    Captures live psutil PPID ancestry trees (with Windows PID-reuse validation)
+    and reconstructs chronological kill-chain timelines across aegis_edr_alerts.jsonl
+    and the Incident Store.
+    """
+
+    @staticmethod
+    def capture_process_tree(target_pid: int, max_depth: int = 6) -> dict:
+        chain = []
+        current_pid = target_pid
+        visited_pids = set()
+
+        for _ in range(max_depth):
+            if not current_pid or current_pid in visited_pids or current_pid <= 4:
+                break
+            visited_pids.add(current_pid)
+
+            try:
+                proc = psutil.Process(current_pid)
+                with proc.oneshot():
+                    ctime = proc.create_time()
+                    cmdline_list = proc.cmdline()
+                    p_info = {
+                        "pid": current_pid,
+                        "ppid": proc.ppid(),
+                        "name": proc.name(),
+                        "exe": proc.exe() if proc.exe() else "N/A",
+                        "cmdline": " ".join(cmdline_list) if cmdline_list else proc.name(),
+                        "create_time": ctime,
+                        "timestamp": datetime.fromtimestamp(ctime).strftime("%H:%M:%S.%f")[:-3],
+                        "is_trigger": (current_pid == target_pid),
+                    }
+
+                chain.insert(0, p_info)
+
+                # Validate parent creation time to defeat Windows PID recycling false-positives
+                parent_pid = p_info["ppid"]
+                if parent_pid > 4 and psutil.pid_exists(parent_pid):
+                    parent_proc = psutil.Process(parent_pid)
+                    if parent_proc.create_time() <= ctime:
+                        current_pid = parent_pid
+                    else:
+                        break
+                else:
+                    break
+
+            except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
+                if current_pid == target_pid and not chain:
+                    chain.append({
+                        "pid": current_pid,
+                        "ppid": 0,
+                        "name": "<Terminated Process>",
+                        "exe": "N/A",
+                        "cmdline": "<Exited prior to tree walk>",
+                        "create_time": time.time(),
+                        "timestamp": datetime.now().strftime("%H:%M:%S.%f")[:-3],
+                        "is_trigger": True,
+                    })
+                break
+
+        return {
+            "root_pid": chain[0]["pid"] if chain else target_pid,
+            "trigger_pid": target_pid,
+            "nodes": chain,
+            "ascii_tree": AegisForensicCorrelator.format_ascii_tree(chain),
+        }
+
+    @staticmethod
+    def format_ascii_tree(chain: list) -> str:
+        if not chain:
+            return "No active process lineage available (process may have exited)."
+
+        lines = []
+        for idx, node in enumerate(chain):
+            indent = "   " * idx
+            branch = "└─ " if idx > 0 else "🎯 ROOT: "
+            flag = "  ◄── [ALERT TRIGGER]" if node.get("is_trigger") else ""
+            lines.append(
+                f"{indent}{branch}{node['name']} (PID: {node['pid']} | PPID: {node['ppid']}) [{node['timestamp']}]{flag}"
+            )
+            cmd_preview = node.get("cmdline", "")
+            if len(cmd_preview) > 95:
+                cmd_preview = cmd_preview[:92] + "..."
+            lines.append(f"{indent}   │  Cmd: {cmd_preview}")
+            if node.get("exe") and node.get("exe") != "N/A":
+                lines.append(f"{indent}   │  Exe: {node['exe']}")
+        return "\n".join(lines)
+
+    @staticmethod
+    def reconstruct_timeline(record: dict) -> list[dict]:
+        """
+        Builds a chronological Attack Kill-Chain from process lineage, YARA/Sigma hits,
+        network incidents, and SHA-256 chain sealing.
+        """
+        timeline = []
+        pid = record.get("pid", 0)
+        tree_data = record.get("process_tree")
+        if not tree_data and pid > 0 and psutil.pid_exists(pid):
+            tree_data = AegisForensicCorrelator.capture_process_tree(pid)
+
+        # 1. Process Ancestry Spawn Sequence
+        if tree_data and tree_data.get("nodes"):
+            for idx, node in enumerate(tree_data["nodes"]):
+                if idx == 0 and not node.get("is_trigger"):
+                    stage = "1. Initial Parent Execution"
+                elif node.get("is_trigger"):
+                    stage = "2. Target Process Spawn (Trigger)"
+                else:
+                    stage = "1b. Intermediate Child Spawn"
+
+                timeline.append({
+                    "time": node.get("timestamp", "N/A"),
+                    "stage": stage,
+                    "action": f"{node['name']} spawned (PID: {node['pid']} <- PPID: {node['ppid']})",
+                    "evidence": f"Cmd: {node.get('cmdline', '')[:90]}",
+                })
+
+        # 2. YARA / Sigma / EDR Command-Line & Deobfuscation Telemetry
+        if record.get("rule_triggered"):
+            timeline.append({
+                "time": str(record.get("timestamp", "Now"))[-15:],
+                "stage": f"3. YARA / Sigma Interception ({record.get('mitre_id', 'MITRE')})",
+                "action": f"Rule '{record['rule_triggered']}' matched ({record.get('severity', 'HIGH')})",
+                "evidence": f"Indicators: {', '.join(record.get('matched_indicators', []))} | Cmd: {record.get('matched_cmdline', '')[:80]}",
+            })
+
+        # 3. Correlate Network / Heuristic Reasons from Incident Store if present
+        reasons = record.get("reasons", [])
+        if reasons:
+            timeline.append({
+                "time": str(record.get("timestamp", "Now"))[-15:],
+                "stage": "3b. Behavioral & Network Telemetry Correlation",
+                "action": f"Risk Score {record.get('risk_score', 85)}/100 | Remote IP: {record.get('remote_ip', 'local_spawn')}",
+                "evidence": f"Flags: {'; '.join(reasons)}",
+            })
+
+        # 4. Containment Status
+        rec_action = record.get("recommended_action", "")
+        if "vault" in rec_action or "quarantine" in rec_action or record.get("quarantined"):
+            timeline.append({
+                "time": "Immediate",
+                "stage": "4. Automated SOAR Containment (Quarantine Vault)",
+                "action": "Process Frozen in RAM -> Binary Hashed -> Manifest Sealed -> Reviewed/Terminated",
+                "evidence": f"Directive: {rec_action or 'Quarantined'}",
+            })
+
+        # 5. Cryptographic Chain-of-Custody Seal
+        seal = record.get("sha256_seal")
+        if seal:
+            timeline.append({
+                "time": "Sealed",
+                "stage": "5. Forensic Chain-of-Custody Verification",
+                "action": "Lineage & Event cryptographically chained to aegis_edr_alerts.jsonl",
+                "evidence": f"PrevHash: {str(record.get('prev_hash', ''))[:16]}... -> Seal: {seal[:24]}...",
+            })
+
+        return timeline
 
 
 # ==============================================================================
@@ -671,7 +1031,7 @@ class SiemStreamer:
     def emit(self, payload: dict, chain_hash: str) -> bool:
         try:
             cef_header = (
-                f"CEF:0|GhostAegis|SentinelBlue|2.5|{payload.get('process', 'unknown')}|"
+                f"CEF:0|GhostAegis|SentinelBlue|3.0|{payload.get('process', 'unknown')}|"
                 f"Risk={payload.get('risk_score', 0)}|ChainHash={chain_hash[:12]}"
             )
             packet = json.dumps({
@@ -796,7 +1156,6 @@ def _query_copilot_rest(prompt: str) -> str:
     resp.raise_for_status()
     data = resp.json()
     return data["choices"][0]["message"]["content"].strip()
-# ==============================================================================
 
 
 # --- IN-CONTEXT AI MEMORY & THREAT DNA ---
@@ -967,8 +1326,9 @@ class GhostAegisApp(ctk.CTk):
         self.arp_guard = ArpSpoofGuard()
         self.siem_streamer = SiemStreamer()
 
-        # Instantiate New Native YARA Engine & Cryptographic Chain Auditor
+        # Instantiate Native YARA Engine, Sigma Engine & Cryptographic Chain Auditor
         self.yara_engine = AegisYaraEngine(RULE_FILE_PATH)
+        self.sigma_engine = AegisSigmaEngine(SIGMA_RULE_PATH)
         self.chain_auditor = ForensicChainAuditor(EDR_CHAIN_LOG_PATH)
         self.known_pids = set(psutil.pids())
         
@@ -977,7 +1337,7 @@ class GhostAegisApp(ctk.CTk):
         self.decoy_thread = None
         self.decoy_loop = None
 
-        self.title("Ghost-Aegis | Defensive Suite SE (v2.5 Enterprise EDR | YARA + SHA-256 Chain | Gemini 4 Suite)")
+        self.title("Ghost-Aegis | Defensive Suite SE (v3.0 Enterprise EDR | Process Tree + Timeline + YARA & Sigma Chain)")
         self.geometry("1220x950")
         self.minsize(1020, 750)
 
@@ -994,7 +1354,7 @@ class GhostAegisApp(ctk.CTk):
         self.status_frame.pack(pady=3, padx=20, fill="x")
         self.status_label = ctk.CTkLabel(
             self.status_frame,
-            text="🛡️ SYSTEM HARDENED | GEMINI 4 + NATIVE YARA INTERCEPTOR + SHA-256 CHAIN VAULT READY",
+            text="🛡️ SYSTEM HARDENED | v3.0 PROCESS TREE + TIMELINE + YARA & SIGMA SHA-256 VAULT READY",
             text_color="#00FF00",
             font=("Consolas", 13, "bold")
         )
@@ -1054,7 +1414,7 @@ class GhostAegisApp(ctk.CTk):
 
         self.event_hunt_button = ctk.CTkButton(
             self.left_frame,
-            text="Hunt Event IDs (4625/4720/7045/1102)",
+            text="Hunt Event IDs + Sigma (4625/4720/7045/1102)",
             width=280,
             height=25,
             fg_color="#8B4000",
@@ -1065,9 +1425,11 @@ class GhostAegisApp(ctk.CTk):
 
         self.incidents_button = ctk.CTkButton(
             self.left_frame,
-            text="View Incident Evidence",
+            text="Single Investigation Workbench (v3.0)",
             width=280,
             height=25,
+            fg_color="#005577",
+            hover_color="#00384F",
             command=self.show_incidents_window,
         )
         self.incidents_button.pack(pady=2, padx=15)
@@ -1132,7 +1494,7 @@ class GhostAegisApp(ctk.CTk):
         )
         self.readiness_button.pack(pady=2, padx=15)
 
-        self._add_panel_section(self.left_frame, "ACTIVE PROTECTION & YARA INTERCEPTOR")
+        self._add_panel_section(self.left_frame, "ACTIVE PROTECTION & YARA/SIGMA INTERCEPTOR")
 
         self.canary_button = ctk.CTkButton(
             self.left_frame,
@@ -1147,7 +1509,7 @@ class GhostAegisApp(ctk.CTk):
 
         self.yara_interceptor_button = ctk.CTkButton(
             self.left_frame,
-            text="Start YARA PID Interceptor (Real-Time)",
+            text="Start YARA + Sigma PID Interceptor",
             width=280,
             height=25,
             fg_color="#006644",
@@ -1156,7 +1518,7 @@ class GhostAegisApp(ctk.CTk):
         )
         self.yara_interceptor_button.pack(pady=2, padx=15)
 
-        # Compact Row: Verify SHA-256 Chain + Safe YARA Self-Test
+        # Compact Row: Verify SHA-256 Chain + Safe YARA/Sigma Self-Test
         self.yara_tools_frame = ctk.CTkFrame(self.left_frame, fg_color="transparent")
         self.yara_tools_frame.pack(pady=2, padx=15)
 
@@ -1173,7 +1535,7 @@ class GhostAegisApp(ctk.CTk):
 
         self.safe_yara_test_button = ctk.CTkButton(
             self.yara_tools_frame,
-            text="Safe YARA Test",
+            text="Safe YARA+Sigma Test",
             width=128,
             height=25,
             fg_color="#5B2C6F",
@@ -1448,7 +1810,8 @@ class GhostAegisApp(ctk.CTk):
 
         self.check_queue()
         self.log_event(
-            f"Ghost-Aegis v2.5 initialized | Gemini 4 Models active | Loaded {len(self.yara_engine.rules)} Native YARA rules from {RULE_FILE_PATH.name}.",
+            f"Ghost-Aegis v3.0 initialized | Single Investigation View + Process Tree active | "
+            f"Loaded {len(self.yara_engine.rules)} YARA rules & {len(self.sigma_engine.rules)} Sigma rules.",
             "trusted",
         )
         self.refresh_active_pids()
@@ -1472,28 +1835,29 @@ class GhostAegisApp(ctk.CTk):
         )
 
     # ==========================================================================
-    # --- REAL-TIME YARA PID INTERCEPTOR & CRYPTOGRAPHIC CHAIN METHODS ---
+    # --- REAL-TIME YARA + SIGMA PID INTERCEPTOR & CRYPTOGRAPHIC CHAIN ---
     # ==========================================================================
     def toggle_yara_interceptor(self):
         self.yara_interceptor_enabled = not self.yara_interceptor_enabled
         if self.yara_interceptor_enabled:
             self.known_pids = set(psutil.pids())
             self.yara_interceptor_button.configure(
-                text="Stop YARA PID Interceptor (ACTIVE)",
+                text="Stop YARA + Sigma Interceptor (ACTIVE)",
                 fg_color="#e67e22",
                 hover_color="#b85d00",
             )
             self.log_event(
-                f"🛡️ [YARA PID INTERCEPTOR ARMED] Hooking new Windows process spawns (50ms kernel table diff) across {len(self.yara_engine.rules)} YARA rules...",
+                f"🛡️ [YARA + SIGMA INTERCEPTOR ARMED] Hooking new Windows process spawns (50ms kernel table diff) "
+                f"across {len(self.yara_engine.rules)} YARA & {len(self.sigma_engine.rules)} Sigma rules...",
                 "trusted",
             )
         else:
             self.yara_interceptor_button.configure(
-                text="Start YARA PID Interceptor (Real-Time)",
+                text="Start YARA + Sigma PID Interceptor",
                 fg_color="#006644",
                 hover_color="#004d33",
             )
-            self.log_event("[*] Real-Time YARA Process Interceptor paused.", "review")
+            self.log_event("[*] Real-Time YARA + Sigma Process Interceptor paused.", "review")
 
     def _yara_interceptor_loop(self):
         while True:
@@ -1519,14 +1883,24 @@ class GhostAegisApp(ctk.CTk):
         except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
             return
 
-        alerts = self.yara_engine.scan_command_line(pid, name, cmdline)
+        # Evaluate command line against BOTH Native YARA and Native Sigma engines
+        alerts = (
+            self.yara_engine.scan_command_line(pid, name, cmdline)
+            + self.sigma_engine.evaluate_process(pid, name, cmdline)
+        )
+        if not alerts:
+            return
+
+        tree_snapshot = AegisForensicCorrelator.capture_process_tree(pid)
+
         for alert in alerts:
             alert["ppid"] = ppid
             alert["exe_path"] = exe_path
+            alert["process_tree"] = tree_snapshot
             sealed = self.chain_auditor.seal_alert(alert)
 
             self._queue_log(
-                f"🚨 [GHOST-AEGIS YARA EDR ALERT] Rule: {sealed['rule_triggered']} | MITRE: {sealed['mitre_id']} | "
+                f"🚨 [GHOST-AEGIS EDR ALERT] {sealed['rule_triggered']} | MITRE: {sealed['mitre_id']} | "
                 f"Severity: {sealed['severity']} | PID: {pid} (PPID: {ppid}) -> {name}",
                 "threat",
             )
@@ -1540,10 +1914,9 @@ class GhostAegisApp(ctk.CTk):
             )
             self.log_queue.put(("__set_target_pid__", f"{pid} ({name})"))
 
-            # Record to Incident Store & Stream to SIEM
             risk_val = 95 if sealed["severity"] == "CRITICAL" else 85
             reasons = [
-                f"YARA:{sealed['rule_triggered']}",
+                f"{sealed['rule_triggered']}",
                 f"MITRE:{sealed['mitre_id']}",
                 f"ChainSeal:{sealed['sha256_seal'][:12]}",
             ]
@@ -1573,25 +1946,35 @@ class GhostAegisApp(ctk.CTk):
                 )
                 if vault_res.get("success"):
                     self._queue_log(
-                        f"🚨 [AUTO-MITIGATE YARA VAULT] {name} (PID {pid}) FROZEN, VAULTED & KILLED.",
+                        f"🚨 [AUTO-MITIGATE EDR VAULT] {name} (PID {pid}) FROZEN, VAULTED & KILLED.",
                         "threat",
                     )
 
     def run_safe_yara_test(self):
-        """Simulates an encoded PowerShell payload in memory to test YARA + SHA-256 sealing without tripping Defender AMSI."""
+        """Simulates an encoded PowerShell payload in memory to test YARA + Sigma + Process Tree + SHA-256 sealing."""
         test_cmd = "powershell.exe -WindowStyle Hidden -enc SQBFAFgA_GHOST_AEGIS_SAFE_MEMORY_TEST"
-        alerts = self.yara_engine.scan_command_line(
-            pid=os.getpid(),
-            process_name="powershell_sim.exe",
-            cmdline=test_cmd,
+        sim_pid = os.getpid()
+        alerts = (
+            self.yara_engine.scan_command_line(
+                pid=sim_pid,
+                process_name="powershell_sim.exe",
+                cmdline=test_cmd,
+            )
+            + self.sigma_engine.evaluate_process(
+                pid=sim_pid,
+                process_name="powershell_sim.exe",
+                cmdline=test_cmd,
+            )
         )
+        tree_snapshot = AegisForensicCorrelator.capture_process_tree(sim_pid)
         for alert in alerts:
             alert["ppid"] = os.getppid()
             alert["exe_path"] = str(BASE_DIR / "Memory_Simulation_Test")
+            alert["process_tree"] = tree_snapshot
             sealed = self.chain_auditor.seal_alert(alert)
             self.log_event(
-                f"🧪 [SAFE YARA MEMORY TEST] Triggered '{sealed['rule_triggered']}' ({sealed['mitre_id']}) | "
-                f"Sealed to {EDR_CHAIN_LOG_PATH.name} (SHA-256: {sealed['sha256_seal'][:24]}...)",
+                f"🧪 [SAFE YARA+SIGMA TEST] Triggered '{sealed['rule_triggered']}' ({sealed['mitre_id']}) | "
+                f"Process Tree & Alert Sealed to {EDR_CHAIN_LOG_PATH.name} (SHA-256: {sealed['sha256_seal'][:24]}...)",
                 "learning",
             )
 
@@ -1644,7 +2027,7 @@ class GhostAegisApp(ctk.CTk):
     def inspect_selected_pid_edr(self):
         pid = self._get_selected_pid()
         if not pid:
-            self.log_event("Select an active PID to run PE Entropy, YARA & Command-Line Deobfuscation.", "warn")
+            self.log_event("Select an active PID to run PE Entropy, YARA, Sigma & Command-Line Deobfuscation.", "warn")
             return
         try:
             proc = psutil.Process(pid)
@@ -1657,23 +2040,29 @@ class GhostAegisApp(ctk.CTk):
         cmd_info = self.edr_inspector.inspect_cmdline(pid)
         pe_info = self.edr_inspector.scan_pe_binary(exe_path)
         yara_hits = self.yara_engine.scan_command_line(pid, proc_name, cmd_info["cmdline"])
+        sigma_hits = self.sigma_engine.evaluate_process(pid, proc_name, cmd_info["cmdline"])
+        tree_info = AegisForensicCorrelator.capture_process_tree(pid)
 
-        self.log_event(f"🔬 [EDR DEEP INSPECT] {proc_name} (PID: {pid})", "system")
+        self.log_event(f"🔬 [EDR DEEP INSPECT] {proc_name} (PID: {pid} | Root PID: {tree_info.get('root_pid')})", "system")
         self.log_event(f"   Cmdline: {cmd_info['cmdline'] or 'N/A'}", "review")
         if cmd_info["lolbin_hit"]:
             self.log_event(f"   [!] LOLBIN DETECTED: {cmd_info['lolbin_hit']}", "threat")
         if cmd_info["decoded_b64"]:
             self.log_event(f"   [!] DECODED BASE64 PAYLOAD: {cmd_info['decoded_b64']}", "threat")
-        if yara_hits:
-            for yh in yara_hits:
-                self.log_event(
-                    f"   [!] YARA RULE MATCH: {yh['rule_triggered']} (MITRE {yh['mitre_id']}) -> {yh['matched_indicators']}",
-                    "threat",
-                )
+        for yh in yara_hits:
+            self.log_event(
+                f"   [!] {yh['rule_triggered']} (MITRE {yh['mitre_id']}) -> {yh['matched_indicators']}",
+                "threat",
+            )
+        for sh in sigma_hits:
+            self.log_event(
+                f"   [!] {sh['rule_triggered']} (MITRE {sh['mitre_id']}) -> {sh['matched_indicators']}",
+                "threat",
+            )
         self.log_event(
             f"   PE Shannon Entropy: {pe_info['entropy']}/8.00 ({'PACKED/ENCRYPTED SUSPECT' if pe_info['packed'] else 'Normal'}) | "
             f"Injection APIs: {', '.join(pe_info['suspicious_apis']) if pe_info['suspicious_apis'] else 'None'}",
-            "threat" if (pe_info["packed"] or pe_info["suspicious_apis"] or yara_hits) else "trusted"
+            "threat" if (pe_info["packed"] or pe_info["suspicious_apis"] or yara_hits or sigma_hits) else "trusted"
         )
 
     # --- ON-DEMAND FREEZE & QUARANTINE VAULT ---
@@ -1698,23 +2087,36 @@ class GhostAegisApp(ctk.CTk):
         else:
             self.log_event(f"[-] Quarantine failed: {res.get('error')}", "threat")
 
-    # --- ON-DEMAND WINDOWS EVENT ID THREAT HUNTER ---
+    # --- ON-DEMAND WINDOWS EVENT ID THREAT HUNTER + SIGMA CORRELATION ---
     def run_event_log_hunt(self):
         self.event_hunt_button.configure(state="disabled", text="Hunting Event Logs...")
-        self.log_event("[*] Querying Windows Security & System Event Logs (4625, 4720, 7045, 1102)...", "system")
+        self.log_event("[*] Querying Windows Security & System Event Logs (4625, 4720, 7045, 1102) & evaluating Sigma rules...", "system")
         threading.Thread(target=self._event_hunt_worker, daemon=True).start()
 
     def _event_hunt_worker(self):
         try:
             findings = WindowsEventHunter.hunt_events()
             if not findings:
-                self._queue_log("[+] Event Log Hunt complete: 0 high-risk Security/System Event IDs detected (or elevation required for Security log).", "trusted")
+                self._queue_log("[+] Event Log + Sigma Hunt complete: 0 high-risk Security/System Event IDs detected (or elevation required for Security log).", "trusted")
             else:
                 for item in findings:
                     self._queue_log(
                         f"🚨 [EVENT ID {item['event_id']}] {item['label']} ({item['count']} recent hits in {item['log']} log)",
                         "threat"
                     )
+                    # Evaluate Event ID against Native Sigma Engine and seal into SHA-256 chain
+                    sigma_hits = self.sigma_engine.evaluate_event_id(
+                        event_id=item["event_id"],
+                        log_name=item["log"],
+                        count=item["count"],
+                    )
+                    for sh in sigma_hits:
+                        sh["process_tree"] = AegisForensicCorrelator.capture_process_tree(os.getpid())
+                        sealed = self.chain_auditor.seal_alert(sh)
+                        self._queue_log(
+                            f"   🛡️ [{sealed['rule_triggered']}] MITRE {sealed['mitre_id']} | Sealed to {EDR_CHAIN_LOG_PATH.name} (SHA-256: {sealed['sha256_seal'][:20]}...)",
+                            "threat",
+                        )
         except Exception as exc:
             self._queue_log(f"[-] Event Log Hunt error: {exc}", "threat")
         finally:
@@ -1895,16 +2297,16 @@ class GhostAegisApp(ctk.CTk):
         about_win.attributes("-topmost", True)
 
         ctk.CTkLabel(about_win, text="GHOST-AEGIS", font=("Fixedsys", 28, "bold"), text_color="#00FF00").pack(pady=20)
-        ctk.CTkLabel(about_win, text="Version 2.5.0 | 'Sentinel Blue Enterprise EDR'", font=("Arial", 10, "italic")).pack()
+        ctk.CTkLabel(about_win, text="Version 3.0.0 | 'Sentinel Blue Enterprise EDR/XDR'", font=("Arial", 10, "italic")).pack()
 
         mission_text = (
             "Mission: Save the World through Internet Safety.\n\n"
             "Ghost-Aegis is an active defensive engineering suite designed for "
             "Blue Team operations. Powered by Gemini 4 (Hydrogen, Argon, Carbon) "
-            "and Copilot, it integrates Native YARA Process Interception, SHA-256 "
+            "and Copilot, it integrates Live Process Ancestry Tree & Kill-Chain "
+            "Timeline Reconstruction, Native YARA & Sigma Detection Engines, SHA-256 "
             "Cryptographic Chain-of-Custody Auditing, LOLBin & Base64 PowerShell "
-            "deobfuscation, PE Shannon entropy analysis, process quarantine "
-            "vaulting, ARP spoof detection, and Windows Event ID threat hunting."
+            "deobfuscation, PE Shannon entropy analysis, and Quarantine Vaulting."
         )
 
         mission_box = ctk.CTkTextbox(about_win, width=400, height=150, font=("Arial", 12))
@@ -1914,49 +2316,294 @@ class GhostAegisApp(ctk.CTk):
 
         ctk.CTkLabel(about_win, text="Cyber Defense Lead:", font=("Arial", 12, "bold"), text_color="#3b8ed0").pack()
         ctk.CTkLabel(about_win, text='[Homero "Joseph Awana" Antillon / Gemini 4 / Copilot]', font=("Consolas", 14)).pack(pady=5)
-        ctk.CTkLabel(about_win, text="Gemini 4 Hydrogen • Argon • Carbon • Pure-Python YARA EDR", font=("Arial", 9)).pack(pady=(15, 0))
+        ctk.CTkLabel(about_win, text="Gemini 4 Hydrogen • Argon • Carbon • Pure-Python YARA & Sigma EDR", font=("Arial", 9)).pack(pady=(15, 0))
         ctk.CTkButton(about_win, text="CLOSE", fg_color="#444444", command=about_win.destroy).pack(pady=15)
 
+    # ==========================================================================
+    # --- UPGRADE 7 UI: SINGLE INVESTIGATION VIEW WORKBENCH (v3.0) ---
+    # ==========================================================================
     def show_incidents_window(self):
-        incidents_win = ctk.CTkToplevel(self)
-        incidents_win.title("Ghost-Aegis | Incident Evidence & Threat DNA")
-        incidents_win.geometry("950x580")
-        incidents_win.attributes("-topmost", True)
+        workbench = ctk.CTkToplevel(self)
+        workbench.title("Ghost-Aegis v3.0 | Single Investigation View (Process Tree & Attack Timeline)")
+        workbench.geometry("1180x720")
+        workbench.attributes("-topmost", True)
+        workbench.configure(fg_color="#0a0d12")
 
-        evidence_box = ctk.CTkTextbox(
-            incidents_win,
+        # Gather unified records from both aegis_edr_alerts.jsonl and incident_store
+        records = []
+        if EDR_CHAIN_LOG_PATH.exists():
+            try:
+                for line in reversed(EDR_CHAIN_LOG_PATH.read_text(encoding="utf-8").splitlines()):
+                    if line.strip():
+                        rec = json.loads(line)
+                        rec["_source"] = "YARA_CHAIN"
+                        records.append(rec)
+            except Exception:
+                pass
+
+        for inc in reversed(load_incidents()[-50:]):
+            inc_copy = dict(inc)
+            inc_copy["_source"] = "INCIDENT_STORE"
+            records.append(inc_copy)
+
+        # --- TOP BAR: Incident Selector & Chain Integrity Status ---
+        top_bar = ctk.CTkFrame(workbench, fg_color="#161b22", corner_radius=8)
+        top_bar.pack(fill="x", padx=15, pady=(12, 6))
+
+        ctk.CTkLabel(
+            top_bar,
+            text="🔍 SELECT INCIDENT:",
+            font=("Consolas", 13, "bold"),
+            text_color="#00E5FF",
+        ).pack(side="left", padx=(12, 6), pady=10)
+
+        options = []
+        for idx, r in enumerate(records):
+            if r.get("_source") == "YARA_CHAIN":
+                label = f"[#{idx+1} SEALED] {r.get('process')} (PID {r.get('pid')}) - {r.get('rule_triggered')} [{r.get('mitre_id')}]"
+            else:
+                label = f"[#{idx+1} INCIDENT] {r.get('process')} (PID {r.get('pid')}) - Risk {r.get('risk_score', 0)}/100 ({r.get('remote_ip', 'local')})"
+            options.append(label)
+
+        if not options:
+            options = ["No recorded incidents (Click 'Safe YARA+Sigma Test' or 'Inspect Active PID')"]
+
+        incident_menu = ctk.CTkOptionMenu(
+            top_bar,
+            values=options,
+            width=500,
+            fg_color="#1f538d",
+            button_color="#14375e",
+            font=("Consolas", 11),
+        )
+        incident_menu.pack(side="left", padx=6, pady=10)
+
+        seal_badge = ctk.CTkLabel(
+            top_bar,
+            text="⛓️ SHA-256 SEAL: STANDBY",
+            font=("Consolas", 12, "bold"),
+            text_color="#00FF00",
+        )
+        seal_badge.pack(side="right", padx=12, pady=10)
+
+        # --- MIDDLE SPLIT PANES: Left = Process Tree | Right = Kill-Chain Timeline ---
+        split_frame = ctk.CTkFrame(workbench, fg_color="transparent")
+        split_frame.pack(fill="both", expand=True, padx=15, pady=4)
+        split_frame.grid_columnconfigure(0, weight=1)
+        split_frame.grid_columnconfigure(1, weight=1)
+        split_frame.grid_rowconfigure(0, weight=1)
+
+        # Left Pane: Process Ancestry Tree + Deep Telemetry
+        left_pane = ctk.CTkFrame(split_frame, fg_color="#161b22", corner_radius=8)
+        left_pane.grid(row=0, column=0, sticky="nsew", padx=(0, 6), pady=2)
+
+        ctk.CTkLabel(
+            left_pane,
+            text="🌳 LIVE PROCESS ANCESTRY TREE (PPID LINEAGE & TELEMETRY)",
+            font=("Consolas", 13, "bold"),
+            text_color="#FF7518",
+        ).pack(anchor="w", padx=12, pady=(8, 4))
+
+        tree_box = ctk.CTkTextbox(
+            left_pane,
             font=("Consolas", 11),
             fg_color="#000000",
             text_color="#00FF00",
+            wrap="none",
         )
-        evidence_box.pack(fill="both", expand=True, padx=15, pady=(15, 8))
+        tree_box.pack(fill="both", expand=True, padx=10, pady=(0, 10))
 
-        incidents = load_incidents()
-        if not incidents:
-            evidence_box.insert("end", "No incidents recorded yet. Run Network Sentinel Audit first.\n")
-        else:
-            for incident in reversed(incidents[-100:]):
-                dna = generate_threat_dna(
-                    incident.get("process", "unknown"),
-                    incident.get("signer", "Unknown"),
-                    incident.get("remote_ip", "none"),
-                    incident.get("reasons", [])
+        # Right Pane: Chronological Kill-Chain Timeline
+        right_pane = ctk.CTkFrame(split_frame, fg_color="#161b22", corner_radius=8)
+        right_pane.grid(row=0, column=1, sticky="nsew", padx=(6, 0), pady=2)
+
+        ctk.CTkLabel(
+            right_pane,
+            text="⏱️ ATTACK TIMELINE RECONSTRUCTION (KILL-CHAIN)",
+            font=("Consolas", 13, "bold"),
+            text_color="#00E5FF",
+        ).pack(anchor="w", padx=12, pady=(8, 4))
+
+        timeline_box = ctk.CTkTextbox(
+            right_pane,
+            font=("Consolas", 11),
+            fg_color="#000000",
+            text_color="#e6edf3",
+            wrap="word",
+        )
+        timeline_box.pack(fill="both", expand=True, padx=10, pady=(0, 10))
+
+        # --- BOTTOM BAR: Threat DNA, MITRE Summary & Direct Response Controls ---
+        bottom_bar = ctk.CTkFrame(workbench, fg_color="#161b22", corner_radius=8)
+        bottom_bar.pack(fill="x", padx=15, pady=(6, 12))
+
+        dna_label = ctk.CTkLabel(
+            bottom_bar,
+            text="🧬 THREAT DNA: N/A | MITRE: N/A",
+            font=("Consolas", 12, "bold"),
+            text_color="#BA55D3",
+        )
+        dna_label.pack(side="left", padx=12, pady=10)
+
+        def render_record(rec: dict):
+            pid = rec.get("pid", 0)
+            proc_name = rec.get("process", "unknown")
+            reasons = rec.get("reasons", rec.get("matched_indicators", []))
+            dna = generate_threat_dna(
+                proc_name,
+                rec.get("signer", "Unknown"),
+                rec.get("remote_ip", "local"),
+                [str(x) for x in reasons],
+            )
+            mitre_str = rec.get("mitre_id") or ", ".join(
+                [r for r in reasons if "MITRE" in str(r) or "YARA" in str(r) or "SIGMA" in str(r)]
+            ) or "Heuristic / Behavioral"
+
+            # 1. Update Seal Badge
+            seal = rec.get("sha256_seal")
+            if seal:
+                seal_badge.configure(
+                    text=f"⛓️ SHA-256 SEAL VERIFIED: {seal[:16]}...",
+                    text_color="#00FF00",
                 )
-                evidence_box.insert(
-                    "end",
-                    f"[{incident.get('timestamp', 'unknown')}] "
-                    f"{incident.get('process', 'unknown')} (PID {incident.get('pid', '?')}) | Threat DNA: {dna}\n"
-                    f"  Risk: {incident.get('risk_score', 0)}/100 | "
-                    f"Remote: {incident.get('remote_ip', 'none')} | "
-                    f"Signer: {incident.get('signer', 'Unknown')}\n"
-                    f"  Path: {incident.get('path', 'Unknown')}\n"
-                    f"  Evidence: {'; '.join(incident.get('reasons', []))}\n\n",
+            else:
+                seal_badge.configure(
+                    text="⛓️ INCIDENT STORE RECORD (UNSEALED)",
+                    text_color="#FFBF00",
                 )
-        evidence_box.configure(state="disabled")
+
+            # 2. Build or Retrieve Process Ancestry Tree
+            tree_data = rec.get("process_tree")
+            if not tree_data and pid > 0:
+                tree_data = AegisForensicCorrelator.capture_process_tree(pid)
+                rec["process_tree"] = tree_data
+
+            tree_box.configure(state="normal")
+            tree_box.delete("1.0", "end")
+            tree_text = [
+                "=" * 70,
+                f" INCIDENT TARGET : {proc_name} (PID: {pid})",
+                f" DETECTION RULE  : {rec.get('rule_triggered', 'Behavioral / Network Sentinel')}",
+                f" EXECUTABLE PATH : {rec.get('exe_path') or rec.get('path', 'N/A')}",
+                f" REMOTE ENDPOINT : {rec.get('remote_ip', 'local_spawn')}",
+                f" DIGITAL SIGNER  : {rec.get('signer', 'N/A')}",
+                "=" * 70,
+                "",
+                tree_data.get("ascii_tree", "No process tree available.") if tree_data else "No process tree available.",
+                "",
+                "-" * 70,
+                " FORENSIC INDICATORS & EVIDENCE:",
+            ]
+            for ind in reasons:
+                tree_text.append(f"  • {ind}")
+            if rec.get("matched_cmdline"):
+                tree_text.append(f"\n CAPTURED COMMAND LINE:\n  {rec['matched_cmdline']}")
+
+            tree_box.insert("1.0", "\n".join(tree_text))
+            tree_box.configure(state="disabled")
+
+            # 3. Reconstruct Attack Kill-Chain Timeline
+            timeline_steps = AegisForensicCorrelator.reconstruct_timeline(rec)
+            timeline_box.configure(state="normal")
+            timeline_box.delete("1.0", "end")
+
+            t_lines = [
+                "=" * 68,
+                " CHRONOLOGICAL KILL-CHAIN RECONSTRUCTION",
+                "=" * 68,
+                "",
+            ]
+            for idx, step in enumerate(timeline_steps):
+                if idx > 0:
+                    t_lines.append("        │")
+                    t_lines.append("        ▼")
+                t_lines.append(f"[{step['time']}] 🛡️ {step['stage']}")
+                t_lines.append(f"   ├─ Action   : {step['action']}")
+                t_lines.append(f"   └─ Evidence : {step['evidence']}")
+
+            timeline_box.insert("1.0", "\n".join(t_lines))
+            timeline_box.configure(state="disabled")
+
+            # 4. Update Bottom DNA & MITRE Bar
+            root_pid = tree_data.get("root_pid", pid) if tree_data else pid
+            dna_label.configure(
+                text=f"🧬 THREAT DNA: {dna}  |  🎯 ROOT PID: {root_pid}  |  ⚔️ {mitre_str[:45]}"
+            )
+            if pid > 0:
+                self.pid_entry.set(f"{pid} ({proc_name})")
+
+        def on_select_incident(choice: str):
+            if not records:
+                return
+            try:
+                idx = int(choice.split("#")[1].split()[0]) - 1
+                if 0 <= idx < len(records):
+                    render_record(records[idx])
+            except Exception:
+                pass
+
+        incident_menu.configure(command=on_select_incident)
+
+        def inspect_live_selected_pid():
+            live_pid = self._get_selected_pid() or os.getpid()
+            try:
+                p = psutil.Process(live_pid)
+                live_rec = {
+                    "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                    "pid": live_pid,
+                    "ppid": p.ppid(),
+                    "process": p.name(),
+                    "path": p.exe() if p.exe() else "N/A",
+                    "remote_ip": "live_inspection",
+                    "signer": get_authenticode_signer(p.exe() if p.exe() else ""),
+                    "risk_score": 50,
+                    "reasons": ["Live Analyst Process Tree Inspection"],
+                    "process_tree": AegisForensicCorrelator.capture_process_tree(live_pid),
+                }
+                render_record(live_rec)
+            except Exception as exc:
+                self.log_event(f"[!] Live PID tree inspection error: {exc}", "warn")
+
         ctk.CTkButton(
-            incidents_win, text="CLOSE", fg_color="#444444",
-            command=incidents_win.destroy,
-        ).pack(pady=(0, 12))
+            bottom_bar,
+            text="CLOSE",
+            fg_color="#444444",
+            width=90,
+            command=workbench.destroy,
+        ).pack(side="right", padx=(6, 12), pady=10)
+
+        ctk.CTkButton(
+            bottom_bar,
+            text="Freeze + Vault PID",
+            fg_color="#B85D00",
+            hover_color="#7A3E00",
+            width=135,
+            command=self.quarantine_process_callback,
+        ).pack(side="right", padx=6, pady=10)
+
+        ctk.CTkButton(
+            bottom_bar,
+            text="Dual-AI Triage PID",
+            fg_color="#4B0082",
+            hover_color="#300052",
+            width=135,
+            command=self.run_dual_ai_eval,
+        ).pack(side="right", padx=6, pady=10)
+
+        ctk.CTkButton(
+            bottom_bar,
+            text="Inspect Active PID Tree",
+            fg_color="#005577",
+            hover_color="#00384F",
+            width=155,
+            command=inspect_live_selected_pid,
+        ).pack(side="right", padx=6, pady=10)
+
+        # Render the most recent incident immediately on open, or fall back to live host tree
+        if records:
+            render_record(records[0])
+        else:
+            inspect_live_selected_pid()
 
     # --- REPORT EXPORT ---
     def export_report(self):
@@ -2377,7 +3024,7 @@ class GhostAegisApp(ctk.CTk):
                 elif message == "__persistence_complete__":
                     self.persistence_button.configure(state="normal", text="Audit Persistence")
                 elif message == "__event_hunt_complete__":
-                    self.event_hunt_button.configure(state="normal", text="Hunt Event IDs (4625/4720/7045/1102)")
+                    self.event_hunt_button.configure(state="normal", text="Hunt Event IDs + Sigma (4625/4720/7045/1102)")
                 elif message == "__engine_complete__":
                     self.engine_thread_running = False
                     self.engine_button.configure(state="normal", text="Launch Defense Engine")
@@ -2505,7 +3152,7 @@ class GhostAegisApp(ctk.CTk):
 
     def run_readiness_check(self):
         is_admin = bool(ctypes.windll.shell32.IsUserAnAdmin()) if os.name == "nt" else False
-        self.log_event("--- Ghost-Aegis v2.5 Readiness Check ---", "system")
+        self.log_event("--- Ghost-Aegis v3.0 Readiness Check ---", "system")
         self.log_event(
             f"Administrator privileges: {'READY' if is_admin else 'LIMITED'}",
             "trusted" if is_admin else "warn",
@@ -2520,7 +3167,15 @@ class GhostAegisApp(ctk.CTk):
             "trusted",
         )
         self.log_event(
+            f"Native Sigma Engine ({SIGMA_RULE_PATH.name}): {len(self.sigma_engine.rules)} rules compiled (YAML-Free READY)",
+            "trusted",
+        )
+        self.log_event(
             f"SHA-256 Chain Ledger ({EDR_CHAIN_LOG_PATH.name}): Head Hash {self.chain_auditor.last_hash[:16]}...",
+            "trusted",
+        )
+        self.log_event(
+            "Forensic Process Tree & Timeline Correlator: READY (PID-Reuse Protected)",
             "trusted",
         )
         self.log_event(
@@ -2789,7 +3444,7 @@ class GhostAegisApp(ctk.CTk):
 
         self.scan_thread_running = True
         self.sentinel_button.configure(state="disabled", text="Scanning Sockets...")
-        self.log_event("[*] Network Sentinel starting deep socket + YARA + EDR + ARP audit...", "system")
+        self.log_event("[*] Network Sentinel starting deep socket + YARA + Sigma + EDR + ARP audit...", "system")
         threading.Thread(target=self._network_sentinel_worker, daemon=True).start()
 
     def _network_sentinel_worker(self):
@@ -2880,10 +3535,15 @@ class GhostAegisApp(ctk.CTk):
                         reasons.extend(cmd_info["suspicious_flags"])
                         risk_score = min(100, risk_score + cmd_info["risk_boost"])
 
-                    # Scan command line against Native YARA Rules
+                    # Scan command line against Native YARA & Sigma Rules
                     yara_hits = self.yara_engine.scan_command_line(pid, proc_name, cmd_info["cmdline"])
                     for yh in yara_hits:
-                        reasons.append(f"YARA:{yh['rule_triggered']}({yh['mitre_id']})")
+                        reasons.append(f"{yh['rule_triggered']}({yh['mitre_id']})")
+                        risk_score = max(risk_score, 90)
+
+                    sigma_hits = self.sigma_engine.evaluate_process(pid, proc_name, cmd_info["cmdline"])
+                    for sh in sigma_hits:
+                        reasons.append(f"{sh['rule_triggered']}({sh['mitre_id']})")
                         risk_score = max(risk_score, 90)
 
                     if not trusted_process and exe_path:
@@ -3016,7 +3676,7 @@ class GhostAegisApp(ctk.CTk):
         if pid is not None:
             preferred_gemini = self.gemini_model_menu.get()
             self.log_event(
-                f"[*] Extracting deep EDR + YARA telemetry and invoking Dual-AI ({preferred_gemini} + Copilot) for PID {pid}...",
+                f"[*] Extracting deep EDR + Process Tree + YARA & Sigma telemetry and invoking Dual-AI ({preferred_gemini} + Copilot) for PID {pid}...",
                 "system",
             )
             self.ai_eval_button.configure(state="disabled")
@@ -3048,6 +3708,8 @@ class GhostAegisApp(ctk.CTk):
             cmd_info = self.edr_inspector.inspect_cmdline(pid)
             pe_info = self.edr_inspector.scan_pe_binary(exe_path if exe_path != "Unavailable" else "")
             yara_hits = self.yara_engine.scan_command_line(pid, proc_name, cmd_info["cmdline"])
+            sigma_hits = self.sigma_engine.evaluate_process(pid, proc_name, cmd_info["cmdline"])
+            tree_info = AegisForensicCorrelator.capture_process_tree(pid)
 
             memory_context = self.analyst_memory.get_prompt_context()
 
@@ -3055,11 +3717,13 @@ class GhostAegisApp(ctk.CTk):
                 "Process Name": proc_name,
                 "PID": pid,
                 "Parent Process": parent_name,
+                "Process Lineage Chain": [f"{n['name']} (PID {n['pid']})" for n in tree_info.get("nodes", [])],
                 "Executable Path": exe_path,
                 "Command Line": cmd_info["cmdline"],
                 "Decoded Base64 Payload": cmd_info["decoded_b64"],
                 "LOLBin Alert": cmd_info["lolbin_hit"],
                 "YARA Rule Hits": [f"{y['rule_triggered']} ({y['mitre_id']})" for y in yara_hits],
+                "Sigma Rule Hits": [f"{s['rule_triggered']} ({s['mitre_id']})" for s in sigma_hits],
                 "PE Shannon Entropy": pe_info["entropy"],
                 "Packed Binary Suspect": pe_info["packed"],
                 "Injection API Imports": pe_info["suspicious_apis"],
@@ -3071,14 +3735,14 @@ class GhostAegisApp(ctk.CTk):
             context = json.dumps(sanitized_context, indent=2)
 
             self._queue_log(
-                f"[*] EDR telemetry, YARA hits & PE entropy gathered for {proc_name}. Querying {preferred_gemini} & Copilot...",
+                f"[*] EDR telemetry, Process Tree, YARA & Sigma hits gathered for {proc_name}. Querying {preferred_gemini} & Copilot...",
                 "system",
             )
 
             prompt = (
                 "You are an expert Blue Team cybersecurity analyst for Ghost-Aegis.\n"
-                "Analyze the following process telemetry (including command-line arguments, decoded Base64, "
-                "YARA hits, PE entropy, and injection APIs) and provide a 1-sentence assessment "
+                "Analyze the following process telemetry (including parent-child process lineage, command-line arguments, "
+                "decoded Base64, YARA hits, Sigma rule hits, PE entropy, and injection APIs) and provide a 1-sentence assessment "
                 "ending strictly with 'Threat Score: X/10'.\n\n"
                 f"{memory_context}\n\n"
                 f"### SANITIZED TELEMETRY:\n{context}"

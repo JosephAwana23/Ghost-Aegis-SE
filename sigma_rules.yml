@@ -1,0 +1,80 @@
+title: Suspicious Encoded PowerShell or Download Cradle
+id: 8f3b2a1c-4d5e-6f7a-8b9c-0d1e2f3a4b5c
+status: production
+level: high
+logsource:
+    category: process_creation
+    product: windows
+tags:
+    - attack.execution
+    - attack.t1059.001
+detection:
+    keywords:
+        - '-enc '
+        - '-EncodedCommand'
+        - 'DownloadString'
+        - 'Invoke-Expression'
+        - 'IEX('
+        - '-WindowStyle Hidden'
+    condition: keywords
+---
+title: Living Off The Land Binary (LOLBin) Proxy Execution
+id: 2c9a1b3d-5e6f-4a8b-9c0d-1e2f3a4b5c6d
+status: production
+level: critical
+logsource:
+    category: process_creation
+    product: windows
+tags:
+    - attack.defense_evasion
+    - attack.t1218
+detection:
+    keywords:
+        - 'certutil -urlcache'
+        - 'mshta vbscript:'
+        - 'regsvr32 /s /n /u /i:'
+        - 'rundll32 javascript:'
+        - 'bitsadmin /transfer'
+    condition: keywords
+---
+title: Windows Security Audit Log Cleared
+id: a1b2c3d4-e5f6-4a5b-8c9d-0e1f2a3b4c5d
+status: production
+level: critical
+logsource:
+    product: windows
+    service: security
+tags:
+    - attack.defense_evasion
+    - attack.t1070.001
+detection:
+    event_id: 1102
+    condition: selection
+---
+title: Suspicious New Windows Service Installed
+id: b2c3d4e5-f6a7-4b5c-9d0e-1f2a3b4c5d6e
+status: production
+level: high
+logsource:
+    product: windows
+    service: system
+tags:
+    - attack.persistence
+    - attack.t1543.003
+detection:
+    event_id: 7045
+    condition: selection
+---
+title: Windows Brute Force or Failed Logon Burst
+id: c3d4e5f6-a7b8-4c5d-0e1f-2a3b4c5d6e7f
+status: production
+level: medium
+logsource:
+    product: windows
+    service: security
+tags:
+    - attack.credential_access
+    - attack.t1110
+detection:
+    event_id: 4625
+    condition: selection
