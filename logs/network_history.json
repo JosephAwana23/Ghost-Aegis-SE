@@ -2532,9 +2532,10 @@
     "remote_ip": "2607:f8b0:4023:c03::bc",
     "port": "5228",
     "first_seen": 1794889199.5820634,
-    "last_seen": 1794889199.5820634,
+    "last_seen": 1794961210.2094817,
     "sightings": [
-      1794889199.5820634
+      1794889199.5820634,
+      1794961210.2094817
     ]
   },
   "Code.exe|2606:50c0:8001::154|443": {
@@ -2542,9 +2543,80 @@
     "remote_ip": "2606:50c0:8001::154",
     "port": "443",
     "first_seen": 1794889200.2272284,
-    "last_seen": 1794889200.2272284,
+    "last_seen": 1794961213.0651984,
     "sightings": [
-      1794889200.2272284
+      1794889200.2272284,
+      1794961213.0651984
+    ]
+  },
+  "steamwebhelper.exe|23.220.200.93|443": {
+    "process": "steamwebhelper.exe",
+    "remote_ip": "23.220.200.93",
+    "port": "443",
+    "first_seen": 1794961182.5254104,
+    "last_seen": 1794961182.5254104,
+    "sightings": [
+      1794961182.5254104
+    ]
+  },
+  "steam.exe|162.254.195.75|27018": {
+    "process": "steam.exe",
+    "remote_ip": "162.254.195.75",
+    "port": "27018",
+    "first_seen": 1794961188.9222753,
+    "last_seen": 1794961188.9222753,
+    "sightings": [
+      1794961188.9222753
+    ]
+  },
+  "svchost.exe|72.153.5.129|443": {
+    "process": "svchost.exe",
+    "remote_ip": "72.153.5.129",
+    "port": "443",
+    "first_seen": 1794961196.3434713,
+    "last_seen": 1794961196.3434713,
+    "sightings": [
+      1794961196.3434713
+    ]
+  },
+  "chrome.exe|100.61.194.158|443": {
+    "process": "chrome.exe",
+    "remote_ip": "100.61.194.158",
+    "port": "443",
+    "first_seen": 1794961202.6614177,
+    "last_seen": 1794961202.6614177,
+    "sightings": [
+      1794961202.6614177
+    ]
+  },
+  "steamwebhelper.exe|151.101.199.52|443": {
+    "process": "steamwebhelper.exe",
+    "remote_ip": "151.101.199.52",
+    "port": "443",
+    "first_seen": 1794961208.9662557,
+    "last_seen": 1794961208.9662557,
+    "sightings": [
+      1794961208.9662557
+    ]
+  },
+  "CrossDeviceService.exe|2603:1030:a07:1::71c|443": {
+    "process": "CrossDeviceService.exe",
+    "remote_ip": "2603:1030:a07:1::71c",
+    "port": "443",
+    "first_seen": 1794961210.4245474,
+    "last_seen": 1794961210.4245474,
+    "sightings": [
+      1794961210.4245474
+    ]
+  },
+  "svchost.exe|2603:1030:a07:a::402|443": {
+    "process": "svchost.exe",
+    "remote_ip": "2603:1030:a07:a::402",
+    "port": "443",
+    "first_seen": 1794961214.7707593,
+    "last_seen": 1794961214.7707593,
+    "sightings": [
+      1794961214.7707593
     ]
   }
 }

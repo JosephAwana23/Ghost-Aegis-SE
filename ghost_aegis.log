@@ -5700,3 +5700,112 @@ The command completed successfully.
 [2026-11-16 20:53:27] Ghost-Aegis v3.0 initialized | Single Investigation View + Process Tree active | Loaded 5 YARA rules & 5 Sigma rules.
 [2026-11-16 20:54:09] 🧪 [SAFE YARA+SIGMA TEST] Triggered 'YARA: Windows_Encoded_PowerShell' (T1059.001) | Process Tree & Alert Sealed to aegis_edr_alerts.jsonl (SHA-256: a08fdd23020e5842d23568c7...)
 [2026-11-16 20:54:09] 🧪 [SAFE YARA+SIGMA TEST] Triggered 'SIGMA: Suspicious Encoded PowerShell or Download Cradle' (T1059.001) | Process Tree & Alert Sealed to aegis_edr_alerts.jsonl (SHA-256: e38c22285965895e38597144...)
+[2026-11-17 11:15:59] Ghost-Aegis v3.0 initialized | Single Investigation View + Process Tree active | Loaded 5 YARA rules & 5 Sigma rules.
+[2026-11-17 11:16:26] [*] Polling incident history for global coordinates...
+[2026-11-17 11:16:26] [+] Radar clear. No external threat coordinates found.
+[2026-11-17 16:15:37] Ghost-Aegis v3.0 XDR initialized | Process Tree + Lineage Guard + Ransomware Correlator + Purple Team Sim active | Loaded 5 YARA rules & 5 Sigma rules.
+[2026-11-17 16:15:48] 🧪 [PURPLE TEAM SCENARIO 1] Triggered 'YARA: Windows_Encoded_PowerShell' (T1059.001) | Process Tree & Alert Sealed to aegis_edr_alerts.jsonl (SHA-256: c4c6daed2addc53d42631a33...)
+[2026-11-17 16:15:49] 🧪 [PURPLE TEAM SCENARIO 1] Triggered 'SIGMA: Suspicious Encoded PowerShell or Download Cradle' (T1059.001) | Process Tree & Alert Sealed to aegis_edr_alerts.jsonl (SHA-256: f27841eaac7daa36bbbb7968...)
+[2026-11-17 16:16:08] 🛡️ [YARA + SIGMA + LINEAGE INTERCEPTOR ARMED] Hooking new Windows process spawns (50ms kernel table diff) across 5 YARA & 5 Sigma rules...
+[2026-11-17 16:16:09] ⚔️ [PURPLE TEAM LIVE SPAWN] Spawned benign child PID 22172 with T1059.001 obfuscated arguments...
+[2026-11-17 16:16:09] 🚨 [GHOST-AEGIS EDR ALERT] YARA: Windows_Encoded_PowerShell | MITRE: T1059.001 | Severity: HIGH | PID: 22172 (PPID: 4720) -> python.exe
+[2026-11-17 16:16:09]    Indicators: ['$enc1', '$hidden'] | Cmd: C:\Users\Gem\AppData\Local\Programs\Python\Python313\python.exe -c import time; time.sleep(1.5) powershell.exe -WindowSt
+[2026-11-17 16:16:09]    PrevHash: f27841eaac7daa36bbbb... -> SHA-256 Seal: 4dee491ffc19f2d8f56b48b0...
+[2026-11-17 16:16:11] 🚨 [GHOST-AEGIS EDR ALERT] SIGMA: Suspicious Encoded PowerShell or Download Cradle | MITRE: T1059.001 | Severity: HIGH | PID: 22172 (PPID: 4720) -> python.exe
+[2026-11-17 16:16:11]    Indicators: ['-enc ', '-WindowStyle Hidden'] | Cmd: C:\Users\Gem\AppData\Local\Programs\Python\Python313\python.exe -c import time; time.sleep(1.5) powershell.exe -WindowSt
+[2026-11-17 16:16:11]    PrevHash: 4dee491ffc19f2d8f56b... -> SHA-256 Seal: 324dd69deb5b589ecd5d0072...
+[2026-11-17 16:16:36] ⚔️ [PURPLE TEAM SCENARIO 2] Triggered 'YARA: Suspicious_LOLBin_Execution' (T1218) -> Sealed (78f9f7f9d351def5f493...)
+[2026-11-17 16:16:36] ⚔️ [PURPLE TEAM SCENARIO 2] Triggered 'SIGMA: Living Off The Land Binary (LOLBin) Proxy Execution' (T1218) -> Sealed (3d3f1d171fc5c37b2545...)
+[2026-11-17 16:16:53] ⚔️ [PURPLE TEAM SCENARIO 3] Triggered 'LINEAGE: WMI Provider spawning command shell (wmiprvse.exe -> powershell.exe)' (T1047) -> Sealed (72c3d9c8a8c7a1c1551d...)
+[2026-11-17 16:17:10] 🚨 [RANSOMWARE EARLY WARNING] Canary MODIFIED (PURPLE TEAM RANSOMWARE TEST): E:\Ghost Aegis SE\Ghost-Aegis-SE\canary_vault_Simulation_Decoy.docx | Correlated Writer: SearchIndexer.exe (PID 13264 | Writes: 4,746,050,640 B | Entropy: 6.31) | Sealed: 66a641f0f4a58da170...
+[2026-11-17 16:19:37] [*] Network Sentinel starting deep socket + YARA + Sigma + Lineage + ARP audit...
+[2026-11-17 16:19:37] 🚨 [ARP SPOOF ALERT] ARP Poisoning Alert: Physical MAC 76-f8-6a-ed-3b-0c claims multiple IPs (100.69.24.21, 192.168.12.242)
+[2026-11-17 16:19:37] STATUS       PROCESS          REMOTE HOST / LOCATION                     PID   
+[2026-11-17 16:19:42] [NEW DESTINATION] steamwebhelper.exe -> 23.220.200.93:443
+[2026-11-17 16:19:42] 🚨 [GHOST-AEGIS EDR ALERT] YARA: Windows_Encoded_PowerShell | MITRE: T1059.001 | Severity: HIGH | PID: 22544 (PPID: 4720) -> powershell.exe
+[2026-11-17 16:19:42]    Indicators: ['$bypass'] | Cmd: powershell -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command $sig = Get-AuthenticodeSignature -LiteralPath 'C:
+[2026-11-17 16:19:42]    PrevHash: 66a641f0f4a58da17065... -> SHA-256 Seal: 75e28ddcd4a1be1d4adb8d15...
+[2026-11-17 16:19:44] [TRUSTED]    steamwebhelper.exe a23-220-200-93.deploy.static.akamaitechnologies.com (Dallas, US) | RISK: 0/100 20216 
+[2026-11-17 16:19:44]    Evidence: ChainHash: b288d0e4f7a7 | Signer: Unknown
+[2026-11-17 16:19:48] [NEW DESTINATION] steam.exe -> 162.254.195.75:27018
+[2026-11-17 16:19:49] 🚨 [GHOST-AEGIS EDR ALERT] YARA: Windows_Encoded_PowerShell | MITRE: T1059.001 | Severity: HIGH | PID: 12280 (PPID: 4720) -> powershell.exe
+[2026-11-17 16:19:49]    Indicators: ['$bypass'] | Cmd: powershell -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command $sig = Get-AuthenticodeSignature -LiteralPath 'C:
+[2026-11-17 16:19:49]    PrevHash: 75e28ddcd4a1be1d4adb... -> SHA-256 Seal: e08bbc30ca9db312e18cb7f6...
+[2026-11-17 16:19:51] [REVIEW]     steam.exe        162-254-195-75.valve.net (Los Angeles, US) | RISK: 0/100 19836 
+[2026-11-17 16:19:51]    Evidence: ChainHash: 7f3f3608f07a | Signer: Unknown
+[2026-11-17 16:19:56] [NEW DESTINATION] svchost.exe -> 72.153.5.129:443
+[2026-11-17 16:19:56] 🚨 [GHOST-AEGIS EDR ALERT] YARA: Windows_Encoded_PowerShell | MITRE: T1059.001 | Severity: HIGH | PID: 13560 (PPID: 4720) -> powershell.exe
+[2026-11-17 16:19:56]    Indicators: ['$bypass'] | Cmd: powershell -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command $sig = Get-AuthenticodeSignature -LiteralPath 'C:
+[2026-11-17 16:19:56]    PrevHash: e08bbc30ca9db312e18c... -> SHA-256 Seal: 02429e578158d8bf7e0aa712...
+[2026-11-17 16:19:58] [SYSTEM]     svchost.exe      72.153.5.129 (Boydton, US) | RISK: 0/100   5208  
+[2026-11-17 16:19:58]    Evidence: ChainHash: ce88e13f320a | Signer: Unknown
+[2026-11-17 16:20:02] [NEW DESTINATION] chrome.exe -> 100.61.194.158:443
+[2026-11-17 16:20:02] 🚨 [GHOST-AEGIS EDR ALERT] YARA: Windows_Encoded_PowerShell | MITRE: T1059.001 | Severity: HIGH | PID: 3944 (PPID: 4720) -> powershell.exe
+[2026-11-17 16:20:02]    Indicators: ['$bypass'] | Cmd: powershell -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command $sig = Get-AuthenticodeSignature -LiteralPath 'C:
+[2026-11-17 16:20:02]    PrevHash: 02429e578158d8bf7e0a... -> SHA-256 Seal: 506445ab96398eab5d86a6ce...
+[2026-11-17 16:20:04] [TRUSTED]    chrome.exe       ec2-100-61-194-158.compute-1.amazonaws.com (Ashburn, US) | RISK: 0/100 17244 
+[2026-11-17 16:20:04]    Evidence: ChainHash: 306107c933b8 | Signer: Unknown
+[2026-11-17 16:20:09] [NEW DESTINATION] steamwebhelper.exe -> 151.101.199.52:443
+[2026-11-17 16:20:09] [REVIEW]     steamwebhelper.exe 151.101.199.52 (Los Angeles, US) | RISK: 0/100 20216 
+[2026-11-17 16:20:09]    Evidence: ChainHash: c6b1b90dcdb1 | Signer: Unknown
+[2026-11-17 16:20:10] [SYSTEM]     chrome.exe       dy-in-f188.1e100.net (Las Vegas, US) | RISK: 0/100 17244 
+[2026-11-17 16:20:10]    Evidence: ChainHash: 5f99b3be3a4c | Signer: Unknown
+[2026-11-17 16:20:10] [NEW DESTINATION] CrossDeviceService.exe -> 2603:1030:a07:1::71c:443
+[2026-11-17 16:20:10] 🚨 [GHOST-AEGIS EDR ALERT] YARA: Windows_Encoded_PowerShell | MITRE: T1059.001 | Severity: HIGH | PID: 18856 (PPID: 4720) -> powershell.exe
+[2026-11-17 16:20:10]    Indicators: ['$bypass'] | Cmd: powershell -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command $sig = Get-AuthenticodeSignature -LiteralPath 'C:
+[2026-11-17 16:20:10]    PrevHash: 506445ab96398eab5d86... -> SHA-256 Seal: 84e4af1f25357309038c0374...
+[2026-11-17 16:20:12] [REVIEW]     CrossDeviceService.exe 2603:1030:a07:1::71c (San Francisco, US) | RISK: 0/100 11172 
+[2026-11-17 16:20:12]    Evidence: ChainHash: d366fc125225 | Signer: Unknown
+[2026-11-17 16:20:13] 🚨 [GHOST-AEGIS EDR ALERT] YARA: Windows_Encoded_PowerShell | MITRE: T1059.001 | Severity: HIGH | PID: 21056 (PPID: 4720) -> powershell.exe
+[2026-11-17 16:20:13]    Indicators: ['$bypass'] | Cmd: powershell -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command $sig = Get-AuthenticodeSignature -LiteralPath 'C:
+[2026-11-17 16:20:13]    PrevHash: 84e4af1f25357309038c... -> SHA-256 Seal: 0b16d168ab822554adf5edbc...
+[2026-11-17 16:20:14] [SYSTEM]     Code.exe         2606:50c0:8001::154 (San Francisco, US) | RISK: 0/100 22728 
+[2026-11-17 16:20:14]    Evidence: ChainHash: 4daa7c01c809 | Signer: Unknown
+[2026-11-17 16:20:14] [NEW DESTINATION] svchost.exe -> 2603:1030:a07:a::402:443
+[2026-11-17 16:20:14] [SYSTEM]     svchost.exe      2603:1030:a07:a::402 (San Francisco, US) | RISK: 0/100 6900  
+[2026-11-17 16:20:14]    Evidence: ChainHash: f781b4b6061b | Signer: Unknown
+[2026-11-17 16:21:19] [*] Extracting deep EDR + Process Tree + YARA & Sigma telemetry and invoking Dual-AI (gemini-4-hydrogen + Copilot) for PID 21056...
+[2026-11-17 16:21:19] [!] PID 21056 is no longer running.
+[2026-11-17 16:21:25] [*] Extracting deep EDR + Process Tree + YARA & Sigma telemetry and invoking Dual-AI (gemini-4-hydrogen + Copilot) for PID 11172...
+[2026-11-17 16:21:25] [*] EDR telemetry, Process Tree, YARA, Sigma & Lineage hits gathered for CrossDeviceService.exe. Querying gemini-4-hydrogen & Copilot...
+[2026-11-17 16:21:32] 🧠 [GEMINI-4-HYDROGEN]: Telemetry indicates legitimate Microsoft `CrossDeviceService.exe` execution spawned by `svchost.exe` from its standard WindowsApps directory with expected COM embedding arguments, an outbound connection to a Microsoft IPv6 address, normal PE entropy, and zero YARA, Sigma, LOLBin, or lineage alerts, presenting minimal risk with a Threat Score: 1/10
+[2026-11-17 16:21:32] 🤖 [COPILOT]: The telemetry indicates a legitimate Windows application with no signs of malicious behavior, as evidenced by the absence of YARA and Sigma rule hits, low entropy, and no lineage anomalies. Threat Score: 2/10.
+[2026-11-17 16:21:53] [*] Polling incident history for global coordinates...
+[2026-11-17 16:21:53] [+] Radar clear. No external threat coordinates found.
+[2026-11-17 16:22:31] 🧠 [GEMINI 4 ENGINE] Primary model set to 'gemini-4-carbon' (Auto-cascade: hydrogen -> argon -> carbon).
+[2026-11-17 16:22:36] 🧠 [GEMINI 4 ENGINE] Primary model set to 'gemini-4-hydrogen' (Auto-cascade: hydrogen -> argon -> carbon).
+[2026-11-17 16:22:39] 🧠 [GEMINI 4 ENGINE] Primary model set to 'gemini-4-argon' (Auto-cascade: hydrogen -> argon -> carbon).
+[2026-11-17 16:24:10] [*] Aggregating telemetry and generating AI Incident Response Brief via Gemini 4 (gemini-4-carbon / argon / hydrogen)...
+[2026-11-17 16:24:12] [*] Running behavior fingerprint scan...
+[2026-11-17 16:24:12] [IDENTITY] Behavior Score=30 | Risk=trusted
+[2026-11-17 16:24:15] [*] Checking dark web breach exposure...
+[2026-11-17 16:24:16] [BREACH] josephawana26@gmail.com is clean. No breaches found.
+[2026-11-17 16:24:27] [IFACE] Ethernet
+[2026-11-17 16:24:27]    -> 08-8F-C3-EC-1F-09 (MAC Address) | Netmask: None
+[2026-11-17 16:24:27]    -> 169.254.238.201 (IPv4) | Netmask: 255.255.0.0
+[2026-11-17 16:24:27]    -> fe80::ac06:e5fe:ce09:5e49 (IPv6) | Netmask: None
+[2026-11-17 16:24:27] [IFACE] Local Area Connection* 1
+[2026-11-17 16:24:27]    -> D2-39-57-29-68-BD (MAC Address) | Netmask: None
+[2026-11-17 16:24:27]    -> 169.254.128.143 (IPv4) | Netmask: 255.255.0.0
+[2026-11-17 16:24:27]    -> fe80::fa5e:bf7e:17a5:481 (IPv6) | Netmask: None
+[2026-11-17 16:24:27] [IFACE] Local Area Connection* 2
+[2026-11-17 16:24:27]    -> F2-39-57-29-68-BD (MAC Address) | Netmask: None
+[2026-11-17 16:24:27]    -> 169.254.61.147 (IPv4) | Netmask: 255.255.0.0
+[2026-11-17 16:24:27]    -> fe80::c76c:dcef:df15:240 (IPv6) | Netmask: None
+[2026-11-17 16:24:27] [IFACE] Wi-Fi
+[2026-11-17 16:24:27]    -> D0-39-57-29-68-57 (MAC Address) | Netmask: None
+[2026-11-17 16:24:27]    -> 192.168.12.168 (IPv4) | Netmask: 255.255.255.0
+[2026-11-17 16:24:27]    -> 2607:fb92:1f05:6bff:1e5e:69b6:cc1f:1141 (IPv6) | Netmask: None
+[2026-11-17 16:24:27]    -> fdfe:5e6c:2e69:98de:413e:d416:ae31:4e8e (IPv6) | Netmask: None
+[2026-11-17 16:24:27]    -> fdfe:5e6c:2e69:98de:b3c6:a27f:a4:7dad (IPv6) | Netmask: None
+[2026-11-17 16:24:27]    -> 2607:fb92:1f05:6bff:50cb:66ac:f701:5626 (IPv6) | Netmask: None
+[2026-11-17 16:24:27]    -> fdfe:5e6c:2e69:98de:50cb:66ac:f701:5626 (IPv6) | Netmask: None
+[2026-11-17 16:24:27]    -> fe80::405d:fee0:644c:4953 (IPv6) | Netmask: None
+[2026-11-17 16:24:27] [IFACE] vEthernet (Default Switch)
+[2026-11-17 16:24:27]    -> 00-15-5D-01-33-00 (MAC Address) | Netmask: None
+[2026-11-17 16:24:27]    -> 172.22.144.1 (IPv4) | Netmask: 255.255.240.0
+[2026-11-17 16:24:27]    -> fe80::24d6:c3ff:228e:d3e9 (IPv6) | Netmask: None
+[2026-11-17 16:24:27] [IFACE] Loopback Pseudo-Interface 1
+[2026-11-17 16:24:27]    -> 127.0.0.1 (IPv4) | Netmask: 255.0.0.0
+[2026-11-17 16:24:27]    -> ::1 (IPv6) | Netmask: None
+[2026-11-17 16:24:27] Interface telemetry refresh complete.

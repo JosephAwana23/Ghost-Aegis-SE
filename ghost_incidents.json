@@ -3222,5 +3222,290 @@
         "remote_ip": "none",
         "reputation": 0,
         "signer": "Unknown"
+    },
+    {
+        "timestamp": "2026-11-17T16:16:11",
+        "process": "python.exe",
+        "pid": 22172,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "risk_score": 85,
+        "reasons": [
+            "YARA: Windows_Encoded_PowerShell",
+            "MITRE:T1059.001",
+            "ChainSeal:4dee491ffc19"
+        ],
+        "recommended_action": "quarantine_and_review",
+        "remote_ip": "local_spawn",
+        "reputation": 0,
+        "signer": "Unknown"
+    },
+    {
+        "timestamp": "2026-11-17T16:16:11",
+        "process": "python.exe",
+        "pid": 22172,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "risk_score": 85,
+        "reasons": [
+            "SIGMA: Suspicious Encoded PowerShell or Download Cradle",
+            "MITRE:T1059.001",
+            "ChainSeal:324dd69deb5b"
+        ],
+        "recommended_action": "quarantine_and_review",
+        "remote_ip": "local_spawn",
+        "reputation": 0,
+        "signer": "Unknown"
+    },
+    {
+        "timestamp": "2026-11-17T16:17:10",
+        "process": "SearchIndexer.exe",
+        "pid": 13264,
+        "path": "E:\\Ghost Aegis SE\\Ghost-Aegis-SE\\canary_vault_Simulation_Decoy.docx",
+        "risk_score": 98,
+        "reasons": [
+            "Canary modified (purple team ransomware test)",
+            "SuspectWriter:SearchIndexer.exe(PID 13264)",
+            "WriteBytes:4746050640",
+            "ChainSeal:66a641f0f4a5"
+        ],
+        "recommended_action": "quarantine_and_review",
+        "remote_ip": "none",
+        "reputation": 0,
+        "signer": "Unknown"
+    },
+    {
+        "timestamp": "2026-11-17T16:19:44",
+        "process": "steamwebhelper.exe",
+        "pid": 20216,
+        "path": "C:\\Program Files (x86)\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: b288d0e4f7a7"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "23.220.200.93",
+        "reputation": 0,
+        "signer": "Unknown"
+    },
+    {
+        "timestamp": "2026-11-17T16:19:44",
+        "process": "powershell.exe",
+        "pid": 22544,
+        "path": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "risk_score": 85,
+        "reasons": [
+            "YARA: Windows_Encoded_PowerShell",
+            "MITRE:T1059.001",
+            "ChainSeal:75e28ddcd4a1"
+        ],
+        "recommended_action": "quarantine_and_review",
+        "remote_ip": "local_spawn",
+        "reputation": 0,
+        "signer": "Unknown"
+    },
+    {
+        "timestamp": "2026-11-17T16:19:49",
+        "process": "powershell.exe",
+        "pid": 12280,
+        "path": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "risk_score": 85,
+        "reasons": [
+            "YARA: Windows_Encoded_PowerShell",
+            "MITRE:T1059.001",
+            "ChainSeal:e08bbc30ca9d"
+        ],
+        "recommended_action": "quarantine_and_review",
+        "remote_ip": "local_spawn",
+        "reputation": 0,
+        "signer": "Unknown"
+    },
+    {
+        "timestamp": "2026-11-17T16:19:51",
+        "process": "steam.exe",
+        "pid": 19836,
+        "path": "C:\\Program Files (x86)\\Steam\\steam.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 7f3f3608f07a"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "162.254.195.75",
+        "reputation": 0,
+        "signer": "Unknown"
+    },
+    {
+        "timestamp": "2026-11-17T16:19:56",
+        "process": "powershell.exe",
+        "pid": 13560,
+        "path": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "risk_score": 85,
+        "reasons": [
+            "YARA: Windows_Encoded_PowerShell",
+            "MITRE:T1059.001",
+            "ChainSeal:02429e578158"
+        ],
+        "recommended_action": "quarantine_and_review",
+        "remote_ip": "local_spawn",
+        "reputation": 0,
+        "signer": "Unknown"
+    },
+    {
+        "timestamp": "2026-11-17T16:19:57",
+        "process": "svchost.exe",
+        "pid": 5208,
+        "path": "C:\\Windows\\System32\\svchost.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: ce88e13f320a"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "72.153.5.129",
+        "reputation": 0,
+        "signer": "Unknown"
+    },
+    {
+        "timestamp": "2026-11-17T16:20:02",
+        "process": "powershell.exe",
+        "pid": 3944,
+        "path": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "risk_score": 85,
+        "reasons": [
+            "YARA: Windows_Encoded_PowerShell",
+            "MITRE:T1059.001",
+            "ChainSeal:506445ab9639"
+        ],
+        "recommended_action": "quarantine_and_review",
+        "remote_ip": "local_spawn",
+        "reputation": 0,
+        "signer": "Unknown"
+    },
+    {
+        "timestamp": "2026-11-17T16:20:04",
+        "process": "chrome.exe",
+        "pid": 17244,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 306107c933b8"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "100.61.194.158",
+        "reputation": 0,
+        "signer": "Unknown"
+    },
+    {
+        "timestamp": "2026-11-17T16:20:09",
+        "process": "steamwebhelper.exe",
+        "pid": 20216,
+        "path": "C:\\Program Files (x86)\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: c6b1b90dcdb1"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "151.101.199.52",
+        "reputation": 0,
+        "signer": "Unknown"
+    },
+    {
+        "timestamp": "2026-11-17T16:20:10",
+        "process": "chrome.exe",
+        "pid": 17244,
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 5f99b3be3a4c"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "2607:f8b0:4023:c03::bc",
+        "reputation": 0,
+        "signer": "Unknown"
+    },
+    {
+        "timestamp": "2026-11-17T16:20:10",
+        "process": "powershell.exe",
+        "pid": 18856,
+        "path": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "risk_score": 85,
+        "reasons": [
+            "YARA: Windows_Encoded_PowerShell",
+            "MITRE:T1059.001",
+            "ChainSeal:84e4af1f2535"
+        ],
+        "recommended_action": "quarantine_and_review",
+        "remote_ip": "local_spawn",
+        "reputation": 0,
+        "signer": "Unknown"
+    },
+    {
+        "timestamp": "2026-11-17T16:20:12",
+        "process": "CrossDeviceService.exe",
+        "pid": 11172,
+        "path": "C:\\Program Files\\WindowsApps\\MicrosoftWindows.CrossDevice_1.26102.70.0_x64__cw5n1h2txyewy\\CrossDeviceService.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: d366fc125225"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "2603:1030:a07:1::71c",
+        "reputation": 0,
+        "signer": "Unknown"
+    },
+    {
+        "timestamp": "2026-11-17T16:20:13",
+        "process": "powershell.exe",
+        "pid": 21056,
+        "path": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "risk_score": 85,
+        "reasons": [
+            "YARA: Windows_Encoded_PowerShell",
+            "MITRE:T1059.001",
+            "ChainSeal:0b16d168ab82"
+        ],
+        "recommended_action": "quarantine_and_review",
+        "remote_ip": "local_spawn",
+        "reputation": 0,
+        "signer": "Unknown"
+    },
+    {
+        "timestamp": "2026-11-17T16:20:14",
+        "process": "Code.exe",
+        "pid": 22728,
+        "path": "C:\\Users\\Gem\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: 4daa7c01c809"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "2606:50c0:8001::154",
+        "reputation": 0,
+        "signer": "Unknown"
+    },
+    {
+        "timestamp": "2026-11-17T16:20:14",
+        "process": "svchost.exe",
+        "pid": 6900,
+        "path": "C:\\Windows\\System32\\svchost.exe",
+        "risk_score": 0,
+        "reasons": [
+            "ChainHash: f781b4b6061b"
+        ],
+        "recommended_action": "review",
+        "remote_ip": "2603:1030:a07:a::402",
+        "reputation": 0,
+        "signer": "Unknown"
+    },
+    {
+        "timestamp": "2026-11-17T16:24:12",
+        "process": "BehaviorEngine",
+        "pid": 0,
+        "path": "behavior_fingerprint",
+        "risk_score": 30,
+        "reasons": [
+            "Behavior anomaly detected: trusted"
+        ],
+        "recommended_action": "review_identity",
+        "remote_ip": "none",
+        "reputation": 0,
+        "signer": "Unknown"
     }
 ]
